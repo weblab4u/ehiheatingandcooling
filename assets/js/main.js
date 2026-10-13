@@ -38,4 +38,13 @@
   down.addEventListener('click',function(){window.scrollTo({top:document.documentElement.scrollHeight,behavior:beh})});
   function upd(){var y=window.scrollY,max=document.documentElement.scrollHeight-window.innerHeight;up.classList.toggle('show',y>300);down.classList.toggle('show',max-y>300);}
   window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+
+  // review carousel
+  document.querySelectorAll('[data-carousel]').forEach(function(c){
+    var t=c.querySelector('.rv-track');
+    function step(){var card=t.querySelector('.rv-slide');return card?card.getBoundingClientRect().width+16:300}
+    c.querySelector('.prev').addEventListener('click',function(){t.scrollBy({left:-step(),behavior:'smooth'})});
+    c.querySelector('.next').addEventListener('click',function(){t.scrollBy({left:step(),behavior:'smooth'})});
+    t.querySelectorAll('.rv-slide').forEach(function(s){s.addEventListener('click',function(){s.classList.toggle('open')})});
+  });
 })();

@@ -35,25 +35,31 @@ ABOUT = {
 
 REVIEWS = {
  "url": "/reviews/",
- "title": "EHI Heating & Cooling Reviews | Ontario Homeowners",
- "description": "Read reviews from Ontario homeowners who hired EHI Heating & Cooling for heat pumps, furnaces, AC and tankless water heaters. Voted Best Company 2019 to 2021.",
+ "title": "EHI Heating & Cooling Reviews | Ontario HVAC Customers",
+ "description": "Read Google reviews from Ontario homeowners and businesses who hired EHI Heating & Cooling for heat pumps, furnaces, AC and tankless water heaters.",
  "priority": "0.6",
- "eyebrow": "Reviews",
- "h1": "EHI Heating &amp; Cooling Reviews from Ontario Homeowners",
- "intro": "<p>Reviews are how we keep ourselves honest. Here's what homeowners and business owners across the GTA and Ontario have said after we installed their heat pump, replaced their furnace or fixed their AC. EHI was voted Best Company in 2019, 2020 and 2021 and is HomeStars Verified.</p>",
- "hero_points": ["Voted Best Company 2019, 2020, 2021", "HomeStars Verified contractor", "Reviews from real installs across Ontario", "Read them on Google and HomeStars, not just here"],
- "hero_image": "Midea cold-climate heat pump on a stand at an Ontario customer's home, installed by EHI",
- "hero_img": "/assets/img/work/midea-cold-climate-heat-pump-stand-2.webp", "hero_img_fit": "cover", "hero_img_credit": "EHI install", "hero_img_pos": "50% 60%",
+ "banner": True,
+ "h1": "EHI Heating &amp; Cooling Customer Reviews",
+ "intro": "See what Ontario homeowners and businesses say about our heat pump, furnace, air conditioning and tankless installs, repairs and service.",
  "blocks": [
-  {"type": "reviews"},
-  {"type": "text", "h2": "Read and leave reviews", "html": "<p>We'd rather you read reviews on platforms we can't edit. EHI Heating &amp; Cooling is rated 4.5 on Google and was voted Best Company in 2019, 2020 and 2021 on HomeStars.</p><p>Had us out recently? A two-minute <a href=\"https://search.google.com/local/writereview?placeid=ChIJmXl_k5YrK4gR52yzagk9Hk4\" target=\"_blank\" rel=\"noopener\">Google review</a> helps the next homeowner choose with confidence. If something wasn't right, call us first at <a href=\"tel:+16476945845\">1-647-694-5845</a> and we'll fix it.</p>"},
-  {"type": "why"},
+  {"type": "g_reviews", "h2": "Latest Reviews on Google"},
+  {"type": "testimonials", "h2": "All-Time Best Reviews From Our Customers"},
+  {"type": "svc_cards", "h2": "Our Most-Requested HVAC Services in Ontario", "items": [
+    ("heatpump", "Heat Pump Installation", "Cold-climate heat pumps rated to -30°C, sized right and rebate-ready.", "/heat-pump/"),
+    ("furnace", "Furnace Installation", "96% to 97% AFUE two-stage, variable-speed gas furnaces from $3,300.", "/furnace/"),
+    ("ac", "Air Conditioning", "Central AC and ductless systems sized for muggy Ontario summers.", "/ac/"),
+    ("tankless", "Tankless Water Heaters", "Rinnai condensing tankless units. Endless hot water, no rental fees.", "/water-heater/"),
+  ]},
+  {"type": "type_lists", "h2": "Heating and Cooling Systems We Install and Service", "groups": [
+    ("Heating", [("/heat-pump/cold-climate/", None), ("/heat-pump/central/", None), ("/heat-pump/hybrid-furnace-systems/", None), ("/furnace/high-efficiency/", None), ("/furnace/electric-air-handlers/", None), ("/services/emergency-hvac/", "Emergency Furnace Repair")]),
+    ("Cooling and air quality", [("/ac/", "Central Air Conditioners"), ("/ac/ductless-mini-split/", None), ("/ac/multi-zone-ductless-system/", None), ("/services/humidifiers/", "Whole-Home Humidifiers"), ("/services/hrv-erv/", None), ("/services/thermostats/", "Smart Thermostats")]),
+   ], "image": "Midea cold-climate heat pump installed by EHI on a raised stand", "image_src": "/assets/img/work/midea-cold-climate-heat-pump-stand-1.webp", "image_credit": "EHI install", "image_pos": "50% 62%"},
+  {"type": "locations_cta", "h2": "Locations Across Ontario We Serve", "lead": "EHI Heating &amp; Cooling has served homes and businesses across Ontario for more than 20 years, from the GTA to Northern Ontario.",
+   "cta_h": "Get a Guaranteed HVAC Quote in Ontario", "cta_text": "Free assessment, one honest price, and every rebate you qualify for.",
+   "image": "The EHI Heating and Cooling team in front of two EHI service vans", "image_src": "/assets/img/ehi-team.webp", "image_pos": "50% 40%"},
  ],
- "faqs": [
-  ("Where can I read EHI reviews?", "You can read EHI Heating &amp; Cooling reviews on HomeStars and Google, and a selection on this page. We link to the external profiles so you can see unedited feedback."),
-  ("Was EHI really voted Best Company?", "Yes, EHI was voted Best Company in 2019, 2020 and 2021 and carries the HomeStars Verified badge."),
- ],
- "related": ["/about-ehi/", "/contact/", "/heat-pump/", "/furnace/", "/ac/"],
+ "faqs": [],
+ "related": [],
 }
 
 PAGES = [ABOUT, REVIEWS]

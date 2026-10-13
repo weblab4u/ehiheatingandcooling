@@ -347,6 +347,23 @@ def render_block(b, page):
         return f'<section class="sec gallery-sec"><div class="wrap">{h2(b)}{lead(b)}<div class="work-grid">{items}</div></div></section>'
     if t == "gbp":
         return gbp_block(b)
+    if t == "g_reviews":
+        return g_reviews_block(b)
+    if t == "testimonials":
+        return testimonials_block(b)
+    if t == "svc_cards":
+        cards = "".join(f'<a class="svc-card" href="{u}"><span class="card-icon">{icon(ic)}</span><h3>{esc(title)}</h3><p>{esc(txt)}</p></a>' for ic, title, txt, u in b["items"])
+        return f'<section class="sec svc-cards-sec"><div class="wrap"><h2 class="center">{b["h2"]}</h2><div class="svc-cards">{cards}</div></div></section>'
+    if t == "type_lists":
+        cols = "".join(f'<div><h3>{esc(g)}</h3><ul class="type-list">' + "".join(f'<li>{icon("check")}<a href="{u}">{esc(title_of(u) if not lbl else lbl)}</a></li>' for u, lbl in links) + '</ul></div>' for g, links in b["groups"])
+        img = img_frame(b["image"], "4/5", src=b.get("image_src"), fit="cover", credit=b.get("image_credit"), pos=b.get("image_pos", "50% 55%"))
+        return f'<section class="sec type-lists-sec"><div class="wrap split"><div><h2>{b["h2"]}</h2><div class="type-cols">{cols}</div></div>{img}</div></section>'
+    if t == "locations_cta":
+        pins = "".join(f'<li>{icon("pin")}{esc(c)}</li>' for g, cities in AREA_GROUPS for c in cities[:6])
+        return (f'<section class="sec loc-cta-sec"><div class="wrap loc-cta"><div><h2>{b["h2"]}</h2><p class="lead">{b["lead"]}</p><ul class="pin-list">{pins}</ul>'
+                f'<p><a class="more" href="/service-areas/">See every city we serve{icon("arrow")}</a></p></div>'
+                f'<aside class="quote-card"><h3>{b["cta_h"]}</h3><p>{b["cta_text"]}</p>{cta_buttons("Get a Fast Quote", small=True)}'
+                f'{img_frame(b["image"], "4/3", src=b.get("image_src"), fit="cover", pos=b.get("image_pos","50% 40%"))}</aside></div></section>')
     if t == "linkgrid":
         cols = ""
         for g in b["groups"]:
@@ -502,6 +519,43 @@ def reviews_block():
             f'<p class="lead">Rated {rating} on Google and voted Best Company 2019, 2020 and 2021 on HomeStars.</p>{panel}{grid}'
             f'<p><a class="more" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">See all our Google reviews{icon("arrow")}</a></p></div></section>')
 
+AVATAR_COLOURS = ["#138A36", "#0B5FA8", "#C8322B", "#7B4BB7", "#E07B00", "#0E7A6F"]
+
+def review_card(r, i, cls="review"):
+    n = max(1, min(5, int(r.get("stars", 5))))
+    name = r.get("name", "Google reviewer")
+    initial = esc(name[:1].upper())
+    when = esc(r.get("date", ""))
+    meta = " · ".join(esc(x) for x in [r.get("city"), r.get("service")] if x)
+    return (f'<article class="{cls}"><header class="rv-head"><span class="rv-avatar" style="background:{AVATAR_COLOURS[i % len(AVATAR_COLOURS)]}">{initial}</span>'
+            f'<span class="rv-who"><strong>{esc(name)}</strong><span>{when}</span></span>{google_g()}</header>'
+            f'<p class="stars" aria-label="{n} star rating">{icon("star")*n}</p><blockquote>{esc(r["text"])}</blockquote>'
+            + (f'<p class="meta">{meta}</p>' if meta else "") + '</article>')
+
+def g_reviews_block(b):
+    rating = GBP_RATING[0] if GBP_RATING else ""
+    summary = (f'<aside class="g-summary"><img src="/assets/img/ehi-icon.png" alt="EHI Heating and Cooling" width="56" height="56">'
+               f'<a class="g-name" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">EHI Heating &amp; Cooling (Efficient Home Improvements)</a>'
+               f'<p class="g-rate"><strong>{rating}</strong><span class="stars" aria-hidden="true">{icon("star")*5}</span></p>'
+               f'<p class="g-powered">Powered by {google_g()} Google</p>'
+               f'<a class="btn btn-primary" href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Review us on Google</a>'
+               f'<a class="more" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">Read all reviews{icon("arrow")}</a></aside>')
+    revs = load_reviews()
+    if revs:
+        cards = "".join(review_card(r, i, "rv-slide") for i, r in enumerate(revs[:12]))
+        right = (f'<div class="rv-carousel" data-carousel><button class="rv-nav prev" type="button" aria-label="Previous reviews">{icon("arrow")}</button>'
+                 f'<div class="rv-track" tabindex="0">{cards}</div><button class="rv-nav next" type="button" aria-label="Next reviews">{icon("arrow")}</button></div>')
+    else:
+        right = f'<div class="rv-live">{map_iframe(380)}</div>'
+    return f'<section class="sec g-reviews-sec"><div class="wrap"><h2 class="center">{b.get("h2","Latest Reviews on Google")}</h2><div class="g-reviews">{summary}{right}</div></div></section>'
+
+def testimonials_block(b):
+    revs = [r for r in load_reviews() if r.get("best")] or load_reviews()
+    if not revs:
+        return ""
+    cards = "".join(review_card(r, i, "testimonial") for i, r in enumerate(revs))
+    return f'<section class="sec testimonials-sec"><div class="wrap"><h2 class="center">{b.get("h2","All-Time Best Reviews From Our Customers")}</h2><div class="testimonial-grid">{cards}</div></div></section>'
+
 def faq_block(items, heading="Frequently asked questions"):
     lis = "".join(f'<details class="faq"><summary><h3>{q}</h3></summary><div class="faq-a">{a if a.strip().startswith("<") else "<p>"+a+"</p>"}</div></details>' for q, a in items)
     return f'<section class="sec faq-sec" id="faq"><div class="wrap narrow"><h2>{heading}</h2>{lis}</div></section>'
@@ -631,11 +685,15 @@ def render(page):
                 f'<p class="legal-meta">{page.get("meta_line", "Last updated " + datetime.date.today().strftime("%B %Y"))}</p>{page["intro"]}</header>'
                 + "".join(b["html"] for b in page.get("blocks", []) if b["type"] == "text") + '</div></article>')
         blocks = []
+    elif page.get("banner"):
+        body = (f'<section class="banner-hero"><div class="wrap"><h1>{page["h1"]}</h1><p>{page["intro"]}</p>'
+                f'{cta_buttons(page.get("cta_primary","Get a Free Quote"))}</div></section>')
+        blocks = list(page.get("blocks", []))
     else:
         body = hero(page) if page.get("h1") else ""
         blocks = list(page.get("blocks", []))
     has_brand_grid = any(b.get("type") == "brands" for b in page.get("blocks", []))
-    strip = "" if page.get("no_partners") or not page.get("h1") or article or has_brand_grid else partners_strip()
+    strip = "" if page.get("no_partners") or not page.get("h1") or article or has_brand_grid or page.get("banner") else partners_strip()
     if strip and blocks and blocks[0].get("type") == "promo":
         body += render_block(blocks.pop(0), page)
     body += strip
