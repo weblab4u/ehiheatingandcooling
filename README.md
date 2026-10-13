@@ -28,6 +28,7 @@ It rebuilds, commits and pushes `source`, then publishes `site/` to `main`. Neve
 - Grids with leftover cells get a green CTA card automatically (`fill_cta` in `build.py`). Pass `"no_fill": True` on a cards block to turn it off.
 - Page templates: homepage uses the photo hero; service pages (URLs under /services/, /furnace/, /ac/, /heat-pump/, /water-heater/) use the light green hero with the quote form; every other page uses the navy `page-hero`; privacy and terms use `"layout": "article"`.
 - Section variants: problems, cards, checklist, steps, table, money, why and FAQ sections each have three designs (v0, v1, v2). `with_variant` in `build.py` picks one per page from the URL, never stacks two dark bands, and keeps the homepage on v0. Add `"no_variants": True` to a page to force the default look.
+- Service-page galleries: `data/gallery.py` lists the job photos (`P`) and which service pages show which photos (`GALLERY`). The gallery is inserted at the middle of the page with a click-to-enlarge lightbox. Pages not listed get no gallery (currently electric furnaces, both tankless pages, humidifiers and HRV/ERV, since the Drive had no photos for them). Add a page and photo keys there when new photos arrive.
 - Service areas: `AREA_GROUPS` in `build.py` drives the city columns on every page and the service-areas page.
 - `WRITING_BRIEF.md`: business facts and voice rules every page follows. `KEYWORDS.md`: keyword map from the research sheet. `AGENT_TASK.md`: the writer brief.
 

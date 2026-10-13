@@ -467,6 +467,28 @@ def gbp_block(b=None):
   </div>
 </div></section>'''
 
+import importlib.util as _ilu
+def _load_gallery():
+    path = os.path.join(ROOT, "data", "gallery.py")
+    spec = _ilu.spec_from_file_location("ehi_gallery", path); m = _ilu.module_from_spec(spec); spec.loader.exec_module(m)
+    return m.P, m.GALLERY
+GALLERY_PHOTOS, SERVICE_GALLERIES = _load_gallery()
+
+def service_gallery(url):
+    g = SERVICE_GALLERIES.get(url)
+    if not g:
+        return ""
+    heading, keys = g
+    items = [GALLERY_PHOTOS[k] for k in keys if k in GALLERY_PHOTOS and os.path.exists(os.path.join(ROOT, "assets", "img", "work", GALLERY_PHOTOS[k][0] + ".webp"))]
+    if not items:
+        return ""
+    figs = "".join(
+        f'<figure class="sg-item"><button type="button" class="sg-open" data-full="/assets/img/work/{f}.webp" data-alt="{esc(a)}" aria-label="Enlarge photo: {esc(a)}">'
+        f'<img src="/assets/img/work/{f}.webp" alt="{esc(a)}" loading="lazy" decoding="async"></button><figcaption>{esc(a)}</figcaption></figure>' for f, a in items)
+    return (f'<section class="sec gallery-strip"><div class="wrap"><div class="sg-head"><div><p class="sg-kicker">Our work</p><h2>{esc(heading)}</h2>'
+            f'<p class="lead">Real jobs by our licensed crews in Ontario homes. Tap any photo to enlarge.</p></div>'
+            f'<a class="more" href="/our-work/">See all our work{icon("arrow")}</a></div><div class="sg-grid n{len(items)}">{figs}</div></div></section>')
+
 def partners_strip():
     logos = ""
     for name, file in [("Midea", "midea"), ("Lennox", "lennox"), ("Kepler", "kepler"), ("Rinnai", "rinnai")]:
@@ -698,7 +720,11 @@ def render(page):
         body += render_block(blocks.pop(0), page)
     body += strip
     prev_dark = False
-    for b in blocks:
+    gal = service_gallery(page["url"]) if not page.get("no_gallery") else ""
+    mid = len(blocks) // 2
+    for i, b in enumerate(blocks):
+        if gal and i == mid:
+            body += gal; prev_dark = False
         out, prev_dark = with_variant(render_block(b, page), b["type"], page, prev_dark)
         body += out
     if page["url"].startswith(SERVICE_PREFIXES) and page["url"] != "/services/" and not page.get("no_gbp"):
