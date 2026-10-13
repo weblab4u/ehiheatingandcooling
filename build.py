@@ -742,6 +742,7 @@ def main():
     sm.append("</urlset>")
     open(os.path.join(OUT, "sitemap.xml"), "w").write("\n".join(sm))
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
+    open(os.path.join(OUT, ".htaccess"), "w").write("ErrorDocument 404 /404.html\nOptions -Indexes\n")
     # 404
     open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(render({
         "url": "/404/", "title": "Page not found | EHI Heating & Cooling", "description": "That page moved or never existed. Find HVAC services, rebates and contact info here.",
