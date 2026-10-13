@@ -640,3 +640,18 @@ body{padding-bottom:70px}
 .img-real.fit-cover .credit{background:rgba(0,0,0,.45);color:#fff}
 .page-hero .img-real.hero-img{background:#fff;border:1px solid rgba(255,255,255,.6);box-shadow:0 28px 70px rgba(0,0,0,.35)}
 .checklist-sec.v2 .img-real{border-color:rgba(255,255,255,.25)}
+/* Google reviews */
+.g-logo{width:34px;height:34px;flex:none}
+.g-panel{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px;box-shadow:var(--shadow);margin:6px 0 22px}
+.g-score{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-right:auto}
+.g-score strong{font-size:2.4rem;line-height:1;color:var(--navy);font-weight:800}
+.g-score .stars{display:flex;gap:2px;color:#FBBC05;margin:0}
+.g-score .stars svg{width:1.35em;height:1.35em}
+.g-count{color:var(--muted);font-size:.95rem;width:100%}
+@media(min-width:700px){.g-count{width:auto}}
+.g-panel .btn-group{margin:0}
+.review-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.review-top .g-logo{width:22px;height:22px}
+.review-top .stars{margin:0}
+.review blockquote{margin:0 0 12px;color:#2b3947;line-height:1.6;font-size:.98rem}
+.review .meta{margin:2px 0 0;font-size:.85rem;color:var(--muted)}
