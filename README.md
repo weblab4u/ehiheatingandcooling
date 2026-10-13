@@ -12,6 +12,13 @@ The build also writes `site/sitemap.xml`, `site/robots.txt` and `site/404.html`,
 - `LINT <url> [...]` when a page contains an em/en dash, a banned word, 3+ uses of unique/ensure/utmost, or more than one exclamation mark.
 - `META <url>` when a title is over 62 characters or a description over 158.
 
+## Publishing
+Hostinger deploys the `deploy` branch, which holds only the contents of `site/` (index.html at its root). After editing content, run:
+```bash
+./deploy.sh
+```
+It rebuilds, commits and pushes `main`, then publishes `site/` to `deploy`. Never point Hostinger at `main`: that would expose the source files.
+
 ## Structure
 - `build.py`: header, mega menu, footer, sticky mobile CTA, quote form, breadcrumbs, JSON-LD (HVACBusiness, WebPage, BreadcrumbList, Service, FAQPage), block renderers, lint, sitemap.
 - `content/*.py`: one `PAGE` dict (or a `PAGES` list) per file. See `content/heat-pump.py` for the exemplar.
