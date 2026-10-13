@@ -21,7 +21,7 @@ CONTACT = {
      <p>{icon("clock")}<span><strong>Hours:</strong> Monday to Saturday, 8:00 am to 8:00 pm. Sunday, 10:00 am to 5:00 pm<br><span class="small">Emergency service outside these hours.</span></span></p>
      <h3>What to have handy</h3><ul class="checklist"><li>{icon("check")}<span>Your heating fuel (gas, electric, propane, oil, wood)</span></li><li>{icon("check")}<span>Rough square footage and number of storeys</span></li><li>{icon("check")}<span>Age and brand of your current equipment (a photo of the label is perfect)</span></li><li>{icon("check")}<span>Any error codes or symptoms you've noticed</span></li></ul>
    </div>
-   <div><h2>Find us on Google</h2><p class="lead">Rated 4.5 from 87 Google reviews. Get directions to our Stouffville office or open the listing.</p>{map_iframe(360)}<p class="btn-group small"><a class="btn btn-secondary" href="{DIRECTIONS_URL}" target="_blank" rel="noopener">Get Directions</a><a class="btn btn-secondary" href="{GBP_URL}" target="_blank" rel="noopener">View on Google Maps</a></p>
+   <div><h2>Find us on Google</h2><p class="lead">Rated 4.5 on Google. Get directions to our Stouffville office or open the listing.</p>{map_iframe(360)}<p class="btn-group small"><a class="btn btn-secondary" href="{DIRECTIONS_URL}" target="_blank" rel="noopener">Get Directions</a><a class="btn btn-secondary" href="{GBP_URL}" target="_blank" rel="noopener">View on Google Maps</a></p>
    </div></div></section>'''},
   {"type": "areas"},
  ],

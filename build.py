@@ -421,7 +421,7 @@ def map_iframe(h=380):
 def gbp_block(b=None):
     b = b or {}
     hours = "".join(f'<li><span>{d}</span><span>8:00 am to 8:00 pm</span></li>' for d in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]) + '<li><span>Sunday</span><span>10:00 am to 5:00 pm</span></li>'
-    rating = (f'<p class="gbp-rating"><span class="stars" aria-hidden="true">{icon("star")*5}</span><strong>{GBP_RATING[0]}</strong>&nbsp;on Google from {GBP_RATING[1]} reviews · <a href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">Read reviews</a> · <a href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Write a review</a></p>') if GBP_RATING else \
+    rating = (f'<p class="gbp-rating"><span class="stars" aria-hidden="true">{icon("star")*5}</span><strong>{GBP_RATING[0]}</strong>&nbsp;on Google · <a href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">Read reviews</a> · <a href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Write a review</a></p>') if GBP_RATING else \
              f'<p class="gbp-rating"><span class="stars" aria-hidden="true">{icon("star")*5}</span>Rated on Google. <a href="{GBP_URL}" target="_blank" rel="noopener">Read our Google reviews</a></p>'
     return f'''<section class="sec gbp-sec"><div class="wrap">
   <h2>{b.get("h2", "Find EHI Heating &amp; Cooling on Google")}</h2>
@@ -486,7 +486,7 @@ def reviews_block():
     rating, count = GBP_RATING if GBP_RATING else ("", "")
     stars = icon("star") * 5
     panel = (f'<div class="g-panel">{google_g()}<div class="g-score"><strong>{rating}</strong><span class="stars" aria-hidden="true">{stars}</span>'
-             f'<span class="g-count">Based on {count} Google reviews</span></div>'
+             f'<span class="g-count">Google rating from verified customers</span></div>'
              f'<div class="btn-group small"><a class="btn btn-primary" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">Read our Google reviews{icon("arrow")}</a>'
              f'<a class="btn btn-secondary" href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Write a review</a></div></div>')
     revs = load_reviews()
@@ -500,7 +500,7 @@ def reviews_block():
     grid = f'<ul class="review-grid">{cards}</ul>' if cards else ""
     return (f'<section class="sec reviews-sec"><div class="wrap"><h2>What our customers say</h2>'
             f'<p class="lead">Rated {rating} on Google and voted Best Company 2019, 2020 and 2021 on HomeStars.</p>{panel}{grid}'
-            f'<p><a class="more" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">See all {count} reviews on Google{icon("arrow")}</a></p></div></section>')
+            f'<p><a class="more" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">See all our Google reviews{icon("arrow")}</a></p></div></section>')
 
 def faq_block(items, heading="Frequently asked questions"):
     lis = "".join(f'<details class="faq"><summary><h3>{q}</h3></summary><div class="faq-a">{a if a.strip().startswith("<") else "<p>"+a+"</p>"}</div></details>' for q, a in items)

@@ -46,7 +46,7 @@ REVIEWS = {
  "hero_img": "/assets/img/work/midea-cold-climate-heat-pump-stand-2.webp", "hero_img_fit": "cover", "hero_img_credit": "EHI install", "hero_img_pos": "50% 60%",
  "blocks": [
   {"type": "reviews"},
-  {"type": "text", "h2": "Read and leave reviews", "html": "<p>We'd rather you read reviews on platforms we can't edit. EHI Heating &amp; Cooling is rated 4.5 on Google from 87 reviews and was voted Best Company in 2019, 2020 and 2021 on HomeStars.</p><p>Had us out recently? A two-minute <a href=\"https://search.google.com/local/writereview?placeid=ChIJmXl_k5YrK4gR52yzagk9Hk4\" target=\"_blank\" rel=\"noopener\">Google review</a> helps the next homeowner choose with confidence. If something wasn't right, call us first at <a href=\"tel:+16476945845\">1-647-694-5845</a> and we'll fix it.</p>"},
+  {"type": "text", "h2": "Read and leave reviews", "html": "<p>We'd rather you read reviews on platforms we can't edit. EHI Heating &amp; Cooling is rated 4.5 on Google and was voted Best Company in 2019, 2020 and 2021 on HomeStars.</p><p>Had us out recently? A two-minute <a href=\"https://search.google.com/local/writereview?placeid=ChIJmXl_k5YrK4gR52yzagk9Hk4\" target=\"_blank\" rel=\"noopener\">Google review</a> helps the next homeowner choose with confidence. If something wasn't right, call us first at <a href=\"tel:+16476945845\">1-647-694-5845</a> and we'll fix it.</p>"},
   {"type": "why"},
  ],
  "faqs": [
