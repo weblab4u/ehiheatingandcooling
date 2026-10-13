@@ -1,0 +1,4 @@
+{
+  "_how_to_add": "Paste real Google reviews here (5 to 10). Each item: name (first name + last initial), city (optional), service (optional), stars (1-5), date (e.g. 'September 2026'), text (the reviewer's exact words). Rebuild with ./deploy.sh.",
+  "reviews": []
+}

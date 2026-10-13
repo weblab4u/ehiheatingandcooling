@@ -468,15 +468,39 @@ def brand_logo_card(name, url, file):
         lg = f'<span class="brand-logo wordmark" role="img" aria-label="{name} logo">{name}</span>'
     return f'<li><a href="{url}">{lg}<span>Authorized {name} dealer</span></a></li>'
 
+def load_reviews():
+    path = os.path.join(ROOT, "data", "reviews.json")
+    try:
+        return [r for r in json.load(open(path, encoding="utf-8")).get("reviews", []) if r.get("text")]
+    except (OSError, ValueError):
+        return []
+
+def google_g():
+    return ('<svg class="g-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.7 17.7 9.5 24 9.5z"/>'
+            '<path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 7.1-10 7.1-17z"/>'
+            '<path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.2.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/>'
+            '<path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.3 0-11.6-4.2-13.5-10l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>')
+
 def reviews_block():
-    # Placeholder review cards. Replace with real HomeStars / Google reviews before launch.
-    cards = "".join(
-        f'<li class="review"><p class="stars" aria-label="5 star rating">{icon("star")*5}</p>'
-        f'<p>[Review placeholder {n}. Paste a real HomeStars or Google review here. Keep the customer\'s own words.]</p>'
-        f'<p class="who">[Customer first name], [City] · [Service]</p></li>' for n in (1, 2, 3))
+    """Google rating panel plus real reviews from data/reviews.json (never placeholder text)."""
+    rating, count = GBP_RATING if GBP_RATING else ("", "")
+    stars = icon("star") * 5
+    panel = (f'<div class="g-panel">{google_g()}<div class="g-score"><strong>{rating}</strong><span class="stars" aria-hidden="true">{stars}</span>'
+             f'<span class="g-count">Based on {count} Google reviews</span></div>'
+             f'<div class="btn-group small"><a class="btn btn-primary" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">Read our Google reviews{icon("arrow")}</a>'
+             f'<a class="btn btn-secondary" href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Write a review</a></div></div>')
+    revs = load_reviews()
+    cards = ""
+    for r in revs[:10]:
+        n = max(1, min(5, int(r.get("stars", 5))))
+        who = esc(r.get("name", "Google reviewer"))
+        meta = " · ".join(esc(x) for x in [r.get("city"), r.get("service"), r.get("date")] if x)
+        cards += (f'<li class="review"><div class="review-top">{google_g()}<p class="stars" aria-label="{n} star rating">{icon("star")*n}</p></div>'
+                  f'<blockquote>{esc(r["text"])}</blockquote><p class="who">{who}</p>' + (f'<p class="meta">{meta}</p>' if meta else "") + '</li>')
+    grid = f'<ul class="review-grid">{cards}</ul>' if cards else ""
     return (f'<section class="sec reviews-sec"><div class="wrap"><h2>What our customers say</h2>'
-            f'<p class="lead">Voted Best Company 2019, 2020 and 2021 on HomeStars.</p><ul class="review-grid">{cards}</ul>'
-            f'<p><a class="more" href="/reviews/">Read more reviews{icon("arrow")}</a></p></div></section>')
+            f'<p class="lead">Rated {rating} on Google and voted Best Company 2019, 2020 and 2021 on HomeStars.</p>{panel}{grid}'
+            f'<p><a class="more" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">See all {count} reviews on Google{icon("arrow")}</a></p></div></section>')
 
 def faq_block(items, heading="Frequently asked questions"):
     lis = "".join(f'<details class="faq"><summary><h3>{q}</h3></summary><div class="faq-a">{a if a.strip().startswith("<") else "<p>"+a+"</p>"}</div></details>' for q, a in items)
