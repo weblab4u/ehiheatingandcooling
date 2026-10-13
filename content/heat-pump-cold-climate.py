@@ -1,7 +1,7 @@
 # /heat-pump/cold-climate/
 PAGE = {
  "url": "/heat-pump/cold-climate/",
- "title": "Cold Climate Heat Pumps Ontario | Rated to -30°C | EHI",
+ "title": "Cold Climate Heat Pumps Ontario | Rated to -30°C",
  "description": "Cold climate heat pump installation across Ontario from $5,500. Midea EVOX G3 and Kepler rated to -30°C, NRCan qualified, up to $7,500 back. Get a quote.",
  "priority": "0.8",
  "eyebrow": "Cold Climate Heat Pumps",

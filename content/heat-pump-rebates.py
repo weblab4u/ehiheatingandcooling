@@ -1,7 +1,7 @@
 PAGE = {
  "url": "/heat-pump-rebates/",
- "title": "Ontario Heat Pump Rebates 2026: Up to $7,500 | EHI Guide",
- "description": "How the Ontario heat pump rebate works in 2026: who qualifies, how much you get, and how to get pre-approved. EHI handles the paperwork for you.",
+ "title": "Ontario Heat Pump Rebates 2026: Up to $7,500 | Full Guide",
+ "description": "How the Ontario heat pump rebate works in 2026: who qualifies, how much you get, and how to get pre-approved. We handle the paperwork for you.",
  "priority": "0.9",
  "eyebrow": "Heat Pump Rebates Ontario",
  "h1": "Ontario Heat Pump Rebates",

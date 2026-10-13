@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/ac/",
- "title": "Air Conditioner Installation Ontario | Lennox & Midea | EHI",
+ "title": "Air Conditioner Installation Ontario | Lennox & Midea",
  "description": "Central air conditioner installation and replacement across Ontario. Lennox and Midea, sized by heat-gain, guaranteed quote. Book a free in-home estimate.",
  "priority": "0.9",
  "eyebrow": "AC Installation &amp; Replacement",

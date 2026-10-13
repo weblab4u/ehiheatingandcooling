@@ -1,8 +1,8 @@
 # /heat-pump/repair-maintenance/
 PAGE = {
  "url": "/heat-pump/repair-maintenance/",
- "title": "Heat Pump Repair & Maintenance Ontario | Any Brand | EHI",
- "description": "Heat pump repair and maintenance across Ontario, any brand. Same-day service, written quote before work, annual tune-ups. Call EHI at 1-647-694-5845.",
+ "title": "Heat Pump Repair & Maintenance Ontario | Any Brand",
+ "description": "Heat pump repair and maintenance across Ontario, any brand. Same-day service, written quote before work, annual tune-ups. Call 1-647-694-5845.",
  "priority": "0.7",
  "eyebrow": "Heat Pump Repair & Maintenance",
  "h1": "Heat Pump Repair and Maintenance in Ontario",

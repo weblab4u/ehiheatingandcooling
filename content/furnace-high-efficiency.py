@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/furnace/high-efficiency/",
- "title": "High-Efficiency Furnaces Ontario | 96% to 97% AFUE | EHI",
+ "title": "High-Efficiency Furnaces Ontario | 96% to 97% AFUE",
  "description": "High-efficiency furnace installation across Ontario from $3,300. Two-stage, variable-speed Lennox and Midea furnaces, 96% to 97% AFUE. Get a free quote.",
  "priority": "0.7",
  "eyebrow": "High-Efficiency Furnaces",

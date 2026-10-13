@@ -1,7 +1,7 @@
 # Brand page: /brands/lennox-air-conditioners/
 PAGE = {
  "url": "/brands/lennox-air-conditioners/",
- "title": "Lennox Air Conditioners Ontario | Authorized Dealer | EHI",
+ "title": "Lennox Air Conditioners Ontario | Authorized Dealer",
  "description": "Lennox air conditioning units installed and repaired across Ontario by an authorized Lennox dealer. Matched coils, quiet options, guaranteed quote.",
  "priority": "0.7",
  "eyebrow": "Lennox Central Air Conditioners",

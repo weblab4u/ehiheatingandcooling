@@ -1,7 +1,7 @@
 PAGE = {
  "url": "/services/emergency-hvac/",
- "title": "Emergency HVAC Repair Ontario | Furnace & AC Same Day | EHI",
- "description": "Emergency furnace and AC repair across Ontario. No heat or no cooling? Same-day service, evenings, weekends and holidays. Call EHI now at 1-647-694-5845.",
+ "title": "Emergency HVAC Repair Ontario | Furnace & AC Same Day",
+ "description": "Emergency furnace and AC repair across Ontario. No heat or no cooling? Same-day service, evenings, weekends and holidays. Call now: 1-647-694-5845.",
  "priority": "0.8",
  "eyebrow": "Emergency HVAC Service",
  "h1": "Emergency HVAC Repair in Ontario",

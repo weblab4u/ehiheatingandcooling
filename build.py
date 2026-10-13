@@ -827,7 +827,7 @@ def main():
     open(os.path.join(OUT, ".htaccess"), "w").write("ErrorDocument 404 /404.html\nOptions -Indexes\n")
     # 404
     open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(render({
-        "url": "/404/", "title": "Page not found | EHI Heating & Cooling", "description": "That page moved or never existed. Find HVAC services, rebates and contact info here.",
+        "url": "/404/", "title": "Page Not Found", "description": "That page moved or never existed. Find HVAC services, rebates and contact info here.",
         "robots": "noindex, follow", "h1": "Hmm, that page isn't here", "intro": "<p>The link may be old, or the page moved. Here's where most people are headed.</p>",
         "hero_points": [], "hero_image": "The EHI Heating and Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
         "blocks": [{"type": "cards", "items": [{"title": t, "text": b, "link": u} for u, (t, b) in REG.items() if u in ("/heat-pump/", "/furnace/", "/ac/", "/services/emergency-hvac/", "/heat-pump-rebates/", "/contact/")]}]}))

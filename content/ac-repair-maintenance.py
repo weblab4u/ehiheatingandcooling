@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/ac/repair-maintenance/",
- "title": "AC Repair & Maintenance Ontario | Same-Day Service | EHI",
+ "title": "AC Repair & Maintenance Ontario | Same-Day Service",
  "description": "AC repair and air conditioner maintenance across Ontario. Same-day service, written quote before any work, annual tune-ups. Call 1-647-694-5845.",
  "priority": "0.7",
  "eyebrow": "AC Repair, Maintenance &amp; Tune-Up",

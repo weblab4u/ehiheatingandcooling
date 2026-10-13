@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/services/thermostats/",
- "title": "Thermostat Installation Ontario | Smart & Heat Pump | EHI",
+ "title": "Thermostat Installation Ontario | Smart & Heat Pump",
  "description": "Smart thermostat installation and replacement across Ontario. Heat pump and dual-fuel ready, C-wire, balance point set-up, plus a $100 rebate. Book today.",
  "priority": "0.7",
  "eyebrow": "Thermostats",

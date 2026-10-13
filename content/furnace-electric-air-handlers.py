@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/furnace/electric-air-handlers/",
- "title": "Electric Furnace & Air Handler Installation Ontario | EHI",
+ "title": "Electric Furnace & Air Handler Installation Ontario",
  "description": "Electric furnace and air handler installation across Ontario. No gas line? We compare an electric furnace with a heat pump and air handler. Free quote.",
  "priority": "0.7",
  "eyebrow": "Electric Furnaces & Air Handlers",

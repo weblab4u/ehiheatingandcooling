@@ -1,7 +1,7 @@
 PAGE = {
  "url": "/our-work/",
- "title": "Our Work | HVAC Installations Across Ontario | EHI",
- "description": "Recent heat pump, furnace, air conditioner, ductless and tankless water heater installations by EHI Heating & Cooling in homes and businesses across Ontario.",
+ "title": "Our Work | HVAC Installations Across Ontario",
+ "description": "Recent heat pump, furnace, air conditioner, ductless and tankless water heater installations by our crews in homes and businesses across Ontario.",
  "priority": "0.6",
  "eyebrow": "Our Work",
  "h1": "Our Work Across Ontario",

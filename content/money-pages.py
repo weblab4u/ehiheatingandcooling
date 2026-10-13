@@ -1,6 +1,6 @@
 FINANCING = {
  "url": "/financing/",
- "title": "HVAC Financing Ontario | 0% for 3, 6 or 9 Months | EHI",
+ "title": "HVAC Financing Ontario | 0% for 3, 6 or 9 Months",
  "description": "Finance a new furnace, heat pump, AC or tankless water heater in Ontario. 0% interest for 3, 6 or 9 months, or open loans from 2.99% OAC.",
  "priority": "0.7",
  "eyebrow": "HVAC Financing",
@@ -37,8 +37,8 @@ FINANCING = {
 
 OFFERS = {
  "url": "/offers/",
- "title": "HVAC Offers & Price Match Ontario | EHI Heating & Cooling",
- "description": "Guaranteed final pricing on every install, and we may beat comparable reputable HVAC quotes by up to 10%. See current EHI offers in Ontario.",
+ "title": "HVAC Offers & Price Match in Ontario | Save on Installs",
+ "description": "Guaranteed final pricing on every install, and we may beat comparable reputable HVAC quotes by up to 10%. See current offers in Ontario.",
  "priority": "0.6",
  "eyebrow": "Offers & Price Match",
  "h1": "Current Offers and Our Price Match Promise",
@@ -66,8 +66,8 @@ OFFERS = {
 
 WARRANTY = {
  "url": "/warranty/",
- "title": "HVAC Warranty: Up to 12 Years Parts & Labour | EHI Ontario",
- "description": "EHI installs carry manufacturer warranties plus up to 12 years parts and labour on select systems. What's covered, how we register it, how to keep it valid.",
+ "title": "HVAC Warranty in Ontario: Up to 12 Years Parts & Labour",
+ "description": "Our installs carry manufacturer warranties plus up to 12 years parts and labour on select systems. What's covered, how we register it, how to keep it valid.",
  "priority": "0.6",
  "eyebrow": "Warranty",
  "h1": "HVAC Warranty Coverage: Up to 12 Years Parts and Labour",

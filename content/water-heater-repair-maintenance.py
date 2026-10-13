@@ -1,8 +1,8 @@
 # /water-heater/repair-maintenance/
 PAGE = {
  "url": "/water-heater/repair-maintenance/",
- "title": "Tankless Water Heater Repair & Maintenance Ontario | EHI",
- "description": "Tankless water heater repair and maintenance across Ontario, any brand. Rinnai specialists. No hot water, error codes and scale fixed fast. Call EHI.",
+ "title": "Tankless Water Heater Repair & Maintenance Ontario",
+ "description": "Tankless water heater repair and maintenance across Ontario, any brand. Rinnai specialists. No hot water, error codes and scale fixed fast. Call us today.",
  "priority": "0.7",
  "eyebrow": "Tankless Water Heater Repair & Maintenance",
  "h1": "Tankless Water Heater Repair and Maintenance in Ontario",

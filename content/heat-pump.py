@@ -1,7 +1,7 @@
 # Exemplar service page. Every service page follows this shape.
 PAGE = {
  "url": "/heat-pump/",
- "title": "Heat Pump Installation Ontario | Up to $7,500 Rebate | EHI",
+ "title": "Heat Pump Installation Ontario | Up to $7,500 Rebate",
  "description": "Cold-climate heat pump installation across Ontario from $5,500. Midea, Kepler and Lennox systems rated to -30°C. We size it, install it and file your rebate.",
  "priority": "0.9",
  "eyebrow": "Heat Pump Installation",

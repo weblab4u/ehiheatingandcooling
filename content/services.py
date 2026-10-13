@@ -1,8 +1,8 @@
 # /services/  (hub page: short hero, grouped cards, money, why, areas, FAQs)
 PAGE = {
  "url": "/services/",
- "title": "HVAC Services Ontario | Heating, Cooling, Heat Pumps | EHI",
- "description": "Every HVAC service EHI offers across Ontario: furnace, AC, heat pump and tankless installation, repair and maintenance. Find yours and get a free quote.",
+ "title": "HVAC Services Ontario | Heating, Cooling, Heat Pumps",
+ "description": "Every HVAC service we offer across Ontario: furnace, AC, heat pump and tankless installation, repair and maintenance. Find yours and get a free quote.",
  "priority": "0.8",
  "eyebrow": "Our Services",
  "h1": "HVAC Services for Ontario Homes",

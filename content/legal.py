@@ -1,7 +1,7 @@
 PRIVACY = {
  "url": "/privacy-policy/",
- "title": "Privacy Policy | EHI Heating & Cooling",
- "description": "How EHI Heating & Cooling (Efficient Home Improvements) collects, uses and protects your personal information when you request a quote or use this website.",
+ "title": "Privacy Policy",
+ "description": "How we collect, use and protect your personal information when you request an HVAC quote or use this website.",
  "priority": "0.2", "robots": "noindex, follow",
  "layout": "article", "meta_line": "Last updated October 2026 · Efficient Home Improvements (EHI Heating &amp; Cooling)",
  "h1": "Privacy Policy",
@@ -11,8 +11,8 @@ PRIVACY = {
 }
 TERMS = {
  "url": "/terms/",
- "title": "Terms of Service | EHI Heating & Cooling",
- "description": "Terms for using the EHI Heating & Cooling website and for quotes, pricing, rebates, financing and warranties described on it.",
+ "title": "Terms of Service",
+ "description": "Terms for using this website and for the quotes, pricing, rebates, financing and warranties described on it.",
  "priority": "0.2", "robots": "noindex, follow",
  "layout": "article", "meta_line": "Last updated October 2026 · Efficient Home Improvements (EHI Heating &amp; Cooling)",
  "h1": "Terms of Service",

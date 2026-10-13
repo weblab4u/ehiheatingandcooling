@@ -1,7 +1,7 @@
 # /heat-pump/electric-air-handler-systems/
 PAGE = {
  "url": "/heat-pump/electric-air-handler-systems/",
- "title": "Heat Pump + Electric Air Handler Systems Ontario | EHI",
+ "title": "Heat Pump + Electric Air Handler Systems Ontario",
  "description": "All-electric heat pump and air handler systems across Ontario from $5,500. Midea EVOX G3, 2 to 5 ton, up to $7,500 rebate. Get a guaranteed quote.",
  "priority": "0.7",
  "eyebrow": "Heat Pump + Electric Air Handler Systems",

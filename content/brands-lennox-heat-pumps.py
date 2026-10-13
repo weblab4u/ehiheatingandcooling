@@ -1,7 +1,7 @@
 # Brand page: /brands/lennox-heat-pumps/
 PAGE = {
  "url": "/brands/lennox-heat-pumps/",
- "title": "Lennox Heat Pumps Ontario | Authorized Dealer | EHI",
+ "title": "Lennox Heat Pumps Ontario | Authorized Dealer",
  "description": "Lennox heat pumps and cold-climate options installed across Ontario from $5,500. Dual-fuel with a Lennox furnace. Authorized dealer, free guaranteed quote.",
  "priority": "0.7",
  "eyebrow": "Lennox Heat Pumps · Dual Fuel · Mini-Splits",

@@ -1,7 +1,7 @@
 # Brand page: /brands/midea-ductless-mini-splits/
 PAGE = {
  "url": "/brands/midea-ductless-mini-splits/",
- "title": "Midea Mini Split Dealer Ontario | Hyper Heat Ductless | EHI",
+ "title": "Midea Mini Split Dealer Ontario | Hyper Heat Ductless",
  "description": "Midea Hyper Heat single-zone and multi-zone ductless mini-splits, 18,000 to 60,000 BTU, installed across Ontario from $5,500. Free guaranteed quote.",
  "priority": "0.7",
  "eyebrow": "Midea Hyper Heat · Single-Zone and Multi-Zone",

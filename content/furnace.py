@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/furnace/",
- "title": "Furnace Installation Ontario | From $3,300 Installed | EHI",
+ "title": "Furnace Installation Ontario | From $3,300 Installed",
  "description": "Furnace installation and replacement across Ontario from $3,300. Lennox and Midea 96% to 97% AFUE two-stage furnaces, sized right. Get a free quote.",
  "priority": "0.9",
  "eyebrow": "Furnace Installation & Replacement",

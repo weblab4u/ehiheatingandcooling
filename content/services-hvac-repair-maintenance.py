@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/services/hvac-repair-maintenance/",
- "title": "HVAC Repair & Maintenance Ontario | Same-Day Service | EHI",
+ "title": "HVAC Repair & Maintenance Ontario | Same-Day Service",
  "description": "HVAC repair and maintenance across Ontario. Furnace, AC and heat pump diagnostics, a written quote before work, and tune-up plans. Book same-day service.",
  "priority": "0.8",
  "eyebrow": "HVAC Repair & Maintenance",

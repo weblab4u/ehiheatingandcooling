@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/services/humidifiers/",
- "title": "Furnace Humidifier Installation Ontario | Whole-Home | EHI",
+ "title": "Furnace Humidifier Installation Ontario | Whole-Home",
  "description": "Furnace humidifier installation, repair and pad replacement across Ontario. Bypass, fan-powered and steam units that end dry winter air and static.",
  "priority": "0.7",
  "eyebrow": "Whole-Home Humidifiers",

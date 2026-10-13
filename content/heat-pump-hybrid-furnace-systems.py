@@ -1,7 +1,7 @@
 # /heat-pump/hybrid-furnace-systems/
 PAGE = {
  "url": "/heat-pump/hybrid-furnace-systems/",
- "title": "Hybrid Heat Pump + Gas Furnace Systems Ontario | EHI",
+ "title": "Hybrid Heat Pump + Gas Furnace Systems Ontario",
  "description": "Hybrid heat pump + gas furnace installation across Ontario from $5,500. Dual fuel cuts bills for Enbridge gas homes, rebate up to $2,000. Free quote.",
  "priority": "0.7",
  "eyebrow": "Hybrid Furnace + Heat Pump Systems",

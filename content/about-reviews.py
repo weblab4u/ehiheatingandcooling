@@ -1,7 +1,7 @@
 ABOUT = {
  "url": "/about-ehi/",
- "title": "About EHI Heating & Cooling | Ontario HVAC Contractor",
- "description": "Licensed Ontario HVAC contractor for homes and businesses with 20+ years of experience, voted Best Company 2019 to 2021. Meet the EHI team and our promises.",
+ "title": "About Us | Licensed Ontario HVAC Contractor, 20+ Years",
+ "description": "Licensed Ontario HVAC contractor for homes and businesses with 20+ years of experience, voted Best Company 2019 to 2021. Meet our team and our promises.",
  "priority": "0.7",
  "eyebrow": "About EHI",
  "h1": "About EHI Heating &amp; Cooling",
@@ -35,8 +35,8 @@ ABOUT = {
 
 REVIEWS = {
  "url": "/reviews/",
- "title": "EHI Heating & Cooling Reviews | Ontario HVAC Customers",
- "description": "Read Google reviews from Ontario homeowners and businesses who hired EHI Heating & Cooling for heat pumps, furnaces, AC and tankless water heaters.",
+ "title": "Customer Reviews | Ontario HVAC Installs and Repairs",
+ "description": "Read Google reviews from Ontario homeowners and businesses who hired us for heat pumps, furnaces, AC and tankless water heaters.",
  "priority": "0.6",
  "banner": True,
  "h1": "EHI Heating &amp; Cooling Customer Reviews",

@@ -16,7 +16,7 @@ QUOTE_SECTION = (
 
 PAGE = {
  "url": "/",
- "title": "HVAC Contractor Ontario | Heat Pumps, Furnaces, AC | EHI",
+ "title": "HVAC Contractor Ontario | Heat Pumps, Furnaces, AC",
  "description": "Licensed Ontario HVAC contractor for homes and businesses. Heat pumps, furnaces, AC and tankless with guaranteed pricing and up to $7,500 in rebates.",
  "priority": "1.0",
  "hero_photo": "/assets/img/ehi-team.webp",

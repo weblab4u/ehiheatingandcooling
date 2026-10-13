@@ -4,7 +4,7 @@ from build import form_block, icon, AREAS, AREA_GROUPS, PHONE, PHONE_TEL, EMAIL,
 
 CONTACT = {
  "url": "/contact/",
- "title": "Contact EHI Heating & Cooling | Free HVAC Quote Ontario",
+ "title": "Contact Us | Free, Guaranteed HVAC Quote in Ontario",
  "description": "Call 1-647-694-5845 or request a free guaranteed HVAC quote for heat pumps, furnaces, AC and tankless across Ontario. Open 7 days, emergency service.",
  "priority": "0.8",
  "eyebrow": "Contact / Get a Quote",
@@ -38,8 +38,8 @@ area_html = "".join(f'<div class="area-col"><h3>{icon("pin")}{g}</h3><ul>' + "".
 
 SERVICE_AREAS = {
  "url": "/service-areas/",
- "title": "HVAC Service Areas in Ontario | EHI Heating & Cooling",
- "description": "EHI installs and services heat pumps, furnaces and AC across the GTA, Durham, Simcoe, Southwestern, Eastern and Northern Ontario. Find your city.",
+ "title": "HVAC Service Areas in Ontario | GTA to Northern Ontario",
+ "description": "We install and service heat pumps, furnaces and AC across the GTA, Durham, Simcoe, Southwestern, Eastern and Northern Ontario. Find your city.",
  "priority": "0.7",
  "eyebrow": "Service Areas",
  "h1": "Where We Work: HVAC Service Across Ontario",

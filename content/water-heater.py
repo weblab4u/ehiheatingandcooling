@@ -1,7 +1,7 @@
 # /water-heater/
 PAGE = {
  "url": "/water-heater/",
- "title": "Tankless Water Heater Installation Ontario | Rinnai | EHI",
+ "title": "Tankless Water Heater Installation Ontario | Rinnai",
  "description": "Tankless water heater installation across Ontario from $3,300. Rinnai RX160iN and RX199iN condensing units, endless hot water, 0% financing. Get a quote.",
  "priority": "0.8",
  "eyebrow": "Tankless Water Heater Installation",

@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/ac/ductless-mini-split/repair/",
- "title": "Mini-Split Repair & Cleaning Ontario | Any Brand | EHI",
+ "title": "Mini-Split Repair & Cleaning Ontario | Any Brand",
  "description": "Mini split repair, cleaning and maintenance across Ontario, any brand. Not cooling, blinking, dripping or icing? Same-day diagnosis with a written quote.",
  "priority": "0.7",
  "eyebrow": "Ductless Mini-Split Repair",

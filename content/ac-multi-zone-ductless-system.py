@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/ac/multi-zone-ductless-system/",
- "title": "Multi-Zone Mini-Split Systems Ontario | 2 to 5 Rooms | EHI",
+ "title": "Multi-Zone Mini-Split Systems Ontario | 2 to 5 Rooms",
  "description": "Multi zone mini split installation in Ontario. Midea Extreme Hyper Heat, 18,000 to 60,000 BTU, 2 to 5 heads, each room on its own control. From $5,500.",
  "priority": "0.7",
  "eyebrow": "Multi-Zone Ductless Systems",

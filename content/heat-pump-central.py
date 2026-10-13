@@ -1,7 +1,7 @@
 # /heat-pump/central/
 PAGE = {
  "url": "/heat-pump/central/",
- "title": "Central Heat Pump Installation Ontario | Ducted | EHI",
+ "title": "Central Heat Pump Installation Ontario | Ducted",
  "description": "Central (ducted) heat pump installation across Ontario from $5,500. Replace furnace and AC with one cold-climate system on your existing ducts. Free quote.",
  "priority": "0.7",
  "eyebrow": "Ducted (Central) Heat Pumps",

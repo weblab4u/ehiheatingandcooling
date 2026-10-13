@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/ac/ductless-mini-split/",
- "title": "Ductless Mini-Split Installation Ontario | From $5,500 | EHI",
+ "title": "Ductless Mini-Split Installation Ontario | From $5,500",
  "description": "Ductless mini split installation in Ontario from $5,500. Midea Hyper Heat units heat to -30°C and cool in July. Rebate-eligible. Free guaranteed quote.",
  "priority": "0.8",
  "eyebrow": "Ductless Mini-Split Installation",

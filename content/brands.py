@@ -1,7 +1,7 @@
 # Brand hub page: /brands/
 PAGE = {
  "url": "/brands/",
- "title": "Midea, Lennox, Kepler & Rinnai Dealer in Ontario | EHI",
+ "title": "Midea, Lennox, Kepler & Rinnai Dealer in Ontario",
  "description": "Authorized Midea, Lennox, Kepler and Rinnai dealer in Ontario. Cold-climate heat pumps, furnaces, ACs and tankless, installed and warrantied. Get a quote.",
  "priority": "0.7",
  "eyebrow": "Brands We Install",

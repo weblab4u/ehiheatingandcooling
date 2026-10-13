@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/services/hvac-installation-replacement/",
- "title": "HVAC Installation & Replacement Ontario | From $3,300 | EHI",
+ "title": "HVAC Installation & Replacement Ontario | From $3,300",
  "description": "HVAC installation and replacement across Ontario. Furnace, AC and heat pump systems sized right, installed in a day, with a guaranteed price. Free quote.",
  "priority": "0.8",
  "eyebrow": "HVAC Installation & Replacement",

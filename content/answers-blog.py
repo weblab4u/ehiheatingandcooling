@@ -15,7 +15,7 @@ QA = [
 
 ANSWERS = {
  "url": "/answers/",
- "title": "HVAC Questions Answered for Ontario Homeowners | EHI",
+ "title": "HVAC Questions Answered for Ontario Homeowners",
  "description": "Straight answers to the heating, cooling, heat pump, rebate and water heater questions Ontario homeowners ask most. Costs, sizing, repair or replace.",
  "priority": "0.7",
  "eyebrow": "Your Questions Answered",
@@ -43,8 +43,8 @@ POSTS = [
 
 BLOG = {
  "url": "/blog/",
- "title": "HVAC Blog for Ontario Homeowners | EHI Heating & Cooling",
- "description": "Guides on heat pumps, furnaces, AC, rebates and water heaters written for Ontario homes by EHI's licensed technicians. Practical, local and current.",
+ "title": "HVAC Blog for Ontario Homeowners | Heating & Cooling Guides",
+ "description": "Guides on heat pumps, furnaces, AC, rebates and water heaters written for Ontario homes by licensed HVAC technicians. Practical, local and current.",
  "priority": "0.5",
  "eyebrow": "Blog",
  "h1": "Heating and Cooling Guides for Ontario Homes",

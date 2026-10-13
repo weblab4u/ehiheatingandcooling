@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/furnace/repair-maintenance/",
- "title": "Furnace Repair & Tune-Up Ontario | Same-Day Service | EHI",
+ "title": "Furnace Repair & Tune-Up Ontario | Same-Day Service",
  "description": "Furnace repair and maintenance across Ontario. Not heating, blower motor, ignitor or error codes? Same-day diagnosis, written quote, annual tune-ups.",
  "priority": "0.7",
  "eyebrow": "Furnace Repair, Maintenance & Tune-Up",
