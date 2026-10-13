@@ -40,7 +40,7 @@ PAGE = {
     {"problem": "You're worried about buying a refrigerant that's being phased out", "solution": "EVOX G3 already runs on R-454B, the lower-GWP refrigerant the industry is moving to. Parts and refrigerant availability are covered for the life of the system."},
     {"problem": "You're not sure if your Midea model qualifies for the rebate", "solution": "We check the exact model and tonnage against NRCan's qualified products list and complete pre-approval before any work starts. Confirm eligibility before installation, and keep in mind program terms can change."},
   ]},
-  {"type": "checklist", "h2": "What's included in a Midea heat pump installation", "image": "Midea cold-climate heat pump installed by EHI on a raised stand with outdoor disconnect", "image_src": "/assets/img/work/midea-cold-climate-heat-pump-stand-2.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 62%", "items": [
+  {"type": "checklist", "h2": "What's included in a Midea heat pump installation", "image": "Midea cold-climate heat pump installed beside green siding, installed by EHI", "image_src": "/assets/img/work/midea-cold-climate-heat-pump-stand-2.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 62%", "items": [
     "Manual J style heat-loss calculation to pick the right Midea size, 2 to 5 ton",
     "Matched indoor unit: Midea MAAHE/MAUHE air handler or a furnace coil set up for the EVOX G3",
     "Removal and disposal of your old furnace, air conditioner or heat pump",

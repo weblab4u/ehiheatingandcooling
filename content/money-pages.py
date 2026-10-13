@@ -73,7 +73,7 @@ WARRANTY = {
  "h1": "HVAC Warranty Coverage: Up to 12 Years Parts and Labour",
  "intro": "<p>A warranty is only as good as the contractor standing behind it. EHI Heating &amp; Cooling installs Midea, Lennox, Kepler and Rinnai equipment with full manufacturer coverage, and on select systems we offer up to 12 years parts and 12 years labour. We register the warranty for you so it's valid from day one.</p>",
  "hero_points": ["Up to 12 years parts and 12 years labour on select systems", "Manufacturer warranty registered by us after install", "Rinnai extended coverage available by package", "Annual maintenance keeps your coverage valid"],
- "hero_image": "Midea gas furnace installed by EHI, warranty registered at hand-over", "hero_img": "/assets/img/work/midea-gas-furnace-installed.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 55%", "hero_img_credit": "EHI install",
+ "hero_image": "Midea two-stage gas furnace installed in a furnace room, installed by EHI", "hero_img": "/assets/img/work/midea-gas-furnace-installed.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 55%", "hero_img_credit": "EHI install",
  "blocks": [
   {"type": "table", "h2": "What's covered", "lead": "Coverage depends on brand, model, registration and warranty conditions. Here's the general picture; your quote lists the exact terms for your equipment.", "headers": ["Coverage", "Typical terms", "Notes"], "rows": [
     ["Parts (manufacturer)", "Multi-year limited parts warranty on all brands we install", "Registered within the manufacturer's window after install"],
@@ -82,7 +82,7 @@ WARRANTY = {
     ["Rinnai tankless", "Manufacturer coverage; extended parts and labour may be offered by package", "Annual descaling flush recommended"],
     ["Workmanship", "EHI stands behind the installation", "Call us if anything about the install isn't right"],
   ], "note": "Warranty terms vary by equipment. Full written terms are provided with your quote and at hand-over."},
-  {"type": "checklist", "h2": "How to keep your HVAC warranty valid", "image": "Gas furnace with PVC venting in a furnace room, installed by EHI", "image_src": "/assets/img/work/midea-furnace-room-pvc-venting.webp", "image_fit": "cover", "image_pos": "50% 60%", "image_credit": "EHI install", "items": [
+  {"type": "checklist", "h2": "How to keep your HVAC warranty valid", "image": "Gas furnace with PVC intake and exhaust venting, installed by EHI", "image_src": "/assets/img/work/midea-furnace-room-pvc-venting.webp", "image_fit": "cover", "image_pos": "50% 60%", "image_credit": "EHI install", "items": [
     "Register the equipment (we do this for you after install)",
     "Book annual maintenance; most manufacturers require proof of regular service for extended coverage",
     "Change or clean filters as recommended",

@@ -13,8 +13,8 @@ PAGE = {
    "No home energy audit required for a heat pump on its own",
    "We confirm eligibility, file pre-approval and submit final documents",
  ],
- "hero_image": "Midea cold-climate heat pump outdoor unit beside an Ontario home, installed by EHI",
- "hero_img": "/assets/img/work/midea-heat-pump-outdoor-siding.webp", "hero_img_fit": "cover", "hero_img_credit": "EHI install", "hero_img_pos": "50% 55%",
+ "hero_image": "Midea outdoor unit on a stand next to a deck, installed by EHI",
+ "hero_img": "/assets/img/work/midea-outdoor-unit-deck.webp", "hero_img_fit": "cover", "hero_img_credit": "EHI install", "hero_img_pos": "50% 55%",
  "service": {"name": "Heat Pump Rebate Application Assistance", "type": "Rebate paperwork and pre-approval for Ontario heat pump installations"},
  "blocks": [
   {"type": "table", "h2": "How much is the Ontario heat pump rebate in 2026?", "lead": "Amounts under the Home Renovation Savings Program depend on your current heating fuel and the size of the heat pump installed. These are the figures the program publishes as of our last check. Program terms can change, so we confirm the exact amount for your home before you commit.", "headers": ["Upgrade", "Home heated by electricity, oil, propane or wood", "Home heated by Enbridge natural gas"], "rows": [
@@ -23,7 +23,7 @@ PAGE = {
     ["Smart thermostat", "$100", "$100"],
     ["Heat pump water heater (with assessment bundle)", "$500", "$500"],
   ], "note": "Figures are from the Home Renovation Savings Program at the time of writing and are provided as a guide only. The program sets final amounts and eligibility. This website is operated by EHI Heating &amp; Cooling, not by any government or utility."},
-  {"type": "checklist", "h2": "Who qualifies for the heat pump rebate in Ontario?", "lead": "You'll likely qualify if all of these are true. We verify each one before pre-approval.", "image": "Rebate-eligible Midea cold-climate heat pump installed by EHI", "image_src": "/assets/img/work/midea-cold-climate-heat-pump-stand-3.webp", "image_fit": "cover", "image_pos": "50% 62%", "image_credit": "EHI install", "items": [
+  {"type": "checklist", "h2": "Who qualifies for the heat pump rebate in Ontario?", "lead": "You'll likely qualify if all of these are true. We verify each one before pre-approval.", "image": "Midea cold-climate heat pump with gauge hoses connected during commissioning, installed by EHI", "image_src": "/assets/img/work/midea-cold-climate-heat-pump-commissioning.webp", "image_fit": "cover", "image_pos": "50% 62%", "image_credit": "EHI install", "items": [
     "You own a home in Ontario (detached, semi, townhouse and many low-rise homes qualify; some property types have extra conditions)",
     "The heat pump is a cold-climate air-source model on Natural Resources Canada's qualified products list",
     "It's installed by a participating contractor after pre-approval is granted",

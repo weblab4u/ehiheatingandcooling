@@ -26,7 +26,7 @@ PAGE = {
     {"problem": "Loud buzzing, grinding or screeching", "solution": "Buzzing points to electrical parts like contactors and capacitors. Grinding or screeching usually means a fan motor bearing. Both are repairable if caught early."},
     {"problem": "Hydro bill up, cooling down", "solution": "A dirty condenser coil, low charge or a tired compressor makes the unit run longer for less cooling. A proper AC tune-up with coil cleaning often brings the bill back in line."},
   ]},
-  {"type": "checklist", "h2": "What our air conditioner maintenance tune-up includes", "image": "Midea outdoor unit on a stand beside a brick home, installed by EHI", "image_src": "/assets/img/work/midea-ductless-outdoor-brick-home.webp", "image_fit": "cover", "image_pos": "50% 72%", "image_credit": "EHI install", "lead": "Book it each spring before the first heat wave. Annual maintenance keeps most manufacturer warranties valid and catches small faults before they become July emergencies.", "items": [
+  {"type": "checklist", "h2": "What our air conditioner maintenance tune-up includes", "image": "Midea ductless outdoor unit beside a brick home with line set cover, installed by EHI", "image_src": "/assets/img/work/midea-ductless-outdoor-brick-home.webp", "image_fit": "cover", "image_pos": "50% 72%", "image_credit": "EHI install", "lead": "Book it each spring before the first heat wave. Annual maintenance keeps most manufacturer warranties valid and catches small faults before they become July emergencies.", "items": [
     "Clean the outdoor condenser coil and clear leaves, grass clippings and cottonwood fluff",
     "Inspect and clean the indoor evaporator coil where accessible",
     "Flush the condensate drain line and check the pan and trap",

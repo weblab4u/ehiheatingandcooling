@@ -44,7 +44,7 @@ PAGE = {
     {"problem": "No gas line and electric heat is bleeding you dry", "solution": "An EVOX G3 heat pump and air handler replace baseboards or an old electric furnace with heating that costs a fraction to run, and the electric backup coil is there for the coldest nights."},
     {"problem": "You're building or renovating and need everything to work together", "solution": "Furnace or air handler, heat pump, thermostat and controls all from one brand, installed by one authorized dealer, with the 240V circuit and venting done by our own licensed people."},
   ]},
-  {"type": "checklist", "h2": "What's included in a Midea furnace or air handler installation", "image": "Midea gas furnace with PVC venting and condensate line installed by EHI", "image_src": "/assets/img/work/midea-furnace-room-pvc-venting.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 60%", "items": [
+  {"type": "checklist", "h2": "What's included in a Midea furnace or air handler installation", "image": "Gas furnace with PVC intake and exhaust venting, installed by EHI", "image_src": "/assets/img/work/midea-furnace-room-pvc-venting.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 60%", "items": [
     "Heat-loss calculation to set furnace BTU or air handler tonnage",
     "Removal and disposal of the old furnace, electric furnace or air handler",
     "PVC intake and exhaust venting, condensate drain and trap for the condensing MGH96",

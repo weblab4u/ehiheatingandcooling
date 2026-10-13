@@ -39,7 +39,7 @@ PAGE = {
     {"problem": "Your old ductless unit stops heating below -10°C", "solution": "Entry-level mini-splits do that. Midea Hyper Heat and Extreme Hyper Heat are cold-climate designs built to keep heating in deep cold, which is why we specify them for Ontario."},
     {"problem": "You want several rooms covered but only have room for one outdoor unit", "solution": "An Extreme Hyper Heat multi-zone outdoor unit serves up to five indoor heads. We pick head styles to suit each room, wall-mounted, floor-mounted or ceiling cassette where the model allows."},
   ]},
-  {"type": "checklist", "h2": "What's included in a Midea mini split installation", "image": "Midea ductless outdoor unit on a stand beside a brick home, installed by EHI", "image_src": "/assets/img/work/midea-ductless-outdoor-brick-home.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 70%", "items": [
+  {"type": "checklist", "h2": "What's included in a Midea mini split installation", "image": "Midea outdoor unit on a raised stand in a side yard, installed by EHI", "image_src": "/assets/img/work/midea-outdoor-unit-side-yard.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 70%", "items": [
     "Room-by-room heat-loss sizing and head placement planned with you",
     "Midea indoor heads mounted level with a proper wall sleeve, and the outdoor unit on a wall bracket or pad above snow level",
     "Refrigerant line sets in a tidy exterior cover, with condensate drain routed to a safe spot",

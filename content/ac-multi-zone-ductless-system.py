@@ -37,7 +37,7 @@ PAGE = {
     {"icon": "duct", "title": "Slim-duct (concealed) heads", "text": "Hidden in a bulkhead or closet, feeding two or three small rooms through short ducts and discreet grilles. Great for upstairs bedrooms that share a hallway."},
     {"icon": "ductless", "title": "Need a single zone instead?", "text": "If only one room is the problem, a single-zone Midea Hyper Heat unit from $5,500 is the simpler answer.", "link": "/ac/ductless-mini-split/"},
   ]},
-  {"type": "checklist", "h2": "What is included in every EHI multi-zone installation", "image": "Midea ductless wall head installed by EHI in a living room", "image_src": "/assets/img/work/midea-wall-head-living-room.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 35%", "items": [
+  {"type": "checklist", "h2": "What is included in every EHI multi-zone installation", "image": "Midea ductless wall head above framed photos in a living room, installed by EHI", "image_src": "/assets/img/work/midea-wall-head-living-room.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 35%", "items": [
     "Room-by-room heat-loss and heat-gain calculation to size each head and the outdoor unit",
     "Indoor heads mounted and levelled, with sealed wall sleeves and condensate drains or pumps",
     "Outdoor unit on a riser stand or wall bracket above the snow line, with proper clearances",

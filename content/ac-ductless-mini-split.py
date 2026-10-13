@@ -31,7 +31,7 @@ PAGE = {
     {"icon": "air", "title": "Wall-mounted, ceiling cassette or slim-duct heads", "text": "Wall units for most rooms, cassettes where you want it flush with the ceiling, and slim-duct heads hidden in a bulkhead feeding two or three small rooms.", "link": "/ac/multi-zone-ductless-system/"},
     {"icon": "heatpump", "title": "Ducted cold-climate heat pump", "text": "If your home already has ducts, a central heat pump may be the better value. We will tell you honestly which one fits.", "link": "/heat-pump/central/"},
   ]},
-  {"type": "checklist", "h2": "What is included in every EHI ductless mini split installation", "image": "Midea ductless heat pump outdoor unit on a raised stand with tidy line set, installed by EHI", "image_src": "/assets/img/work/midea-ductless-outdoor-stand.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 60%", "items": [
+  {"type": "checklist", "h2": "What is included in every EHI ductless mini split installation", "image": "Midea ductless outdoor unit with tidy line set and disconnect, installed by EHI", "image_src": "/assets/img/work/midea-ductless-outdoor-stand.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 60%", "items": [
     "Sizing of the indoor head to the room's heat load, sun exposure and ceiling height",
     "Indoor unit mounted on a level backing plate, with a sealed 3-inch wall sleeve",
     "Outdoor unit on a wall bracket or riser stand, above the Ontario snow line and clear of drifts",

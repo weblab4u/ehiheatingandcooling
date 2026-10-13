@@ -37,7 +37,7 @@ PAGE = {
     {"problem": "Your old AC uses a refrigerant that's getting expensive", "solution": "Older R-22 systems are costly to recharge and parts are scarce. A new Lennox AC uses current refrigerant, so a future top-up or repair stays affordable."},
     {"problem": "You're wondering if a heat pump makes more sense than an AC", "solution": "If the furnace is also due, or you heat with electricity, propane or oil, a heat pump often wins because it cools the same and may qualify for a rebate. We'll quote both so you see the numbers."},
   ]},
-  {"type": "checklist", "h2": "What's included in a Lennox air conditioner installation", "image": "Furnace with a matched evaporator coil and supply plenum, installed by EHI", "image_src": "/assets/img/work/furnace-coil-utility-room.webp", "image_fit": "cover", "image_pos": "50% 45%", "image_credit": "EHI install", "items": [
+  {"type": "checklist", "h2": "What's included in a Lennox air conditioner installation", "image": "Furnace with matched coil and supply plenum in a utility room, installed by EHI", "image_src": "/assets/img/work/furnace-coil-utility-room.webp", "image_fit": "cover", "image_pos": "50% 45%", "image_credit": "EHI install", "items": [
     "Heat-gain calculation to size the Lennox AC for your home, windows and orientation",
     "Removal and disposal of your old air conditioner, with refrigerant recovered legally",
     "Matched Lennox indoor coil installed on the furnace plenum, with the blower checked for airflow",

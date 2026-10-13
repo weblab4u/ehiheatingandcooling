@@ -31,7 +31,7 @@ PAGE = {
     {"icon": "furnace", "title": "Midea MGH96", "text": "96.5% AFUE, two-stage, variable-speed, 60,000 to 120,000 BTU. Strong value and a natural match for a Midea EVOX G3 heat pump in a hybrid.", "link": "/brands/midea-furnace-air-handlers/"},
     {"icon": "heatpump", "title": "Furnace + heat pump hybrid", "text": "Any of the above paired with a Midea or Kepler cold-climate heat pump rated to -30°C. Lowest running cost for gas-heated homes.", "link": "/heat-pump/hybrid-furnace-systems/"},
   ]},
-  {"type": "checklist", "h2": "What's included in every EHI furnace installation", "image": "New Midea high-efficiency gas furnace with PVC venting installed by EHI in an Ontario furnace room", "image_src": "/assets/img/work/midea-furnace-room-pvc-venting.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 60%", "items": [
+  {"type": "checklist", "h2": "What's included in every EHI furnace installation", "image": "Furnace with matched coil and supply plenum in a utility room, installed by EHI", "image_src": "/assets/img/work/furnace-coil-utility-room.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 60%", "items": [
     "Heat-loss calculation to pick the right BTU size, from 45,000 to 120,000 BTU",
     "Removal and disposal of the old furnace",
     "New two-pipe PVC venting for the condensing furnace, sealed and sloped correctly",

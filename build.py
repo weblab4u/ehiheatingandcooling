@@ -474,20 +474,43 @@ def _load_gallery():
     return m.P, m.GALLERY
 GALLERY_PHOTOS, SERVICE_GALLERIES = _load_gallery()
 
+GALLERY_ALLOC = {}
+
+def allocate_galleries(pages):
+    """Hand out job photos to every service gallery: least-used first across the whole site,
+    counting photos already used in page sections, and never repeating a photo within a page."""
+    usage = {k: 0 for k in GALLERY_PHOTOS}
+    per_page = {}
+    for pg in pages:
+        txt = repr(pg)
+        used = {k for k in GALLERY_PHOTOS if f"/assets/img/work/{k}.webp" in txt}
+        per_page[pg["url"]] = used
+        for k in used: usage[k] += 1
+    order = [pg["url"] for pg in pages if pg["url"] in SERVICE_GALLERIES]
+    for url in order:
+        heading, spec = SERVICE_GALLERIES[url]
+        chosen = []
+        for cat, n in spec:
+            pool = [k for k, (c, _) in GALLERY_PHOTOS.items() if c == cat and k not in per_page[url] and k not in chosen
+                    and os.path.exists(os.path.join(ROOT, "assets", "img", "work", k + ".webp"))]
+            pool.sort(key=lambda k: (usage[k], list(GALLERY_PHOTOS).index(k)))
+            for k in pool[:n]:
+                chosen.append(k); usage[k] += 1
+        GALLERY_ALLOC[url] = chosen
+    return usage
+
 def service_gallery(url):
     g = SERVICE_GALLERIES.get(url)
-    if not g:
+    keys = GALLERY_ALLOC.get(url, [])
+    if not g or not keys:
         return ""
-    heading, keys = g
-    items = [GALLERY_PHOTOS[k] for k in keys if k in GALLERY_PHOTOS and os.path.exists(os.path.join(ROOT, "assets", "img", "work", GALLERY_PHOTOS[k][0] + ".webp"))]
-    if not items:
-        return ""
+    heading = g[0]
     figs = "".join(
-        f'<figure class="sg-item"><button type="button" class="sg-open" data-full="/assets/img/work/{f}.webp" data-alt="{esc(a)}" aria-label="Enlarge photo: {esc(a)}">'
-        f'<img src="/assets/img/work/{f}.webp" alt="{esc(a)}" loading="lazy" decoding="async"></button><figcaption>{esc(a)}</figcaption></figure>' for f, a in items)
+        f'<figure class="sg-item"><button type="button" class="sg-open" data-full="/assets/img/work/{k}.webp" data-alt="{esc(GALLERY_PHOTOS[k][1])}" aria-label="Enlarge photo: {esc(GALLERY_PHOTOS[k][1])}">'
+        f'<img src="/assets/img/work/{k}.webp" alt="{esc(GALLERY_PHOTOS[k][1])}" loading="lazy" decoding="async"></button><figcaption>{esc(GALLERY_PHOTOS[k][1])}</figcaption></figure>' for k in keys)
     return (f'<section class="sec gallery-strip"><div class="wrap"><div class="sg-head"><div><p class="sg-kicker">Our work</p><h2>{esc(heading)}</h2>'
             f'<p class="lead">Real jobs by our licensed crews in Ontario homes. Tap any photo to enlarge.</p></div>'
-            f'<a class="more" href="/our-work/">See all our work{icon("arrow")}</a></div><div class="sg-grid n{len(items)}">{figs}</div></div></section>')
+            f'<a class="more" href="/our-work/">See all our work{icon("arrow")}</a></div><div class="sg-grid n{len(keys)}">{figs}</div></div></section>')
 
 def partners_strip():
     logos = ""
@@ -828,6 +851,7 @@ def main():
     os.makedirs(OUT)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"))
     pages = load_pages()
+    photo_usage = allocate_galleries(pages)
     urls = []
     issues = {}
     for p in pages:
@@ -858,6 +882,8 @@ def main():
         "hero_points": [], "hero_image": "The EHI Heating and Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
         "blocks": [{"type": "cards", "items": [{"title": t, "text": b, "link": u} for u, (t, b) in REG.items() if u in ("/heat-pump/", "/furnace/", "/ac/", "/services/emergency-hvac/", "/heat-pump-rebates/", "/contact/")]}]}))
     print(f"Built {len(pages)} pages -> {OUT}")
+    reused = sorted(((v, k) for k, v in photo_usage.items() if v > 1), reverse=True)
+    print(f"Job photos: {len(photo_usage)} in library, {sum(1 for v in photo_usage.values() if v)} used, {len(reused)} appear on more than one page")
     missing = [u for u in REG if u not in {p['url'] for p in pages} and u not in ("/privacy-policy/", "/terms/")]
     if missing: print("MISSING pages:", missing)
     for u, pr in issues.items(): print("LINT", u, pr)

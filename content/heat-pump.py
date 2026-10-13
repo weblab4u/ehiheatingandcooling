@@ -32,7 +32,7 @@ PAGE = {
     {"icon": "plug", "title": "Heat pump + electric air handler", "text": "Midea EVOX G3 outdoor unit with a matched MAAHE/MAUHE air handler in 2 to 5 ton. All-electric, rebate-friendly.", "link": "/heat-pump/electric-air-handler-systems/"},
     {"icon": "ductless", "title": "Ductless and multi-zone", "text": "Midea Hyper Heat single-zone, or multi-zone from 18,000 to 60,000 BTU with up to five indoor heads.", "link": "/ac/ductless-mini-split/"},
   ]},
-  {"type": "checklist", "h2": "What's included in every EHI heat pump installation", "image": "Midea cold-climate heat pump installed by EHI on a raised stand with line set and outdoor disconnect", "image_src": "/assets/img/work/midea-cold-climate-heat-pump-stand-1.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 62%", "items": [
+  {"type": "checklist", "h2": "What's included in every EHI heat pump installation", "image": "Side view of a Midea cold-climate heat pump with line set, disconnect and condensate line, installed by EHI", "image_src": "/assets/img/work/midea-cold-climate-heat-pump-side-disconnect.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 62%", "items": [
     "Manual J style heat-loss calculation so the system is sized for your square footage, insulation and windows",
     "Removal and disposal of your old furnace, AC or baseboard equipment",
     "New refrigerant line set, pad or wall bracket, and a raised stand to keep the unit above snow",
