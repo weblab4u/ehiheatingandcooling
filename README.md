@@ -13,11 +13,12 @@ The build also writes `site/sitemap.xml`, `site/robots.txt` and `site/404.html`,
 - `META <url>` when a title is over 62 characters or a description over 158.
 
 ## Publishing
-Hostinger deploys the `deploy` branch, which holds only the contents of `site/` (index.html at its root). After editing content, run:
+Branches: `source` holds this project (builder, content, assets). `main` holds only the built website (the contents of `site/`, with index.html at its root). Hostinger auto-deploys `main`.
+After editing content, run:
 ```bash
 ./deploy.sh
 ```
-It rebuilds, commits and pushes `main`, then publishes `site/` to `deploy`. Never point Hostinger at `main`: that would expose the source files.
+It rebuilds, commits and pushes `source`, then publishes `site/` to `main`. Never merge `source` into `main`: that would put the source files on the web server.
 
 ## Structure
 - `build.py`: header, mega menu, footer, sticky mobile CTA, quote form, breadcrumbs, JSON-LD (HVACBusiness, WebPage, BreadcrumbList, Service, FAQPage), block renderers, lint, sitemap.
