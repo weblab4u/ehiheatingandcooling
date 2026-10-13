@@ -1,0 +1,67 @@
+# /services/  (hub page: short hero, grouped cards, money, why, areas, FAQs)
+PAGE = {
+ "url": "/services/",
+ "title": "HVAC Services Ontario | Heating, Cooling, Heat Pumps | EHI",
+ "description": "Every HVAC service EHI offers across Ontario: furnace, AC, heat pump and tankless installation, repair and maintenance. Find yours and get a free quote.",
+ "priority": "0.8",
+ "eyebrow": "Our Services",
+ "h1": "HVAC Services for Ontario Homes",
+ "intro": "<p>Heating, cooling, hot water and air quality for Ontario homes and businesses, from one licensed HVAC contractor. Pick the service you need below.</p>",
+ "hero_points": [
+   "Guaranteed final pricing on every quote",
+   "Same-day repair across the GTA, emergency service evenings and weekends",
+   "Rebate and financing paperwork handled for you",
+   "TSSA-certified gas techs, licensed refrigeration techs, ESA-licensed electrical",
+ ],
+ "hero_image": "The EHI Heating and Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
+ "service": {"name": "HVAC Services", "type": "HVAC services"},
+ "blocks": [
+  {"type": "cards", "h2": "Heating", "lead": "Gas furnaces, high-efficiency upgrades and electric options, installed and repaired.", "items": [
+    {"icon": "furnace", "title": "Furnace installation and replacement", "text": "Lennox and Midea gas furnaces from $3,300 installed, sized by heat loss.", "link": "/furnace/"},
+    {"icon": "wrench", "title": "Furnace repair and tune-up", "text": "No heat, blower or ignitor trouble fixed same day, plus annual maintenance.", "link": "/furnace/repair-maintenance/"},
+    {"icon": "leaf", "title": "High-efficiency furnaces", "text": "96% to 97% AFUE two-stage, variable-speed furnaces that cut gas bills.", "link": "/furnace/high-efficiency/"},
+    {"icon": "plug", "title": "Electric furnaces and air handlers", "text": "Electric heating for homes without gas, or paired with a heat pump.", "link": "/furnace/electric-air-handlers/"},
+  ]},
+  {"type": "cards", "h2": "Cooling", "lead": "Central air and ductless systems for muggy Ontario summers.", "items": [
+    {"icon": "ac", "title": "AC installation and replacement", "text": "Central air conditioners sized for your home and installed in a day.", "link": "/ac/"},
+    {"icon": "wrench", "title": "AC repair and tune-up", "text": "Not cooling, leaking or short cycling? Fast diagnosis and a written quote.", "link": "/ac/repair-maintenance/"},
+    {"icon": "ductless", "title": "Ductless mini-split installation", "text": "Heat and cool a room, basement or addition without ductwork.", "link": "/ac/ductless-mini-split/"},
+    {"icon": "wrench", "title": "Ductless mini-split repair", "text": "Repair, cleaning and maintenance for any mini-split brand.", "link": "/ac/ductless-mini-split/repair/"},
+    {"icon": "multizone", "title": "Multi-zone ductless systems", "text": "One outdoor unit, up to five indoor heads, each room on its own control.", "link": "/ac/multi-zone-ductless-system/"},
+  ]},
+  {"type": "cards", "h2": "Heat pumps", "lead": "Cold-climate heat pumps rated to -30°C, with up to $7,500 in Ontario rebates.", "items": [
+    {"icon": "heatpump", "title": "Heat pump installation", "text": "Midea, Kepler and Lennox heat pumps from $5,500, rebate paperwork included.", "link": "/heat-pump/"},
+    {"icon": "wrench", "title": "Heat pump repair and maintenance", "text": "Not heating, not cooling or iced up? Any brand, same day.", "link": "/heat-pump/repair-maintenance/"},
+    {"icon": "snow", "title": "Cold climate heat pumps", "text": "Midea EVOX G3 and Kepler, rated to -30°C and on NRCan's qualified list.", "link": "/heat-pump/cold-climate/"},
+    {"icon": "duct", "title": "Central (ducted) heat pumps", "text": "Replace furnace and AC with one system on your existing ducts.", "link": "/heat-pump/central/"},
+    {"icon": "furnace", "title": "Hybrid furnace + heat pump", "text": "Heat pump most of the winter, gas furnace on the coldest nights.", "link": "/heat-pump/hybrid-furnace-systems/"},
+    {"icon": "plug", "title": "Heat pump + electric air handler", "text": "All-electric central heating and cooling, top rebate tier.", "link": "/heat-pump/electric-air-handler-systems/"},
+  ]},
+  {"type": "cards", "h2": "Water heating", "lead": "Rinnai condensing tankless, installed and serviced by an authorized dealer.", "items": [
+    {"icon": "tankless", "title": "Tankless water heater installation", "text": "Rinnai RX160iN and RX199iN, endless hot water from $3,300 installed.", "link": "/water-heater/"},
+    {"icon": "wrench", "title": "Tankless water heater repair and maintenance", "text": "Error codes, no hot water and the annual descaling flush, any brand.", "link": "/water-heater/repair-maintenance/"},
+  ]},
+  {"type": "cards", "h2": "Air quality and controls", "lead": "The smaller upgrades that make a big difference to how your home feels.", "items": [
+    {"icon": "humidity", "title": "Humidifiers", "text": "Whole-home furnace humidifiers for dry winter air, static and cracked trim.", "link": "/services/humidifiers/"},
+    {"icon": "hrv", "title": "HRV and ERV systems", "text": "Fresh air ventilation for tight homes, installed, repaired and cleaned.", "link": "/services/hrv-erv/"},
+    {"icon": "thermostat", "title": "Thermostats", "text": "Smart and heat-pump-ready thermostats installed and set up properly.", "link": "/services/thermostats/"},
+  ]},
+  {"type": "cards", "h2": "General HVAC", "lead": "Whole-system work and the calls that can't wait.", "items": [
+    {"icon": "install", "title": "HVAC installation and replacement", "text": "Furnace, AC, heat pump or all three, replaced in one visit.", "link": "/services/hvac-installation-replacement/"},
+    {"icon": "wrench", "title": "HVAC repair and maintenance", "text": "Diagnosis, honest repair quotes and tune-ups for any system.", "link": "/services/hvac-repair-maintenance/"},
+    {"icon": "bolt", "title": "Emergency HVAC service", "text": "No heat or no cooling? Same-day emergency repair, evenings and weekends.", "link": "/services/emergency-hvac/"},
+    {"icon": "house", "title": "Commercial HVAC", "text": "Rooftop units, split systems, ductless heat pumps, furnaces and tankless hot water for offices, retail, warehouses and multi-unit buildings, with maintenance agreements.", "link": "/contact/", "link_text": "Request a commercial quote"},
+  ]},
+  {"type": "money"},
+  {"type": "why"},
+  {"type": "areas"},
+ ],
+ "faqs": [
+  ("Should I repair or replace my furnace, AC or heat pump?", "Repair when the system is under about ten years old and the fault is a single affordable part. Replace when it's past twelve to fifteen years, the repair is a large share of a new system's cost, or it uses a refrigerant that's hard to source. We give you both numbers on the same visit so you can decide."),
+  ("Heat pump, furnace or hybrid: which heating system is right for my Ontario home?", "If you heat with electricity, oil or propane, a cold-climate heat pump with an electric air handler usually wins on running cost and gets the top rebate tier. If you're on Enbridge natural gas, a hybrid heat pump and furnace is typically the lowest-cost option. A furnace alone still makes sense when the budget is tight and the AC is fine."),
+  ("Do I need a heat pump or an air conditioner?", "A heat pump costs a bit more than a central AC but heats as well as cools, and it may qualify for an Ontario rebate that an air conditioner never will. If your furnace is staying, a heat pump in place of the AC is usually the better buy."),
+  ("What counts as an HVAC emergency?", "No heat when it's below freezing, no cooling for someone vulnerable to heat, a gas smell, water pouring from the unit, or a carbon monoxide alarm. Call us for same-day service. For a gas smell or CO alarm, leave the house and call your gas utility or 911 first."),
+  ("How do I get a quote?", "Call 1-647-694-5845 or use the contact form, and we'll book a free in-home or virtual assessment. You get a guaranteed written quote, usually the same day, with rebate and financing options laid out."),
+ ],
+ "related": ["/heat-pump-rebates/", "/financing/", "/offers/", "/warranty/", "/brands/", "/contact/"],
+}

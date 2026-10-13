@@ -1,0 +1,59 @@
+ABOUT = {
+ "url": "/about-ehi/",
+ "title": "About EHI Heating & Cooling | Ontario HVAC Contractor",
+ "description": "Licensed Ontario HVAC contractor for homes and businesses with 20+ years of experience, voted Best Company 2019 to 2021. Meet the EHI team and our promises.",
+ "priority": "0.7",
+ "eyebrow": "About EHI",
+ "h1": "About EHI Heating &amp; Cooling",
+ "intro": "<p>EHI Heating &amp; Cooling is the HVAC division of Efficient Home Improvements, a family-run contractor based in Whitchurch-Stouffville with more than 20 years of experience in Ontario homes and commercial properties. We're an authorized dealer for Midea, Lennox, Kepler and Rinnai, our crews are licensed and certified, and our pricing is guaranteed in writing. That's the short version.</p>",
+ "hero_points": ["20+ years installing and servicing HVAC in Ontario", "Voted Best Company 2019, 2020 and 2021, HomeStars Verified", "Authorized Midea, Lennox, Kepler and Rinnai dealer", "Based in Stouffville, serving the GTA to Northern Ontario"],
+ "hero_image": "The EHI Heating and Cooling team standing in front of two EHI service vans",
+ "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
+ "blocks": [
+  {"type": "split", "h2": "Who we are", "image": "Midea cold-climate heat pump on a raised stand, one of EHI's recent installs", "image_src": "/assets/img/work/midea-cold-climate-heat-pump-stand-3.webp", "image_fit": "cover", "image_pos": "50% 62%", "image_credit": "EHI install", "html": "<p>We started as a home improvement company and grew into heating and cooling because that's where homeowners needed the most help. A furnace quote shouldn't come with surprises, a heat pump shouldn't be undersized, and a rebate application shouldn't be left for the customer to figure out.</p><p>Today our focus is cold-climate heat pumps, hybrid furnace and heat pump systems, full HVAC replacements and Rinnai tankless water heaters. We still do the fundamentals well: furnace repair at 11 pm in January, AC tune-ups in May, and a thermostat wired properly so the auxiliary heat isn't running all winter.</p><p class=\"note\">[Add founder name, year founded and a short personal note here. Photos of the team and vans go in the image frames.]</p>"},
+  {"type": "cards", "h2": "What you can hold us to", "items": [
+    {"icon": "dollar", "title": "Guaranteed final pricing", "text": "The quote is the invoice. No add-ons for things we should have seen at the assessment."},
+    {"icon": "gauge", "title": "Sized by heat-loss, not by habit", "text": "Every install starts with a heat-loss calculation. Oversized equipment short cycles and wastes money. We don't guess."},
+    {"icon": "rebate", "title": "Rebates handled", "text": "Eligibility, pre-approval and final documents for the Home Renovation Savings Program. You sign, we file."},
+    {"icon": "shield", "title": "Licensed people on every job", "text": "TSSA-certified gas technicians, licensed refrigeration technicians and ESA-licensed electrical work."},
+    {"icon": "phone", "title": "We answer the phone", "text": "Seven days a week, with emergency service evenings, weekends and holidays."},
+    {"icon": "calendar", "title": "Backed for years", "text": "Up to 12 years parts and labour on select systems, and annual maintenance to keep it that way."},
+  ]},
+  {"type": "text", "h2": "Licences, certifications and memberships", "html": "<ul class=\"checklist\"><li>TSSA-certified gas technicians for furnace, boiler and water heater gas work [add certificate class and number]</li><li>Licensed refrigeration technicians for heat pump and AC refrigerant work [add ODP/licence reference]</li><li>ESA-licensed electrical contractor for 240V circuits, disconnects and panel upgrades [add ECRA/ESA number]</li><li>Authorized dealer: Midea, Lennox, Kepler, Rinnai</li><li>HomeStars Verified. Voted Best Company 2019, 2020, 2021</li><li>Insured: liability and WSIB [add details]</li></ul><p class=\"note\">Bracketed items are placeholders. Add the actual numbers before launch; they matter to homeowners and to Google.</p>"},
+  {"type": "reviews"},
+  {"type": "gbp", "h2": "Visit or find us on Google"},
+  {"type": "areas"},
+ ],
+ "faqs": [
+  ("Where is EHI Heating & Cooling located?", "Our office is at 4261 Bloomington Road, Whitchurch-Stouffville, Ontario. We're a service-area business, so our crews travel to homes across the GTA and most of Ontario."),
+  ("How long has EHI been in business?", "EHI has more than 20 years of experience installing and servicing heating and cooling systems in Ontario homes."),
+  ("Are you an authorized dealer?", "Yes. EHI is an authorized dealer for Midea, Lennox, Kepler and Rinnai, which means factory-backed equipment, warranty support and training on the systems we install."),
+  ("Do you do commercial HVAC?", "Yes. Alongside residential work, EHI installs and services HVAC for offices, retail units, restaurants, warehouses, clinics and multi-unit buildings across Ontario, including rooftop units, split systems, ductless heat pumps, furnaces and commercial tankless hot water. Maintenance agreements with priority emergency response are available."),
+ ],
+ "related": ["/reviews/", "/service-areas/", "/brands/", "/warranty/", "/contact/"],
+}
+
+REVIEWS = {
+ "url": "/reviews/",
+ "title": "EHI Heating & Cooling Reviews | Ontario Homeowners",
+ "description": "Read reviews from Ontario homeowners who hired EHI Heating & Cooling for heat pumps, furnaces, AC and tankless water heaters. Voted Best Company 2019 to 2021.",
+ "priority": "0.6",
+ "eyebrow": "Reviews",
+ "h1": "EHI Heating &amp; Cooling Reviews from Ontario Homeowners",
+ "intro": "<p>Reviews are how we keep ourselves honest. Here's what homeowners and business owners across the GTA and Ontario have said after we installed their heat pump, replaced their furnace or fixed their AC. EHI was voted Best Company in 2019, 2020 and 2021 and is HomeStars Verified.</p>",
+ "hero_points": ["Voted Best Company 2019, 2020, 2021", "HomeStars Verified contractor", "Reviews from real installs across Ontario", "Read them on Google and HomeStars, not just here"],
+ "hero_image": "Midea cold-climate heat pump on a stand at an Ontario customer's home, installed by EHI",
+ "hero_img": "/assets/img/work/midea-cold-climate-heat-pump-stand-2.webp", "hero_img_fit": "cover", "hero_img_credit": "EHI install", "hero_img_pos": "50% 60%",
+ "blocks": [
+  {"type": "reviews"},
+  {"type": "text", "h2": "Read and leave reviews", "html": "<p>We'd rather you read reviews on platforms we can't edit. EHI is rated 4.5 on Google from 87 reviews. <a href=\"https://maps.app.goo.gl/hPDoCQ6tHRCjxoDd9\" target=\"_blank\" rel=\"noopener\">Read our Google reviews</a> or <a href=\"https://search.google.com/local/writereview?placeid=ChIJmXl_k5YrK4gR52yzagk9Hk4\" target=\"_blank\" rel=\"noopener\">write one</a>. HomeStars: [add HomeStars profile link].</p><p>Had us out recently? A two-minute review helps the next homeowner choose with confidence. If something wasn't right, call us first at <a href=\"tel:+16476945845\">1-647-694-5845</a>. We'll fix it.</p><div class=\"callout\"><p><strong>Launch note:</strong> replace the placeholder cards above with real reviews (customer first name, city, service, date). Once real reviews are in, add AggregateRating schema with the true rating and count. Don't publish a rating you can't back up.</p></div>"},
+  {"type": "why"},
+ ],
+ "faqs": [
+  ("Where can I read EHI reviews?", "You can read EHI Heating &amp; Cooling reviews on HomeStars and Google, and a selection on this page. We link to the external profiles so you can see unedited feedback."),
+  ("Was EHI really voted Best Company?", "Yes, EHI was voted Best Company in 2019, 2020 and 2021 and carries the HomeStars Verified badge."),
+ ],
+ "related": ["/about-ehi/", "/contact/", "/heat-pump/", "/furnace/", "/ac/"],
+}
+
+PAGES = [ABOUT, REVIEWS]
