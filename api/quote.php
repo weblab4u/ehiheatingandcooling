@@ -7,6 +7,7 @@
 declare(strict_types=1);
 
 const LEAD_TO     = 'efficienthomecomfort@gmail.com';
+const LEAD_CC     = 'seo@weblab4u.com';
 const SITE_NAME   = 'EHI Heating & Cooling website';
 const MAX_PER_HOUR = 6;                       // per IP, simple flood guard
 
@@ -105,6 +106,7 @@ $lines = [
 $headers = [
     'From: ' . SITE_NAME . ' <' . $from . '>',
     'Content-Type: text/plain; charset=UTF-8',
+    'Cc: ' . LEAD_CC,
     'X-Mailer: EHI-site',
 ];
 if ($lead['email'] !== '') $headers[] = 'Reply-To: ' . str_replace(["\r", "\n"], '', $lead['name']) . ' <' . $lead['email'] . '>';
