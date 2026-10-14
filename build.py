@@ -556,7 +556,7 @@ def reviews_block():
              f'<span class="g-count">Google rating from verified customers</span></div>'
              f'<div class="btn-group small"><a class="btn btn-primary" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">Read our Google reviews{icon("arrow")}</a>'
              f'<a class="btn btn-secondary" href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Write a review</a></div></div>')
-    revs = load_reviews()
+    revs = [r for r in load_reviews() if not r.get("reviews_page_only")]
     cards = "".join(review_card(r, i, "rv-slide") for i, r in enumerate(revs[:12]))
     grid = (f'<div class="rv-carousel" data-carousel><button class="rv-nav prev" type="button" aria-label="Previous reviews">{icon("arrow")}</button>'
             f'<div class="rv-track" tabindex="0">{cards}</div><button class="rv-nav next" type="button" aria-label="Next reviews">{icon("arrow")}</button></div>') if cards else ""

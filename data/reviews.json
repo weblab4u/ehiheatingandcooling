@@ -1,5 +1,5 @@
 {
-  "_how_to_add": "Real Google reviews, reviewer's exact words (pasted by the owner). Fields: name (first name + last initial), city (optional), service (optional), stars, date, text, best (true = shown in the 'best reviews' grid, the rest go in the carousel). HVAC reviews only. Rebuild with ./deploy.sh.",
+  "_how_to_add": "Real Google reviews, reviewer's exact words (pasted by the owner). Fields: name (first name + last initial), city (optional), service (optional), stars, date, text, best (true = shown in the 'best reviews' grid, the rest go in the carousel). HVAC reviews only. Rebuild with ./deploy.sh. reviews_page_only = true keeps a review off the homepage, about and our-work carousels.",
   "reviews": [
     {
       "name": "Mark S.",
@@ -32,6 +32,14 @@
       "service": "Emergency furnace replacement",
       "best": true,
       "text": "Efficient Home Improvements truly went above and beyond. Our furnace failed on Christmas Eve in Ottawa, and their team stayed up late (3:00am) that night to replace it. Their responsiveness, professionalism, and dedication during the holidays were exceptional. The work was completed efficiently, and everything was explained clearly. It’s rare to find a company willing to sacrifice their own holiday time to ensure a customer’s home is warm and safe. I highly recommend Efficient Home improvements to anyone in need of reliable and compassionate service."
+    },
+    {
+      "name": "M F.",
+      "stars": 5,
+      "date": "2025",
+      "service": "Heat pump and furnace installation",
+      "reviews_page_only": true,
+      "text": "I had a new door, heat pump, furnace, and attic insulation installed by Efficient Home Improvements, and I’m very satisfied with the results. From start to finish, the team was professional, knowledgeable, and easy to work with. The new door looks great and is well-installed, helping improve both curb appeal and energy efficiency. The heat pump and furnace are running smoothly and keeping the home comfortable, and the attic insulation has already made a noticeable difference in keeping the house cooler in summer. They explained everything clearly and got the work done on time. I’d definitely recommend them to anyone looking to upgrade their home’s efficiency and comfort."
     },
     {
       "name": "Rob S.",
