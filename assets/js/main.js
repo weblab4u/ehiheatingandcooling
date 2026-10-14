@@ -4,13 +4,27 @@
   if(t&&m){t.addEventListener('click',function(){setNav(m.hidden)});var c=m.querySelector('.m-close');c&&c.addEventListener('click',function(){setNav(false)});}
   // keyboard support for mega menus
   document.querySelectorAll('.has-mega>a').forEach(function(a){a.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){e.preventDefault();var l=a.parentNode.querySelector('.mega a');l&&l.focus();}});});
-  // quote forms: light validation + success state (wire action to your form handler / CRM)
+  // quote forms: validate, then send to /api/quote.php (falls back to a normal post without JS)
   document.querySelectorAll('[data-quote-form]').forEach(function(f){
+    var pg=f.querySelector('[name=page]');if(pg)pg.value=location.pathname;
     f.addEventListener('submit',function(e){
-      var ok=true;f.querySelectorAll('[required]').forEach(function(i){if(!i.value.trim()){i.classList.add('error');ok=false;}else i.classList.remove('error');});
-      if(f.querySelector('.hp').value){e.preventDefault();return;}
-      if(!ok){e.preventDefault();return;}
-      if(!f.dataset.live){e.preventDefault();f.querySelector('.form-ok').hidden=false;f.querySelector('button[type=submit]').disabled=true;}
+      e.preventDefault();
+      var ok=true,first=null;f.querySelectorAll('[required]').forEach(function(i){if(!i.value.trim()){i.classList.add('error');ok=false;first=first||i;}else i.classList.remove('error');});
+      var em=f.querySelector('[name=email]');if(em&&em.value.trim()&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){em.classList.add('error');ok=false;first=first||em;}else if(em)em.classList.remove('error');
+      var err=f.querySelector('.form-err'),okMsg=f.querySelector('.form-ok'),btn=f.querySelector('button[type=submit]');
+      function fail(msg){err.innerHTML=msg+' Or call <a href="tel:+16476945845">1-647-694-5845</a>.';err.hidden=false;btn.disabled=false;btn.classList.remove('sending');}
+      if(!ok){first&&first.focus();fail('Please fill in your name, phone and city.');return;}
+      if(f.querySelector('.hp').value)return;
+      err.hidden=true;btn.disabled=true;btn.classList.add('sending');
+      fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+        .then(function(r){return r.json().catch(function(){return {ok:false};}).then(function(j){j.status=r.status;return j;});})
+        .then(function(j){
+          if(j.ok){f.querySelectorAll('input:not([type=hidden]),select,textarea,button').forEach(function(x){x.disabled=true;});okMsg.hidden=false;btn.classList.remove('sending');
+            window.dataLayer&&window.dataLayer.push({event:'quote_submitted',form_page:location.pathname});return;}
+          if(j.errors){Object.keys(j.errors).forEach(function(k){var i=f.querySelector('[name='+k+']');i&&i.classList.add('error');});fail(j.errors[Object.keys(j.errors)[0]]);return;}
+          fail(j.error||'Sorry, that didn\'t go through.');
+        })
+        .catch(function(){fail('Sorry, that didn\'t go through. Check your connection and try again.');});
     });
   });
   // sticky CTA hides when a form is on screen
