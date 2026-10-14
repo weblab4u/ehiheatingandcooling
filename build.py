@@ -653,15 +653,23 @@ def form_block(b=None, compact=False, preselect=None):
 # ---------------------------------------------------------------- page
 def photo_hero(page):
     pts = "".join(f'<li>{icon("check")}{p}</li>' for p in page.get("hero_points", []))
-    return f'''<section class="hero photo-hero">
-  <picture><source media="(max-width:767px)" srcset="/assets/img/ehi-team-mobile.webp"><img class="hero-photo" src="{page.get("hero_photo_desktop", page["hero_photo"])}" alt="{esc(page.get("hero_photo_alt","The EHI Heating and Cooling team"))}" width="1800" height="982" fetchpriority="high"></picture>
-  <div class="wrap"><div class="hero-copy">
-    <p class="kicker">{page.get("kicker","")}</p>
-    <h1><span class="l1">{page["h1_line1"]}</span> <span class="l2">{page["h1_line2"]}</span></h1>
-    <p class="sub">{page["intro"]}</p>
-    <div class="btn-group"><a class="btn btn-call big" href="tel:{PHONE_TEL}">{icon("phone")}Call Today: {PHONE}</a><a class="btn btn-primary big" href="/contact/">Get a Free Quote{icon("arrow")}</a></div>
-    <ul class="hero-points two">{pts}</ul>
-  </div></div>
+    rating = GBP_RATING[0] if GBP_RATING else ""
+    badge = (f'<a class="hh-badge" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">{google_g()}'
+             f'<span><strong>{rating}</strong><span class="stars" aria-hidden="true">{icon("star")*5}</span><small>Google rating</small></span></a>') if rating else ""
+    return f'''<section class="hero home-hero">
+  <div class="wrap hh-grid">
+    <div class="hero-copy">
+      <p class="kicker">{page.get("kicker","")}</p>
+      <h1><span class="l1">{page["h1_line1"]}</span> <span class="l2">{page["h1_line2"]}</span></h1>
+      <p class="sub">{page["intro"]}</p>
+      <div class="btn-group"><a class="btn btn-call big" href="tel:{PHONE_TEL}">{icon("phone")}Call Today: {PHONE}</a><a class="btn btn-primary big" href="/contact/">Get a Free Quote{icon("arrow")}</a></div>
+      <ul class="hero-points two">{pts}</ul>
+    </div>
+    <div class="hh-visual">
+      <picture><source media="(max-width:767px)" srcset="/assets/img/ehi-team-mobile.webp"><img class="hh-photo" src="{page["hero_photo"]}" alt="{esc(page.get("hero_photo_alt","The EHI Heating and Cooling team"))}" width="1800" height="982" fetchpriority="high"></picture>
+      {badge}
+    </div>
+  </div>
 </section>'''
 
 def hero(page):
