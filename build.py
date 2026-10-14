@@ -871,7 +871,15 @@ OLD_REDIRECTS = [
     ("luxury-doors-&-windows", "/"), ("home-renovations", "/"), ("custom-design-decks", "/"), ("insulation/air-sealing", "/"),
 ]
 HTACCESS = "\n".join([
-    "ErrorDocument 404 /404.html", "Options -Indexes", "RewriteEngine On", "# Old site URLs",
+    "ErrorDocument 404 /404.html", "Options -Indexes", "RewriteEngine On",
+    "# One address: https://efficienthomeimprovements.ca (the temporary Hostinger address is left alone)",
+    r"RewriteCond %{HTTP_HOST} ^www\.efficienthomeimprovements\.ca$ [NC]",
+    "RewriteRule ^(.*)$ https://efficienthomeimprovements.ca/$1 [R=301,L]",
+    r"RewriteCond %{HTTP_HOST} ^efficienthomeimprovements\.ca$ [NC]",
+    "RewriteCond %{HTTPS} !=on",
+    "RewriteCond %{HTTP:X-Forwarded-Proto} !https",
+    "RewriteRule ^(.*)$ https://efficienthomeimprovements.ca/$1 [R=301,L]",
+    "# Old site URLs",
 ] + [f"RewriteRule ^{re.escape(a).replace(chr(92)+'-', '-')}/?$ {b} [NC,L,R=301]" for a, b in OLD_REDIRECTS] + [""])
 
 def main():
