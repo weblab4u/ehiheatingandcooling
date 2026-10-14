@@ -49,6 +49,16 @@
   });
 
   // gallery lightbox
+  // gallery row arrows
+  document.querySelectorAll('.gallery-strip').forEach(function(sec){
+    var t=sec.querySelector('.sg-track'),p=sec.querySelector('.sg-prev'),n=sec.querySelector('.sg-next');
+    if(!t||!p||!n)return;
+    function step(){var c=t.querySelector('.sg-card');return c?(c.getBoundingClientRect().width+18)*2:400}
+    function upd(){p.disabled=t.scrollLeft<4;n.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4}
+    p.addEventListener('click',function(){t.scrollBy({left:-step(),behavior:'smooth'})});
+    n.addEventListener('click',function(){t.scrollBy({left:step(),behavior:'smooth'})});
+    t.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+  });
   var opens=[].slice.call(document.querySelectorAll('.sg-open'));
   if(opens.length){
     var arr='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';

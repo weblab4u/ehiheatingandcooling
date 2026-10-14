@@ -505,12 +505,17 @@ def service_gallery(url):
     if not g or not keys:
         return ""
     heading = g[0]
-    figs = "".join(
-        f'<figure class="sg-item"><button type="button" class="sg-open" data-full="/assets/img/work/{k}.webp" data-alt="{esc(GALLERY_PHOTOS[k][1])}" aria-label="Enlarge photo: {esc(GALLERY_PHOTOS[k][1])}">'
-        f'<img src="/assets/img/work/{k}.webp" alt="{esc(GALLERY_PHOTOS[k][1])}" loading="lazy" decoding="async"></button><figcaption>{esc(GALLERY_PHOTOS[k][1])}</figcaption></figure>' for k in keys)
-    return (f'<section class="sec gallery-strip"><div class="wrap"><div class="sg-head"><div><p class="sg-kicker">Our work</p><h2>{esc(heading)}</h2>'
-            f'<p class="lead">Real jobs by our licensed crews in Ontario homes. Tap any photo to enlarge.</p></div>'
-            f'<a class="more" href="/our-work/">See all our work{icon("arrow")}</a></div><div class="sg-grid n{len(keys)}">{figs}</div></div></section>')
+    arrow = icon("arrow")
+    cards = "".join(
+        f'<figure class="sg-card"><button type="button" class="sg-open" data-full="/assets/img/work/{k}.webp" data-alt="{esc(GALLERY_PHOTOS[k][1])}" aria-label="Enlarge photo: {esc(GALLERY_PHOTOS[k][1])}">'
+        f'<img src="/assets/img/work/{k}.webp" alt="{esc(GALLERY_PHOTOS[k][1])}" loading="lazy" decoding="async"><span class="sg-zoom" aria-hidden="true">{icon("arrow")}</span></button>'
+        f'<figcaption>{esc(GALLERY_PHOTOS[k][1])}</figcaption></figure>' for k in keys)
+    nav = (f'<div class="sg-nav"><button class="sg-prev" type="button" aria-label="Previous photos">{arrow}</button>'
+           f'<button class="sg-next" type="button" aria-label="Next photos">{arrow}</button></div>') if len(keys) > 4 else ""
+    return (f'<section class="sec gallery-strip"><div class="wrap"><div class="sg-head"><div><p class="sg-kicker">Our work · {len(keys)} photos</p><h2>{esc(heading)}</h2>'
+            f'<p class="lead">Real jobs by our licensed crews in Ontario homes. Tap a photo to see it full size.</p></div>'
+            f'<div class="sg-actions">{nav}<a class="more" href="/our-work/">See all our work{arrow}</a></div></div>'
+            f'<div class="sg-rail" data-gallery><div class="sg-track count-{len(keys)}">{cards}</div></div></div></section>')
 
 def partners_strip():
     logos = ""
