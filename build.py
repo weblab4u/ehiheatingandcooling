@@ -557,14 +557,9 @@ def reviews_block():
              f'<div class="btn-group small"><a class="btn btn-primary" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">Read our Google reviews{icon("arrow")}</a>'
              f'<a class="btn btn-secondary" href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Write a review</a></div></div>')
     revs = load_reviews()
-    cards = ""
-    for r in revs[:10]:
-        n = max(1, min(5, int(r.get("stars", 5))))
-        who = esc(r.get("name", "Google reviewer"))
-        meta = " · ".join(esc(x) for x in [r.get("city"), r.get("service"), r.get("date")] if x)
-        cards += (f'<li class="review"><div class="review-top">{google_g()}<p class="stars" aria-label="{n} star rating">{icon("star")*n}</p></div>'
-                  f'<blockquote>{esc(r["text"])}</blockquote><p class="who">{who}</p>' + (f'<p class="meta">{meta}</p>' if meta else "") + '</li>')
-    grid = f'<ul class="review-grid">{cards}</ul>' if cards else ""
+    cards = "".join(review_card(r, i, "rv-slide") for i, r in enumerate(revs[:12]))
+    grid = (f'<div class="rv-carousel" data-carousel><button class="rv-nav prev" type="button" aria-label="Previous reviews">{icon("arrow")}</button>'
+            f'<div class="rv-track" tabindex="0">{cards}</div><button class="rv-nav next" type="button" aria-label="Next reviews">{icon("arrow")}</button></div>') if cards else ""
     return (f'<section class="sec reviews-sec"><div class="wrap"><h2>What our customers say</h2>'
             f'<p class="lead">Rated {rating} on Google and voted Best Company 2019, 2020 and 2021 on HomeStars.</p>{panel}{grid}'
             f'<p><a class="more" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">See all our Google reviews{icon("arrow")}</a></p></div></section>')
