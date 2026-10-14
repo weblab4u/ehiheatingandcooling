@@ -590,7 +590,7 @@ def g_reviews_block(b):
                f'<p class="g-powered">Powered by {google_g()} Google</p>'
                f'<a class="btn btn-primary" href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Review us on Google</a>'
                f'<a class="more" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">Read all reviews{icon("arrow")}</a></aside>')
-    revs = load_reviews()
+    revs = [r for r in load_reviews() if not r.get("best")] or load_reviews()
     if revs:
         cards = "".join(review_card(r, i, "rv-slide") for i, r in enumerate(revs[:12]))
         right = (f'<div class="rv-carousel" data-carousel><button class="rv-nav prev" type="button" aria-label="Previous reviews">{icon("arrow")}</button>'
@@ -834,6 +834,7 @@ LIMIT3 = ["unique", "ensure", "utmost"]
 
 def lint(url, html_out):
     text = re.sub(r"<script.*?</script>", "", html_out, flags=re.S)
+    text = re.sub(r"<blockquote>.*?</blockquote>", "", text, flags=re.S)  # customer reviews stay verbatim
     text = re.sub(r"<[^>]+>", " ", text)
     # strip shared chrome noise is overkill; chrome is lint-clean by construction
     probs = []

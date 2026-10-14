@@ -1,4 +1,66 @@
 {
-  "_how_to_add": "Paste real Google reviews here (5 to 10). Each item: name (first name + last initial), city (optional), service (optional), stars (1-5), date (e.g. 'September 2026'), text (the reviewer's exact words). Rebuild with ./deploy.sh.",
-  "reviews": []
+  "_how_to_add": "Real Google reviews, reviewer's exact words (pasted by the owner). Fields: name (first name + last initial), city (optional), service (optional), stars, date, text, best (true = shown in the 'best reviews' grid, the rest go in the carousel). HVAC reviews only. Rebuild with ./deploy.sh.",
+  "reviews": [
+    {
+      "name": "Mark S.",
+      "stars": 5,
+      "date": "August 2026",
+      "service": "Heat pump and AC installation",
+      "text": "We had a heat pump/AC unit installed by EHI, on time, on budget, great workmanship. Julian and team were knowledgeable and courteous. Dustin communicated well and is managing our government rebate for the new efficient system. Thank you Team!"
+    },
+    {
+      "name": "Adam F.",
+      "stars": 5,
+      "date": "December 2025",
+      "city": "Ottawa",
+      "service": "AC replaced with a heat pump",
+      "best": true,
+      "text": "Replaces our AC with a new heat pump in Ottawa and the whole experience was outstanding. From the first call, Dustin was incredibly responsive and communicated clearly every step of the way. He cut through all the usual sales fluff and got straight to what mattered — options, costs, timelines, and what made the most sense for our home. They addressed every concern I had, explained the details discussed my technical questions, and handled the installation quickly and professionally. The quality of the work is excellent, everything was done cleanly, and the system has been running perfectly since. Pricing was fair and transparent, and there were no surprises. It’s rare to find a company that combines speed, honesty, and solid workmanship like this. Highly recommended."
+    },
+    {
+      "name": "Sylvain L.",
+      "stars": 5,
+      "date": "June 2026",
+      "service": "Heat pump installation",
+      "text": "Recently got a shiny new heat pump installed. Went very well, nice unit and it works soooo quietly. These fine folks were very easy to deal with, professional and thourough. Would highly recommend."
+    },
+    {
+      "name": "Mostafa A.",
+      "stars": 5,
+      "date": "January 2026",
+      "city": "Ottawa",
+      "service": "Emergency furnace replacement",
+      "best": true,
+      "text": "Efficient Home Improvements truly went above and beyond. Our furnace failed on Christmas Eve in Ottawa, and their team stayed up late (3:00am) that night to replace it. Their responsiveness, professionalism, and dedication during the holidays were exceptional. The work was completed efficiently, and everything was explained clearly. It’s rare to find a company willing to sacrifice their own holiday time to ensure a customer’s home is warm and safe. I highly recommend Efficient Home improvements to anyone in need of reliable and compassionate service."
+    },
+    {
+      "name": "Rob S.",
+      "stars": 5,
+      "date": "December 2025",
+      "service": "Furnace and tankless water heater",
+      "text": "I recently had a new furnace and tankless water heater installed by this company. Excellent service by both office and technicians , I highly recommend!"
+    },
+    {
+      "name": "Duckie W.",
+      "stars": 5,
+      "date": "2025",
+      "service": "Furnace installation",
+      "text": "The Installers were great.. Got in and got the job done..the furnace works amazing compared to the old one !!! Need a furnace..A/C water tankless system..there your guys!!!!"
+    },
+    {
+      "name": "Chriss H.",
+      "stars": 5,
+      "date": "2025",
+      "service": "Tankless water heater installation",
+      "text": "Had a tankless water heater installed and couldn’t be happier. The installation was quick, professional, and the system works great — endless hot water and more efficient than my old tank. Highly recommend!"
+    },
+    {
+      "name": "Daniel W.",
+      "stars": 5,
+      "date": "2025",
+      "service": "Heat pump replacing a broken AC",
+      "best": true,
+      "text": "Dustin and his team were really responsive and helpful in getting us a new heat pump to replace our broken AC unit. The team went above and beyond helping us through the process and answering other questions about the house we recently moved in to. I would highly recommend Efficient Home Improvements for any of your HVAC needs."
+    }
+  ]
 }
