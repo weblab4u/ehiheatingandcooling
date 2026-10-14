@@ -260,7 +260,7 @@ def footer(show_cta=True):
   <a class="btn btn-primary" href="/contact/">Free Quote</a>
 </div>
 <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile" hidden><button class="m-close" type="button" aria-label="Close menu">Close &#10005;</button>{mobile_nav()}</nav>
-<script src="/assets/js/main.js" defer></script>'''
+<script src="/assets/js/main.js?v={ASSET_V['js']}" defer></script>'''
 
 def mobile_nav():
     out = []
@@ -616,6 +616,11 @@ def related_block(urls):
     cards += fill_cta(len(urls), (4, 2), "div", "Need something else?", "If you don't see it here, call us. We'll point you to the right service or the right person.")
     return f'<section class="sec related"><div class="wrap"><h2>Related services</h2><div class="cards">{cards}</div></div></section>'
 
+import hashlib
+# cache-busting versions: change whenever the file content changes
+ASSET_V = {k: hashlib.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", f)).read().encode()).hexdigest()[:8]
+           for k, f in (("js", "js/main.js"), ("css", "css/style.css"))}
+
 SERVICE_OPTIONS = ["Heat pump installation", "Furnace installation or replacement", "AC installation or replacement", "Ductless mini-split",
                    "Tankless water heater", "Repair (furnace, AC or heat pump)", "Emergency, no heat or no cooling", "Maintenance / tune-up",
                    "Humidifier, HRV/ERV or thermostat", "Rebate eligibility check", "Commercial HVAC (office, retail, warehouse, multi-unit)", "Something else"]
@@ -806,7 +811,7 @@ def render(page):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v={ASSET_V['css']}">
 <script type="application/ld+json">{ld}</script>
 </head>
 <body class="{page.get("body_cls","")}">
