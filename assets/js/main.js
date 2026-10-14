@@ -20,7 +20,7 @@
         .then(function(r){return r.json().catch(function(){return {ok:false};}).then(function(j){j.status=r.status;return j;});})
         .then(function(j){
           if(j.ok){f.querySelectorAll('input:not([type=hidden]),select,textarea,button').forEach(function(x){x.disabled=true;});okMsg.hidden=false;btn.classList.remove('sending');
-            window.dataLayer&&window.dataLayer.push({event:'quote_submitted',form_page:location.pathname});return;}
+            window.gtag&&gtag('event','generate_lead',{form_page:location.pathname,service:(f.querySelector('[name=service]')||{}).value||''});return;}
           if(j.errors){Object.keys(j.errors).forEach(function(k){var i=f.querySelector('[name='+k+']');i&&i.classList.add('error');});fail(j.errors[Object.keys(j.errors)[0]]);return;}
           fail(j.error||'Sorry, that didn\'t go through.');
         })

@@ -612,6 +612,16 @@ def related_block(urls):
     return f'<section class="sec related"><div class="wrap"><h2>Related services</h2><div class="cards">{cards}</div></div></section>'
 
 import hashlib
+GA_ID = "G-V5HRT0TJDR"
+GTAG = f'''<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+
+  gtag('config', '{GA_ID}');
+</script>'''
 # cache-busting versions: change whenever the file content changes
 ASSET_V = {k: hashlib.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", f)).read().encode()).hexdigest()[:8]
            for k, f in (("js", "js/main.js"), ("css", "css/style.css"))}
@@ -793,6 +803,7 @@ def render(page):
 <html lang="en-CA">
 <head>
 <meta charset="utf-8">
+{GTAG}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(page["title"])}</title>
 <meta name="description" content="{esc(page["description"])}">
