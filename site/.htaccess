@@ -1,2 +1,15 @@
 ErrorDocument 404 /404.html
 Options -Indexes
+RewriteEngine On
+# Old site URLs
+RewriteRule ^about-us/?$ /about-ehi/ [NC,L,R=301]
+RewriteRule ^contact-us-1/?$ /contact/ [NC,L,R=301]
+RewriteRule ^rebates/?$ /heat-pump-rebates/ [NC,L,R=301]
+RewriteRule ^payment-plans/?$ /financing/ [NC,L,R=301]
+RewriteRule ^tankless-water-heaters/?$ /water-heater/ [NC,L,R=301]
+RewriteRule ^heating-\&-cooling/?$ /services/ [NC,L,R=301]
+RewriteRule ^commercial/?$ / [NC,L,R=301]
+RewriteRule ^luxury-doors-\&-windows/?$ / [NC,L,R=301]
+RewriteRule ^home-renovations/?$ / [NC,L,R=301]
+RewriteRule ^custom-design-decks/?$ / [NC,L,R=301]
+RewriteRule ^insulation/air-sealing/?$ / [NC,L,R=301]

@@ -633,7 +633,7 @@ def form_block(b=None, compact=False, preselect=None):
     b = b or {}
     opts = "".join(f'<option{" selected" if o == preselect else ""}>{o}</option>' for o in SERVICE_OPTIONS)
     cls = "quote-form compact" if compact else "quote-form"
-    return f'''<form class="{cls}" action="/contact/" method="post" data-quote-form novalidate>
+    return f'''<form class="{cls}" action="/api/quote.php" method="post" data-quote-form novalidate>
   <h3>{b.get("h3","Get your free guaranteed quote")}</h3>
   <p class="form-sub">{b.get("sub","We reply fast during business hours. No pressure, no spam.")}</p>
   <div class="f-row"><label>Name<input type="text" name="name" autocomplete="name" required></label>
@@ -643,9 +643,11 @@ def form_block(b=None, compact=False, preselect=None):
   <label>What do you need?<select name="service">{opts}</select></label>
   <label>Tell us a bit more (optional)<textarea name="message" rows="3" placeholder="e.g. 15-year-old furnace, 2,000 sq ft, want to look at a heat pump and the rebate"></textarea></label>
   <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input type="hidden" name="page" value="">
   <button class="btn btn-primary btn-block" type="submit">{b.get("button","Request My Free Quote")}{icon("arrow")}</button>
   <p class="form-note">Or call <a href="tel:{PHONE_TEL}">{PHONE}</a>. By submitting you agree to our <a href="/privacy-policy/">privacy policy</a>.</p>
-  <p class="form-ok" hidden>Thanks, we got it. We'll be in touch shortly.</p>
+  <p class="form-ok" hidden role="status">Thanks, we got it. We'll be in touch shortly.</p>
+  <p class="form-err" hidden role="alert"></p>
 </form>'''
 
 # ---------------------------------------------------------------- page
@@ -851,6 +853,18 @@ def load_pages():
         if hasattr(m, "PAGES"): pages.extend(m.PAGES)
     return pages
 
+# Old efficienthomeimprovements.ca (GoDaddy builder) URLs. The new site is HVAC only,
+# so the non-HVAC pages (doors and windows, renovations, decks, insulation) go to the homepage.
+OLD_REDIRECTS = [
+    ("about-us", "/about-ehi/"), ("contact-us-1", "/contact/"), ("rebates", "/heat-pump-rebates/"),
+    ("payment-plans", "/financing/"), ("tankless-water-heaters", "/water-heater/"),
+    ("heating-&-cooling", "/services/"), ("commercial", "/"),
+    ("luxury-doors-&-windows", "/"), ("home-renovations", "/"), ("custom-design-decks", "/"), ("insulation/air-sealing", "/"),
+]
+HTACCESS = "\n".join([
+    "ErrorDocument 404 /404.html", "Options -Indexes", "RewriteEngine On", "# Old site URLs",
+] + [f"RewriteRule ^{re.escape(a).replace(chr(92)+'-', '-')}/?$ {b} [NC,L,R=301]" for a, b in OLD_REDIRECTS] + [""])
+
 def main():
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
@@ -879,7 +893,15 @@ def main():
     sm.append("</urlset>")
     open(os.path.join(OUT, "sitemap.xml"), "w").write("\n".join(sm))
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
-    open(os.path.join(OUT, ".htaccess"), "w").write("ErrorDocument 404 /404.html\nOptions -Indexes\n")
+    shutil.copytree(os.path.join(ROOT, "server"), OUT, dirs_exist_ok=True)
+    open(os.path.join(OUT, ".htaccess"), "w").write(HTACCESS)
+    # thank-you page (non-JS form fallback, conversion tracking target)
+    os.makedirs(os.path.join(OUT, "thank-you"), exist_ok=True)
+    open(os.path.join(OUT, "thank-you", "index.html"), "w", encoding="utf-8").write(render({
+        "url": "/thank-you/", "title": "Thanks, We Got Your Request", "description": "Your quote request is in. We reply fast during business hours.",
+        "robots": "noindex, follow", "h1": "Thanks, we got your request", "intro": f"<p>We'll call you back shortly during business hours. Need help sooner? Call <a href=\"tel:{PHONE_TEL}\">{PHONE}</a>.</p>",
+        "hero_points": [], "hero_image": "The EHI Heating and Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
+        "blocks": [{"type": "cards", "items": [{"title": t, "text": b, "link": u} for u, (t, b) in REG.items() if u in ("/heat-pump-rebates/", "/financing/", "/reviews/", "/our-work/")]}]}))
     # 404
     open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(render({
         "url": "/404/", "title": "Page Not Found", "description": "That page moved or never existed. Find HVAC services, rebates and contact info here.",

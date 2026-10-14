@@ -279,6 +279,8 @@ tr:last-child td{border-bottom:0}
 .quote-form .hp{position:absolute;left:-9999px}
 .form-note{font-size:.82rem;color:var(--muted);margin:10px 0 0}
 .form-ok{background:var(--green-light);color:var(--green-dark);padding:12px;border-radius:10px;font-weight:600;margin-top:12px}
+.form-err{background:#fdecec;color:#a61b1b;padding:12px;border-radius:10px;font-weight:600;margin-top:12px}.form-err a{color:inherit;text-decoration:underline}
+.quote-form button.sending{opacity:.7;cursor:progress}
 .quote-form .error{border-color:#c0392b}
 
 /* footer */
