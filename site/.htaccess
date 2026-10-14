@@ -1,6 +1,13 @@
 ErrorDocument 404 /404.html
 Options -Indexes
 RewriteEngine On
+# One address: https://efficienthomeimprovements.ca (the temporary Hostinger address is left alone)
+RewriteCond %{HTTP_HOST} ^www\.efficienthomeimprovements\.ca$ [NC]
+RewriteRule ^(.*)$ https://efficienthomeimprovements.ca/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^efficienthomeimprovements\.ca$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://efficienthomeimprovements.ca/$1 [R=301,L]
 # Old site URLs
 RewriteRule ^about-us/?$ /about-ehi/ [NC,L,R=301]
 RewriteRule ^contact-us-1/?$ /contact/ [NC,L,R=301]
