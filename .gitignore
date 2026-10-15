@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 .claude/
 ehi-leads/
+ehi-mail-config.php

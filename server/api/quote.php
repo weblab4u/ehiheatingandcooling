@@ -50,6 +50,42 @@ function send_mail(string $to, string $subject, string $body, array $headers, st
     return @mail($to, $subject, $body, implode("\r\n", $headers), '-f' . $from);
 }
 
+/**
+ * Private mail settings live OUTSIDE the web root (and outside the public git repo):
+ *   <domain folder>/ehi-mail-config.php  ->  <?php return ['smtp_user' => '...', 'smtp_pass' => '...'];
+ * When present, leads are sent through Google's SMTP server with that account, which passes
+ * Gmail's sender checks. Without it, the handler falls back to the server's sendmail.
+ */
+function mail_config(): ?array {
+    $file = dirname(__DIR__, 2) . '/ehi-mail-config.php';
+    if (!is_file($file)) return null;
+    $c = include $file;
+    return (is_array($c) && !empty($c['smtp_user']) && !empty($c['smtp_pass'])) ? $c : null;
+}
+
+function smtp_send(array $cfg, array $rcpts, string $data, string &$err): bool {
+    $host = $cfg['smtp_host'] ?? 'ssl://smtp.gmail.com';
+    $port = (int)($cfg['smtp_port'] ?? 465);
+    $fp = @stream_socket_client("$host:$port", $no, $str, 10, STREAM_CLIENT_CONNECT);
+    if (!$fp) { $err = "connect: $str"; return false; }
+    stream_set_timeout($fp, 10);
+    $read = function () use ($fp): string { $out = ''; while (($l = fgets($fp, 515)) !== false) { $out .= $l; if (strlen($l) < 4 || $l[3] === ' ') break; } return $out; };
+    $cmd = function (string $c, string $expect) use ($fp, $read, &$err): bool {
+        if ($c !== '') fwrite($fp, $c . "\r\n");
+        $r = $read();
+        if (strncmp($r, $expect, strlen($expect)) !== 0) { $shown = preg_match('/^(EHLO|AUTH LOGIN$|MAIL FROM|RCPT TO|DATA$)/', $c) ? $c : ($c === '' ? '(greeting)' : '(hidden)'); $err = trim($shown . ' -> ' . $r); return false; }
+        return true;
+    };
+    $user = $cfg['smtp_user'];
+    $ok = $cmd('', '220') && $cmd('EHLO efficienthomeimprovements.ca', '250')
+        && $cmd('AUTH LOGIN', '334') && $cmd(base64_encode($user), '334') && $cmd(base64_encode(str_replace(' ', '', $cfg['smtp_pass'])), '235')
+        && $cmd("MAIL FROM:<$user>", '250');
+    foreach ($rcpts as $r) $ok = $ok && $cmd("RCPT TO:<$r>", '25');
+    $ok = $ok && $cmd('DATA', '354') && $cmd(preg_replace('/^\./m', '..', $data) . "\r\n.", '250');
+    @fwrite($fp, "QUIT\r\n"); fclose($fp);
+    return $ok;
+}
+
 function field(string $k, int $max): string {
     $v = trim((string)($_POST[$k] ?? ''));
     $v = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', '', $v) ?? '';
@@ -97,7 +133,7 @@ $hits[] = $now;
 @file_put_contents($rateFile, implode("\n", $hits));
 
 $dryRun = ($_POST['dry_run'] ?? '') === '1';
-if ($dryRun) out(200, ['ok' => true, 'dry_run' => true, 'would_email' => preg_replace('/^(.).*(@.*)$/', '$1***$2', LEAD_TO)]);
+if ($dryRun) out(200, ['ok' => true, 'dry_run' => true, 'would_email' => preg_replace('/^(.).*(@.*)$/', '$1***$2', LEAD_TO), 'mailer' => mail_config() ? 'gmail-smtp' : 'sendmail']);
 
 // Backup copy (CSV) before emailing.
 $csv = $store . '/leads.csv';
@@ -133,7 +169,27 @@ $headers = [
     'X-Mailer: EHI-site',
 ];
 if ($lead['email'] !== '') $headers[] = 'Reply-To: ' . str_replace(["\r", "\n"], '', $lead['name']) . ' <' . $lead['email'] . '>';
-$sent = send_mail(LEAD_TO, '=?UTF-8?B?' . base64_encode($subject) . '?=', implode("\n", $lines), $headers, $from);
+$encSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+$cfg = mail_config();
+if ($cfg) {
+    $smtpHeaders = [
+        'Date: ' . date('r'),
+        'From: EHI Website Leads <' . $cfg['smtp_user'] . '>',
+        'To: ' . LEAD_TO,
+        'Cc: ' . LEAD_CC,
+        'Subject: ' . $encSubject,
+        'Message-ID: <' . bin2hex(random_bytes(12)) . '@efficienthomeimprovements.ca>',
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Transfer-Encoding: 8bit',
+    ];
+    if ($lead['email'] !== '') $smtpHeaders[] = 'Reply-To: ' . str_replace(["\r", "\n", '<', '>'], '', $lead['name']) . ' <' . $lead['email'] . '>';
+    $err = '';
+    $sent = smtp_send($cfg, [LEAD_TO, LEAD_CC], implode("\r\n", $smtpHeaders) . "\r\n\r\n" . str_replace("\n", "\r\n", implode("\n", $lines)), $err);
+    if (!$sent) @file_put_contents($store . '/mail-errors.log', date('c') . ' ' . $err . "\n", FILE_APPEND);
+} else {
+    $sent = send_mail(LEAD_TO, $encSubject, implode("\n", $lines), $headers, $from);
+}
 
 if (!$wantsJson) {
     header('Location: /thank-you/', true, 303);
