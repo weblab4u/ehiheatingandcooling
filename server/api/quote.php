@@ -9,7 +9,7 @@ declare(strict_types=1);
 const LEAD_TO     = 'efficienthomecomfort@gmail.com';
 const LEAD_CC     = 'seo@weblab4u.com';
 const SITE_NAME   = 'EHI Heating & Cooling website';
-const MAX_PER_HOUR = 6;                       // per IP, simple flood guard
+const MAX_PER_HOUR = 12;                      // real submissions per IP per hour (offices can share one IP)
 
 header('Content-Type: application/json; charset=utf-8');
 header('X-Robots-Tag: noindex');
@@ -125,15 +125,15 @@ if (!is_dir($store) || !is_writable($store)) {
 
 // Flood guard per IP (hashed, not stored in clear).
 $ipHash = hash('sha256', ($_SERVER['REMOTE_ADDR'] ?? '') . 'ehi');
-$rateFile = $store . '/rate-' . substr($ipHash, 0, 16) . '.txt';
+$rateFile = $store . '/sent-' . substr($ipHash, 0, 16) . '.txt';
 $now = time();
 $hits = array_filter(array_map('intval', @file($rateFile, FILE_IGNORE_NEW_LINES) ?: []), fn($t) => $t > $now - 3600);
-if (count($hits) >= MAX_PER_HOUR) out(429, ['ok' => false, 'error' => 'Too many requests. Please call 1-647-694-5845.']);
-$hits[] = $now;
-@file_put_contents($rateFile, implode("\n", $hits));
+if (count($hits) >= MAX_PER_HOUR) out(429, ['ok' => false, 'error' => 'We have already received several requests from this connection in the last hour.']);
 
 $dryRun = ($_POST['dry_run'] ?? '') === '1';
 if ($dryRun) out(200, ['ok' => true, 'dry_run' => true, 'would_email' => preg_replace('/^(.).*(@.*)$/', '$1***$2', LEAD_TO), 'mailer' => mail_config() ? 'gmail-smtp' : 'sendmail']);
+$hits[] = $now;
+@file_put_contents($rateFile, implode("\n", $hits));
 
 // Backup copy (CSV) before emailing.
 $csv = $store . '/leads.csv';
