@@ -787,6 +787,11 @@ def render(page):
                   "dateModified": TODAY, "about": {"@id": SITE + "/#organization"}})
     graph.append({"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": BRAND, "publisher": {"@id": SITE + "/#organization"}})
     if crumbs_ld: graph.append(crumbs_ld)
+    crumbs_top = crumbs_html
+    m = re.search(r'<section class="(?:hero [^"]*|banner-hero)"[^>]*>', body) if crumbs_html else None
+    if m:
+        body = body[:m.end()] + crumbs_html.replace('class="crumbs"', 'class="crumbs in-hero"', 1) + body[m.end():]
+        crumbs_top = ""
     if page.get("service"):
         s = page["service"]
         graph.append({"@type": "Service", "name": s["name"], "serviceType": s.get("type", s["name"]), "provider": {"@id": SITE + "/#organization"},
@@ -830,7 +835,7 @@ def render(page):
 </head>
 <body class="{page.get("body_cls","")}">
 {header()}
-{crumbs_html}
+{crumbs_top}
 <main id="main">
 {body}
 </main>

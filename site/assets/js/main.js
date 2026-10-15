@@ -16,15 +16,22 @@
       if(!ok){first&&first.focus();fail('Please fill in your name, phone and city.');return;}
       if(f.querySelector('.hp').value)return;
       err.hidden=true;btn.disabled=true;btn.classList.add('sending');
-      fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-        .then(function(r){return r.json().catch(function(){return {ok:false};}).then(function(j){j.status=r.status;return j;});})
-        .then(function(j){
+      function mailFallback(){var v=function(n){var i=f.querySelector('[name='+n+']');return i?i.value.trim():'';};
+        var body='Name: '+v('name')+'\nPhone: '+v('phone')+'\nEmail: '+v('email')+'\nCity: '+v('city')+'\nService: '+v('service')+'\n\n'+v('message');
+        return '<a href="mailto:efficienthomecomfort@gmail.com?subject='+encodeURIComponent('Quote request: '+v('service'))+'&body='+encodeURIComponent(body)+'">email it to us</a>';}
+      function send(tries){
+        return fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+          .then(function(r){if(r.status>=500&&tries>0)return new Promise(function(ok){setTimeout(ok,2500)}).then(function(){return send(tries-1)});
+            return r.json().catch(function(){return {ok:false,down:true};}).then(function(j){j.status=r.status;return j;});})
+          .catch(function(){if(tries>0)return new Promise(function(ok){setTimeout(ok,2500)}).then(function(){return send(tries-1)});return {ok:false,down:true};});
+      }
+      send(2).then(function(j){
           if(j.ok){f.querySelectorAll('input:not([type=hidden]),select,textarea,button').forEach(function(x){x.disabled=true;});okMsg.hidden=false;btn.classList.remove('sending');
             window.gtag&&gtag('event','generate_lead',{form_page:location.pathname,service:(f.querySelector('[name=service]')||{}).value||''});return;}
           if(j.errors){Object.keys(j.errors).forEach(function(k){var i=f.querySelector('[name='+k+']');i&&i.classList.add('error');});fail(j.errors[Object.keys(j.errors)[0]]);return;}
+          if(j.down||j.status>=500){window.gtag&&gtag('event','form_server_error',{form_page:location.pathname});fail('Our form is having trouble right now. Your details are still here: '+mailFallback()+' in one tap,');return;}
           fail(j.error||'Sorry, that didn\'t go through.');
-        })
-        .catch(function(){fail('Sorry, that didn\'t go through. Check your connection and try again.');});
+        });
     });
   });
   // sticky CTA hides when a form is on screen
