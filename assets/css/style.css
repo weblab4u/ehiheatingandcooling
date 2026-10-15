@@ -833,3 +833,6 @@ body.lb-open{overflow:hidden}
 .svc-hero .crumbs.in-hero a{color:#3f5a4a}
 .svc-hero .crumbs.in-hero [aria-current]{color:var(--green-dark)}
 .banner-hero .crumbs.in-hero ol{justify-content:center}
+.foot-bottom .dev-credit{margin-top:10px;font-size:.85rem;color:#9fb0c2}
+.foot-bottom .dev-credit a{color:#8FD3A3;font-weight:600}
+.foot-bottom .dev-credit a:hover{color:#fff;text-decoration:underline}
