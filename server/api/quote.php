@@ -26,6 +26,30 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 
 $wantsJson = stripos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false;
 
+/**
+ * Hand the message to sendmail directly with a hard time limit, so a slow or stuck
+ * mail server can never leave PHP processes hanging (shared hosting caps processes).
+ * Falls back to mail() where proc_open is disabled.
+ */
+function send_mail(string $to, string $subject, string $body, array $headers, string $from): bool {
+    @set_time_limit(30);
+    $disabled = array_map('trim', explode(',', (string)ini_get('disable_functions')));
+    $sendmail = trim((string)ini_get('sendmail_path')) ?: '/usr/sbin/sendmail -t -i';
+    if (function_exists('proc_open') && !in_array('proc_open', $disabled, true)) {
+        $proc = @proc_open($sendmail . ' -f ' . escapeshellarg($from), [0 => ['pipe', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes);
+        if (is_resource($proc)) {
+            fwrite($pipes[0], "To: $to\r\nSubject: $subject\r\n" . implode("\r\n", $headers) . "\r\n\r\n" . str_replace("\n", "\r\n", $body) . "\r\n");
+            fclose($pipes[0]);
+            $deadline = microtime(true) + 10;
+            do { $st = proc_get_status($proc); if (!$st['running']) break; usleep(100000); } while (microtime(true) < $deadline);
+            if ($st['running']) proc_terminate($proc, 9);
+            @fclose($pipes[1]); @fclose($pipes[2]); proc_close($proc);
+            return !$st['running'] && $st['exitcode'] === 0;
+        }
+    }
+    return @mail($to, $subject, $body, implode("\r\n", $headers), '-f' . $from);
+}
+
 function field(string $k, int $max): string {
     $v = trim((string)($_POST[$k] ?? ''));
     $v = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', '', $v) ?? '';
@@ -79,14 +103,13 @@ if ($dryRun) out(200, ['ok' => true, 'dry_run' => true, 'would_email' => preg_re
 $csv = $store . '/leads.csv';
 $isNew = !file_exists($csv);
 if ($fh = @fopen($csv, 'a')) {
-    if ($isNew) fputcsv($fh, ['received', 'name', 'phone', 'email', 'city', 'service', 'message', 'page']);
-    fputcsv($fh, array_merge([date('c')], array_values($lead)));
+    if ($isNew) fputcsv($fh, ['received', 'name', 'phone', 'email', 'city', 'service', 'message', 'page'], ',', '"', '\\');
+    fputcsv($fh, array_merge([date('c')], array_values($lead)), ',', '"', '\\');
     fclose($fh);
 }
 
 // Email
-$host = preg_replace('/[^a-z0-9.\-]/i', '', $_SERVER['HTTP_HOST'] ?? 'efficienthomeimprovements.ca');
-$from = 'no-reply@' . preg_replace('/^www\./', '', $host);
+$from = 'no-reply@efficienthomeimprovements.ca';
 $subject = 'New quote request: ' . ($lead['service'] ?: 'HVAC') . ' (' . $lead['city'] . ')';
 $lines = [
     'New quote request from the ' . SITE_NAME,
@@ -110,10 +133,11 @@ $headers = [
     'X-Mailer: EHI-site',
 ];
 if ($lead['email'] !== '') $headers[] = 'Reply-To: ' . str_replace(["\r", "\n"], '', $lead['name']) . ' <' . $lead['email'] . '>';
-$sent = @mail(LEAD_TO, '=?UTF-8?B?' . base64_encode($subject) . '?=', implode("\n", $lines), implode("\r\n", $headers), '-f' . $from);
+$sent = send_mail(LEAD_TO, '=?UTF-8?B?' . base64_encode($subject) . '?=', implode("\n", $lines), $headers, $from);
 
 if (!$wantsJson) {
     header('Location: /thank-you/', true, 303);
     exit;
 }
-out(200, ['ok' => true, 'emailed' => (bool)$sent]);
+if (!$sent) out(200, ['ok' => false, 'down' => true, 'error' => 'We could not send that just now.']);
+out(200, ['ok' => true, 'emailed' => true]);
