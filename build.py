@@ -253,7 +253,8 @@ def footer(show_cta=True):
     <h3>Hours</h3><p>Monday to Saturday, 8:00 am to 8:00 pm<br>Sunday, 10:00 am to 5:00 pm<br>Emergency service evenings, weekends and holidays</p></div>
 </div>
 <div class="wrap foot-bottom"><p>&copy; {datetime.date.today().year} {esc(LEGAL)}. All rights reserved. <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms/">Terms</a> · <a href="/sitemap.xml">Sitemap</a></p>
-<p class="small">Rebate amounts and eligibility are set by the Home Renovation Savings Program and can change. This website is not operated by any government program. Financing on approved credit.</p></div>
+<p class="small">Rebate amounts and eligibility are set by the Home Renovation Savings Program and can change. This website is not operated by any government program. Financing on approved credit.</p>
+<p class="dev-credit">Website developed and SEO optimized by <a href="https://weblab4u.ca/" target="_blank" rel="noopener">WebLab4u</a></p></div>
 </footer>
 <div class="sticky-cta" aria-hidden="false">
   <a class="btn btn-call" href="tel:{PHONE_TEL}">{icon("phone")}Call Now</a>
