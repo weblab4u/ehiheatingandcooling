@@ -109,8 +109,7 @@ if ($fh = @fopen($csv, 'a')) {
 }
 
 // Email
-$host = preg_replace('/[^a-z0-9.\-]/i', '', $_SERVER['HTTP_HOST'] ?? 'efficienthomeimprovements.ca');
-$from = 'no-reply@' . preg_replace('/^www\./', '', $host);
+$from = 'no-reply@efficienthomeimprovements.ca';
 $subject = 'New quote request: ' . ($lead['service'] ?: 'HVAC') . ' (' . $lead['city'] . ')';
 $lines = [
     'New quote request from the ' . SITE_NAME,
