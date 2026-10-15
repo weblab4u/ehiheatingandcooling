@@ -27,13 +27,23 @@
       }
       send(2).then(function(j){
           if(j.ok){f.querySelectorAll('input:not([type=hidden]),select,textarea,button').forEach(function(x){x.disabled=true;});okMsg.hidden=false;btn.classList.remove('sending');
-            window.gtag&&gtag('event','generate_lead',{form_page:location.pathname,service:(f.querySelector('[name=service]')||{}).value||''});return;}
+            var v=function(n){var i=f.querySelector('[name='+n+']');return i?i.value.trim():'';};
+            try{sessionStorage.setItem('ehi_ty',JSON.stringify({name:v('name').split(/\s+/)[0],service:v('service'),city:v('city'),phone:v('phone')}));}catch(e){}
+            var went=false,go=function(){if(!went){went=true;location.assign('/thank-you/');}};
+            if(window.gtag){gtag('event','generate_lead',{form_page:location.pathname,service:v('service'),event_callback:go});setTimeout(go,1200);}else go();
+            return;}
           if(j.errors){Object.keys(j.errors).forEach(function(k){var i=f.querySelector('[name='+k+']');i&&i.classList.add('error');});fail(j.errors[Object.keys(j.errors)[0]]);return;}
           if(j.down||j.status>=500){window.gtag&&gtag('event','form_server_error',{form_page:location.pathname});fail('Our form is having trouble right now. Your details are still here: '+mailFallback()+' in one tap,');return;}
           fail(j.error||'Sorry, that didn\'t go through.');
         });
     });
   });
+  // thank-you page: show the visitor's first name and what they sent (kept in this tab only, then cleared)
+  var tyName=document.querySelector('[data-ty-name]');
+  if(tyName){try{var d=JSON.parse(sessionStorage.getItem('ehi_ty')||'null');sessionStorage.removeItem('ehi_ty');
+    if(d){if(d.name)tyName.textContent=', '+d.name;var dl=document.querySelector('[data-ty-list]'),rows=[['Service',d.service],['City',d.city],['We\'ll call',d.phone]].filter(function(r){return r[1];});
+      rows.forEach(function(r){var dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=r[0];dd.textContent=r[1];dl.appendChild(dt);dl.appendChild(dd);});
+      if(rows.length)document.querySelector('[data-ty-summary]').hidden=false;}}catch(e){}}
   // sticky CTA hides when a form is on screen
   var s=document.querySelector('.sticky-cta'),forms=document.querySelectorAll('.quote-form');
   if(s&&forms.length&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){var v=es.some(function(x){return x.isIntersecting});s.style.display=v?'none':'';var sn=document.querySelector('.scroll-nav');if(sn&&window.innerWidth<1024)sn.style.display=v?'none':'';});forms.forEach(function(f){io.observe(f)});}

@@ -761,7 +761,7 @@ def render(page):
                 f'{cta_buttons(page.get("cta_primary","Get a Free Quote"))}</div></section>')
         blocks = list(page.get("blocks", []))
     else:
-        body = hero(page) if page.get("h1") else ""
+        body = page.get("custom_hero") or (hero(page) if page.get("h1") else "")
         blocks = list(page.get("blocks", []))
     has_brand_grid = any(b.get("type") == "brands" for b in page.get("blocks", []))
     strip = "" if page.get("no_partners") or not page.get("h1") or article or has_brand_grid or page.get("banner") else partners_strip()
@@ -840,7 +840,7 @@ def render(page):
 <main id="main">
 {body}
 </main>
-{footer(show_cta=not page.get('layout') == 'article')}
+{footer(show_cta=not (page.get('layout') == 'article' or page.get('no_final_cta')))}
 </body>
 </html>'''
 
@@ -929,13 +929,32 @@ def main():
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
     shutil.copytree(os.path.join(ROOT, "server"), OUT, dirs_exist_ok=True)
     open(os.path.join(OUT, ".htaccess"), "w").write(HTACCESS)
-    # thank-you page (non-JS form fallback, conversion tracking target)
+    # thank-you page: every successful quote form lands here (JS redirect, or the PHP 303 without JS)
     os.makedirs(os.path.join(OUT, "thank-you"), exist_ok=True)
+    ty_hero = f'''<section class="ty-hero"><div class="wrap narrow">
+  <div class="ty-check" aria-hidden="true"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg></div>
+  <p class="kicker">Request received</p>
+  <h1>Thanks<span class="ty-name" data-ty-name></span>, we got your request</h1>
+  <p class="ty-lead">A real person from our team will call you back, usually within a few business hours. Requests that come in after hours get a call first thing the next morning.</p>
+  <div class="ty-summary" data-ty-summary hidden><p class="ty-summary-h">What you sent us</p><dl data-ty-list></dl></div>
+  <div class="btn-group ty-actions"><a class="btn btn-call" href="tel:{PHONE_TEL}">{icon("phone")}Call {PHONE}</a><a class="btn btn-secondary" href="/">Back to the homepage</a></div>
+  <p class="ty-hours">{icon("clock")}Monday to Saturday 8 am to 8 pm, Sunday 10 am to 5 pm</p>
+</div></section>'''
+    ty_next = [
+        ("1", "phone", "We call you back", "Usually within a few business hours. We'll ask about your home or building, your current system and what's bugging you about it."),
+        ("2", "house", "We take a look", "An in-home visit or a quick video call, whichever suits you. We measure, check the ductwork and electrical, and answer every question."),
+        ("3", "clipboard", "You get a written, guaranteed quote", "One price that won't change, with your rebate estimate and monthly financing options laid out. No pressure to sign anything."),
+    ]
+    steps_html = "".join(f'<li><span class="ty-num">{n}</span><span class="ty-ic">{icon(ic)}</span><h3>{t}</h3><p>{x}</p></li>' for n, ic, t, x in ty_next)
+    ty_body = (f'<section class="sec ty-next"><div class="wrap"><h2 class="center">What happens next</h2><ol class="ty-steps">{steps_html}</ol></div></section>'
+               f'<section class="sec ty-urgent-sec"><div class="wrap"><div class="ty-urgent"><div><h2>No heat or no cooling right now?</h2>'
+               "<p>Don't wait for our callback. Call us and we'll get a technician moving. We handle emergencies evenings, weekends and holidays.</p></div>"
+               f'<a class="btn btn-call big" href="tel:{PHONE_TEL}">{icon("phone")}Call {PHONE}</a></div></div></section>')
     open(os.path.join(OUT, "thank-you", "index.html"), "w", encoding="utf-8").write(render({
-        "url": "/thank-you/", "title": "Thanks, We Got Your Request", "description": "Your quote request is in. We reply fast during business hours.",
-        "robots": "noindex, follow", "h1": "Thanks, we got your request", "intro": f"<p>We'll call you back shortly during business hours. Need help sooner? Call <a href=\"tel:{PHONE_TEL}\">{PHONE}</a>.</p>",
-        "hero_points": [], "hero_image": "The EHI Heating and Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
-        "blocks": [{"type": "cards", "items": [{"title": t, "text": b, "link": u} for u, (t, b) in REG.items() if u in ("/heat-pump-rebates/", "/financing/", "/reviews/", "/our-work/")]}]}))
+        "url": "/thank-you/", "title": "Thanks, We Got Your Request", "description": "Your quote request is in. A real person will call you back, usually within a few business hours.",
+        "robots": "noindex, nofollow", "h1": "Thanks, we got your request", "intro": "", "no_partners": True, "no_final_cta": True, "body_cls": "ty-page",
+        "custom_hero": ty_hero + ty_body,
+        "blocks": [{"type": "cards", "h2": "While you wait", "items": [{"title": t, "text": b, "link": u} for u, (t, b) in REG.items() if u in ("/heat-pump-rebates/", "/financing/", "/reviews/", "/our-work/")]}]}))
     # 404
     open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(render({
         "url": "/404/", "title": "Page Not Found", "description": "That page moved or never existed. Find HVAC services, rebates and contact info here.",
