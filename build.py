@@ -423,7 +423,10 @@ def why_block():
     lis += fill_cta(len(items), (4, 2), "li", "Ready when you are", "Call us or send the form. Quotes are free, guaranteed and come with your rebate estimate.")
     return f'<section class="sec why" id="why-ehi"><div class="wrap"><h2>Why Ontario homes and businesses choose EHI Heating &amp; Cooling</h2><ul class="why-grid">{lis}</ul></div></section>'
 
-CITY_ALIASES = {"Kitchener": "kitchener-waterloo", "Waterloo": "kitchener-waterloo"}
+CITY_ALIASES = {"Kitchener": "kitchener-waterloo", "Waterloo": "kitchener-waterloo", "East York": "toronto", "Maple": "vaughan",
+                "Keswick": "georgina", "Bolton": "caledon", "Halton Hills": "georgetown", "Clarington": "bowmanville",
+                "Penetanguishene": "midland", "Angus": "alliston", "Thorold": "st-catharines", "Dundas": "hamilton",
+                "Lindsay": "kawartha-lakes", "Petawawa": "pembroke", "Orleans": "orleans"}
 def city_href(name):
     """URL of the city landing page for a place name, or None if that page doesn't exist (yet)."""
     slug = CITY_ALIASES.get(name, re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"))
@@ -882,30 +885,44 @@ HERO_SLOTS = {"A": ["out", "in", "any"], "B": ["out"], "C": ["out", "in", "in"],
 MOSAIC_KINDS = ["out", "in", "sys", "in", "out", "detail"]
 
 def allocate_city_photos(pages):
-    """Give every city page its own photo set: hero photos are never reused as another city's hero,
-    body photos go least-used first (new photos before older ones), and nothing repeats within a page."""
+    """Give every city page its own photo set. Batches are allocated in order, so adding a new batch never
+    changes photos on pages that are already published. Within a batch: heroes first (never a hero another
+    city already uses while unused ones remain, never a hero a neighbouring city uses), then section photos
+    least-used first (new photos before older ones). Nothing repeats within a page."""
     import zlib
     have = [k for k in CITY_PHOTOS if os.path.exists(os.path.join(ROOT, "assets", "img", "work", k + ".webp"))]
     usage = {k: 0 for k in have}
-    hero_used = set()
-    city_pages = [pg for pg in pages if pg.get("city")]
+    hero_count = {k: 0 for k in have}
+    hero_by_url = {}
+    neighbours = {}
+    for c in CITIES:
+        u = f"/{c['slug']}/"
+        neighbours.setdefault(u, set()).update(f"/{n}/" for n in c["nearby"])
+        for n in c["nearby"]: neighbours.setdefault(f"/{n}/", set()).add(u)
     def pick(url, kind, taken, hero=False):
         pool = [k for k in have if k not in taken and (kind == "any" or CITY_PHOTOS[k][0] == kind)]
-        if hero: pool = [k for k in pool if k not in hero_used] or pool
         if not pool: pool = [k for k in have if k not in taken]
-        pool.sort(key=lambda k: (usage[k], k not in CITY_NEW, zlib.crc32((url + k).encode())))
+        if hero:
+            near = {k for n in neighbours.get(url, ()) for k in hero_by_url.get(n, [])}
+            pool = [k for k in pool if k not in near] or pool
+            pool.sort(key=lambda k: (hero_count[k], usage[k], k not in CITY_NEW, zlib.crc32((url + k).encode())))
+        else:
+            pool.sort(key=lambda k: (usage[k], k not in CITY_NEW, zlib.crc32((url + k).encode())))
         k = pool[0]; usage[k] += 1; taken.add(k)
-        if hero: hero_used.add(k)
+        if hero: hero_count[k] += 1; hero_by_url.setdefault(url, []).append(k)
         return k
-    taken_by = {pg["url"]: set() for pg in city_pages}
-    for pg in city_pages:                        # pass 1: heroes, so each city gets a hero nobody else has
-        pg["_hero_imgs"] = [pick(pg["url"], kind, taken_by[pg["url"]], hero=True) for kind in HERO_SLOTS[pg["layout"]]]
-    for pg in city_pages:                        # pass 2: section photos
-        for b in pg.get("blocks", []):
-            if b["type"] == "mosaic":
-                b["_imgs"] = [pick(pg["url"], k, taken_by[pg["url"]]) for k in MOSAIC_KINDS[:b.get("count", 5)]]
-            elif b.get("photo"):
-                b["_imgs"] = [pick(pg["url"], b["photo"], taken_by[pg["url"]])]
+    city_pages = [pg for pg in pages if pg.get("city")]
+    for batch in sorted({CITY_BY_SLUG[pg["city"]].get("batch", 1) for pg in city_pages}):
+        group = [pg for pg in city_pages if CITY_BY_SLUG[pg["city"]].get("batch", 1) == batch]
+        taken_by = {pg["url"]: set() for pg in group}
+        for pg in group:                          # pass 1: heroes
+            pg["_hero_imgs"] = [pick(pg["url"], kind, taken_by[pg["url"]], hero=True) for kind in HERO_SLOTS[pg["layout"]]]
+        for pg in group:                          # pass 2: section photos
+            for b in pg.get("blocks", []):
+                if b["type"] == "mosaic":
+                    b["_imgs"] = [pick(pg["url"], k, taken_by[pg["url"]]) for k in MOSAIC_KINDS[:b.get("count", 5)]]
+                elif b.get("photo"):
+                    b["_imgs"] = [pick(pg["url"], b["photo"], taken_by[pg["url"]])]
     return usage
 
 def city_img(k, cls="", eager=False):
@@ -991,7 +1008,8 @@ def city_block(b, page):
 
 def nearby_block(page):
     c = CITY_BY_SLUG[page["city"]]
-    links = "".join(f'<li><a href="/{s}/">{icon("pin")}HVAC {esc(CITY_BY_SLUG[s]["name"])}</a></li>' for s in c["nearby"] if f"/{s}/" in CITY_PAGES)
+    slugs = list(c["nearby"]) + [o["slug"] for o in CITIES if c["slug"] in o["nearby"] and o["slug"] not in c["nearby"]]
+    links = "".join(f'<li><a href="/{s}/">{icon("pin")}HVAC {esc(CITY_BY_SLUG[s]["name"])}</a></li>' for s in [x for x in slugs if f"/{x}/" in CITY_PAGES][:7])
     if not links: return ""
     return (f'<section class="sec nearby-sec"><div class="wrap"><h2>{page.get("nearby_h2", "We also serve communities near " + esc(c["name"]))}</h2>'
             f'<ul class="nearby">{links}<li><a class="all" href="/service-areas/">All service areas{icon("arrow")}</a></li></ul></div></section>')

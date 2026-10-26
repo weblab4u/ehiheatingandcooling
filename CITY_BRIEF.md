@@ -70,3 +70,18 @@ Photos are assigned automatically: never write image paths. Just add `"photo": "
 ## Check your work
 Run `python3 tools/check_city.py content/city-<slug>.py` for each of your files and fix until it prints ALL OK.
 Do NOT run `python3 build.py` (other writers are working at the same time). Do not edit any file except your own `content/city-*.py` files.
+
+## Batch 2 notes (the remaining service-area communities)
+- **Districts of a bigger city** (Scarborough, North York, Etobicoke, Thornhill, Woodbridge, Stoney Creek, Ancaster, Kanata, Orléans, Nepean):
+  the parent city already has a page. Your page must be built on the district's own angle in data/cities.py, use different
+  headings and problems from the parent page (read it first: content/city-<parent>.py), and link to the parent once in body copy
+  (e.g. `<a href="/toronto/">HVAC in Toronto</a>`). Parents: Scarborough, North York, Etobicoke -> /toronto/;
+  Thornhill -> /vaughan/ and /markham/; Woodbridge -> /vaughan/; Stoney Creek, Ancaster -> /hamilton/; Kanata, Orléans, Nepean -> /ottawa/.
+- **Pages that also cover a neighbouring place** (named in the region field): Georgina covers Keswick, Caledon covers Bolton,
+  Georgetown covers Halton Hills and Acton, Bowmanville covers Clarington, Midland covers Penetanguishene, Alliston covers Angus,
+  St. Catharines covers Thorold, Kawartha Lakes covers Lindsay. Mention the covered place by name in the intro and at least one heading.
+- **Small towns** (under roughly 30,000 people) can be shorter: 800 to 1,000 words of your own copy is enough. Don't pad.
+- Use the exact `name` from data/cities.py in keyword headings, including punctuation and accents (e.g. "St. Catharines", "Orléans",
+  "Niagara-on-the-Lake", "Sault Ste. Marie").
+- Before finishing, compare your pages against ALL other content/city-*.py files (there are 27 published already plus other
+  writers' new ones) and reword any shared sentence, heading, problem title or FAQ question.

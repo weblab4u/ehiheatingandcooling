@@ -1,0 +1,58 @@
+PAGE = {
+ "url": "/bowmanville/", "city": "bowmanville", "layout": "D", "priority": "0.7",
+ "title": "HVAC Bowmanville | Upgrades for New Clarington Homes",
+ "description": "Bowmanville HVAC for new-build homes: add central air or a heat pump, upgrade builder-grade furnaces and fix uneven rooms. Get your guaranteed quote today.",
+ "eyebrow": "Bowmanville · Clarington",
+ "h1": "Bowmanville HVAC Contractor for New and Growing Clarington Homes",
+ "tagline": "Your new house should feel as good as it looks",
+ "intro": "<p>Bought a new home and found the HVAC in Bowmanville came with the bare minimum? It happens a lot. We upgrade builder-grade furnaces, add central air or a cold-climate heat pump, and fix rooms that never feel right, in new subdivisions and older homes across Clarington and the rest of Durham Region, Ontario.</p>",
+ "hero_points": ["Air conditioning or a heat pump added to a builder furnace", "Room-by-room airflow testing",
+                 "Guaranteed price, no extras on the agreed scope", "Heat pump rebate paperwork handled"],
+ "service": {"name": "HVAC services in Bowmanville", "type": "HVAC contractor", "area": "Bowmanville"},
+ "blocks": [
+  {"type": "svc_links", "h2": "HVAC services in Bowmanville for new and older homes",
+   "lead": "Pick the service that matches your house. Each page covers the equipment, the options and the costs.",
+   "items": [
+    {"url": "/heat-pump/central/", "title": "Heat pump installation in Bowmanville", "text": "Add a ducted cold-climate heat pump to your furnace for cooling and lower-cost heat."},
+    {"url": "/ac/", "title": "Central air conditioning in Bowmanville", "text": "Central air for new homes that were handed over with heat only."},
+    {"url": "/furnace/high-efficiency/", "title": "Furnace upgrades", "text": "Swap a basic single-stage builder furnace for a two-stage, variable-speed model."},
+    {"url": "/ac/ductless-mini-split/", "title": "Ductless for problem rooms", "text": "A wall-mounted head for a loft, an office or a finished basement that lags behind."},
+    {"url": "/services/hrv-erv/", "title": "HRV and ERV service", "text": "Fresh air and moisture control for tightly built new homes."},
+    {"url": "/services/thermostats/", "title": "Smart thermostat setup", "text": "Better scheduling and control, with a $100 rebate where eligible."},
+    {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Bowmanville", "text": "Ignition, blower and pressure switch faults on older and newer furnaces."},
+    {"url": "/services/emergency-hvac/", "title": "Emergency HVAC across Clarington", "text": "Evenings, weekends and holidays when the heat or cooling stops."}]},
+  {"type": "checklist", "photo": "out", "h2": "Why rooms in a new Clarington home feel wrong: our airflow checklist",
+   "lead": "Builders pick equipment to pass inspection and hit a budget. These are the gaps we look for first.",
+   "items": ["Furnace and AC size compared with a room-by-room heat-loss and heat-gain calculation",
+             "Return air on the second floor, where many new homes come up short",
+             "Supply runs to rooms at the far end of the house",
+             "Damper settings that were never balanced after move-in",
+             "Duct joints left unsealed in the basement",
+             "Thermostat placement, often in a spot that misreads the house",
+             "HRV airflow and whether it was ever set up properly",
+             "Room in the electrical panel for a heat pump's 240V breaker"]},
+  {"type": "split", "photo": "in", "h2": "Adding air conditioning in Bowmanville to a builder furnace",
+   "html": "<p>Plenty of new homes in Bowmanville West, Brookhill and Northglen were handed over with a furnace and no cooling. The ducts are there. The coil and the outdoor unit aren't.</p>"
+           "<p>That makes this a good moment to think past a basic AC. A cold-climate heat pump installs the same way, cools just like central air, and also heats the house through most of the winter. Your furnace stays as backup for the coldest Durham nights.</p>"
+           "<p>The catch with builder equipment is size and quality. A basic single-stage furnace blower may struggle to move the airflow a new coil needs. We check that before we quote, and if the furnace is the weak link, we tell you.</p>"
+           "<ul class=\"checklist\"><li>Central AC or a ducted heat pump matched to your furnace and ducts</li><li>Pad or wall bracket placed with your neighbours and lot lines in mind</li><li>Refrigerant lines and condensate drain routed neatly</li><li>Rebate pre-approval sorted out before the crew arrives</li></ul>"},
+  {"type": "mosaic", "count": 5, "h2": "Our installers' recent work",
+   "lead": "Recent Ontario jobs from our crew: heat pumps, coils, furnaces and ductless heads, installed with the same care we bring to every Clarington home."},
+  {"type": "quote_split", "photo": "any", "h2": "Book an HVAC technician in Bowmanville for an airflow check",
+   "form_h3": "Request your Bowmanville upgrade quote",
+   "html": "<p>Still fiddling with vents and wearing a sweater in one room while the next one is too warm? Tell us which rooms feel off, and at what time of day. We'll measure the airflow, find the cause and give you a guaranteed price for the fix.</p>"
+           "<p>Sometimes that's a damper adjustment. Sometimes it's an extra return, a ductless head or a better furnace. We'll lay out the options and let you choose.</p>"
+           "<ul class=\"checklist\"><li>Free written quote with model numbers</li><li>0% interest over 3, 6 or 9 months on approved credit</li><li>Up to 12 years of parts and labour coverage on select systems</li><li>TSSA-certified gas techs and licensed refrigeration techs on every job</li></ul>"},
+  {"type": "gbp", "h2": "Check our Google listing before you call",
+   "lead": "See our verified profile, hours and reviews. We're based in Whitchurch-Stouffville and come out to homes in Bowmanville, Courtice, Newcastle and across Durham Region."},
+  {"type": "neighbourhoods", "h2": "Bowmanville and Clarington communities we serve",
+   "lead": "From the heritage streets downtown to the new subdivisions at the edge of town and the villages beyond, we work across Clarington, including:"}],
+ "faqs": [
+  ("Can I add air conditioning in Bowmanville to a new home that only has a furnace?", "Yes, as long as the house has ducts. We add a matched coil and outdoor unit, or a cold-climate heat pump that also heats, after checking that the furnace blower can handle the airflow."),
+  ("Why does one room in my new Bowmanville house never feel right?", "Usually the room isn't getting the airflow it needs, because the dampers were never balanced or the return path is weak. We measure it, then balance the ducts, add a return or install a ductless head."),
+  ("Should I replace a builder-grade furnace that's only a few years old?", "Not always. If it works and is sized correctly, adding a heat pump or fixing the airflow may be the better spend, and we'll tell you when that's the case."),
+  ("Where does pricing start for heat pump installation in Bowmanville?", "A ducted cold-climate heat pump starts at $5,500 installed. Installed pricing depends on size and installation requirements, and the price on your quote is guaranteed."),
+  ("Do your HVAC services in Bowmanville extend to Newcastle and Orono?", "Yes. We serve Bowmanville, Courtice, Newcastle, Orono, Hampton, Enniskillen and the rural parts of Clarington."),
+  ("Do new homes in Clarington qualify for heat pump rebates?", "Many do. Enbridge gas-heated homes commonly qualify for up to $2,000 toward a qualifying cold-climate heat pump, and pre-approval must be in place before installation.")],
+ "related": ["/heat-pump/central/", "/ac/", "/ac/ductless-mini-split/", "/services/hrv-erv/", "/services/thermostats/", "/heat-pump-rebates/"],
+}

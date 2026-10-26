@@ -1,0 +1,71 @@
+PAGE = {
+ "url": "/north-york/", "city": "north-york", "layout": "F", "priority": "0.7",
+ "title": "HVAC North York | Sizing for Rebuilds and Custom Homes",
+ "description": "North York HVAC for new custom homes and original bungalows: load-based sizing, zoning and system upgrades. Guaranteed quote. Call 1-647-694-5845.",
+ "eyebrow": "North York · Toronto's north end",
+ "h1": "North York HVAC Services for New Custom Homes and the Bungalows Beside Them",
+ "tagline": "Same street, two very different houses",
+ "intro": "<p>On plenty of North York streets, a 1950s bungalow sits right next to a 4,000 square foot rebuild, and the two need completely different HVAC. We size heating and cooling for large custom homes from a proper load calculation, zone them so every floor stays comfortable, and replace undersized original systems in the older houses next door. You get a guaranteed written price before any work begins.</p>",
+ "hero_points": ["Room-by-room Manual J sizing, never a square-foot guess", "Zoning and two-system designs for large rebuilds",
+                 "Upgrades for undersized original furnaces and ACs", "Permits, warranty registration and rebate paperwork handled"],
+ "hero_stats": [("Toronto Hydro", "Electricity distributor"), ("2 to 5 tons", "Ducted heat pump range"),
+                ("Up to 97%", "AFUE on the Lennox EL297V"), ("Up to $7,500", "Heat pump rebate, where eligible")],
+ "service": {"name": "HVAC services in North York", "type": "HVAC contractor", "area": "North York"},
+ "blocks": [
+  {"type": "split", "photo": "in", "reverse": False,
+   "h2": "Heating and cooling in North York's big rebuilds starts with the right size",
+   "html": "<p>A new custom home in Willowdale or York Mills is a very different building from the bungalow it replaced. Tighter walls, better windows, high ceilings, a finished lower level and often a wall of glass across the back. Heat loss and heat gain don't scale neatly with floor area, so a contractor who sizes by square footage usually gets it wrong.</p>"
+           "<p>Oversizing is the most common mistake we find. A furnace or AC that's too big runs in short bursts, leaves rooms uneven and does a poor job of pulling humidity out on a sticky July night. North York sits inland, away from the lake breeze, so summer cooling and dehumidifying matter as much as winter heat here.</p>"
+           "<p>We work from a Manual J load calculation, room by room, using the drawings or the finished house. Then we choose between one variable-speed system with zoning, two separate systems, or a main system plus ductless for a loft or a lower-level media room. Still at the planning stage? Bring us in early so the duct chases and mechanical room are big enough. For semis, laneway lots and the rest of the city, our page on <a href=\"/toronto/\">HVAC in Toronto</a> covers those jobs.</p>"
+           "<ul class=\"checklist\"><li>Room-by-room heat-loss and heat-gain calculation</li>"
+           "<li>Duct design checked against the blower's rated static pressure</li>"
+           "<li>Zone thermostats placed where they read real room conditions</li>"
+           "<li>A second system for upper floors when one can't serve the whole house</li></ul>"},
+  {"type": "problems", "h2": "Rebuild or original bungalow: the calls a North York HVAC technician gets",
+   "lead": "The houses couldn't be more different, but the problems fall into a few clear patterns.",
+   "items": [
+    {"problem": "The house is only two years old and the floors are still uneven", "solution": "That usually points to one large system with no zoning, or ducts that were never balanced after the build. We measure airflow at each register, set the dampers and, where it's needed, add zoning so each floor gets its own thermostat."},
+    {"problem": "The AC short cycles and the air still feels damp", "solution": "An oversized air conditioner drops the temperature fast and shuts off before it removes much moisture. We compare the load with the equipment, and a right-sized or variable-speed system runs longer at low speed and actually dries the air."},
+    {"problem": "The original furnace can't keep up since the renovation", "solution": "Finishing the basement, adding a sunroom or opening up walls changes the load, but the furnace stayed the same. We recalculate and size a new system for the house you live in now."},
+    {"problem": "Bungalow ducts are too small for central air", "solution": "Many post-war homes in Bathurst Manor and Don Mills had ducts sized for heat only. We test static pressure and tell you plainly whether to upsize a few runs, add a return or go with a high-wall ductless head instead."},
+    {"problem": "Two systems in the new house seem to fight each other", "solution": "When the upper and lower systems share an open stairwell, one ends up doing the other's job. We check thermostat placement, set sensible schedules and balance the two so they stop overlapping."},
+    {"problem": "The lower-level gym or media room is always stuffy", "solution": "Rooms with lots of people and equipment need their own airflow. A ductless head or a dedicated zone handles the extra heat without overcooling the rest of the floor."}]},
+  {"type": "svc_links", "h2": "HVAC services in North York, from new installs to upgrades",
+   "lead": "Pick what fits your house. Each page explains the options and the equipment we use.",
+   "items": [
+    {"url": "/furnace/high-efficiency/", "title": "Furnace installation in North York", "text": "Two-stage, variable-speed furnaces sized from a load calculation for new and older homes."},
+    {"url": "/heat-pump/central/", "title": "Heat pump installation in North York", "text": "Ducted cold-climate heat pumps from 2 to 5 tons that heat and cool."},
+    {"url": "/services/thermostats/", "title": "Zoning and smart thermostats", "text": "Controls placed where they read true room temperatures, not a sunny hallway."},
+    {"url": "/ac/multi-zone-ductless-system/", "title": "Multi-zone ductless for lofts and lower levels", "text": "One outdoor unit serving several rooms the main system can't reach."},
+    {"url": "/ac/repair-maintenance/", "title": "AC repair in North York", "text": "Short cycling, frozen coils and units that lose ground in a heat wave."},
+    {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in North York", "text": "Ignition, inducer and blower faults diagnosed on the first visit, with a written price."},
+    {"url": "/services/hrv-erv/", "title": "HRV and ERV fresh air", "text": "Balanced ventilation for tight new homes that trap moisture and cooking smells."},
+    {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in North York", "text": "Help evenings, weekends and holidays when heating or cooling stops."}]},
+  {"type": "table", "h2": "North York HVAC cost guide for rebuilds and replacements",
+   "lead": "Starting prices for common systems. The real number comes once we've run the load calculation on your home.",
+   "headers": ["System", "Where it fits", "Installed price"],
+   "rows": [
+    ["High-efficiency two-stage gas furnace", "Replacing an original or undersized furnace", "From $3,300"],
+    ["Cold-climate ducted heat pump", "Homes with ducts that want heating and cooling in one", "From $5,500"],
+    ["Zoned variable-speed system", "Custom homes with three or more levels", "Quote"],
+    ["Two separate systems", "Rebuilds where one system can't serve every floor", "Quote"],
+    ["Multi-zone ductless", "Lofts, lower levels and additions", "Quote"],
+    ["HRV or ERV", "Tight new homes that need fresh air", "Quote"],
+    ["Rinnai tankless water heater", "Large homes with several bathrooms", "From $3,300"]],
+   "note": "What you pay installed depends on size and installation requirements, and each written quote is guaranteed. Cold-climate heat pumps may qualify for the Home Renovation Savings Program: up to $7,500 for homes heated by electricity, oil, propane or wood, and a smaller amount, commonly up to $2,000, for Enbridge gas-heated homes. Program rules shift from time to time, so check eligibility before the install. Financing runs at 0% for 3, 6 or 9 months, or open loans from 2.99% OAC."},
+  {"type": "mosaic", "count": 4, "h2": "Mechanical rooms and outdoor units we've finished lately",
+   "lead": "A few recent jobs from across Ontario: furnaces, air handlers and outdoor units installed with labelled wiring and clean line sets."},
+  {"type": "why"},
+  {"type": "neighbourhoods", "h2": "Where we work across North York",
+   "lead": "From Bathurst Manor and Downsview across to Don Mills and Bayview Village, we work all over North York, including:"},
+  {"type": "cta", "h2": "Planning a rebuild? Get the HVAC sized before the drywall goes up.",
+   "text": "Send the drawings or a few details about the house, and we'll get back to you with next steps and a time to talk."}],
+ "faqs": [
+  ("How do you size HVAC for a new custom home in North York?", "We size it from a room-by-room Manual J load calculation based on the drawings or the finished house, not from square footage. That tells us whether one zoned system, two systems or a mix with ductless is right."),
+  ("Why does my new North York home have uneven temperatures?", "Usually it's one large system without zoning, unbalanced ducts or a thermostat in the wrong spot. Balancing the airflow and adding zoning fixes most cases."),
+  ("Is the original furnace in my bungalow too small now?", "It may be if you've finished the basement or added space since it went in. A fresh load calculation shows whether the furnace and AC still match the house."),
+  ("When does a North York rebuild need two systems instead of one?", "When the load calculation shows one system can't move enough air to every floor without oversized ducts or noisy airflow. Many large rebuilds use two systems, or one zoned system plus ductless for the hardest rooms."),
+  ("What do HVAC services in North York cost for a furnace replacement?", "A high-efficiency furnace runs from $3,300 installed, and a cold-climate heat pump from $5,500. Final pricing depends on size and installation requirements, and your written quote is guaranteed."),
+  ("Can an HVAC contractor in North York help before my rebuild is finished?", "Yes. Bringing us in at the drawing stage lets us plan duct routes, the mechanical room and panel capacity before the walls close up.")],
+ "related": ["/heat-pump/central/", "/ac/multi-zone-ductless-system/", "/services/thermostats/", "/furnace/high-efficiency/", "/services/hrv-erv/", "/services/hvac-installation-replacement/"],
+}

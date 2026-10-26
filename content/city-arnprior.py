@@ -1,0 +1,61 @@
+PAGE = {
+ "url": "/arnprior/", "city": "arnprior", "layout": "D", "priority": "0.7",
+ "title": "HVAC Arnprior | Guaranteed Furnace, AC & Heat Pump Prices",
+ "description": "HVAC Arnprior homeowners can plan around: furnace and AC replacement and heat pumps with backup heat, at one guaranteed price. Book your free quote today.",
+ "eyebrow": "Arnprior · Renfrew County",
+ "h1": "Arnprior HVAC Contractor With Fair, Guaranteed Pricing",
+ "tagline": "For heritage homes in town and newer builds on the edges",
+ "intro": "<p>Commuting to Ottawa leaves little time to chase HVAC quotes in Arnprior, and even less patience for a price that grows on install day. We replace furnaces and air conditioners and install cold-climate heat pumps with backup heat, all at one written price for the agreed scope. Heritage homes downtown and newer subdivisions both get a plan built around the house.</p>",
+ "hero_points": ["The quoted price is the price you pay for the agreed work", "Bring a comparable quote: we may beat it by up to 10%",
+                 "Heat pumps with backup heat for Valley winters", "Evening appointments until 8 pm, six days a week"],
+ "service": {"name": "HVAC services in Arnprior", "type": "HVAC contractor", "area": "Arnprior"},
+ "blocks": [
+  {"type": "svc_links", "h2": "HVAC services in Arnprior for busy households",
+   "lead": "Short on time? Start with the job you need done. Each page explains the options and what they cost.",
+   "items": [
+    {"url": "/furnace/high-efficiency/", "title": "Furnace installation in Arnprior", "text": "96% AFUE and higher, with two-stage burners for even heat."},
+    {"url": "/ac/", "title": "Air conditioning in Arnprior", "text": "Central AC or heat pump replacement for humid Valley summers."},
+    {"url": "/heat-pump/hybrid-furnace-systems/", "title": "Heat pump that hands off to the furnace", "text": "Lower gas use without giving up the furnace on the coldest nights."},
+    {"url": "/heat-pump/electric-air-handler-systems/", "title": "All-electric ducted heating", "text": "A ducted setup for rural homes on oil, propane or baseboards."},
+    {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Arnprior", "text": "Ignition faults, short cycling and blower trouble, priced first."},
+    {"url": "/offers/", "title": "Our price-beat offer", "text": "Show us a like-for-like quote from a reputable firm, and we may come in up to 10% lower."},
+    {"url": "/financing/", "title": "Spread the cost", "text": "Interest-free terms of 3, 6 or 9 months, or open loans from 2.99% OAC."}]},
+  {"type": "checklist", "photo": "out",
+   "h2": "What goes into every Arnprior HVAC quote",
+   "lead": "A fair price starts with a quote that spells everything out. Here's what ours include, line by line.",
+   "items": [
+    "Make and model numbers for every piece of equipment",
+    "Heat-loss sizing for your house, not a copy of the old unit's label",
+    "Venting, condensate drain and gas line work written out",
+    "Electrical work, such as a 240V heat pump circuit, listed up front",
+    "Permits and removal of the old equipment",
+    "Warranty terms, up to 12 years parts and labour on select systems",
+    "Your rebate estimate and the pre-approval steps",
+    "Financing options, if you'd like to spread the cost"]},
+  {"type": "split", "photo": "in", "reverse": False,
+   "h2": "Heat pump installation in Arnprior, with backup for the cold",
+   "html": "<p>Arnprior has two kinds of homes. Older brick and frame houses in town often have small duct runs and a furnace that's been replaced once already. Newer subdivisions have bigger, tighter houses with builder equipment now reaching middle age. Both can take a cold-climate heat pump, but the plan for each is different.</p>"
+           "<p>In a gas-heated home, the usual choice is a hybrid: a heat pump rated to -30°C heats the house most of the winter and cools it in summer, and the furnace takes over on the coldest Valley nights. On gas, the usual rebate is smaller, commonly up to $2,000 for an eligible heat pump.</p>"
+           "<p>Out in Braeside, McNab and Galetta, more homes run on propane, oil, wood or baseboards. A heat pump with an electric air handler or your existing furnace as backup fits there, and those homes can reach the higher rebate tier of up to $7,500. We file pre-approval before the work starts, since program rules can shift.</p>"
+           "<p>For commuters, a smart thermostat makes daily life easier: set the house to warm up before you pull into the driveway, and get an alert if something stops working while you're at the office.</p>"},
+  {"type": "mosaic", "count": 5, "h2": "Our installs around Ontario",
+   "lead": "These shots come from jobs we've done in other parts of Ontario. Look at the labelled wiring, the sealed line set openings and the clean furnace rooms."},
+  {"type": "quote_split", "photo": "any",
+   "h2": "Book your Arnprior heating and cooling quote after work",
+   "html": "<p>Plenty of Arnprior homeowners spend the workday in Ottawa. That's one reason we're open until 8 pm Monday to Saturday and 10 am to 5 pm on Sunday, and why you can start with photos and a phone call instead of taking a day off.</p>"
+           "<p>Send the form with a few details. We'll come back with questions, then set a visit time that suits you.</p>"
+           "<ul class=\"checklist\"><li>Evening and weekend booking</li><li>One guaranteed price for the agreed scope</li><li>Price-beat on comparable reputable quotes, up to 10% where applicable</li><li>Permits, warranty registration and rebate paperwork included</li></ul>",
+   "form_h3": "Get my Arnprior quote"},
+  {"type": "gbp", "h2": "Where we're based and when we're open",
+   "lead": "Our office is in Stouffville, and our crews travel to Arnprior, Braeside, McNab and the rest of our Ontario service area. Our verified Google listing shows our hours and reviews."},
+  {"type": "neighbourhoods", "h2": "Arnprior, McNab and nearby communities",
+   "lead": "From downtown Arnprior out to Fitzroy Harbour and Pakenham, we book visits across the area, including:"}],
+ "faqs": [
+  ("What does a guaranteed HVAC quote mean in Arnprior?", "It means the price we write down for the agreed scope is the price you pay, with no extras added on install day. If you change the scope, we price the change in writing before doing it."),
+  ("Do you beat other HVAC quotes?", "Where it applies, we may undercut a like-for-like quote from a reputable company by as much as 10%. Send us the other quote and we'll compare the equipment and scope line by line."),
+  ("Can I book an HVAC visit in Arnprior after work?", "Yes. We're open until 8 pm Monday to Saturday and 10 am to 5 pm on Sunday, and we set the visit time with you."),
+  ("Can you put a heat pump in an older home in Arnprior?", "Yes. Older homes in town can take a ducted heat pump if the ducts are sized well, or ductless heads where they aren't. A heat-loss calculation tells us which fits."),
+  ("Does a rural home near Arnprior qualify for the larger heat pump rebate?", "If it's heated by electricity, oil, propane or wood, it can qualify for up to $7,500 toward an eligible cold-climate heat pump. Get pre-approved first, because the terms of the program can change."),
+  ("Who can I call for furnace repair in Arnprior?", "Call us. Our TSSA-certified gas technicians repair furnaces in Arnprior and the surrounding area, and we take emergency calls evenings, weekends and holidays.")],
+ "related": ["/furnace/high-efficiency/", "/ac/", "/heat-pump/hybrid-furnace-systems/", "/offers/", "/financing/", "/heat-pump-rebates/"],
+}

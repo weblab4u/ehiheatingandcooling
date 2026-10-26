@@ -1,0 +1,60 @@
+PAGE = {
+ "url": "/elliot-lake/", "city": "elliot-lake", "layout": "D", "priority": "0.7",
+ "title": "HVAC Elliot Lake | Quiet, Low-Maintenance Heat Pumps",
+ "description": "HVAC Elliot Lake retirees can count on: quiet, low-maintenance heat pumps to replace electric baseboards, with clear written pricing and rebates. Get a quote.",
+ "eyebrow": "Elliot Lake · Algoma District",
+ "h1": "Elliot Lake HVAC Services That Keep Retirement Simple",
+ "tagline": "Quiet heat, easy controls and a price you can read in one go",
+ "intro": "<p>Plenty of people who retire to Elliot Lake want HVAC that just works: quiet, easy to run and nothing to fuss over every month. We replace electric baseboards with cold-climate heat pumps, service and replace furnaces, and explain every price in plain language before you agree to anything.</p>",
+ "hero_points": ["Plain-language quotes with every cost listed", "Quiet inverter heat pumps with simple controls",
+                 "Higher rebate tier for electrically heated homes", "Visits and installs scheduled with you"],
+ "service": {"name": "HVAC services in Elliot Lake", "type": "HVAC contractor", "area": "Elliot Lake"},
+ "blocks": [
+  {"type": "svc_links", "h2": "Services for an easier Elliot Lake winter",
+   "lead": "Most calls we get from Elliot Lake are about cutting the hydro bill or replacing something old. Start here.",
+   "items": [
+    {"url": "/ac/ductless-mini-split/", "title": "Ductless heat pumps for baseboard homes", "text": "A slim wall unit that heats in winter and cools in summer."},
+    {"url": "/ac/multi-zone-ductless-system/", "title": "Multi-zone systems for the whole house", "text": "One outdoor unit, a quiet head in each main room."},
+    {"url": "/heat-pump/cold-climate/", "title": "Heat pump installation in Elliot Lake", "text": "Cold-climate models that keep heating at -30°C."},
+    {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Elliot Lake", "text": "No heat or strange noises, with a written price before any work."},
+    {"url": "/services/thermostats/", "title": "Easy-to-read thermostats", "text": "Large, clear displays and simple schedules."},
+    {"url": "/services/hvac-repair-maintenance/", "title": "Yearly maintenance visits", "text": "One check a year that keeps the system quiet and efficient."},
+    {"url": "/heat-pump-rebates/", "title": "Rebates for electric-heated homes", "text": "Up to $7,500 for eligible electrically heated homes, paperwork included."}]},
+  {"type": "checklist", "photo": "out",
+   "h2": "Our low-maintenance checklist for Elliot Lake heating and cooling",
+   "lead": "Simple to live with is a design choice. These are the details we build in from the start.",
+   "items": [
+    "Inverter heat pumps that run quietly at low speed most of the day",
+    "Washable filters on ductless heads that take a minute to rinse",
+    "Remotes and thermostats with large, clear buttons",
+    "Outdoor units on stands that keep them out of the snow",
+    "Condensate lines routed so they won't freeze or drip on a walkway",
+    "Baseboards left in place as quiet backup for the coldest nights",
+    "A written summary of what we installed and what to watch for"]},
+  {"type": "split", "photo": "in", "reverse": False,
+   "h2": "From baseboards to a heat pump: what changes in an Elliot Lake home",
+   "html": "<p>Electric baseboards are simple, but they're one of the costliest ways to heat a house. Every bit of heat they make comes straight off the hydro meter. A cold-climate heat pump moves heat from outdoor air instead of making it, so in most weather it delivers far more warmth for the same electricity.</p>"
+           "<p>In practice, a ductless heat pump is a slim unit high on the living room wall, connected by a small line set to an outdoor unit. You control it with a remote or a wall thermostat. Bigger homes can add a second or third head for bedrooms on the same outdoor unit.</p>"
+           "<p>Most Elliot Lake homes were built between the 1950s and the 1980s, and insulation varies a lot from one house to the next. That's why we size from a heat-loss calculation, not the square footage. We also leave a few baseboards on the wall as backup. They cost nothing to keep, and they only switch on if the heat pump needs help.</p>"
+           "<p>Homes heated by electricity can qualify for the higher rebate tier of the Home Renovation Savings Program, up to $7,500 based on heat pump size. We confirm you qualify and secure pre-approval before the install, and keep in mind that the program can change.</p>"},
+  {"type": "mosaic", "count": 5, "h2": "Quiet heat pumps and tidy installs from our crews",
+   "lead": "A few of our recent jobs from other Ontario towns. Note the neat line covers and the indoor heads placed out of the way."},
+  {"type": "quote_split", "photo": "any",
+   "h2": "Ask our Elliot Lake HVAC technicians for a plain-language price",
+   "html": "<p>No jargon and no fine print you have to decode. We list the equipment, the labour, the electrical work and the rebate estimate on one page, and the price we quote is the price you pay for that scope.</p>"
+           "<p>If a son, daughter or friend helps with decisions like this, they're welcome on the call or at the visit. Take the time you need.</p>"
+           "<ul class=\"checklist\"><li>One written price, guaranteed for the agreed scope</li><li>Rebate paperwork filed for you</li><li>0% financing for 3, 6 or 9 months on approved credit</li><li>Warranty up to 12 years parts and labour on select systems</li></ul>",
+   "form_h3": "Get my Elliot Lake price"},
+  {"type": "gbp", "h2": "Find our listing and hours",
+   "lead": "We're based in Stouffville and serve Elliot Lake as part of our Northern Ontario service area. Hours, directions and reviews are all on our Google listing."},
+  {"type": "neighbourhoods", "h2": "Elliot Lake and the lakes around it",
+   "lead": "We book visits in town and out at the lakes nearby, including:"}],
+ "faqs": [
+  ("Is a heat pump noisy?", "A modern inverter heat pump is quiet. Indoors, a ductless head on low speed makes a soft hum you'll barely notice, and the outdoor unit ramps up gently instead of starting with a bang."),
+  ("How much maintenance does a ductless heat pump need?", "Very little. Rinse the indoor filters every month or two during heavy use, keep snow and leaves off the outdoor unit, and book one service visit a year."),
+  ("Can I replace electric baseboards with a heat pump in Elliot Lake?", "Yes. A ductless or multi-zone heat pump is the usual choice, and electrically heated homes can qualify for up to $7,500 toward a qualifying cold-climate heat pump. Pre-approval is needed first, and program terms can change."),
+  ("Do I still need my baseboards after a heat pump goes in?", "We recommend keeping a few as backup. The heat pump does almost all the work, and the baseboards only come on during the coldest stretches."),
+  ("How do I know the price won't change later?", "We give you a guaranteed final price for the agreed scope, in writing. Nothing gets added on install day unless you ask for a change and approve the price first."),
+  ("Can you fix my furnace in Elliot Lake?", "Yes. We handle furnace repair in Elliot Lake. Our TSSA-certified gas technicians repair and service furnaces in Elliot Lake, and we show you the price before starting.")],
+ "related": ["/ac/ductless-mini-split/", "/ac/multi-zone-ductless-system/", "/heat-pump/cold-climate/", "/services/thermostats/", "/heat-pump-rebates/", "/services/hvac-repair-maintenance/"],
+}

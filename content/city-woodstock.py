@@ -1,0 +1,69 @@
+PAGE = {
+ "url": "/woodstock/", "city": "woodstock", "layout": "F", "priority": "0.7",
+ "title": "HVAC Woodstock | Fix or Replace? Straight Furnace & AC Advice",
+ "description": "Woodstock HVAC for working families: straight answers on repair or replace, dependable furnaces and AC, heat pumps when they pay off. Get a guaranteed quote.",
+ "eyebrow": "Woodstock · Oxford County",
+ "h1": "Woodstock HVAC Services With Honest Repair or Replace Advice",
+ "tagline": "We'll tell you when a repair makes more sense",
+ "intro": "<p>When you call about HVAC in Woodstock, you usually want one answer: is it worth fixing, or is it time to replace? We give you a straight one on furnaces, air conditioners and heat pumps, with both prices in writing. Families from Northdale to Southside Park get equipment that lasts and a quote that doesn't change.</p>",
+ "hero_points": ["Repair and replacement priced side by side", "Heat pumps suggested only when the numbers work",
+                 "Furnace work done by TSSA-certified gas technicians", "Interest-free financing over 3, 6 or 9 months OAC"],
+ "hero_stats": [("From $3,300", "Furnaces installed"), ("From $5,500", "Heat pumps installed"), ("0%", "Financing for 3, 6 or 9 months"), ("Mon to Sat", "Open 8 am to 8 pm")],
+ "form_h3": "Price my Woodstock repair or replacement",
+ "service": {"name": "HVAC services in Woodstock", "type": "HVAC contractor", "area": "Woodstock"},
+ "blocks": [
+  {"type": "split", "photo": "in", "reverse": False,
+   "h2": "Repair or replace? How a Woodstock HVAC technician decides",
+   "html": "<p>A furnace or air conditioner rarely fails all at once. It drops hints first: a new noise, a part that keeps failing, a bill that creeps up. The hard part is knowing when another repair is money well spent and when it's money gone.</p>"
+           "<p>We look at three things. First, the age of the equipment and the state of the expensive parts, like the heat exchanger in a furnace or the compressor in an AC. Second, what the repair costs next to a new system. Third, what the old unit will cost to run over the next several years compared with a new one.</p>"
+           "<p>If a modest repair buys you several more good winters, we'll say so. If the heat exchanger is cracked, or the AC still runs on R-22 refrigerant, which has been phased out in Canada, we'll explain why repairing it stops making sense.</p>"
+           "<ul class=\"checklist\"><li>Both prices in writing before any work</li>"
+           "<li>Safety checks on gas, venting and carbon monoxide risk</li>"
+           "<li>Heat pump numbers shown only when they suit your home</li>"
+           "<li>No pressure to sign on the spot</li></ul>"},
+  {"type": "problems", "h2": "Furnace repair in Woodstock: calls we get from busy families",
+   "lead": "Busy households need heat and cooling that just works. These are the common breakdowns and what we do about each.",
+   "items": [
+    {"problem": "The furnace lights, then shuts off a minute later", "solution": "A dirty flame sensor, a blocked condensate line or a pressure switch fault is the usual cause. Our gas technicians track it down on the first visit and fix it once you've approved a written price."},
+    {"problem": "The AC runs all day but the house won't drop below 25°C", "solution": "Low refrigerant, a dirty outdoor coil or a weak capacitor are the usual suspects. We test the charge, look for leaks and tell you plainly whether the unit is worth fixing."},
+    {"problem": "Your furnace is past 15 years and winter makes you nervous", "solution": "We inspect it now, before the cold, and hand you a repair estimate and a replacement price. That way a January breakdown doesn't catch you without a plan."},
+    {"problem": "Repair bills keep stacking up year after year", "solution": "When parts keep failing, we add up what you've spent and what's likely to go next, then compare it with a new two-stage furnace. You decide with the numbers in front of you."},
+    {"problem": "A neighbour got a heat pump and you wonder if you should too", "solution": "Maybe. For a gas-heated home, a hybrid setup often makes sense when your AC also needs replacing. If the numbers don't work for your house, we'll tell you."},
+    {"problem": "The kids' bedrooms are too hot to sleep in", "solution": "Often it's a return air or duct balance problem, not the AC itself. We check airflow to each room and fix the cause before we suggest any new equipment."}]},
+  {"type": "svc_links", "h2": "HVAC services in Woodstock for every household budget",
+   "lead": "Pick the service that matches your situation. Each page explains costs and how the work gets done.",
+   "items": [
+    {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Woodstock", "text": "Short cycling, no heat and strange noises, fixed after a written quote."},
+    {"url": "/furnace/high-efficiency/", "title": "Furnace replacement for Woodstock homes", "text": "Two-stage, variable-speed Lennox and Midea furnaces from $3,300 installed."},
+    {"url": "/ac/repair-maintenance/", "title": "AC repair in Woodstock", "text": "Weak cooling, leaks and condensers that won't start."},
+    {"url": "/ac/", "title": "New central air, matched to your furnace", "text": "Sized for your house, not guessed from square footage."},
+    {"url": "/heat-pump/hybrid-furnace-systems/", "title": "Add a heat pump, keep the furnace", "text": "A heat pump for cooling and mild-weather heat, with your furnace as backup."},
+    {"url": "/services/hvac-repair-maintenance/", "title": "Yearly tune-ups", "text": "Catch worn parts before they fail and keep your warranty valid."},
+    {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Woodstock", "text": "Evenings, weekends and holidays, when there's no heat or no cooling."}]},
+  {"type": "table", "h2": "Woodstock HVAC prices, starting points",
+   "lead": "Starting prices for common jobs. Your written quote replaces these once we've seen your home.",
+   "headers": ["Job", "When it makes sense", "Installed price"],
+   "rows": [
+    ["High-efficiency gas furnace", "Furnace over 15 years old or needing a major part", "From $3,300"],
+    ["Cold-climate heat pump", "AC and furnace both near the end, or a home without gas", "From $5,500"],
+    ["Central air conditioner", "Adding cooling or replacing an old AC", "Quote"],
+    ["Hybrid heat pump and furnace", "Gas home that wants to burn less gas", "Quote"],
+    ["Furnace or AC repair", "Equipment that's otherwise in good shape", "Quote"],
+    ["Rinnai tankless water heater", "A rented tank or an aging water heater", "From $3,300"]],
+   "note": "Installed pricing depends on size and installation requirements, and every quote is guaranteed. Heat pumps may qualify for rebates through the Home Renovation Savings Program: up to $7,500 for homes on electric, oil or propane heat, and commonly up to $2,000 for Enbridge gas homes. Pre-approval is needed before installation and program terms can change. You can also pay over 3, 6 or 9 months at 0%, or use an open loan from 2.99% OAC."},
+  {"type": "mosaic", "count": 4, "h2": "Recent furnace and AC installs by our team",
+   "lead": "A few Ontario jobs from our crews, not photographed in Woodstock. Expect the same tidy work in your furnace room."},
+  {"type": "why"},
+  {"type": "neighbourhoods", "h2": "Where we work in and around Woodstock",
+   "lead": "We book visits in Woodstock and around Oxford County, from Eastwood and Sally Creek to Innerkip and Beachville, including:"},
+  {"type": "cta", "h2": "Not sure whether to fix it or replace it?",
+   "text": "Book a visit. You'll get both prices in writing and an honest recommendation."}],
+ "faqs": [
+  ("Repair or replace: what decides it for a Woodstock furnace?", "It's usually worth repairing if it's under about 15 years old, the heat exchanger is sound and the repair is a small share of a new furnace's cost. We price both options so you can compare."),
+  ("Where does furnace installation in Woodstock start, price-wise?", "Our high-efficiency gas furnaces start from $3,300 installed, and installed pricing depends on size and installation requirements. You get a guaranteed quote first."),
+  ("Does a heat pump pay off in a gas-heated Woodstock house?", "Sometimes. It makes the most sense when your AC also needs replacing, and a hybrid setup keeps the furnace for the coldest days; we show you the numbers either way."),
+  ("Do your techs handle AC repair in Woodstock?", "Yes. Our licensed refrigeration technicians repair central air conditioners and heat pumps, and you see the price before work begins."),
+  ("Can I spread out the cost of a new furnace or AC?", "Yes. We offer 0% financing for 3, 6 or 9 months and open loans from 2.99% OAC, subject to lender approval."),
+  ("Do you serve Innerkip, Beachville and the rest of Oxford County?", "Yes. We book visits in Woodstock and nearby Oxford County communities, working from our office in Stouffville.")],
+ "related": ["/furnace/repair-maintenance/", "/furnace/high-efficiency/", "/ac/repair-maintenance/", "/heat-pump/hybrid-furnace-systems/", "/services/hvac-repair-maintenance/", "/financing/"],
+}

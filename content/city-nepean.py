@@ -1,0 +1,58 @@
+PAGE = {
+ "url": "/nepean/", "city": "nepean", "layout": "C", "priority": "0.7",
+ "title": "HVAC Nepean | Aging System & Builder-Grade Upgrades",
+ "description": "Nepean HVAC for older central homes and newer Barrhaven builds: equipment replacement, builder-grade upgrades and heat pumps sized for -25°C. Free quote.",
+ "eyebrow": "Nepean · Bells Corners to Barrhaven",
+ "h1": "HVAC Services in Nepean, From 1960s Bungalows to New Barrhaven Builds",
+ "tagline": "Two very different housing stocks, one honest assessment",
+ "intro": "<p>Nepean HVAC needs change from one street to the next. Central Nepean has post-war and 1960s homes running on aging equipment, while Barrhaven and Riverside South have newer houses with builder-grade furnaces and ACs that were the lowest-cost choice on the order form. We replace both, and we size cold-climate heat pumps for the -25°C nights that every Ottawa winter brings.</p>",
+ "hero_points": ["Upgrades for builder-grade furnaces and air conditioners", "Heat pumps sized for -25°C, with backup heat planned in",
+                 "A heat-loss calculation behind every replacement", "Guaranteed price, with warranty registration included"],
+ "hero_stats": [("-25°C", "Design nights we size for"), ("Hydro Ottawa", "Local hydro utility"), ("From $3,300", "Furnaces installed")],
+ "service": {"name": "HVAC services in Nepean", "type": "HVAC contractor", "area": "Nepean"},
+ "blocks": [
+  {"type": "problems", "h2": "Old house or new build, the Nepean HVAC problems we see most",
+   "lead": "The age of the house decides most of what goes wrong. Here's what we find on both sides of Nepean.",
+   "items": [
+    {"problem": "Your 1960s bungalow still has its original ductwork", "solution": "Ducts from that era were often sized for a furnace alone, not central air, and they leak at the joints. We test static pressure, seal what we can reach and choose equipment that suits the ducts instead of overpowering them."},
+    {"problem": "A newer Barrhaven home already feels drafty and uneven", "solution": "Builder-grade systems are usually single-stage and sized by rule of thumb. A variable-speed furnace or inverter heat pump, set up and balanced properly, evens out the floors and runs quieter."},
+    {"problem": "The builder's AC falls behind on a humid July afternoon", "solution": "Basic units are often undersized for big windows and open layouts. We run a cooling load calculation and replace it with a heat pump or AC matched to the house."},
+    {"problem": "An old furnace in Centrepointe or Craig Henry keeps needing parts", "solution": "Once repairs pile up on an aging unit, fixing it stops being good value. We price the repair and the replacement side by side and explain which one we'd choose in your shoes."},
+    {"problem": "A heat pump salesperson sized it from your square footage", "solution": "At -25°C, the wrong size shows. We do a heat-loss calculation, pick a cold-climate model rated to -30°C and plan backup heat for the nights colder than that."},
+    {"problem": "The finished basement in your new build never warms up", "solution": "Many newer basements have a couple of supply registers and no return air. We add returns or a ductless head, so the basement becomes a room people actually use in winter."}]},
+  {"type": "snapshot", "h2": "Two kinds of Nepean homes, one Ottawa winter",
+   "lead": "The equipment plan for a Qualicum bungalow and a Riverside South two-storey looks very different. Here's why.",
+   "items": [
+    {"icon": "house", "label": "Central Nepean", "value": "Post-war and 1960s homes", "text": "Bells Corners, Qualicum and Bayshore have older houses with aging furnaces, original ducts and electrical panels that may need a check before a heat pump."},
+    {"icon": "install", "label": "Barrhaven and Riverside South", "value": "1990s to today", "text": "Newer subdivisions where the first furnace and AC were builder-grade, and many are now due for replacement or a proper upgrade."},
+    {"icon": "snow", "label": "Climate", "value": "Long winters, -25°C nights", "text": "Every system we size here has to carry the house on a -25°C night, with backup heat ready for anything colder."},
+    {"icon": "bolt", "label": "Utilities", "value": "Hydro Ottawa and Enbridge Gas", "text": "Nearly every house here has a gas meter and a hydro meter. Gas-heated homes commonly qualify for up to $2,000 toward a qualifying heat pump, and pre-approval comes first."}]},
+  {"type": "split", "h2": "Heat pump installation in Nepean, sized for -25°C",
+   "html": "<p>A cold-climate heat pump is an electric system that pulls heat from outdoor air and moves it inside, even in deep cold. The Midea EVOX G3 and Kepler equipment we use is rated to keep heating at -30°C. That rating only helps if the unit is sized for your house, which is why every quote starts with a room-by-room heat-loss calculation.</p>"
+           "<p>The two halves of Nepean need different things. In an older central home, we look hard at the ducts, the attic insulation and the electrical panel, since a 240V heat pump circuit needs room. In a newer Barrhaven home, the ducts are usually fine, and the gains come from replacing a single-stage builder unit with variable-speed equipment that matches the real load.</p>"
+           "<p>Most Nepean homes on gas keep the furnace as backup in a hybrid setup. Homes on electric heat often choose an electric air handler instead. For the citywide view, visit our <a href=\"/ottawa/\">HVAC in Ottawa</a> page.</p>"
+           "<ul class=\"checklist\"><li>Heat-loss calculation for a -25°C design day</li><li>Duct, panel and gas line checks on older homes</li><li>Backup heat sized to carry the house alone if needed</li><li>Rebate pre-approval filed before installation</li></ul>",
+   "photo": "in", "reverse": True},
+  {"type": "steps", "h2": "How a Nepean HVAC replacement goes with us",
+   "lead": "Four steps, whatever the age of your house.",
+   "items": [
+    {"title": "Describe the house", "text": "Tell us the year it was built, what heats it now and which rooms bother you. Photos of the furnace, panel and outdoor unit help."},
+    {"title": "Measure, don't guess", "text": "A technician checks ducts, airflow and the electrical panel, then runs the heat-loss numbers for your home."},
+    {"title": "One guaranteed price", "text": "The written quote lists every model number, plus your rebate estimate and ways to finance. The price holds for the agreed scope."},
+    {"title": "Commissioning and controls lesson", "text": "Our TSSA-certified gas techs and licensed refrigeration techs install and commission the system, show you the controls and register the warranty."}]},
+  {"type": "quote_split", "h2": "Get a Nepean HVAC contractor's price on paper",
+   "html": "<p>Whether the house is 60 years old or six, the first step is the same: an honest look at what you have and a price you can hold us to. Our office is in Stouffville, and our licensed crews serve Barrhaven, Centrepointe, Bells Corners and the rest of Nepean. We set visit and install dates with you.</p>"
+           "<ul class=\"checklist\"><li>Builder-grade equipment assessed before anything is replaced</li><li>Cold-climate heat pumps rated to -30°C</li><li>Permits, warranty registration and rebate paperwork included</li><li>0% financing for 3, 6 or 9 months on approved credit</li></ul>",
+   "photo": "sys", "form_h3": "Get my Nepean upgrade quote"},
+  {"type": "mosaic", "count": 3, "h2": "Equipment and finishing work from recent jobs",
+   "lead": "Photos from our installs elsewhere in Ontario, showing the line sets, stands and furnace rooms we leave behind."},
+  {"type": "money"}],
+ "faqs": [
+  ("Is builder-grade HVAC worth replacing in a newer Nepean home?", "Only if it's failing, undersized or leaving the house uncomfortable. If it still works, balancing the ducts, adding returns or upgrading the thermostat can help before you spend on new equipment."),
+  ("What is builder-grade HVAC equipment?", "Builder-grade HVAC equipment is the basic furnace and air conditioner a builder installs to meet code at the lowest cost. It's usually single-stage, with fewer comfort features and a shorter warranty than higher-end models."),
+  ("What size heat pump does a Nepean home need?", "It depends on the home's heat loss, not its square footage. We calculate it room by room for a -25°C design day and size the cold-climate unit and backup heat from that."),
+  ("Does an older central Nepean home need new ducts for a heat pump?", "Not always. Many older ducts work once they're sealed and balanced, and where they can't carry enough air, a ductless head can cover the rooms they miss."),
+  ("Can I get furnace repair in Nepean from your team?", "Yes. Our TSSA-certified gas technicians repair furnaces across Nepean, and you see the price in writing before any work begins."),
+  ("Are Barrhaven and Riverside South part of your heat pump service area?", "Yes. We install cold-climate and hybrid heat pump systems in Barrhaven, Riverside South and Manotick, and we book the assessment and install dates with you.")],
+ "related": ["/heat-pump/cold-climate/", "/furnace/high-efficiency/", "/services/hvac-installation-replacement/", "/heat-pump/hybrid-furnace-systems/", "/ac/ductless-mini-split/", "/heat-pump-rebates/"],
+}

@@ -1,0 +1,58 @@
+PAGE = {
+ "url": "/georgina/", "city": "georgina", "layout": "D", "priority": "0.7",
+ "title": "HVAC Georgina | Keswick & Sutton Heat Pumps and Furnaces",
+ "description": "Georgina HVAC for Keswick and Sutton: ductless heat pumps for converted cottages and furnaces sized for Lake Simcoe wind. Get a free guaranteed quote.",
+ "eyebrow": "Georgina · Keswick and Sutton",
+ "h1": "Georgina HVAC Contractor for Keswick, Sutton and Lake Simcoe Homes",
+ "tagline": "From summer cottage to year-round home, without the cold floors",
+ "intro": "<p>A lot of HVAC work in Georgina starts with a Lake Simcoe cottage that became a year-round home. We install ductless heat pumps in Keswick, Sutton and Jackson's Point houses that run on baseboards or have no ducts, and we size furnaces for the wind that comes off the lake all winter. You get a guaranteed price in writing before anything is booked.</p>",
+ "hero_points": ["Ductless heat pumps for homes with baseboards or no ducts", "Furnaces sized for wind off Lake Simcoe",
+                 "Higher rebate tier for electric, oil and propane homes", "Written price that holds for the agreed scope"],
+ "service": {"name": "HVAC services in Georgina", "type": "HVAC contractor", "area": "Georgina"},
+ "blocks": [
+  {"type": "svc_links", "h2": "Heat pump installation in Georgina, plus furnace and repair work",
+   "lead": "Choose the service you need. Each page covers the equipment, the options and the process.",
+   "items": [
+    {"url": "/ac/ductless-mini-split/", "title": "Ductless systems for Keswick cottages and homes", "text": "Wall heads that heat and cool converted cottages with no ductwork."},
+    {"url": "/ac/multi-zone-ductless-system/", "title": "Multi-zone ductless", "text": "One outdoor unit serving the living room, the bedrooms and a loft."},
+    {"url": "/heat-pump/cold-climate/", "title": "Cold-climate heat pumps", "text": "Midea and Kepler units rated to heat down to -30°C."},
+    {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Georgina", "text": "Natural gas and propane furnaces, with a written price before work starts."},
+    {"url": "/furnace/high-efficiency/", "title": "Furnace installation in Georgina", "text": "96% to 97% AFUE two-stage furnaces sized from a heat-loss calculation."},
+    {"url": "/ac/ductless-mini-split/repair/", "title": "Ductless repair", "text": "Heads that stop heating, drip water or flash error codes."},
+    {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Georgina", "text": "After-hours help on evenings, weekends and holidays."},
+    {"url": "/heat-pump-rebates/", "title": "Heat pump rebates", "text": "Up to $7,500 for qualifying homes heated by electricity, oil or propane."}]},
+  {"type": "checklist", "photo": "out", "h2": "What an HVAC technician in Georgina checks in a converted cottage",
+   "lead": "Places built for summer weekends need a closer look before they get a year-round system.",
+   "items": ["Insulation in the walls, floor and attic, since many cottages started with very little",
+             "Crawl spaces and floors over open air that pull heat out from below",
+             "The electrical panel's size and space for a 240V heat pump circuit",
+             "How the home heats today: baseboards, a wood stove, propane or oil",
+             "Wall space for ductless heads and a clean route for the line set",
+             "A spot for the outdoor unit out of the north wind and above drifting snow",
+             "Whether there's room for ducts at all, or ductless is the better route",
+             "Your rebate tier, based on the fuel you heat with now"]},
+  {"type": "split", "photo": "in", "h2": "Heating and cooling in Keswick and Sutton when the lake wind picks up",
+   "html": "<p>Lakeshore homes in Georgina take the full force of the wind coming across Lake Simcoe, and the snow piles up fast. A house that felt fine in July can lose heat quickly through old windows, thin walls and a floor over a crawl space. That's the challenge with a cottage that's now lived in all year.</p>"
+           "<p>For homes heated with baseboards, a ductless heat pump is usually the simplest upgrade. Slim wall heads go in the main rooms, one outdoor unit sits on a stand or bracket, and the refrigerant lines pass through a small hole in the wall. You get efficient heat in winter, cooling on muggy summer nights, and the baseboards can stay as backup.</p>"
+           "<p>For homes on natural gas or propane with ductwork, we size the furnace from a proper heat-loss calculation that accounts for the wind exposure. Bigger isn't better. An oversized furnace short cycles and leaves cold spots, while one matched to the house runs longer, steadier cycles.</p>"
+           "<ul class=\"checklist\"><li>Cold-climate units rated to heat down to -30°C</li><li>Outdoor units raised above drifts and turned away from the lake wind</li><li>Baseboards kept as backup if you want them</li><li>Homes heated by electricity, oil or propane may qualify for up to $7,500</li></ul>"},
+  {"type": "mosaic", "count": 5, "h2": "Wall heads and outdoor units from recent jobs",
+   "lead": "These come from recent Ontario installs: ductless heads, outdoor units on stands and tidy line covers. Your Georgina home gets the same finish."},
+  {"type": "quote_split", "photo": "any", "h2": "Ask for a Georgina heat pump or furnace quote",
+   "form_h3": "Send us your Georgina home details",
+   "html": "<p>Tell us how the house is heated now, roughly how big it is and which rooms feel coldest. If it started life as a cottage, mention any additions or insulation upgrades. That helps us bring useful options to the first visit.</p>"
+           "<p>We'll come back with a guaranteed price, a rebate estimate based on your current fuel, and financing choices. No pressure, and no surprise extras on the agreed scope.</p>"
+           "<ul class=\"checklist\"><li>Single-zone and multi-zone ductless systems</li><li>High-efficiency gas and propane furnaces</li><li>Rebate pre-approval filed for you</li><li>0% financing for 3, 6 or 9 months, OAC</li></ul>"},
+  {"type": "gbp", "h2": "See our hours and reviews on Google",
+   "lead": "Our verified Google profile lists our hours and what customers say. We're based in Whitchurch-Stouffville and drive up to homes all around Georgina."},
+  {"type": "neighbourhoods", "h2": "Lakeshore towns and hamlets across Georgina",
+   "lead": "From Keswick and Willow Beach to Sutton, Jackson's Point and Pefferlaw, we serve the whole lakeshore and the inland roads, including:"}],
+ "faqs": [
+  ("Can a heat pump heat a converted cottage in Georgina through winter?", "Yes, if the home is reasonably insulated and the heat pump is sized from a heat-loss calculation. Cold-climate units are rated to -30°C, and many owners keep baseboards as backup."),
+  ("What's the best heating for a Keswick home with baseboards?", "A ductless heat pump is usually the best fit, since it needs no ducts and costs less to run than baseboard heat. One outdoor unit can serve several rooms."),
+  ("Do I need to insulate before installing a heat pump?", "Not always, but it helps. Better insulation lets a smaller, less costly heat pump do the job, and we'll point out where upgrades would make the biggest difference."),
+  ("What rebate can a baseboard-heated home in Georgina get?", "Homes heated by electricity, oil, propane or wood can qualify for up to $7,500 through the Home Renovation Savings Program, based on heat pump size. Pre-approval has to be granted before the installation date."),
+  ("Do you offer furnace repair in Georgina for propane furnaces?", "Yes. Our TSSA-certified gas technicians repair natural gas and propane furnaces across Georgina, with a written price before work begins."),
+  ("Can I book heat pump installation in Georgina outside Keswick, in Sutton or Pefferlaw?", "Yes. We cover Keswick, Sutton, Jackson's Point, Pefferlaw and the rest of Georgina.")],
+ "related": ["/ac/ductless-mini-split/", "/ac/multi-zone-ductless-system/", "/heat-pump/cold-climate/", "/furnace/high-efficiency/", "/heat-pump-rebates/", "/financing/"],
+}

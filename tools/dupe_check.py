@@ -20,10 +20,15 @@ pages = {}
 for f in sorted(glob.glob("content/city-*.py")):
     spec = importlib.util.spec_from_file_location("p", f); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
     pages[m.PAGE["city"]] = m.PAGE
-names = {s: p["city"].replace("-", " ") for s, p in pages.items()}
+import importlib.util as _u
+_sp = _u.spec_from_file_location("c", "data/cities.py"); _c = _u.module_from_spec(_sp); _sp.loader.exec_module(_c)
+names = {}
+for _x in _c.CITIES:
+    names[_x["slug"]] = _x["name"]
+names = {k: v for k, v in sorted(names.items(), key=lambda kv: -len(kv[1]))}
 def norm(t, city):  # neutralise the city name so "X in Toronto" == "X in Markham"
     t = t.lower()
-    for n in names.values(): t = t.replace(n, "@city")
+    for n in names.values(): t = t.replace(n.lower(), "@city")
     t = t.replace("kitchener", "@city").replace("waterloo", "@city")
     return re.findall(r"[a-z0-9@$%°']+", t)
 sh = {}; heads = {}; faqs = {}
