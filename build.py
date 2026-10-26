@@ -705,7 +705,7 @@ def hero(page):
 
 def local_business_ld():
     return {
-        "@type": "HVACBusiness", "@id": SITE + "/#organization", "name": SITE_NAME, "alternateName": [BRAND, LEGAL, "EHI"],
+        "@type": "HVACBusiness", "@id": SITE + "/#organization", "name": SITE_NAME, "alternateName": [LEGAL, "EHI"],
         "url": SITE + "/", "logo": SITE + "/assets/img/ehi-logo.webp", "image": SITE + "/assets/img/ehi-logo.webp",
         "telephone": PHONE_TEL, "email": EMAIL, "priceRange": "$$",
         "address": {"@type": "PostalAddress", "streetAddress": ADDRESS["street"], "addressLocality": ADDRESS["city"],
@@ -787,7 +787,7 @@ def render(page):
     graph.append({"@type": "WebPage", "@id": canonical + "#webpage", "url": canonical, "name": page["title"],
                   "description": page["description"], "isPartOf": {"@id": SITE + "/#website"}, "inLanguage": "en-CA",
                   "dateModified": TODAY, "about": {"@id": SITE + "/#organization"}})
-    graph.append({"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": SITE_NAME, "alternateName": [BRAND, "EHI", LEGAL], "publisher": {"@id": SITE + "/#organization"}})
+    graph.append({"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": SITE_NAME, "alternateName": ["EHI", LEGAL], "publisher": {"@id": SITE + "/#organization"}})
     if crumbs_ld: graph.append(crumbs_ld)
     crumbs_top = crumbs_html
     m = re.search(r'<section class="(?:hero [^"]*|banner-hero)"[^>]*>', body) if crumbs_html else None

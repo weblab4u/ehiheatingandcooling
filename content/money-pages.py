@@ -26,7 +26,7 @@ FINANCING = {
   {"type": "why"},
  ],
  "faqs": [
-  ("Does EHI offer 0% HVAC financing?", "Yes. EHI Heating &amp; Cooling offers 0% interest financing for 3, 6 or 9 months on new installations, on approved credit, plus open loans from 2.99% for longer terms."),
+  ("Does EHI offer 0% HVAC financing?", "Yes. EHI Heating And Cooling offers 0% interest financing for 3, 6 or 9 months on new installations, on approved credit, plus open loans from 2.99% for longer terms."),
   ("Can I finance a furnace in Ontario with bad credit?", "Approval depends on the lender's credit review. We work with lenders that approve a wide range of credit profiles, and a quick application tells you where you stand with no obligation."),
   ("Is the financed price higher than the cash price?", "No. Your guaranteed quote is the same whether you pay cash, card or finance."),
   ("Can I use the heat pump rebate to pay off the loan?", "Yes. The Home Renovation Savings rebate is paid to you, and with an open loan you can apply it to the balance at any time with no penalty."),
