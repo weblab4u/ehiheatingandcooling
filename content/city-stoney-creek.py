@@ -20,6 +20,7 @@ PAGE = {
     {"url": "/furnace/high-efficiency/", "title": "96% to 97% AFUE gas furnaces", "text": "Two-stage, variable-speed Lennox and Midea models that run longer on low fire."},
     {"url": "/heat-pump/hybrid-furnace-systems/", "title": "Hybrid heat: heat pump first, furnace second", "text": "The heat pump covers most days and the gas furnace handles the deep cold."},
     {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Stoney Creek", "text": "For a dead furnace or AC after hours, on weekends or on holidays."}]},
+  {"type": "cost_guide", "h2": 'Stoney Creek replacement prices for 20 to 30 year old systems', "lead": 'Furnace and AC pairs from the 1990s and 2000s are reaching the end together. Here is where replacement pricing starts.', "keys": ['furnace_repair', 'ac_repair', 'furnace_install', 'heat_pump_ducted']},
   {"type": "checklist", "h2": "Signs your furnace and AC are due for replacement", "photo": "out",
    "lead": "Equipment from the 1990s and early 2000s tends to fail as a pair. If three or more of these sound familiar, get a replacement quote now, while you still have time to compare options.",
    "items": [

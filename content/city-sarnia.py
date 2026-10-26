@@ -19,7 +19,10 @@ PAGE = {
     {"problem": "Lake-effect snow buries the heat pump", "solution": "A buried coil can't breathe and can't defrost properly. We mount the unit above the usual drift line, on the sheltered side of the house where possible, and leave a clear path for defrost water to drain away."},
     {"problem": "The cottage smells musty when you open it in spring", "solution": "Damp air sitting all winter is the usual cause. A ductless heat pump with a dry mode, or an HRV or ERV that swaps stale air for fresh, keeps moisture in check while you're away."},
     {"problem": "Wind off the lake makes the furnace run nonstop", "solution": "Wind pulls heat out through gaps and thin walls. We check the furnace size against a real heat-loss number, look for leaky ducts, and recommend two-stage or variable-speed equipment that runs steadily instead of blasting."},
-    {"problem": "The AC quits in the middle of a July heat wave", "solution": "Failed capacitors, burnt contactors and slow refrigerant leaks top the list. Our licensed refrigeration techs find the fault and give you a written price before any repair."}]},
+    {"problem": "The AC quits in the middle of a July heat wave", "solution": "Failed capacitors, burnt contactors and slow refrigerant leaks top the list. Our licensed refrigeration techs find the fault and give you a written price before any repair."},
+    {"problem": "The Camlachie cottage sits empty midweek with the AC switched off", "solution": "With the cooling off, lake humidity creeps into the furniture and the drywall, and you arrive Friday to a damp, heavy house. A modest setpoint or a humidity-based dry mode keeps moisture in check while you're away, and a thermostat you can reach from your phone lets you bring the place down to temperature before you pull in."}]},
+  {"type": "cost_guide", "h2": "Sarnia AC, heat pump and furnace prices to plan around", "keys": ["ac_repair", "ac_install", "heat_pump_ducted", "ductless_single", "furnace_install", "furnace_repair"],
+   "lead": "Raised stands and corrosion-resistant hardware are part of a lakeside install, and they're written into the quote rather than tacked on later."},
   {"type": "snapshot", "h2": "Sarnia heating and cooling conditions, in short",
    "lead": "Four local facts that change how we plan equipment for your home or cottage.",
    "items": [
@@ -53,6 +56,8 @@ PAGE = {
    "form_h3": "Request your Sarnia quote"},
   {"type": "mosaic", "count": 3, "h2": "Outdoor units, mounts and line sets from recent jobs",
    "lead": "A few recent Ontario installs from our crews, showing the raised mounts and clean line work we bring to lakeside homes."},
+  {"type": "equipment", "h2": "Cooling and heating equipment we install along the Sarnia shoreline", "groups": ["heat_pumps", "furnaces"],
+   "lead": "Inverter heat pumps for long, low-speed cycles that dry the air, and two-stage furnaces for the windy nights. Each comes with a registered warranty."},
   {"type": "money"}],
  "faqs": [
   ("Why does my Sarnia home feel humid with the AC on?", "Most often the air conditioner is too big for the house. It cools quickly and shuts off before it removes enough moisture, so a correctly sized inverter unit usually feels drier at the same temperature."),
@@ -61,6 +66,7 @@ PAGE = {
   ("Can a cold-climate heat pump handle lake-effect snow?", "Yes, if it's mounted high enough and can drain its defrost water. The units we install are rated to heat down to -30°C."),
   ("Do you offer furnace repair in Sarnia?", "Yes. Our TSSA-certified gas technicians repair gas furnaces and give you a written price before starting."),
   ("Is emergency HVAC in Sarnia available after hours?", "Yes. We take emergency calls evenings, weekends and holidays. Call 1-647-694-5845 and we'll tell you when a technician can get there."),
-  ("How often should a lakeside air conditioner be serviced?", "Once a year, ideally in spring. We clean and rinse the coil, check the refrigerant charge and electrical parts, and look for early corrosion.")],
+  ("How often should a lakeside air conditioner be serviced?", "Once a year, ideally in spring. We clean and rinse the coil, check the refrigerant charge and electrical parts, and look for early corrosion."),
+  ("What does a new air conditioner cost in Sarnia?", "A central air conditioner is priced in a written quote after a heat-gain calculation, since the size and the mounting decide the number. A cold-climate heat pump that cools and heats starts from $5,500 installed. Installed pricing depends on size and installation requirements, and the quote is guaranteed.")],
  "related": ["/ac/repair-maintenance/", "/heat-pump/cold-climate/", "/ac/ductless-mini-split/", "/services/hrv-erv/", "/services/hvac-repair-maintenance/", "/heat-pump-rebates/"],
 }

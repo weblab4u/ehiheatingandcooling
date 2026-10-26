@@ -19,7 +19,10 @@ PAGE = {
     {"problem": "The old AC runs on R-22 and keeps losing charge", "solution": "R-22 is no longer made, so topping it up gets pricier every year. If the leak is small and the unit is young enough, a repair can still buy time. Otherwise a new AC, or a heat pump on the existing furnace, is usually the better spend."},
     {"problem": "A cold snap in Acton shows the furnace can't keep up", "solution": "Inland Halton Hills runs colder than the lakeshore, and some furnaces were sized with no margin while others were oversized and short cycle. We run a heat-loss calculation before replacing anything, so the new unit fits the house and the local winters."},
     {"problem": "The blower squeals and the house smells dusty when the heat kicks on", "solution": "A worn blower bearing or a clogged filter is often a simple repair. We clean, test and price the fix, and we don't push a new system when the furnace itself is sound."},
-    {"problem": "A rural Halton Hills home burns propane or oil", "solution": "Fuel costs on a rural lot near Limehouse or Norval can be steep. A cold-climate heat pump rated to -30°C can carry most of the load, and homes heated with propane or oil may qualify for up to $7,500 in rebates."}]},
+    {"problem": "A rural Halton Hills home burns propane or oil", "solution": "Fuel costs on a rural lot near Limehouse or Norval can be steep. A cold-climate heat pump rated to -30°C can carry most of the load, and homes heated with propane or oil may qualify for up to $7,500 in rebates."},
+    {"problem": "The furnace in your Glen Williams home is only 10 years old, but the control board failed", "solution": "That one is worth repairing, and we also want to know why it failed. A board on a young furnace often dies from a power surge, a condensate leak dripping onto it or a wiring fault, and replacing it without fixing the cause means paying twice. We trace it, fix the board and the cause, and suggest a surge protector if the hydro line has been the problem."}]},
+  {"type": "cost_guide", "h2": "Georgetown and Acton repair versus replacement prices", "keys": ["furnace_repair", "ac_repair", "furnace_install", "ac_install", "heat_pump_ducted"],
+   "lead": "The repair price comes after the diagnosis. The replacement price starts here, and both go on the same page so you can weigh them against each other."},
   {"type": "snapshot", "h2": "What shapes heating and cooling across Halton Hills",
    "lead": "Halton Hills mixes an old downtown, decades of family subdivisions and a lot of countryside. Here's what that means for your system.",
    "items": [
@@ -46,6 +49,8 @@ PAGE = {
            "<ul class=\"checklist\"><li>Two prices on one page: fix it or replace it</li><li>High-efficiency Lennox and Midea furnaces from $3,300 installed</li><li>Central AC or a heat pump matched to your furnace</li><li>Select systems carry up to 12 years parts and 12 years labour</li></ul>"},
   {"type": "mosaic", "count": 3, "h2": "Recent replacements from our crew",
    "lead": "Three recent jobs from around Ontario. Square venting, labelled wiring and a clean furnace room come standard."},
+  {"type": "equipment", "h2": "The furnaces and heat pumps behind our Halton Hills quotes", "groups": ["furnaces", "heat_pumps"],
+   "lead": "When replacement wins the comparison, these are the models we price for Georgetown homes, with the heat exchanger and parts warranties that justify the spend."},
   {"type": "money"}],
  "faqs": [
   ("My Georgetown furnace keeps breaking down. Fix it again or replace it?", "Repair it if the furnace is sound and the fix is a small share of the cost of a new one. Replace it when the heat exchanger is cracked, repairs keep piling up, or the unit is well past 15 years and wasting gas."),
@@ -53,6 +58,7 @@ PAGE = {
   ("What does a new furnace installation in Georgetown start at?", "A high-efficiency gas furnace starts at $3,300 installed. Installed pricing depends on size and installation requirements, and once you sign, that guaranteed price holds."),
   ("Can I get a second opinion from an HVAC contractor in Georgetown?", "Yes. Send us the quote or diagnosis you received, and we'll inspect the equipment and give you our honest view before you spend anything."),
   ("Is a heat pump worth it for a Georgetown home on gas?", "It can be, especially as a hybrid with your furnace. Enbridge gas-heated homes commonly qualify for up to $2,000 toward a qualifying heat pump, and the furnace stays as backup for the coldest nights."),
-  ("How long should a furnace last in Halton Hills?", "With a tune-up every year, a gas furnace typically lasts somewhere between 15 and 20 years. Colder inland winters and skipped tune-ups can shorten that.")],
+  ("How long should a furnace last in Halton Hills?", "With a tune-up every year, a gas furnace typically lasts somewhere between 15 and 20 years. Colder inland winters and skipped tune-ups can shorten that."),
+  ("Is it cheaper to replace the furnace and AC at the same time in Georgetown?", "Often, yes, when both are near the end. One visit, one set of permits and matched equipment usually costs less than two separate jobs a few years apart, and a heat pump in place of the AC can bring a rebate. If the furnace still has years left, we say so and replace only the AC.")],
  "related": ["/furnace/repair-maintenance/", "/services/hvac-installation-replacement/", "/furnace/high-efficiency/", "/ac/repair-maintenance/", "/offers/", "/financing/"],
 }

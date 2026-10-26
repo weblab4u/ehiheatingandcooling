@@ -41,6 +41,15 @@ PAGE = {
            "<li>Panel and 240V circuit handled through ESA-licensed electrical work</li>"
            "<li>Backup heat planned, never left to chance</li>"
            "<li>Rebate paperwork handled from start to finish</li></ul>"},
+  {"type": "problems", "h2": "Summer trouble an HVAC technician in Leamington sees every year",
+   "lead": "A cooling season that runs from May into October is hard on equipment. These are the calls that come in once the humidity settles over the county.",
+   "items": [
+    {"problem": "The AC runs for five months straight and quits in the hottest week", "solution": "Long seasons wear out capacitors and contactors sooner than they do up north. A spring tune-up catches a weak capacitor before August does, and when a part fails anyway, our licensed refrigeration techs diagnose it and give you a written price before the repair."},
+    {"problem": "Greenhouse and field dust pack the outdoor coil solid", "solution": "A coil caked with dust can't shed heat, so the unit runs longer and hotter. We rinse the coil at every service visit, set the unit on a raised pad away from laneways where trucks kick up dust, and suggest a filter schedule that suits a farm property."},
+    {"problem": "The farmhouse heats with propane and has a window unit in every bedroom", "solution": "One cold-climate heat pump on the existing ducts, or a multi-zone ductless system where there are none, replaces the window units and takes over most of the heating. Propane-heated homes may land in the higher rebate tier, and the furnace can stay as backup."},
+    {"problem": "The house near the lake is sticky at 22°C", "solution": "An oversized air conditioner cools fast and shuts off before it pulls the moisture out. We size from a heat-gain calculation and favour inverter equipment that runs long and low, which dries the air as it cools."}]},
+  {"type": "cost_guide", "h2": "Leamington AC, heat pump and repair prices", "keys": ["ac_repair", "ac_install", "heat_pump_ducted", "ductless_single", "furnace_repair"],
+   "lead": "Cooling is the big-ticket item here. Starting prices are below, and the written quote covers the rest, including a raised pad and any electrical work on a rural lot."},
   {"type": "mosaic", "count": 5, "h2": "Recent outdoor units and indoor installs from our crews",
    "lead": "A few recent Ontario jobs, not taken in Leamington. They show the raised pads and clean line work we bring to rural homes."},
   {"type": "quote_split", "photo": "any",
@@ -53,6 +62,8 @@ PAGE = {
    "form_h3": "Quote my new system"},
   {"type": "gbp", "h2": "Our Google profile: reviews, hours and contact details",
    "lead": "Our office is in Stouffville, and Leamington, Kingsville and Wheatley are part of the Ontario area we serve. Our Google listing shows current hours."},
+  {"type": "equipment", "h2": "Heat pumps and ductless units we install in Leamington", "groups": ["heat_pumps"],
+   "lead": "Inverter equipment that runs long and low through a Point Pelee summer, then heats a propane farmhouse or a lakeside home through the winter."},
   {"type": "neighbourhoods", "h2": "Leamington, Kingsville, Wheatley and nearby areas",
    "lead": "We book visits from downtown Leamington out to Seacliffe, Mersea and the Point Pelee area, including:"}],
  "faqs": [
@@ -61,6 +72,7 @@ PAGE = {
   ("How do I keep my AC going through a long, hot summer down here?", "Book a tune-up every spring and keep the outdoor coil clear of dust and debris. A clean coil and a correct refrigerant charge make the biggest difference."),
   ("If my AC dies on a Saturday, can I get AC repair in Leamington?", "Yes. We take emergency calls evenings, weekends and holidays, and you'll get a written price before the repair starts."),
   ("Do you serve Kingsville and Wheatley too?", "Yes. We book visits in Leamington, Kingsville, Wheatley and nearby Essex County communities from our Stouffville office."),
-  ("Will an older farmhouse panel handle a heat pump?", "Sometimes. Many homes have room for a 240V circuit, but older or smaller panels may need an upgrade, which we check during the visit.")],
+  ("Will an older farmhouse panel handle a heat pump?", "Sometimes. Many homes have room for a 240V circuit, but older or smaller panels may need an upgrade, which we check during the visit."),
+  ("How much does AC repair or a new AC cost in Leamington?", "AC repair is priced after the diagnosis, because the part sets the cost, and you approve the written price before we fix anything. A new central air conditioner gets a written quote after a heat-gain calculation, and a cold-climate heat pump that also heats starts from $5,500 installed.")],
  "related": ["/ac/", "/ac/repair-maintenance/", "/heat-pump/cold-climate/", "/heat-pump/electric-air-handler-systems/", "/ac/ductless-mini-split/", "/heat-pump-rebates/"],
 }

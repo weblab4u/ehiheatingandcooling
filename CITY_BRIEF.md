@@ -85,3 +85,8 @@ Do NOT run `python3 build.py` (other writers are working at the same time). Do n
   "Niagara-on-the-Lake", "Sault Ste. Marie").
 - Before finishing, compare your pages against ALL other content/city-*.py files (there are 27 published already plus other
   writers' new ones) and reword any shared sentence, heading, problem title or FAQ question.
+
+## Deepening pass (October 2026): two new blocks, available on every layout
+- `{"type": "cost_guide", "h2": "...", "lead": "..."}`: a price table rendered from data/pricing.py (from-prices and "written quote" until EHI confirms ranges). Write only the h2 and lead; optional `"keys"` picks which rows. Write the h2 with the city, e.g. "What HVAC work costs in Whitby".
+- `{"type": "equipment", "h2": "...", "lead": "...", "groups": ["heat_pumps", "furnaces"]}`: model cards (specs and warranty) from data/pricing.py. Groups: furnaces, heat_pumps, water_heaters. Pick the groups that fit the city's angle.
+- Add a cost FAQ to every page that lacks one: "How much does [a heat pump / a new furnace / furnace repair] cost in <City>?", answered with the from-price and the written-quote line. Never invent a range.

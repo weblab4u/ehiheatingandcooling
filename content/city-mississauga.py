@@ -20,6 +20,7 @@ PAGE = {
     {"problem": "The furnace is the one that came with the house", "solution": "A furnace from the 1970s or 1990s is often a single-stage, mid-efficiency unit near the end of its working life. A two-stage, variable-speed model at 96% to 97% AFUE burns less gas and holds a steadier temperature, from $3,300 installed."},
     {"problem": "Indoor air feels sticky even when the AC is on", "solution": "An oversized air conditioner cools the air quickly and shuts off before it pulls the moisture out. A properly sized, variable-speed system runs longer at lower speed, which is what dries out a muggy lakeshore summer."},
     {"problem": "The upper level of your backsplit is always a few degrees off", "solution": "Split-level homes have long, uneven duct runs. We measure static pressure, balance the dampers, add returns where rooms are starved and pair the new equipment with a variable-speed blower."}]},
+  {"type": "cost_guide", "h2": 'What Mississauga homeowners pay for furnace, AC and heat pump work', "lead": 'Original equipment in 1970s and 1990s homes is the usual job. The table shows our starting prices; your written quote fills in the rest.', "keys": ['furnace_repair', 'ac_repair', 'furnace_install', 'ac_install', 'heat_pump_ducted']},
   {"type": "snapshot", "h2": "What we see inside Mississauga homes",
    "lead": "The age of a house tells us a lot before we even open the furnace room door.",
    "items": [

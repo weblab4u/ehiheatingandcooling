@@ -20,6 +20,7 @@ PAGE = {
     {"url": "/heat-pump/hybrid-furnace-systems/", "title": "Heat pump plus gas furnace, working as a team", "text": "Keep gas for the coldest nights and let the heat pump do the rest."},
     {"url": "/ac/repair-maintenance/", "title": "AC repair in Brantford", "text": "Warm air, frozen lines and condensers that hum but won't start."},
     {"url": "/financing/", "title": "Financing your replacement", "text": "Spread payments at 0% over 3, 6 or 9 months, or take an open loan from 2.99% OAC."}]},
+  {"type": "cost_guide", "h2": 'Brantford furnace, central air and heat pump prices', "lead": 'Central homes replacing old furnaces and west-end builds adding cooling make up most Brantford jobs. Starting prices below.', "keys": ['furnace_repair', 'furnace_install', 'ac_install', 'heat_pump_ducted']},
   {"type": "checklist", "photo": "out",
    "h2": "What a Brantford HVAC contractor should list on a furnace quote",
    "lead": "A fair price is a complete price. These are the items our written quotes spell out, so you can compare us line for line with anyone else.",

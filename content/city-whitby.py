@@ -13,6 +13,7 @@ PAGE = {
   {"type": "split", "h2": "One town, two kinds of house: picking the right HVAC in Whitby", "photo": "out", "reverse": False,
    "html": "<p>South Whitby has heritage homes downtown and in Port Whitby, plus plenty of 1980s to 2000s family houses. The lake takes the edge off winter here. The trouble is usually inside the walls: small or missing ducts, plaster you don't want to open, and older equipment that was never sized properly.</p>"
            "<p>North Whitby is another story. Brooklin and Taunton North are full of newer homes with tight construction and decent ductwork, but they sit on open, windier ground that runs colder in January. These homes suit a ducted cold-climate heat pump, often with a furnace or electric air handler behind it.</p>"
+           "<p>In between sit the 1980s to 2000s homes in Rolling Acres, Blue Grass Meadows and Pringle Creek. They usually have workable ducts and an original or second-generation furnace, which makes them the simplest jobs: a two-stage furnace, a matched heat pump or AC, and a proper balance of the registers.</p>"
            "<p>So we don't walk in with a favourite product. We measure, run the heat-loss numbers and look at the ducts first. Then we recommend the system that fits the house you actually live in.</p>"
            "<ul class=\"checklist\"><li>Heritage and older homes: ductless heads, hybrid systems or a high-efficiency furnace on the ducts you have</li><li>Newer north-end homes: ducted heat pumps, two-stage furnaces and fresh-air ventilation</li><li>Every home: a written heat-loss figure, not a guess from square footage</li></ul>"},
   {"type": "svc_links", "h2": "Whitby HVAC services by system type",
@@ -34,7 +35,10 @@ PAGE = {
     {"problem": "Wind across the north end chills the family room every January", "solution": "Open lots lose more heat on windy days. We confirm the heat loss for that room, balance the airflow and size the furnace or heat pump for the colder design temperature up there."},
     {"problem": "Another company quoted the same unit they'd put in any house", "solution": "Size by square footage alone and you end up with short cycling or cold rooms. We use a Manual J calculation and explain why the size we picked suits your walls, windows and ducts."},
     {"problem": "Dry air and static shocks all winter in an older home", "solution": "Older houses leak warm air and pull in dry outside air. A whole-home humidifier on the furnace, set to match the outdoor temperature, brings the moisture back without fogging the windows."},
-    {"problem": "Your new basement suite or addition is cut off from the ducts", "solution": "Stretching old ductwork rarely works well. A single-zone or multi-zone ductless system gives that space its own heating and cooling and its own controls."}]},
+    {"problem": "Your new basement suite or addition is cut off from the ducts", "solution": "Stretching old ductwork rarely works well. A single-zone or multi-zone ductless system gives that space its own heating and cooling and its own controls."},
+    {"problem": "The Williamsburg basement apartment has a tenant who wants control of their own temperature", "solution": "Sharing one thermostat between two households never ends well. A ductless head in the apartment, on its own outdoor unit or as a zone of a multi-zone system, gives the tenant their own remote and keeps your upstairs setting untouched. It also means a repair on one system doesn't leave both floors without heat."}]},
+  {"type": "cost_guide", "h2": "Whitby repair pricing and where new systems start", "keys": ["furnace_repair", "ac_repair", "furnace_install", "heat_pump_ducted", "ductless_single"],
+   "lead": "The house-type table below shows which system fits which home. This one covers the repair and replacement figures people ask about on the first call."},
   {"type": "mosaic", "count": 4, "h2": "Recent installs from our heating and cooling crews",
    "lead": "Some recent Ontario jobs, from ductless heads on older homes to ducted heat pumps on newer ones. A Whitby job gets the same tidy finish."},
   {"type": "table", "h2": "Whitby HVAC cost guide by house type",
@@ -48,6 +52,8 @@ PAGE = {
     ["Electric air handler with heat pump", "All-electric homes and homes off gas", "Quote"],
     ["HRV or ERV", "Tight builds with stale air or foggy windows", "Quote"]],
    "note": "Installed pricing depends on size and installation requirements, so each Whitby home gets its own guaranteed quote. Qualifying cold-climate heat pumps may earn up to $7,500 through the Home Renovation Savings Program (less for gas-heated homes); confirm eligibility before installation, as program terms can change. Financing: 0% for 3, 6 or 9 months or loans from 2.99% OAC."},
+  {"type": "equipment", "h2": "The furnaces, heat pumps and ductless units we match to Whitby homes", "groups": ["heat_pumps", "furnaces"],
+   "lead": "Ducted EVOX G3 or Kepler for Brooklin, Midea ductless for the heritage streets of Port Whitby, and two-stage furnaces for anything on gas."},
   {"type": "neighbourhoods", "h2": "Whitby neighbourhoods, lakeshore to north end",
    "lead": "We work in every part of town, from the heritage streets near the harbour to the newest Brooklin subdivisions, including:"},
   {"type": "why"},

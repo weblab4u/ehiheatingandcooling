@@ -20,6 +20,7 @@ PAGE = {
     {"problem": "A loud outdoor unit sits right under the bedroom window", "solution": "We place outdoor units away from bedrooms and neighbours where the lot allows, mount them on anti-vibration pads or wall brackets, and choose inverter models that run quietly at low speed."},
     {"problem": "Fixed income, rising bills and an old system you can't predict", "solution": "We give you one guaranteed price, show the rebate you may qualify for and lay out 0% financing for 3, 6 or 9 months. You decide when and how, with no pressure."},
     {"problem": "Window air conditioners are getting too heavy to haul out every spring", "solution": "A ductless heat pump stays on the wall all year, cools in summer, heats in winter and runs from a remote. No more lifting units in and out of windows."}]},
+  {"type": "cost_guide", "h2": 'Cobourg heating and cooling prices for heritage and lakefront homes', "lead": "Quiet, efficient equipment with ductless where ducts won't fit. Starting prices below, written quote after a visit.", "keys": ['ductless_single', 'heat_pump_ducted', 'furnace_install', 'furnace_repair']},
   {"type": "snapshot", "h2": "Four Cobourg details that shape your system",
    "lead": "Small town, wide mix of homes. These are the facts we start from.",
    "items": [

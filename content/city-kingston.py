@@ -19,6 +19,7 @@ PAGE = {
     {"url": "/ac/repair-maintenance/", "title": "AC repair in Kingston", "text": "Weak cooling, ice on the lines, leaks and dead condensers."},
     {"url": "/services/hrv-erv/", "title": "HRV and ERV ventilation", "text": "Fresh air for tightly sealed older homes without the drafts."},
     {"url": "/services/thermostats/", "title": "Smart thermostats for rentals", "text": "Remote alerts and sensible limits for owners who live elsewhere."}]},
+  {"type": "cost_guide", "h2": 'Kingston pricing for ductless, slim-duct and furnace work', "lead": 'Limestone and heritage homes often call for ductless or slim-duct systems. Here is where the pricing starts.', "keys": ['ductless_single', 'heat_pump_ducted', 'furnace_install', 'furnace_repair']},
   {"type": "checklist", "photo": "out",
    "h2": "What an HVAC contractor in Kingston checks in a heritage home",
    "lead": "Old stone and brick houses hide surprises. These are the things we look at before we suggest any equipment.",

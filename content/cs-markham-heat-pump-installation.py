@@ -1,0 +1,62 @@
+# /markham/heat-pump-installation/
+PAGE = {
+ "url": "/markham/heat-pump-installation/", "city_service": "markham", "priority": "0.7",
+ "title": "Heat Pump Installation Markham | Hybrid & Zoned Systems",
+ "description": "Heat pump installation in Markham for two-storey homes: hybrid heat pump plus furnace, variable-speed cooling, rebates filed for you. Guaranteed quote.",
+ "eyebrow": "Heat Pump Installation · Markham",
+ "h1": "Heat Pump Installation in Markham for Two-Storey Homes",
+ "tagline": "Cool the top floor, warm the basement, keep the furnace as backup",
+ "intro": "<p>Heat pump installation in Markham usually starts with the same complaint: the bedrooms upstairs are stuffy by bedtime and the basement never quite warms up. A cold-climate heat pump with an inverter compressor runs long and low instead of blasting and stopping, which is exactly what a two-storey Ontario house needs. We size it to your floors, pair it with your furnace if you want gas backup, and put the price in writing before you commit.</p>",
+ "hero_points": ["Inverter heat pumps rated to heat down to -30°C", "Hybrid setups that keep your existing furnace for deep cold",
+                 "Ductless options for Unionville and Markham Village heritage homes", "Rebate pre-approval and paperwork handled by us"],
+ "hero_image": "Cold-climate heat pump outdoor unit on a pad beside a two-storey brick home",
+ "service": {"name": "Heat Pump Installation in Markham", "type": "Cold-climate heat pump installation", "area": "Markham"},
+ "blocks": [
+  {"type": "problems", "h2": "What a heat pump fixes in a Markham two-storey house",
+   "lead": "Each of these shows up again and again in Cornell, Berczy Village and Wismer. Here's the cause and the fix.",
+   "items": [
+    {"problem": "The main floor hits 22°C while the bedrooms sit at 26°C", "solution": "A single-stage air conditioner satisfies the hallway thermostat and quits before the top floor catches up. An inverter heat pump slows down instead of stopping, so cool air keeps moving to the second storey and humidity keeps dropping."},
+    {"problem": "Your furnace is only ten years old and you don't want to scrap it", "solution": "You don't have to. A hybrid install adds a cold-climate heat pump to the furnace you already own. The heat pump handles cooling and most of the heating, and the furnace fires only on the coldest days."},
+    {"problem": "The air conditioner is done but the gas bill is the real problem", "solution": "Replace the dead AC with a heat pump instead of another AC. For about the same outdoor unit footprint you get cooling in July and heating from October through March at a lower cost per unit of heat than gas on most days."},
+    {"problem": "Your Unionville home has plaster walls and no ducts", "solution": "A cold-climate ductless system puts a slim wall head in each main room, fed by one outdoor unit. The only opening is a small hole for the refrigerant lines, and the heritage trim stays put."},
+    {"problem": "The basement is still cold after the heat pump goes in", "solution": "Most subdivision basements are short on supply registers. On install day we balance the ducts, and where that's not enough we add a run or a small ductless head so the lower level finally gets its share."},
+    {"problem": "You're not sure the electrical panel can take it", "solution": "Plenty of 1980s and 1990s Markham homes have a 100-amp panel. We check the load, run a dedicated 240V circuit with ESA-licensed electrical work, and tell you up front if a panel upgrade is part of the job."},
+    {"problem": "You heat with Enbridge gas and think the rebate is out of reach", "solution": "Gas-heated homes still qualify under the Home Renovation Savings Program, commonly for up to $2,000 on a listed cold-climate heat pump. We confirm eligibility and file the pre-approval before installation."},
+    {"problem": "The townhouse lot puts the outdoor unit a metre from the neighbour's window", "solution": "Tight lots call for a quiet unit and smart placement. Kepler and Midea inverter units run far quieter than an old single-speed condenser, and we set them on a pad away from bedroom windows where the lot allows."}]},
+  {"type": "cost_guide", "h2": "Heat pump installation cost in Markham", "keys": ["heat_pump_ducted", "ductless_single"],
+   "lead": "Installed cold-climate heat pumps start from $5,500. The final number depends on tonnage, whether we pair it with your furnace or a new air handler, the electrical work and how many ductless heads a heritage home needs."},
+  {"type": "steps", "h2": "How a heat pump install goes in Markham",
+   "lead": "Four steps, one written price, no surprises on install day.",
+   "items": [
+    {"title": "Walk the house with us", "text": "We take temperatures on each floor, look at the ducts, the furnace, the panel and where the outdoor unit can sit. Tell us which rooms give you grief."},
+    {"title": "Heat-loss, heat-gain and balance point", "text": "A Manual J calculation sets the tonnage. For a hybrid system we also work out the outdoor temperature where the furnace should take over, using your Alectra and Enbridge rates."},
+    {"title": "Rebate pre-approval, then the quote", "text": "We confirm the model is on NRCan's qualified list, submit the pre-approval and hand you a guaranteed quote with model numbers and rebate estimate."},
+    {"title": "Install, balance and hand over", "text": "Licensed refrigeration techs set the charge, the 240V circuit goes in, and we balance airflow between floors, set up the thermostat and register the warranty."}]},
+  {"type": "equipment", "h2": "Cold-climate heat pumps we install in Markham homes", "groups": ["heat_pumps"],
+   "lead": "Ducted units for homes with a furnace or air handler, ductless for the ones without. All inverter driven and rated to -30°C."},
+  {"type": "checklist", "photo": "in", "h2": "What's included in a Markham heat pump installation",
+   "lead": "Everything on this list is part of the quoted price, not an extra.",
+   "items": ["Room-by-room heat-loss and heat-gain calculation before sizing",
+             "Outdoor unit on a level pad or wall bracket, clear of snow drift and dryer vents",
+             "Dedicated 240V circuit and disconnect by ESA-licensed electricians",
+             "Refrigerant lines pressure-tested with nitrogen, evacuated and charged by weight",
+             "Indoor coil matched to your furnace, or a new Midea air handler for all-electric homes",
+             "Condensate drain with a trap and a clear path to a floor drain",
+             "Thermostat programmed for hybrid switchover or heat pump only",
+             "Permits, warranty registration and Home Renovation Savings Program paperwork"]},
+  {"type": "split", "photo": "sys", "h2": "How we size a heat pump for a Markham house with two climates",
+   "html": "<p>A two-storey house in Markham carries two different loads. The top floor needs cooling first because the roof and the afternoon sun pour heat into the bedrooms. The basement needs heating first because it sits against cold ground. Size the system for the hallway thermostat and you get a unit that's wrong for both ends of the house.</p>"
+           "<p>So we don't guess from square footage. We run the heat-loss and heat-gain numbers floor by floor, check static pressure on the ductwork, and look at how much air actually reaches the second storey. In a lot of homes the fix is a 3-ton inverter unit plus a blower speed change, not a bigger box. In others, the honest answer is a ducted heat pump for the main system and one ductless head in the master bedroom.</p>"
+           "<p>For hybrid systems we also set the balance point. That's the outdoor temperature where gas becomes cheaper than running the heat pump. On a typical Alectra and Enbridge bill that point lands well below freezing, so the heat pump carries most of the Ontario heating season. The furnace handles the January deep freeze, and you never notice the handoff.</p>"
+           "<ul class=\"checklist\"><li>Manual J heat-loss and heat-gain, per floor</li><li>Static pressure and register count on each level</li><li>Balance point set from your real utility rates</li><li>Capacity checked at -15°C, not just at the rated size</li><li>One quote for the ducted option, one for ducted plus ductless, so you can compare</li></ul>"
+           "<p>Want the bigger picture on how these units handle an Ontario winter? Read our guide to <a href='/heat-pump/cold-climate/'>cold-climate heat pumps</a>. For everything else we do in the city, see <a href='/markham/'>HVAC in Markham</a>.</p>"},
+  {"type": "money"}],
+ "faqs": [
+  ("What does a heat pump installation in Markham cost for a two-storey home?", "Cold-climate heat pump installation in Markham starts from $5,500. Installed pricing depends on size and installation requirements such as electrical work and whether it pairs with your furnace, and every job gets a written, guaranteed quote before you book."),
+  ("Will a heat pump fix the hot upstairs in my Markham home?", "In most cases, yes. An inverter heat pump runs longer at a lower speed, which moves more cool air to the second floor and pulls more humidity out of it. Where ducts to the upstairs are too small, we add a blower adjustment or a ductless head and quote both options."),
+  ("Can I keep my gas furnace when I add a heat pump?", "Yes. A hybrid system pairs a cold-climate heat pump with your existing furnace. The heat pump covers cooling and most of the heating, and the furnace runs only below the balance point we set. It's the most common heat pump installation we do in Markham."),
+  ("Does a gas-heated Markham home qualify for the heat pump rebate?", "Yes, at the lower tier. Enbridge gas-heated homes commonly qualify for up to $2,000 on a listed cold-climate heat pump through the Home Renovation Savings Program. Pre-approval must be in place before installation, program terms can change, and we confirm eligibility and file the paperwork."),
+  ("How long does a heat pump installation take in Markham?", "Most ducted or single-zone installs are finished in one working day, and a multi-zone ductless system in a heritage home can take two. We confirm the date when you book, and we don't promise an arrival time we can't keep."),
+  ("Can you put a heat pump in a heritage home in Unionville?", "Yes. In Unionville and Markham Village homes without ducts we install cold-climate ductless systems, with one outdoor unit feeding up to five wall heads. Each head needs only a small opening for the lines, so the plaster and trim stay intact.")],
+ "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump-rebates/", "/ac/multi-zone-ductless-system/", "/markham/"],
+}

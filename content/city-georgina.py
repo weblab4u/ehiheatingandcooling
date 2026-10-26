@@ -21,6 +21,7 @@ PAGE = {
     {"url": "/ac/ductless-mini-split/repair/", "title": "Ductless repair", "text": "Heads that stop heating, drip water or flash error codes."},
     {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Georgina", "text": "After-hours help on evenings, weekends and holidays."},
     {"url": "/heat-pump-rebates/", "title": "Heat pump rebates", "text": "Up to $7,500 for qualifying homes heated by electricity, oil or propane."}]},
+  {"type": "cost_guide", "h2": 'Keswick and Sutton cottage-conversion prices', "lead": 'Many Lake Simcoe homes have baseboards and no ducts, so ductless leads the list. Written quote after we see the place.', "keys": ['ductless_single', 'heat_pump_ducted', 'furnace_install']},
   {"type": "checklist", "photo": "out", "h2": "What an HVAC technician in Georgina checks in a converted cottage",
    "lead": "Places built for summer weekends need a closer look before they get a year-round system.",
    "items": ["Insulation in the walls, floor and attic, since many cottages started with very little",

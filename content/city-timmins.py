@@ -19,7 +19,10 @@ PAGE = {
     {"problem": "Drifts and roof slides bury the outdoor unit", "solution": "We set it on a raised stand or wall bracket, out from under the eaves and away from where the plow piles snow, so air can always reach the coil."},
     {"problem": "Defrost water freezes into a block under the unit", "solution": "Heat pumps melt frost off the coil several times a day in winter. A raised stand over a drained base lets that water get away instead of building ice that lifts and damages the unit."},
     {"problem": "Your system was sized by copying the old furnace label", "solution": "Old furnaces were often oversized, and a heat pump sized the same way will short cycle. We run a heat-loss calculation for your actual walls, windows and attic."},
-    {"problem": "The oil furnace in your South Porcupine bungalow is near the end", "solution": "Replace it with a cold-climate heat pump and an electric air handler, or keep it as backup in a hybrid setup. Oil-heated homes can qualify for the higher rebate tier."}]},
+    {"problem": "The oil furnace in your South Porcupine bungalow is near the end", "solution": "Replace it with a cold-climate heat pump and an electric air handler, or keep it as backup in a hybrid setup. Oil-heated homes can qualify for the higher rebate tier."},
+    {"problem": "The thermostat has shown 'aux heat' for hours and you're not sure that's normal", "solution": "On a -35°C night, it is. The backup is doing the job it was sized for, and the heat pump will take over again when the cold eases. If the backup is running on a -10°C afternoon, the switchover point or an outdoor sensor is off, and we adjust it. We set that point from your fuel costs and heat loss, so the cheaper source runs whenever it can."}]},
+  {"type": "cost_guide", "h2": "Timmins pricing for hybrid heat pumps and backup heat", "keys": ["heat_pump_ducted", "furnace_install", "ductless_single", "furnace_repair"],
+   "lead": "In Timmins the backup heat is part of the system, not an extra, so our quotes price the heat pump and the furnace or air handler together as one number."},
   {"type": "snapshot", "h2": "The Timmins facts we design around",
    "lead": "Every recommendation we make here starts with the same four realities.",
    "items": [
@@ -42,6 +45,8 @@ PAGE = {
    "photo": "sys", "form_h3": "Get your Timmins heating plan"},
   {"type": "mosaic", "count": 3, "h2": "Stands, line sets and indoor units from recent work",
    "lead": "Photos from our installs elsewhere in Ontario, showing the details that matter in deep cold."},
+  {"type": "equipment", "h2": "Heat pumps and furnaces that make up a Timmins hybrid", "groups": ["heat_pumps", "furnaces"],
+   "lead": "One from each group below, matched to your heat loss, is the usual Timmins system. The furnace carries the nights the heat pump can't."},
   {"type": "money"}],
  "faqs": [
   ("What happens to a heat pump when it drops below -30°C in Timmins?", "Below its rated range a heat pump's output falls, so backup heat takes over automatically. That's why every system we plan in Timmins includes a furnace or electric air handler sized to carry the house on the coldest nights."),
@@ -49,6 +54,7 @@ PAGE = {
   ("How high should a heat pump sit off the ground in Timmins?", "High enough to clear your typical snow depth and drifts, which we check on site. Most installs here use a raised stand or wall bracket, placed away from roof edges."),
   ("Can I get a heat pump rebate in Timmins if I heat with oil?", "Yes. Oil-heated homes can qualify for up to $7,500 toward a cold-climate heat pump through the Home Renovation Savings Program, based on size. The pre-approval has to be in place before we install, and the program's terms may change."),
   ("Do you do heat pump installation in Timmins?", "Yes. Our crews install cold-climate heat pumps and hybrid systems in Timmins and nearby communities, and we schedule the work with you directly."),
-  ("Can you keep my existing furnace as the backup?", "Often, yes. If your furnace is in good working order, we can connect it to the heat pump as backup and set the switchover point, which keeps the upfront cost down.")],
+  ("Can you keep my existing furnace as the backup?", "Often, yes. If your furnace is in good working order, we can connect it to the heat pump as backup and set the switchover point, which keeps the upfront cost down."),
+  ("How much does a hybrid heat pump system cost in Timmins?", "The heat pump side starts from $5,500 installed and a new high-efficiency furnace from $3,300, before any rebate. If your existing furnace is sound, it can serve as the backup, which keeps the total down. Installed pricing depends on size and installation requirements, and the quote is guaranteed in writing.")],
  "related": ["/heat-pump/hybrid-furnace-systems/", "/heat-pump/cold-climate/", "/heat-pump/electric-air-handler-systems/", "/brands/kepler-heat-pumps/", "/heat-pump-rebates/", "/furnace/repair-maintenance/"],
 }

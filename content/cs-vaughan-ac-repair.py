@@ -1,0 +1,62 @@
+# /vaughan/ac-repair/
+PAGE = {
+ "url": "/vaughan/ac-repair/", "city_service": "vaughan", "priority": "0.7",
+ "title": "AC Repair Vaughan | Big Homes, Big Glass, Written Quotes",
+ "description": "AC repair in Vaughan for large homes that can't hold temperature, two-system houses, ductless heads and Concord shops. Licensed techs. Call 1-647-694-5845.",
+ "eyebrow": "AC Repair · Vaughan",
+ "h1": "AC Repair in Vaughan for Homes That Cook Behind the Glass",
+ "tagline": "Central AC, ductless and commercial cooling, diagnosed properly",
+ "intro": "<p>AC repair in Vaughan is mostly a story about sun and glass. A custom home in Kleinburg or Maple with a two-storey window wall asks more of its air conditioner than almost any other house in Ontario, so a tired capacitor or a coil full of cottonwood fluff shows up on the first 30°C day. Our licensed refrigeration technicians repair central AC, multi-zone ductless and commercial cooling, with a written quote before any part is replaced.</p>",
+ "hero_points": ["Licensed refrigeration technicians for central AC, ductless and rooftop units", "Two-system homes and multi-zone ductless diagnosed zone by zone",
+                 "Written repair quote before work, replacement pricing beside it when it matters", "Emergency AC repair evenings, weekends and holidays"],
+ "hero_image": "Technician testing a large central air conditioner condenser beside a stone home with tall windows",
+ "service": {"name": "AC Repair in Vaughan", "type": "Air conditioner and ductless repair", "area": "Vaughan"},
+ "blocks": [
+  {"type": "problems", "h2": "Cooling failures we fix in Vaughan's biggest homes",
+   "lead": "Large houses and storefronts put cooling under real strain. Here's what breaks and how we handle it.",
+   "items": [
+    {"problem": "The AC runs all afternoon and the house still climbs to 27°C", "solution": "Either the unit is losing capacity to a dirty condenser coil or a low charge, or it was never sized for the glass. We measure pressures, superheat and subcooling, clean the coil and only then compare the unit's output with the real heat gain."},
+    {"problem": "The upstairs system died and the main-floor one is fine", "solution": "Two-system homes usually fail one unit at a time, and the upstairs unit works hardest. We diagnose the dead system on its own, from capacitor to compressor, and check the other so you're not calling again in August."},
+    {"problem": "The ductless head in the great room blinks and drips", "solution": "A blinking light is an error code and a drip is a blocked drain or a failed condensate pump. We read the code, clear the drain, check the refrigerant on that zone and test the head before it goes back on the wall."},
+    {"problem": "The breaker trips when the compressor starts", "solution": "Big compressors pull a lot of start current. A weak run capacitor, a loose lug in the disconnect or a compressor that's beginning to fail will trip the breaker. We measure the start amps and inspect the wiring before anyone touches the panel."},
+    {"problem": "The showroom in Concord is blowing warm air at the busiest hour", "solution": "Rooftop units and split systems in commercial units suffer from dirty coils, failed contactors and belt or fan motor faults. We service them with your hours in mind and tell you honestly if the unit is at the end."},
+    {"problem": "Ice on the line set beside the air handler", "solution": "Airflow or refrigerant, every time. Big homes with four-inch media filters forget to change them, and the coil freezes. We thaw the system, fix the restriction or the leak and confirm the temperature drop."},
+    {"problem": "The condenser beside the patio is too loud for a summer dinner", "solution": "A worn fan motor bearing, a loose panel or a compressor on its way out. We fix what's fixable, and if the unit is being replaced we spec a quiet inverter unit and a spot away from the patio."},
+    {"problem": "Your 16-year-old AC needs refrigerant again", "solution": "A repeat leak on an old unit is a sign to stop pouring money in. We quote the leak repair, and beside it a cold-climate heat pump that cools the same way, heats most of the winter and may earn a rebate a new AC can't."}]},
+  {"type": "cost_guide", "h2": "AC repair cost in Vaughan", "keys": ["ac_repair", "ac_install", "heat_pump_ducted"],
+   "lead": "Repairs are quoted after diagnosis. When a unit is finished, you'll see a new central AC and a cold-climate heat pump from $5,500 installed on the same page, so the comparison is easy."},
+  {"type": "steps", "h2": "How an AC repair call in Vaughan goes",
+   "lead": "One visit, a real diagnosis and a written number before anything happens.",
+   "items": [
+    {"title": "Describe the problem and the house", "text": "Warm air, no cooling, a blinking head or a tripping breaker. Tell us if you have two systems or a ductless setup, or if it's a business, and we'll give you a booking window."},
+    {"title": "Diagnose every zone", "text": "A licensed refrigeration tech checks the outdoor unit, the indoor coil, electrical parts and the charge. On multi-zone systems we test each head and its drain."},
+    {"title": "Written quote, with options", "text": "The repair price in writing. If the unit is old and the repair is major, you also get replacement pricing with the rebate estimate."},
+    {"title": "Repair and prove it on the hottest room", "text": "Most repairs are finished on the spot. We run the system, check the temperature drop and confirm the great room or the showroom floor is actually cooling."}]},
+  {"type": "equipment", "h2": "What replaces a worn-out air conditioner in Vaughan", "groups": ["heat_pumps"],
+   "lead": "A cold-climate heat pump is the modern replacement for central AC. It cools like an air conditioner in summer, heats down to -30°C in winter, and the inverter compressor throttles to match a big home's changing load."},
+  {"type": "checklist", "photo": "out", "h2": "What's included in a Vaughan AC repair visit",
+   "lead": "Every diagnostic covers the whole cooling loop, from the condenser to the farthest register or head.",
+   "items": ["Run capacitor, contactor and compressor start current tested",
+             "Refrigerant pressures, superheat and subcooling measured against spec",
+             "Outdoor coil checked for fluff, grass and debris, with coil cleaning quoted if needed",
+             "Indoor coil, media filter and airflow inspected for restriction",
+             "Condensate drain, pump and pan cleared on central and ductless systems",
+             "Every ductless head tested, with error codes read and cleared",
+             "Temperature drop recorded after the repair at the hardest room to cool",
+             "Written repair quote, and heat pump or AC replacement pricing when the unit is past about 15 years"]},
+  {"type": "split", "photo": "sys", "h2": "Why glass changes the AC math in Vaughan",
+   "html": "<p>A window wall is a heater in July. Every square metre of west-facing glass lets in sun that a furnace would have to burn gas to match, and a Vaughan great room can have twenty of them. An air conditioner sized from the square footage alone never had a chance, and it spends its life running flat out, which is why we replace so many capacitors, contactors and fan motors on units that are only eight or nine years old.</p>"
+           "<p>So when we diagnose an AC that can't hold temperature, we look at two things. First, is the unit delivering its rated output? Coil cleaning, a correct charge and a healthy capacitor often bring back a ton of capacity the owner didn't know was missing. Second, was the rating ever enough? A quick heat-gain check of the glass and the orientation tells us. If the unit is short, the honest fix is a ductless head for the great room, not a repair that buys one more summer.</p>"
+           "<p>When the unit is at the end of its life, we recommend a cold-climate heat pump over a like-for-like AC for most large homes. The inverter compressor ramps up for the heat-wave afternoon and settles down at night instead of cycling, which holds temperature better in a house with a big thermal swing. It also heats most of the Ontario winter and may qualify for a Home Renovation Savings Program rebate. The same logic applies to a Concord storefront with a glass front and a south exposure.</p>"
+           "<ul class=\"checklist\"><li>Measured output compared with the unit's rating before any talk of size</li><li>Glass area and orientation checked against the unit's capacity</li><li>Ductless head for the room the glass overloads, instead of oversizing the whole house</li><li>Heat pump quote beside the AC quote when the unit is past about 15 years</li></ul>"
+           "<p>Our province-wide <a href='/ac/repair-maintenance/'>AC repair and maintenance</a> page covers the spring tune-up in detail. For furnaces, heat pumps and commercial work in the city, see <a href='/vaughan/'>HVAC services in Vaughan</a>.</p>"},
+  {"type": "money"}],
+ "faqs": [
+  ("How much does AC repair cost in Vaughan?", "AC repair in Vaughan is quoted in writing after diagnosis, so the price depends on the failed part. A capacitor or contactor is a small repair, while a compressor or evaporator coil is a major one. When replacement is the smarter spend, cold-climate heat pumps for Vaughan homes start from $5,500 installed."),
+  ("Why can't my air conditioner keep up with my large Vaughan home?", "Most often the unit has lost capacity to a dirty coil, a low charge or a weak capacitor, and sometimes it was never sized for the glass. We measure the output first, then check the heat gain from the windows, and quote the repair or the extra capacity the house needs."),
+  ("Do you repair multi-zone ductless systems in Vaughan?", "Yes. We repair single and multi-zone ductless systems, including blinking error codes, dripping heads, failed condensate pumps and refrigerant faults on one zone. Each head is tested on its own so the fix is on the right one."),
+  ("How fast can you get to an AC repair in Vaughan?", "We book AC repair in Vaughan seven days a week and take emergency calls evenings, weekends and holidays. In a heat wave we prioritise homes with no cooling at all. You get a booking window when you call, not a promise we can't keep."),
+  ("Do you offer emergency AC repair in Vaughan, including for businesses?", "Yes. Emergency AC repair in Vaughan is available evenings, weekends and holidays for homes and for shops and offices in Concord. Call 1-647-694-5845 and tell us the system is completely down."),
+  ("Should I replace my old AC with a heat pump?", "If the air conditioner is past about 15 years and the repair is a compressor or coil, usually yes. A cold-climate heat pump cools the same way, handles most of the heating season and may qualify for the Home Renovation Savings Program rebate, and we quote both so the choice is yours.")],
+ "related": ["/ac/repair-maintenance/", "/services/emergency-hvac/", "/ac/ductless-mini-split/repair/", "/heat-pump/central/", "/vaughan/"],
+}

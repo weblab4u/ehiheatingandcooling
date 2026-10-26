@@ -32,7 +32,11 @@ PAGE = {
     {"problem": "Every repair quote seems to come with a surprise", "solution": "Our quotes list the parts and labour for the agreed scope, and that number holds. If we find something new, we explain it and price it before touching it."},
     {"problem": "Upstairs is warm in summer and the basement is cold in winter", "solution": "That's usually airflow, not the equipment. We check the duct sizes, returns and dampers and balance the system before recommending anything bigger."},
     {"problem": "The farmhouse burns through propane every winter", "solution": "Pair a cold-climate heat pump with the propane furnace you already have. You'll call the propane truck far less often, and the furnace only wakes up when it's truly cold."},
-    {"problem": "The furnace dies in January and the budget isn't ready", "solution": "Our emergency line runs evenings, weekends and holidays. If it has to be replaced, interest-free terms or an open loan from 2.99% OAC keep the new furnace from wrecking the month's budget."}]},
+    {"problem": "The furnace dies in January and the budget isn't ready", "solution": "Our emergency line runs evenings, weekends and holidays. If it has to be replaced, interest-free terms or an open loan from 2.99% OAC keep the new furnace from wrecking the month's budget."},
+    {"problem": "Snow drifts bury the outdoor unit on the windward side of the house every winter", "solution": "Open farm country between Alliston and Angus piles snow against whatever faces the wind. A heat pump that sits in a drift can't breathe, and it burns time and power in defrost. We mount the new unit on a raised stand on the sheltered side of the house, clear of the roof edge and the snowblower's path, and leave room for defrost water to drain away before it freezes."}]},
+  {"type": "cost_guide", "h2": "Alliston and Angus furnace, AC and heat pump prices",
+   "lead": "Fair pricing starts with showing the numbers before anyone asks. These are our starting points, and the figure on your signed quote is the figure on the invoice.",
+   "keys": ["furnace_install", "ac_install", "heat_pump_ducted", "furnace_repair", "ac_repair"]},
   {"type": "mosaic", "count": 6, "h2": "Furnaces, AC units and heat pumps we've put in",
    "lead": "Recent jobs from other Ontario towns, shown so you can see the finish. Your home in Angus or Beeton gets the same clean work."},
   {"type": "steps", "h2": "How we price and install heating and cooling in Alliston",
@@ -42,6 +46,13 @@ PAGE = {
     {"title": "Sizing from real measurements", "text": "A technician runs a heat-loss calculation and checks ducts, gas line and electrical, so the new system is the right size."},
     {"title": "A guaranteed quote with options", "text": "You see good, better and repair-only choices where they make sense, plus financing and any rebate you qualify for."},
     {"title": "Install and a clean handover", "text": "Our licensed crew installs, tests and cleans up, then registers your warranty and shows you the thermostat."}]},
+  {"type": "equipment", "h2": "Equipment we stand behind in Alliston and Angus",
+   "lead": "Dependable comes first on this list. Two-stage furnaces with 20-year heat exchanger warranties and cold-climate heat pumps with up to 12 years parts and labour on select systems.",
+   "groups": ["furnaces", "heat_pumps"]},
+  {"type": "split", "photo": "sys", "h2": "How the monthly payment works on an Alliston furnace replacement",
+   "html": "<p>A new furnace rarely arrives at a convenient time, so here's how the payment side works before you need it.</p>"
+           "<ul class=\"checklist\"><li>The quote shows the full installed price for the agreed scope. That number is guaranteed.</li><li>If a heat pump is part of the job and your home qualifies, the rebate estimate is shown as its own line, with pre-approval filed before the install.</li><li>You choose between 0% interest over 3, 6 or 9 months and an open loan from 2.99%, both on approved credit. The open loan suits a bigger job that you'd rather spread over a longer term, and it can be paid off early.</li><li>The lender approval usually happens before install day, so the work isn't held up by paperwork.</li></ul>"
+           "<p>Rates are subject to lender approval, and we'll show you the monthly figure for each option on the same page as the cash price, so a household in Angus or Tottenham can compare them at the kitchen table without a calculator.</p>"},
   {"type": "quote_split", "h2": "Get an Alliston HVAC quote you can budget around", "photo": "out",
    "form_h3": "Request my Alliston or Angus quote",
    "html": "<p>Send us the basics and we'll come back with a price in writing. Holding a quote from another reputable company for the same kind of work? Send it over, and where it applies we may undercut it by as much as 10%.</p>"

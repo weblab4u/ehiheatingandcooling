@@ -1,0 +1,62 @@
+# /markham/furnace-repair/
+PAGE = {
+ "url": "/markham/furnace-repair/", "city_service": "markham", "priority": "0.7",
+ "title": "Furnace Repair Markham | Two-Stage & Variable-Speed Experts",
+ "description": "Furnace repair in Markham for no heat, short cycling, blower faults and uneven floors. TSSA-certified techs, written quote first. Call 1-647-694-5845.",
+ "eyebrow": "Furnace Repair · Markham",
+ "h1": "Furnace Repair in Markham, From No Heat to Uneven Floors",
+ "tagline": "Two-stage, variable-speed and zoned furnaces fixed properly",
+ "intro": "<p>Furnace repair in Markham is rarely just a dead furnace. More often the furnace runs, but the basement stays cold, the second stage never kicks in or a zone damper is stuck half open. Our TSSA-certified gas technicians diagnose two-stage, variable-speed and zoned systems across York Region and the rest of Ontario, and you see the repair price in writing before we pick up a tool.</p>",
+ "hero_points": ["TSSA-certified gas technicians on every call", "Two-stage, ECM blower and zoning faults diagnosed with a meter, not a guess",
+                 "Written repair quote before any work starts", "Evening, weekend and holiday emergency service"],
+ "hero_image": "Technician testing the control board on a two-stage gas furnace in a finished basement furnace room",
+ "service": {"name": "Furnace Repair in Markham", "type": "Gas furnace repair and diagnosis", "area": "Markham"},
+ "blocks": [
+  {"type": "problems", "h2": "Furnace problems we see most in Markham homes",
+   "lead": "Two-storey houses from the 1980s to the 2010s share the same handful of furnace faults. Here's how each one shows up and what we do about it.",
+   "items": [
+    {"problem": "The furnace runs, but only on low, and upstairs never reaches the set point", "solution": "A two-stage furnace needs a second-stage call from the thermostat or a timer on the board to step up. A missing W2 wire, a wrong thermostat setting or a failed high-fire pressure switch keeps it stuck on low. We test the staging and fix the link."},
+    {"problem": "The blower hums or clicks but won't spin", "solution": "Variable-speed furnaces use an ECM motor with its own control module. Either the module or the motor can fail on its own. We test both so you replace the part that died, not the whole assembly."},
+    {"problem": "One floor roasts while the other freezes, even with zoning", "solution": "Zone dampers stick, damper motors burn out and zone boards lose a stage. We cycle each zone, watch the dampers move and check the bypass so the furnace isn't fighting a closed duct."},
+    {"problem": "The furnace quits during a February cold snap and shows a pressure switch code", "solution": "On a high-efficiency furnace that code usually means the condensate line or the exhaust pipe has iced up outside. We clear it, fix the slope or the termination, and get heat back the same visit."},
+    {"problem": "The furnace cycles on and off every few minutes in a house with an open foyer", "solution": "Big open stairwells trick a main-floor thermostat into satisfying early. An oversized furnace makes it worse. We check the limit switch, the thermostat location and the temperature rise before suggesting anything."},
+    {"problem": "Your Markham Village furnace is 20 years old and makes a bang on start-up", "solution": "Delayed ignition on a mid-efficiency furnace means gas is pooling before it lights. It can stress the heat exchanger. We clean the burners, check the ignition and inspect the exchanger before it runs again."},
+    {"problem": "No heat and a flashing code after a power blip", "solution": "Control boards lock out after a flame fault or a power surge. A reset often clears it, but we confirm what tripped it, because a lockout that keeps coming back is a flame sensor, a grounding fault or a failing board."},
+    {"problem": "The furnace room smells like gas or you got a CO alarm", "solution": "Leave the house and call 911 before you call anyone else. Afterwards we inspect the heat exchanger, venting and gas connections and test the furnace before it goes back in service."}]},
+  {"type": "cost_guide", "h2": "Furnace repair cost in Markham", "keys": ["furnace_repair", "furnace_install"],
+   "lead": "Repairs are quoted after we diagnose the fault, so you pay for the part that failed and not a guess. If the furnace is near the end, a new two-stage furnace starts from $3,300 installed."},
+  {"type": "steps", "h2": "What a furnace repair visit in Markham looks like",
+   "lead": "Tell us what the furnace is doing and what the LED is flashing. The rest follows.",
+   "items": [
+    {"title": "Book and describe the symptom", "text": "No heat, cold basement, short cycling or a code. We book a window with you and tell you the diagnostic fee up front."},
+    {"title": "Diagnose both stages", "text": "A TSSA-certified tech checks ignition, flame signal, gas pressure, static pressure, the ECM blower and the staging. On zoned homes we test every damper."},
+    {"title": "Quote the fix in writing", "text": "You get the repair price before any work, and a replacement price if the furnace is old enough that it matters. You choose."},
+    {"title": "Repair, test and balance", "text": "We make the repair, run the furnace through a full cycle on low and high fire, check CO at the registers and confirm each floor is getting air."}]},
+  {"type": "equipment", "h2": "If repair isn't worth it: furnaces we install in Markham", "groups": ["furnaces"],
+   "lead": "Two-stage, variable-speed furnaces that run on low most of the time, which is the quiet, even heat a two-storey house wants."},
+  {"type": "checklist", "photo": "out", "h2": "What's included in a Markham furnace repair visit",
+   "lead": "Every diagnostic covers the whole furnace, not just the part that stopped.",
+   "items": ["Thermostat, wiring and staging check, including the W2 call on two-stage furnaces",
+             "Ignition sequence, flame sensor signal and gas valve operation",
+             "Gas pressure and temperature rise measured against the rating plate",
+             "ECM blower motor and module test, plus static pressure on the ducts",
+             "Zone dampers, damper motors and zone board cycled on zoned homes",
+             "Condensate trap, drain and vent termination cleared on high-efficiency furnaces",
+             "Carbon monoxide test at the registers after the repair",
+             "Written repair quote, and a replacement quote if the furnace is past 15 years"]},
+  {"type": "split", "photo": "sys", "h2": "Fix it or replace it: three questions we ask in Markham",
+   "html": "<p>A furnace repair is a good deal when the part is cheap, the furnace is young and the furnace actually suits the house. Most Markham homeowners only think about the first two. The third one matters just as much in a two-storey home.</p>"
+           "<p>First, how old is it? Ignitors, flame sensors, capacitors and pressure switches are routine on a furnace under 12 years old. Second, what failed? A heat exchanger, an inducer motor or a control board on a furnace past 15 years can cost a big slice of a new unit, and the old furnace still burns gas at its old efficiency afterwards.</p>"
+           "<p>Third, is it the right furnace for the house? A single-stage furnace that short cycles in an open-plan home with hot bedrooms upstairs was never going to even out the floors. In that case a repair buys another winter of the same complaint. A two-stage, variable-speed furnace sized from a heat-loss calculation, or a hybrid heat pump setup that uses the furnace only in deep cold, fixes the comfort problem and the gas bill at the same time.</p>"
+           "<ul class=\"checklist\"><li>Under 12 years and a routine part: repair</li><li>Past 15 years and a major part: compare both prices</li><li>Wrong size or single-stage in a two-storey home: talk about replacement</li><li>Any furnace with a cracked heat exchanger: replace</li></ul>"
+           "<p>We quote both options every time, with no pressure either way. See how we approach <a href='/furnace/repair-maintenance/'>furnace repair and maintenance across Ontario</a>, or the full list of what we do for <a href='/markham/'>Markham HVAC</a> customers.</p>"},
+  {"type": "money"}],
+ "faqs": [
+  ("How much does furnace repair cost in Markham?", "Furnace repair in Markham is quoted in writing after diagnosis, so the price depends on the failed part. Ignitors, flame sensors and capacitors are small repairs, while ECM blower modules, inducer motors and control boards cost more. If replacement makes more sense, a new high-efficiency furnace starts from $3,300 installed."),
+  ("How soon can you get to a furnace repair in Markham?", "We book furnace repair in Markham during business hours Monday to Saturday and on Sundays, and we take emergency calls evenings, weekends and holidays. We give you a booking window when you call rather than promise an arrival time we can't control."),
+  ("Why does my furnace heat the main floor but not the upstairs bedrooms?", "Usually the thermostat on the main floor satisfies before the second storey catches up, or a two-stage furnace is stuck on low fire. We test the staging, check static pressure and look at the zone dampers if you have them, then quote the fix."),
+  ("Do you offer emergency furnace repair in Markham?", "Yes. Our emergency furnace repair covers Markham evenings, weekends and holidays. If you smell gas or a CO alarm sounds, leave the house and call 911 first, then call us at 1-647-694-5845."),
+  ("Is a two-stage furnace worth it in a two-storey Markham home?", "Yes, for most two-storey homes. A two-stage, variable-speed furnace runs on low fire most of the time, which keeps air moving to the upper floor and the basement longer and cuts the on-off swings that leave rooms uneven. Lennox and Midea two-stage furnaces start from $3,300 installed."),
+  ("Can you tune up my furnace at the same visit?", "Yes, if you ask when you book. A furnace tune-up covers burner cleaning, flame sensor, gas pressure, temperature rise, the blower and the condensate drain, and keeps most manufacturer warranties valid. Fall is the best time, before the first cold snap.")],
+ "related": ["/furnace/repair-maintenance/", "/services/emergency-hvac/", "/furnace/high-efficiency/", "/heat-pump/hybrid-furnace-systems/", "/markham/"],
+}

@@ -21,6 +21,7 @@ PAGE = {
     {"url": "/services/hvac-installation-replacement/", "title": "Full furnace and AC replacement", "text": "Both pieces swapped together and matched, in one visit to your furnace room."},
     {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Scarborough", "text": "Evening, weekend and holiday calls when an aging furnace finally stops."},
     {"url": "/heat-pump-rebates/", "title": "Heat pump rebates", "text": "Pre-approval and paperwork for the Home Renovation Savings Program, done for you."}]},
+  {"type": "cost_guide", "h2": 'Scarborough furnace swap and heat pump prices', "lead": 'Bungalows and side-splits on their second furnace are the usual call. Starting prices below; the written quote covers your ducts and electrical.', "keys": ['furnace_repair', 'furnace_install', 'heat_pump_ducted', 'ductless_single']},
   {"type": "checklist", "photo": "out", "h2": "What an HVAC technician in Scarborough checks on a 50-year-old house",
    "lead": "Before we quote a furnace, an AC or a heat pump, we look at the parts of a post-war home that decide what will actually work.",
    "items": ["The age and AFUE on the furnace data plate, and whether it's the original unit or a replacement",

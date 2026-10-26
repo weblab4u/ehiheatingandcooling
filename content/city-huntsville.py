@@ -19,7 +19,10 @@ PAGE = {
     {"problem": "The bunkie is too cold for guests past September", "solution": "A small single-zone ductless heat pump heats a bunkie through the shoulder seasons and cools it in July. It needs a 240V circuit and a short line set, and no ductwork at all."},
     {"problem": "The new addition is on its own heating island", "solution": "Stretching old ducts to an addition rarely works well. A dedicated ductless head gives that space its own heat, cooling and thermostat."},
     {"problem": "The outdoor unit sits under a wall of snow by February", "solution": "We set it on a tall stand or a wall bracket, well above the depth your yard usually sees, and away from the eaves so falling snow and ice miss it."},
-    {"problem": "Propane or oil costs keep climbing at the lake house", "solution": "A cold-climate heat pump takes most of the load and leaves the furnace as backup. If the lake house runs on propane, oil, wood or electric heat, it's in line for the larger rebate."}]},
+    {"problem": "Propane or oil costs keep climbing at the lake house", "solution": "A cold-climate heat pump takes most of the load and leaves the furnace as backup. If the lake house runs on propane, oil, wood or electric heat, it's in line for the larger rebate."},
+    {"problem": "The cottage road isn't plowed and you close the place up in November", "solution": "A heat pump can sit idle through winter, but it should be shut down properly. We show you how to switch it off at the disconnect, clear the condensate line so nothing freezes and splits, and leave the outdoor unit covered against snow load without blocking it. In spring, a quick check before the first run catches anything the winter did."}]},
+  {"type": "cost_guide", "h2": "Huntsville heat pump, ductless and backup heat pricing", "keys": ["heat_pump_ducted", "ductless_single", "furnace_install", "furnace_repair"],
+   "lead": "A bunkie ductless system and a whole-house hybrid sit at very different price points. Here is where each one starts, with the backup heat priced in the same quote."},
   {"type": "snapshot", "h2": "Huntsville HVAC facts that steer our plans",
    "lead": "Four local realities shape almost every system we design here.",
    "items": [
@@ -46,6 +49,8 @@ PAGE = {
            "<ul class=\"checklist\"><li>Heat-loss sizing for every space we heat</li><li>Backup heat included in the plan, not added later</li><li>Snow-safe outdoor placement</li><li>Rebate paperwork and pre-approval handled</li><li>3, 6 or 9 months interest-free, OAC</li></ul>"},
   {"type": "mosaic", "count": 3, "h2": "Outdoor units and ductless heads from our crews",
    "lead": "A few recent Ontario jobs, from other towns, that show how we finish an install for serious cold."},
+  {"type": "equipment", "h2": "Cold-climate units we send up to Huntsville and the lakes", "groups": ["heat_pumps", "furnaces"],
+   "lead": "Ducted EVOX G3 and Kepler units for the main house, Midea ductless for the bunkie or addition, and a two-stage furnace where gas or propane is the backup."},
   {"type": "money"}],
  "faqs": [
   ("Can a heat pump keep a Huntsville lake house warm at -30°C?", "It will still be making heat at -30°C, but up here we never let it work without a safety net. On the coldest nights the backup takes over automatically, so the house stays warm."),
@@ -53,6 +58,7 @@ PAGE = {
   ("Does a bunkie heat pump need its own electrical circuit?", "Yes. A ductless heat pump needs a dedicated 240V circuit, and we check whether your panel or the bunkie's sub-panel has room for it."),
   ("What backup heat works best in Huntsville?", "A furnace that still has years left makes an easy backup in a hybrid setup. Homes with no furnace worth keeping usually go with an electric air handler that has heat strips inside."),
   ("Do you install heat pumps on Peninsula and Fairy Lake properties?", "Yes. We install at lakefront homes and cottages around Huntsville, and we plan placement around wind, snow and access on the site visit."),
-  ("Is there an HVAC contractor in Huntsville for oil-to-heat-pump switches?", "We handle oil-to-heat-pump switches for Huntsville homes from our base in Stouffville. If your home burns oil now, it may qualify for up to $7,500, provided pre-approval comes before the install.")],
+  ("Is there an HVAC contractor in Huntsville for oil-to-heat-pump switches?", "We handle oil-to-heat-pump switches for Huntsville homes from our base in Stouffville. If your home burns oil now, it may qualify for up to $7,500, provided pre-approval comes before the install."),
+  ("What does a heat pump cost for a Huntsville lake house?", "A ducted cold-climate heat pump starts from $5,500 installed, and a single-zone ductless unit for a bunkie or addition is quoted in writing after we see the space. Installed pricing depends on size and installation requirements, especially the line-set run and the backup heat, and the quote is guaranteed.")],
  "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/ac/ductless-mini-split/", "/brands/midea-heat-pumps/", "/heat-pump-rebates/"],
 }

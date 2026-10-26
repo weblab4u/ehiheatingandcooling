@@ -1,0 +1,62 @@
+# /vaughan/furnace-repair/
+PAGE = {
+ "url": "/vaughan/furnace-repair/", "city_service": "vaughan", "priority": "0.7",
+ "title": "Furnace Repair Vaughan | Large Homes & Concord Businesses",
+ "description": "Furnace repair in Vaughan for big homes with two furnaces, long duct runs and Concord shops. TSSA-certified techs, written quote first. Call 1-647-694-5845.",
+ "eyebrow": "Furnace Repair · Vaughan",
+ "h1": "Furnace Repair in Vaughan for Big Houses and Busy Shops",
+ "tagline": "High-capacity furnaces, two-furnace homes and commercial units, fixed right",
+ "intro": "<p>Furnace repair in Vaughan often means a 100,000 BTU unit in a Kleinburg mechanical room, one of two furnaces in a Maple custom home, or the heater keeping a Concord showroom open on a January morning. Big equipment fails in its own ways, from limit trips on long duct runs to staging faults that leave the far wing cold. Our TSSA-certified gas technicians diagnose the fault, quote it in writing and get the heat back, in Vaughan and across Ontario.</p>",
+ "hero_points": ["TSSA-certified gas technicians for residential and commercial furnaces", "High-capacity, two-stage and variable-speed units diagnosed with meters, not guesses",
+                 "Written repair quote before we replace a single part", "Emergency furnace repair evenings, weekends and holidays"],
+ "hero_image": "Technician servicing a high-capacity two-stage gas furnace in the mechanical room of a large home",
+ "service": {"name": "Furnace Repair in Vaughan", "type": "Gas furnace repair and diagnosis", "area": "Vaughan"},
+ "blocks": [
+  {"type": "problems", "h2": "Furnace faults that show up in large Vaughan homes",
+   "lead": "Big houses and commercial spaces push a furnace harder. Here's what goes wrong and how we fix it.",
+   "items": [
+    {"problem": "One of your two furnaces quit and half the house is cold", "solution": "Two-furnace homes usually split by floor, so a dead upstairs unit leaves the bedrooms freezing while the kitchen is fine. We diagnose the failed furnace on its own, from ignitor to board, and check that the working one isn't about to follow it."},
+    {"problem": "The furnace runs for hours and the far bedrooms never warm up", "solution": "Long duct runs in a wide house lose pressure before the last registers. We measure static pressure and temperature at the far end, check for crushed or disconnected runs in the basement ceiling and adjust the blower before anyone talks about a bigger furnace."},
+    {"problem": "The high-capacity furnace keeps tripping its limit switch", "solution": "A 100,000 to 120,000 BTU furnace needs a lot of return air. A loaded four-inch media filter, closed registers in unused rooms or an undersized return starves it, and the limit shuts the burners off. We clear the restriction and test the temperature rise."},
+    {"problem": "Your Concord shop opens at nine and the furnace is dead at eight", "solution": "Commercial furnaces and unit heaters get the same diagnosis as a home furnace, with your hours in mind. Tell us when you open and we'll work the repair around it where we can."},
+    {"problem": "A thumping rumble when the burners light", "solution": "Delayed ignition on a big furnace is loud, and it strains the heat exchanger every time. We clean the burners, check gas pressure and the ignition timing, and inspect the exchanger before the furnace goes back in service."},
+    {"problem": "The variable-speed furnace flashes a code and won't stay on after a storm", "solution": "Power surges hit control boards and ECM blower modules first. We read the code, test the board, the module and the motor separately, and replace only the part that failed."},
+    {"problem": "Water on the mechanical room floor from the furnace", "solution": "High-efficiency furnaces make condensate, and in big homes the drain line often runs a long way to a pump or a floor drain. A clogged trap, a failed condensate pump or a frozen outdoor section are the usual causes, all fixable the same visit."},
+    {"problem": "The humidifier on the furnace is leaking or the house is bone dry", "solution": "Large homes with lots of glass dry out fast in winter. A scaled pad, a stuck solenoid or a cracked water panel is a quick fix, and we check the humidistat setting so the windows don't fog."}]},
+  {"type": "cost_guide", "h2": "Furnace repair cost in Vaughan", "keys": ["furnace_repair", "furnace_install"],
+   "lead": "Every repair is quoted after diagnosis so you pay for the part that failed. If the furnace is past saving, two-stage replacements up to 120,000 BTU start from $3,300 installed."},
+  {"type": "steps", "h2": "How a furnace repair visit in Vaughan runs",
+   "lead": "Whether it's a custom home or a commercial unit, the process is the same.",
+   "items": [
+    {"title": "Tell us what you've got", "text": "The symptom, the code on the LED, and whether it's a home, a two-furnace home or a business. We give you a booking window and the diagnostic fee up front."},
+    {"title": "Diagnose the whole system", "text": "A TSSA-certified tech tests ignition, flame signal, gas pressure, the blower, static pressure and the staging. On two-furnace homes we check both units."},
+    {"title": "Written quote before work", "text": "The repair price in writing, with a replacement price beside it if the furnace is old enough or undersized for the house."},
+    {"title": "Repair and verify at the far end", "text": "After the fix we run the furnace on both stages, test CO at the registers and check that heat is reaching the rooms farthest from the mechanical room."}]},
+  {"type": "equipment", "h2": "High-capacity furnaces we install in Vaughan", "groups": ["furnaces"],
+   "lead": "When a repair doesn't add up, these two-stage, variable-speed furnaces go up to 120,000 BTU, enough for the biggest custom homes."},
+  {"type": "checklist", "photo": "in", "h2": "What's included in a Vaughan furnace repair visit",
+   "lead": "A big furnace gets a full workup, not a quick reset.",
+   "items": ["Ignition sequence, flame sensor signal and gas valve tested",
+             "Gas pressure and temperature rise checked against the rating plate",
+             "Static pressure measured, with filter, return and far-register airflow checked",
+             "ECM blower motor and control module tested separately",
+             "Two-stage operation confirmed on low and high fire",
+             "Condensate trap, pump and drain line cleared on high-efficiency units",
+             "Carbon monoxide tested at the registers after the repair",
+             "Written repair quote, plus a replacement quote for furnaces past 15 years or undersized for the home"]},
+  {"type": "split", "photo": "sys", "h2": "Is a big-home furnace worth fixing? The Vaughan version of the rule",
+   "html": "<p>The usual repair-or-replace rule looks at age and the cost of the part. In a large Vaughan home we add a third test: was the furnace ever the right size and type for this house? A lot of custom homes got a single-stage furnace that was sized by the square footage and installed before the glass went in. It has been short cycling and leaving the far wing cold since day one.</p>"
+           "<p>If that furnace is under 12 years old and the fault is an ignitor, a flame sensor, a capacitor or a pressure switch, repair it and move on. If it's past 15 years and the failure is a heat exchanger, an inducer motor or a control board, the repair can cost a big share of a new unit, and you'd still own a furnace that doesn't fit the house.</p>"
+           "<p>That's when a two-stage, variable-speed furnace sized from a real heat-loss calculation earns its keep. On low fire it runs long and quiet, pushes air to the end of every duct run and stops the on-off swings. For homes with two furnaces, we often pair each one with a cold-climate heat pump as a hybrid, so the gas burns only on the coldest Ontario nights. For a Concord business, the same math applies, with your opening hours on the calendar.</p>"
+           "<ul class=\"checklist\"><li>Under 12 years and a routine part: repair</li><li>Past 15 years and a major part: see both prices</li><li>Single-stage and undersized for the glass and the duct runs: talk about replacement</li><li>Cracked heat exchanger at any age: replace</li></ul>"
+           "<p>Read more about what we check on every visit on our <a href='/furnace/repair-maintenance/'>Ontario furnace repair and maintenance</a> page, or see everything we do for homes and businesses on the <a href='/vaughan/'>HVAC Vaughan</a> page.</p>"},
+  {"type": "money"}],
+ "faqs": [
+  ("How much does furnace repair cost in Vaughan?", "Furnace repair in Vaughan is quoted in writing after diagnosis, and the price depends on the part. Flame sensors, ignitors and capacitors are small repairs, while ECM blower modules, inducer motors and control boards cost more. A new two-stage furnace starts from $3,300 installed if replacement is the better call."),
+  ("How soon can a technician get to my furnace in Vaughan?", "We book furnace repair in Vaughan Monday to Saturday and on Sundays, with emergency service evenings, weekends and holidays. You get a booking window when you call, and we don't promise an arrival time we can't control."),
+  ("Do you repair furnaces for businesses in Concord?", "Yes. We repair furnaces, unit heaters and rooftop units for shops, showrooms, offices and warehouses in Concord and across Vaughan, and we can work around your business hours for the repair."),
+  ("Why does my large house have cold rooms even though the furnace runs all day?", "Long duct runs lose pressure before they reach the far rooms, and a single-stage furnace short cycles before the air gets there. We measure static pressure and airflow at the far registers, then fix the ducts, the blower setting or the furnace staging rather than guess."),
+  ("What if only one of my two furnaces is working?", "Call us with the symptom and which floor is cold. We diagnose the failed furnace on its own, quote the repair in writing and check the second furnace while we're there so you don't lose both in the same week."),
+  ("Do you offer emergency furnace repair in Vaughan?", "Yes. Emergency furnace repair in Vaughan is available evenings, weekends and holidays at 1-647-694-5845. If you smell gas or a carbon monoxide alarm goes off, leave the building and call 911 before you call us.")],
+ "related": ["/furnace/repair-maintenance/", "/services/emergency-hvac/", "/furnace/high-efficiency/", "/heat-pump/hybrid-furnace-systems/", "/vaughan/"],
+}

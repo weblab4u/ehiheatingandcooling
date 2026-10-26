@@ -20,6 +20,7 @@ PAGE = {
     {"problem": "The finished attic is unbearable from June to September", "solution": "Attic rooms in older brick homes often have one small supply duct or none. A single-zone ductless heat pump cools that floor in summer and adds efficient heat in winter, with only a small opening for the refrigerant lines."},
     {"problem": "The central air keeps the basement cold and the bedrooms warm", "solution": "Old ducts were sized for heating, and cooling needs more airflow. When a heat pump or AC goes in, we confirm the ducts can move enough air per ton and adjust or supplement them if they can't."},
     {"problem": "Your furnace is 25 years old and every repair costs more than the last", "solution": "Our TSSA-certified gas technicians price the repair and a replacement side by side. If the heat exchanger, inducer or control board is near the end, you see both numbers and choose."}]},
+  {"type": "cost_guide", "h2": 'Galt, Preston and Hespeler pricing for old ducts and stone walls', "lead": 'Older homes often need ductless or extra airflow work. The table shows starting prices before any duct repair is scoped.', "keys": ['ductless_single', 'heat_pump_ducted', 'furnace_install', 'furnace_repair']},
   {"type": "snapshot", "h2": "Heating and cooling in Cambridge across three old towns",
    "lead": "Cambridge grew out of three older towns, and each one has its own building stock. Newer edges of the city add a fourth. Here's what shapes our advice.",
    "items": [

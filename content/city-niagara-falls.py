@@ -20,6 +20,7 @@ PAGE = {
     {"url": "/services/hrv-erv/", "title": "ERV fresh air and humidity balance", "text": "Fresh air in, stale air out, with less moisture carried inside in summer."},
     {"url": "/services/hvac-repair-maintenance/", "title": "Spring and fall tune-ups", "text": "Spring and fall tune-ups that catch worn parts before peak season."},
     {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Niagara Falls", "text": "When cooling or heat fails after hours, on a weekend or a holiday."}]},
+  {"type": "cost_guide", "h2": 'Niagara Falls cooling and heat pump prices', "lead": 'Humid summers put AC and heat pumps at the top of the list here. Starting prices below; your quote adds sizing and humidity control.', "keys": ['ac_repair', 'ac_install', 'heat_pump_ducted', 'ductless_single']},
   {"type": "checklist", "h2": "Our pre-season cooling check for Niagara Falls rental units", "photo": "out",
    "lead": "An AC that quits on a full weekend can cost you a booking and a bad review. Before the hot weather arrives, this is what our technicians go over on each unit.",
    "items": [

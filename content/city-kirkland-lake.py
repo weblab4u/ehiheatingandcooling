@@ -20,6 +20,7 @@ PAGE = {
     {"url": "/heat-pump/electric-air-handler-systems/", "title": "Electric air handler backup", "text": "Built-in electric heat strips behind the heat pump."},
     {"url": "/services/emergency-hvac/", "title": "Emergency heating calls", "text": "Taken evenings, weekends and holidays when the heat stops."},
     {"url": "/services/hrv-erv/", "title": "Ventilation for tightened-up homes", "text": "Fresh air once air sealing and new insulation have closed the gaps."}]},
+  {"type": "cost_guide", "h2": 'Kirkland Lake furnace and hybrid system prices', "lead": 'Older mining-era homes in deep cold usually pair a heat pump with dependable backup heat. Starting prices below.', "keys": ['furnace_repair', 'furnace_install', 'heat_pump_ducted']},
   {"type": "checklist", "photo": "out",
    "h2": "Insulation-aware sizing for heating and cooling in Kirkland Lake",
    "lead": "An older home that's been upgraded loses heat very differently from the day it was built. These are the things we check before we size anything.",

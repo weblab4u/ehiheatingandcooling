@@ -19,7 +19,10 @@ PAGE = {
     {"problem": "The builder furnace is loud and swings from hot to cold", "solution": "Most builder models have a single-stage burner and a basic blower, so they cycle hard. Moving to a two-stage, variable-speed Midea MGH96 or Lennox furnace means long, gentle run times and far less temperature swing."},
     {"problem": "The AC that came with the house can't handle a heat wave", "solution": "Builders often install the smallest AC that passes. We run a heat-gain calculation and, when it's time to replace, match a properly sized AC or a cold-climate heat pump to your furnace."},
     {"problem": "The thermostat schedule never matches your family's day", "solution": "A basic programmable thermostat set once at move-in rarely fits life with kids. We install and set up a smart thermostat with schedules and phone control, and many qualify for a $100 rebate."},
-    {"problem": "Wind across the open fields makes the house drafty", "solution": "Bradford sits in open, windy farm country between Lake Simcoe and the GTA. Wind finds gaps at rim joists and around windows, so we check where the house is losing heat before sizing new equipment."}]},
+    {"problem": "Wind across the open fields makes the house drafty", "solution": "Bradford sits in open, windy farm country between Lake Simcoe and the GTA. Wind finds gaps at rim joists and around windows, so we check where the house is losing heat before sizing new equipment."},
+    {"problem": "The nursery is the warmest room in July and the coldest in January", "solution": "Corner bedrooms have two outside walls and often sit at the far end of the duct run, so they swing with the weather more than any other room. We balance the registers, add a damper where the trunk line allows, and set up a smart thermostat sensor in that room so the system responds to it rather than to the hallway. If that still falls short, a small ductless head gives the room its own control."}]},
+  {"type": "cost_guide", "h2": "Bradford upgrade costs for furnaces, ACs and cold rooms", "keys": ["furnace_repair", "ac_repair", "furnace_install", "ac_install", "heat_pump_ducted", "ductless_single"],
+   "lead": "A cold bonus room is sometimes a duct fix and sometimes new equipment. Here is where the equipment side starts; duct sealing and balancing are quoted after we measure."},
   {"type": "snapshot", "h2": "The local picture for HVAC in Bradford",
    "lead": "Bradford West Gwillimbury has grown quickly. These facts guide what we recommend.",
    "items": [
@@ -46,6 +49,8 @@ PAGE = {
            "<ul class=\"checklist\"><li>Furnaces from $3,300 and heat pumps from $5,500 installed</li><li>Smart thermostats with a $100 rebate where eligible</li><li>Financing at 0% for 3, 6 or 9 months, or open loans from 2.99% OAC</li><li>Parts and labour warranties up to 12 years on select systems</li></ul>"},
   {"type": "mosaic", "count": 3, "h2": "A closer look at our recent work",
    "lead": "Three recent Ontario jobs: furnaces, coils and heat pumps set up with clean venting and easy filter access."},
+  {"type": "equipment", "h2": "What replaces a builder-grade furnace in a Bradford home", "groups": ["furnaces", "heat_pumps"],
+   "lead": "These two-stage, variable-speed models are the step up from a single-stage builder unit, and each one pairs with a matched AC or cold-climate heat pump."},
   {"type": "money"}],
  "faqs": [
   ("Why is the room over my garage in Bradford so cold?", "It loses heat through the floor, walls and ceiling and usually sits at the end of a long duct run. Duct balancing, sealing or a small ductless unit usually fixes it."),
@@ -53,6 +58,7 @@ PAGE = {
   ("Is it worth upgrading a builder-grade furnace?", "It's worth it when the furnace is loud, cycles hard, or rooms stay uneven after the ducts are balanced. A two-stage, variable-speed furnace runs longer and quieter, and we'll tell you if the existing one is fine."),
   ("Is there a rebate for a smart thermostat in Bradford?", "Yes. Eligible smart thermostats can qualify for a $100 rebate through the Home Renovation Savings Program. Confirm eligibility first, as program terms can change."),
   ("How much should I set aside for furnace installation in Bradford?", "A high-efficiency furnace starts from $3,300 installed. Installed pricing depends on size and installation requirements, and the written quote we give you is guaranteed."),
-  ("Do you serve Bond Head and the Holland Marsh area?", "Yes. We cover Bradford, Bond Head, the Holland Marsh, Newton Robinson and the rest of Bradford West Gwillimbury.")],
+  ("Do you serve Bond Head and the Holland Marsh area?", "Yes. We cover Bradford, Bond Head, the Holland Marsh, Newton Robinson and the rest of Bradford West Gwillimbury."),
+  ("Can a smart thermostat fix uneven rooms on its own?", "Not on its own. A smart thermostat with a remote sensor can average the hallway and a bedroom, which helps, but it cannot push more air into a room than the duct can carry. We fix the airflow first, then set up the thermostat to manage it.")],
  "related": ["/furnace/high-efficiency/", "/services/thermostats/", "/ac/ductless-mini-split/", "/ac/repair-maintenance/", "/heat-pump/hybrid-furnace-systems/", "/financing/"],
 }

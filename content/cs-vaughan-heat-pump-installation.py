@@ -1,0 +1,62 @@
+# /vaughan/heat-pump-installation/
+PAGE = {
+ "url": "/vaughan/heat-pump-installation/", "city_service": "vaughan", "priority": "0.7",
+ "title": "Heat Pump Installation Vaughan | High-Capacity & Multi-Zone",
+ "description": "Heat pump installation in Vaughan for large homes with big glass: 5-ton ducted units, two-system layouts and multi-zone ductless. Rebates filed. Get a quote.",
+ "eyebrow": "Heat Pump Installation · Vaughan",
+ "h1": "Heat Pump Installation in Vaughan for Large Homes and Big Glass",
+ "tagline": "Sized for the cooling load, rated for the Ontario cold",
+ "intro": "<p>Heat pump installation in Vaughan is a different job from the rest of the GTA. Custom homes in Kleinburg and Maple have tall foyers, walls of glass and square footage that one 3-ton unit can't touch. We design high-capacity ducted systems, two-system layouts and multi-zone ductless for these houses, and we install the same cold-climate equipment for shops and offices in Concord. Every quote is written, guaranteed and backed by 20 years of Ontario installs.</p>",
+ "hero_points": ["Ducted cold-climate heat pumps up to 5 tons, or two systems for the biggest homes", "Multi-zone ductless with up to five heads from one outdoor unit",
+                 "Line sets and outdoor units planned so they don't spoil a custom exterior", "Rebate pre-approval and ESA-licensed 240V circuits included"],
+ "hero_image": "Two cold-climate heat pump outdoor units on a pad beside a large stone and stucco home",
+ "service": {"name": "Heat Pump Installation in Vaughan", "type": "Cold-climate heat pump installation", "area": "Vaughan"},
+ "blocks": [
+  {"type": "problems", "h2": "Big-home heat pump questions we answer in Vaughan",
+   "lead": "Large houses and commercial units raise problems a bungalow never sees. Here's how we handle each one.",
+   "items": [
+    {"problem": "Will one heat pump cool a 4,500 square foot house with a two-storey great room?", "solution": "Often not on its own. Past 5 tons we split the load: two ducted heat pumps, one per floor, or one ducted system plus ductless heads for the great room and the far bedrooms. The heat-gain calculation decides, not the square footage."},
+    {"problem": "The glass wall in the family room makes the whole floor hard to cool", "solution": "South and west glass can add a ton of cooling load by itself. We count every window in the calculation and often serve that room with its own high-wall ductless head so the rest of the house isn't oversized to cover it."},
+    {"problem": "You have two furnaces and two air conditioners and want to replace them all", "solution": "Two cold-climate heat pumps paired with your two furnaces as hybrid systems is a clean swap. Each floor keeps its own thermostat, each heat pump carries most of the heating, and both furnaces stay as backup for January."},
+    {"problem": "The loft, the in-law suite or the garage studio has no ducts", "solution": "A multi-zone ductless system heats and cools up to five rooms from one outdoor unit. Each head has its own remote, so the suite can run at a different temperature from the main house."},
+    {"problem": "You want to get off gas entirely", "solution": "We pair a Midea EVOX G3 with a Midea electric air handler that has auxiliary heat strips. The heat pump does the work down to -30°C and the strips cover defrost and the few nights beyond it. We check the panel first, since a large all-electric home may need 200-amp service."},
+    {"problem": "Your Concord showroom or office needs heating and cooling on a budget", "solution": "Multi-zone ductless and ducted heat pumps suit retail units and offices well. We look at your hours, the door traffic and the glass, then size for the busiest afternoon. Install can be booked around your opening hours."},
+    {"problem": "You don't want copper lines running down the stone front", "solution": "We plan every line set route before install day, run lines inside walls or chases where we can, and use paintable covers where we can't. Outdoor units go on the side yard or behind landscaping where the lot allows."},
+    {"problem": "Is the rebate bigger on a bigger heat pump?", "solution": "The Home Renovation Savings Program bases the amount on heat pump size, up to $7,500 for homes heated by electricity, oil or propane and commonly up to $2,000 for Enbridge gas-heated homes. We confirm eligibility and file the pre-approval before installation."}]},
+  {"type": "cost_guide", "h2": "Heat pump installation cost in Vaughan", "keys": ["heat_pump_ducted", "ductless_single"],
+   "lead": "Cold-climate heat pumps start from $5,500 installed. Big homes that need two systems, a 5-ton unit or several ductless heads land higher, and the quote spells out every piece before you sign."},
+  {"type": "steps", "h2": "How we plan a large-home heat pump install in Vaughan",
+   "lead": "More glass and more square footage mean more planning. Here's how it goes.",
+   "items": [
+    {"title": "Site visit, every level", "text": "We walk the house or the unit with you, measure the glass, note ceiling heights, check the panel and find the best spots for outdoor units and line sets."},
+    {"title": "Room-by-room load calculation", "text": "A Manual J heat-gain and heat-loss calculation tells us whether it's one system, two, or ducted plus ductless. In Vaughan the cooling number usually sets the size."},
+    {"title": "Guaranteed quote with rebate estimate", "text": "Model numbers, tonnage, zone layout and the rebate estimate in writing. We submit the pre-approval before any install date is booked."},
+    {"title": "Install, commission, hand over", "text": "Licensed refrigeration techs charge each circuit by weight, ESA-licensed electricians wire each unit, and we commission every zone, set up the controls and register the warranty."}]},
+  {"type": "equipment", "h2": "Heat pumps we install in Vaughan homes and businesses", "groups": ["heat_pumps"],
+   "lead": "Ducted units up to 5 tons for the main system, multi-zone ductless for the rooms the ducts can't reach, all rated to -30°C."},
+  {"type": "checklist", "photo": "out", "h2": "What's included in a Vaughan heat pump installation",
+   "lead": "Big systems come with a long list, and all of it is inside the quoted price.",
+   "items": ["Manual J load calculation that counts every window and ceiling height",
+             "Outdoor units on pads or brackets with proper clearances and snow height",
+             "Dedicated 240V circuit for each unit, installed by ESA-licensed electricians",
+             "Line sets routed through walls or covered, pressure-tested and charged by weight",
+             "Indoor coil or Midea air handler matched to each ducted system",
+             "Wall heads mounted with concealed drains on multi-zone ductless systems",
+             "Controls set up per zone, with hybrid switchover where a furnace stays",
+             "Permits, warranty registration and Home Renovation Savings Program paperwork"]},
+  {"type": "split", "photo": "sys", "h2": "When the cooling load sets the size: heat pump sizing in Vaughan",
+   "html": "<p>In most Ontario homes the heating load is bigger than the cooling load, so a heat pump sized for winter has summer covered. Large Vaughan homes flip that. A great room with 20 feet of glass facing west gains more heat on a July afternoon than it loses on a January night, because the sun is doing the work and the house is well insulated. Size for winter and the air conditioning falls behind every heat wave.</p>"
+           "<p>So we size for the bigger of the two numbers and check the other. That takes a real room-by-room calculation with window areas, orientation, ceiling heights and the attic. The answer is rarely one giant unit. Past 5 tons, a single ducted system means long duct runs that lose pressure before they reach the far wing. Two systems, or one ducted heat pump plus ductless heads where the glass is, give each part of the house its own capacity and its own control.</p>"
+           "<p>Inverter equipment makes this work well. A 5-ton Midea EVOX G3 doesn't run at 5 tons all day; it throttles down to match the load, so it holds temperature on a mild day without short cycling and still has the capacity for the hottest afternoon of the summer. The same logic applies in a Concord office, where the lunch-hour sun through the storefront glass is the design condition.</p>"
+           "<ul class=\"checklist\"><li>Heat gain calculated per room, with glass area and orientation</li><li>Capacity checked at 35°C outdoors for cooling and at -15°C for heating</li><li>Two systems or ducted plus ductless when one unit would be oversized or starved by long ducts</li><li>Panel load check before we promise an all-electric layout</li></ul>"
+           "<p>For the technology behind the -30°C rating, see our page on <a href='/heat-pump/cold-climate/'>cold-climate heat pumps in Ontario</a>. For furnaces, AC and commercial work in the city, start at <a href='/vaughan/'>HVAC services in Vaughan</a>.</p>"},
+  {"type": "money"}],
+ "faqs": [
+  ("How much does heat pump installation in Vaughan cost?", "A cold-climate heat pump starts from $5,500 installed. Installed pricing depends on size and installation requirements, and a large Vaughan home that needs two systems or several ductless heads will be quoted higher. Every quote is written and guaranteed before you book."),
+  ("How big a heat pump does a large Vaughan home need?", "It depends on the room-by-room load calculation, not the square footage alone. Big homes with lots of glass often need a 4 or 5-ton ducted unit, and the largest homes do better with two systems or one ducted system plus multi-zone ductless for the great room and far bedrooms."),
+  ("Can a heat pump keep up with a two-storey glass wall in summer?", "Yes, when the glass is counted in the heat-gain calculation and the room gets enough capacity. We often serve a great room with its own ductless head so the main system isn't oversized for the rest of the house."),
+  ("Do you install heat pumps for businesses in Concord?", "Yes. We install ducted and multi-zone ductless heat pumps for showrooms, offices and small retail units in Concord and across Vaughan, sized for your glass, door traffic and hours, and we can schedule the install around your opening times."),
+  ("How long does a heat pump installation take in Vaughan?", "A single ducted system is usually done in one working day. Two systems or a multi-zone ductless install with several heads can take two or three days. We confirm the schedule when you book and don't promise an arrival time we can't control."),
+  ("What rebate can a Vaughan home get on a heat pump?", "Under the Home Renovation Savings Program, homes heated by electricity, oil, propane or wood can get up to $7,500 based on heat pump size, and Enbridge gas-heated homes commonly get up to $2,000. The model must be on NRCan's qualified list and pre-approval must be in place before installation. Program terms can change, so we confirm eligibility first and file the paperwork.")],
+ "related": ["/heat-pump/cold-climate/", "/ac/multi-zone-ductless-system/", "/heat-pump/electric-air-handler-systems/", "/heat-pump-rebates/", "/vaughan/"],
+}

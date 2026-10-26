@@ -20,6 +20,7 @@ PAGE = {
     {"url": "/services/thermostats/", "title": "Remote temperature control", "text": "See and adjust the heat at the cottage from your phone."},
     {"url": "/water-heater/", "title": "Rinnai tankless for a busy cottage", "text": "Endless hot water for a full house at Thanksgiving, in a unit the size of a suitcase."},
     {"url": "/heat-pump-rebates/", "title": "Rebates for Gravenhurst cottage conversions", "text": "Up to $7,500 for eligible homes off natural gas, with pre-approval filed for you."}]},
+  {"type": "cost_guide", "h2": 'What a four-season Muskoka cottage system starts at', "lead": 'Ductless and cold-climate heat pumps carry most Gravenhurst conversions. The rebate tier for homes off gas changes the final number a lot.', "keys": ['ductless_single', 'heat_pump_ducted', 'furnace_install']},
   {"type": "checklist", "h2": "Heat pump installation in Gravenhurst: is the cottage ready?", "photo": "out",
    "lead": "Before we size a single unit, we walk through the building with you. A cottage built for summer often needs a few things sorted before any heat source can keep up with a Muskoka winter.",
    "items": [

@@ -21,6 +21,7 @@ PAGE = {
     {"url": "/services/thermostats/", "title": "Smart thermostats", "text": "Better scheduling and control than the basic thermostat the builder put in the hallway."},
     {"url": "/services/humidifiers/", "title": "Whole-home humidifiers", "text": "An end to dry winter air, cracked lips and static shocks."},
     {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Milton", "text": "Ignitors, flame sensors and blower problems on newer furnaces too."}]},
+  {"type": "cost_guide", "h2": 'Upgrading builder-grade equipment in Milton: the price guide', "lead": 'Replacing the basic furnace and AC a builder put in is the most common Milton job. Starting prices below, written quote after a visit.', "keys": ['furnace_install', 'ac_install', 'heat_pump_ducted', 'ductless_single']},
   {"type": "checklist", "photo": "out", "h2": "Is your HVAC in Milton still the builder's basic package?",
    "lead": "If three or more of these sound familiar, your system was likely picked for price, not comfort.",
    "items": ["The furnace roars on at full blast, shuts off, then roars on again",

@@ -20,6 +20,7 @@ PAGE = {
     {"url": "/services/hvac-repair-maintenance/", "title": "HVAC tune-ups", "text": "A yearly check that shows how much life an older system has left."},
     {"url": "/water-heater/", "title": "Tankless water heaters", "text": "Rinnai condensing units to replace an old rental tank."},
     {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Richmond Hill", "text": "Evening, weekend and holiday help when an old system finally gives out."}]},
+  {"type": "cost_guide", "h2": 'Richmond Hill repair and replacement prices at a glance', "lead": 'Most calls here start with equipment from the 1990s and 2000s. Here is what the usual fixes and the usual replacements start at.', "keys": ['furnace_repair', 'ac_repair', 'furnace_install', 'heat_pump_ducted']},
   {"type": "checklist", "photo": "out", "h2": "Repair or replace? What an HVAC technician in Richmond Hill looks at first",
    "lead": "Age alone doesn't settle it. These are the checks we run before we give you an answer.",
    "items": ["The real age of the furnace and AC, read off the rating plate",

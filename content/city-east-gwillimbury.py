@@ -32,7 +32,11 @@ PAGE = {
     {"problem": "The propane truck shows up more often than you'd like", "solution": "A cold-climate heat pump moves heat from outdoor air even well below freezing, so it can carry most of your heating. The propane furnace stays as backup for the deepest cold."},
     {"problem": "Rooms on the windward side of the farmhouse never warm up", "solution": "Wind off the fields pulls heat from exposed walls fast. We size from a heat-loss calculation that accounts for that exposure and add a ductless head where the ducts can't keep up."},
     {"problem": "The builder AC gives up in a July heat wave", "solution": "Entry-level ACs are often sized tight. We compare the heat gain with the unit's capacity and, when it's time, replace it with a heat pump that cools in summer and heats in winter."},
-    {"problem": "An older furnace in Mount Albert is living on borrowed time", "solution": "Our TSSA-certified gas techs check the heat exchanger, venting and repair history, then give you a straight repair or replace answer with a written price."}]},
+    {"problem": "An older furnace in Mount Albert is living on borrowed time", "solution": "Our TSSA-certified gas techs check the heat exchanger, venting and repair history, then give you a straight repair or replace answer with a written price."},
+    {"problem": "The builder's AC sits on gravel that has already started to sink", "solution": "New subdivision lots settle for years after the house goes up, and a tilted condenser wears its compressor and fan unevenly. When we replace the unit, it goes on a proper levelled pad or a wall bracket, raised clear of the drifting snow that comes off open fields around Queensville and Sharon."}]},
+  {"type": "cost_guide", "h2": "East Gwillimbury upgrade costs for new builds and rural homes",
+   "lead": "A builder-furnace upgrade in Sharon and a propane conversion on a Ravenshoe concession land in different rows. Starting prices are below, and the written quote is the real number.",
+   "keys": ["furnace_install", "heat_pump_ducted", "ac_install", "furnace_repair"]},
   {"type": "mosaic", "count": 6, "h2": "Six photos from recent installs",
    "lead": "Recent jobs from around Ontario, from furnace swaps to outdoor heat pumps on raised stands. The same work goes into homes across East Gwillimbury."},
   {"type": "steps", "h2": "Heat pump installation in East Gwillimbury, start to finish",
@@ -42,6 +46,13 @@ PAGE = {
     {"title": "Heat-loss sizing at your home", "text": "We measure, check the ducts and panel, and note where the outdoor unit can sit clear of drifting snow."},
     {"title": "Rebate filing and your fixed price", "text": "We file the rebate pre-approval before installation and hand you one price for the agreed scope."},
     {"title": "Install, commission and register", "text": "We install, test the system in heating and cooling, set the thermostat and register your warranty."}]},
+  {"type": "equipment", "h2": "Heat pumps and furnaces we install in Queensville, Sharon and the country",
+   "lead": "Two-stage furnaces to replace noisy builder units, and cold-climate heat pumps for the rural homes that want to buy a lot less propane.",
+   "groups": ["heat_pumps", "furnaces"]},
+  {"type": "split", "photo": "sys", "h2": "Before you replace builder equipment in a new East Gwillimbury home",
+   "html": "<p>A furnace that's only a few years old might still be covered by its manufacturer, and a few checks can save you from replacing something that just needs setting up properly.</p>"
+           "<ul class=\"checklist\"><li>Find the model and serial number on the furnace and check whether the warranty was ever registered. Builders often skip this step, and the clock may still be running.</li><li>Ask us to measure static pressure and airflow at each register. Uneven rooms in a new build are more often a duct and damper problem than an equipment problem.</li><li>Check the blower speed settings. Many builder furnaces are left on a default that's wrong for the house.</li><li>Look at the filter slot. A one-inch filter that clogs in weeks is the cheapest upgrade in the house.</li></ul>"
+           "<p>If the equipment really is undersized or failing, we say so and quote the upgrade. If it isn't, you pay for a tune-up and some adjustments, and the new furnace waits until it's actually needed.</p>"},
   {"type": "quote_split", "photo": "out", "h2": "Get a quote from an HVAC contractor in East Gwillimbury",
    "form_h3": "Ask for your East Gwillimbury quote",
    "html": "<p>A builder system that lets you down and a propane bill you want to shrink start the same way. Tell us about the house, how it's heated and what bothers you most about it.</p>"
@@ -54,6 +65,7 @@ PAGE = {
   ("What rebate can a propane-heated home get?", "Homes heated by propane, oil, electricity or wood can qualify for up to $7,500 through the Home Renovation Savings Program, based on heat pump size. The pre-approval needs to come through before we install anything."),
   ("Is it normal for a new Queensville home to have uneven temperatures?", "It's common, but it's not something you have to live with. Builder systems often have too few returns upstairs or unbalanced ducts, and both can be fixed."),
   ("Who looks after furnace repair in East Gwillimbury's newer subdivisions?", "We do. Our TSSA-certified gas technicians repair builder furnaces in Queensville and Sharon as well as propane units on rural lots, and you get a written price before the work starts."),
-  ("Which areas do your HVAC services in East Gwillimbury cover?", "All of it, including Queensville, Sharon, Holland Landing, Mount Albert and the rural roads in between.")],
+  ("Which areas do your HVAC services in East Gwillimbury cover?", "All of it, including Queensville, Sharon, Holland Landing, Mount Albert and the rural roads in between."),
+  ("How much does a heat pump cost for a propane-heated home in East Gwillimbury?", "A cold-climate heat pump in East Gwillimbury starts from $5,500 installed, before a rebate that can reach $7,500 for propane-heated homes. A high-efficiency furnace starts from $3,300. Installed pricing depends on size and installation requirements, and the quote is guaranteed in writing.")],
  "related": ["/heat-pump/cold-climate/", "/furnace/high-efficiency/", "/heat-pump/hybrid-furnace-systems/", "/services/hvac-repair-maintenance/", "/heat-pump-rebates/", "/ac/ductless-mini-split/"],
 }

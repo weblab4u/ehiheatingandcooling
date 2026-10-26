@@ -1,0 +1,62 @@
+# /markham/ac-repair/
+PAGE = {
+ "url": "/markham/ac-repair/", "city_service": "markham", "priority": "0.7",
+ "title": "AC Repair Markham | Upstairs Too Hot? Written Quote First",
+ "description": "AC repair in Markham for warm air, iced coils, tripped breakers and second floors that never cool. Licensed techs, written quote first. Call 1-647-694-5845.",
+ "eyebrow": "AC Repair · Markham",
+ "h1": "AC Repair in Markham When the Upstairs Won't Cool Down",
+ "tagline": "Licensed refrigeration techs, priced in writing before the repair",
+ "intro": "<p>AC repair in Markham has a local twist: the air conditioner is often working, but the second floor is still sticky at midnight. Big two-storey homes put a heavy load on one outdoor unit, so a weak capacitor, a dirty coil or a low charge shows up upstairs first. Our licensed refrigeration technicians find the real fault, quote the repair in writing and tell you honestly if the unit is worth saving, across Markham and the rest of Ontario.</p>",
+ "hero_points": ["Licensed refrigeration technicians, every brand of central AC", "Diagnosis that includes the ducts to the second floor, not just the outdoor unit",
+                 "Written quote before any part is replaced", "Emergency AC repair evenings, weekends and holidays"],
+ "hero_image": "Technician checking refrigerant pressures at a central air conditioner beside a two-storey Markham-style home",
+ "service": {"name": "AC Repair in Markham", "type": "Central air conditioner repair", "area": "Markham"},
+ "blocks": [
+  {"type": "problems", "h2": "Air conditioner faults that hit Markham two-storey homes hardest",
+   "lead": "What you notice on a muggy July night, what's usually behind it and what our tech does on the first visit.",
+   "items": [
+    {"problem": "The main floor is cold but the bedrooms are 26°C at bedtime", "solution": "The thermostat downstairs shuts the AC off before the top floor catches up. We check blower speed, the return air path from upstairs and any zone dampers, then set the system to run longer and lower so cool air reaches the second storey."},
+    {"problem": "The AC runs from noon to midnight and never catches up", "solution": "A dirty condenser coil, a low refrigerant charge or a unit that was undersized for the attic load will all do this. We measure pressures, superheat and subcooling and clean the coil before we blame the size."},
+    {"problem": "Frost on the copper line beside the furnace", "solution": "Ice on the line set means the coil is starving for air or refrigerant. In big homes the filter is often the culprit, loaded with a season of dust from two floors. We thaw it, find the cause and confirm the temperature drop across the coil."},
+    {"problem": "A puddle on the furnace room floor every afternoon", "solution": "The condensate drain shares a line with the high-efficiency furnace in most Markham basements, and it clogs with slime. We clear the drain, add a trap if one is missing and check the pan for cracks."},
+    {"problem": "The outdoor unit hums and the fan twitches, but nothing starts", "solution": "A failed run capacitor is the most common AC repair we do. It's quick and usually stocked on the truck. We also test the contactor and the compressor amp draw so you're not back on the phone in August."},
+    {"problem": "The breaker trips every time the AC tries to start", "solution": "A compressor pulling too many amps on start-up, a weak capacitor or a loose connection in the disconnect. We test the start current and the wiring before anyone touches the panel."},
+    {"problem": "Your 15-year-old AC uses R-22 and needs a top-up again", "solution": "R-22 is expensive and the leak will keep coming back. We quote the leak repair honestly, and beside it we show the price of a cold-climate heat pump that cools the house and takes over most of the heating."},
+    {"problem": "The condenser rattles loud enough to bother the neighbour in your Cornell townhome", "solution": "A fan motor bearing, a loose panel or a bent fan blade. All three are fixable, and on close lots we also check the pad and clearances so the noise doesn't carry."}]},
+  {"type": "cost_guide", "h2": "AC repair cost in Markham", "keys": ["ac_repair", "ac_install", "heat_pump_ducted"],
+   "lead": "Air conditioner repairs are quoted after diagnosis. When the unit is past saving, a new central AC or a cold-climate heat pump from $5,500 installed is on the same quote so you can compare."},
+  {"type": "steps", "h2": "How an AC repair call in Markham works",
+   "lead": "Simple process, no surprises, and the second floor gets checked every time.",
+   "items": [
+    {"title": "Call or send the form", "text": "Tell us what the AC is doing and which rooms are hot. If there's no cooling at all during a heat wave, say so and we'll treat it as an emergency call."},
+    {"title": "Full-system diagnosis", "text": "A licensed refrigeration tech tests the outdoor unit, the indoor coil, the capacitor and contactor, the refrigerant charge and the airflow to the top floor."},
+    {"title": "Written quote, your decision", "text": "You see the repair price before we start. If the unit is old and the repair is major, you also see the replacement options with rebates."},
+    {"title": "Repair and prove it", "text": "Most repairs are done on the spot from parts on the truck. We run the AC, measure the temperature drop and check the upstairs registers before we leave."}]},
+  {"type": "equipment", "h2": "The modern replacement for a worn-out Markham air conditioner", "groups": ["heat_pumps"],
+   "lead": "When an AC is past repair, a cold-climate heat pump is the smarter swap. It cools like central air in July, heats down to -30°C in January and can bring back a rebate that a plain AC never will."},
+  {"type": "checklist", "photo": "in", "h2": "What's included in a Markham AC repair visit",
+   "lead": "A proper diagnosis covers the whole cooling loop, from the condenser to the second-floor registers.",
+   "items": ["Run capacitor, contactor and compressor start current tested",
+             "Refrigerant pressures, superheat and subcooling measured against spec",
+             "Outdoor coil checked for cottonwood fluff, grass and dryer lint",
+             "Indoor coil and filter inspected for airflow restriction",
+             "Condensate drain, trap and pan cleared and checked",
+             "Blower speed and return airflow from the second floor verified",
+             "Temperature drop across the coil recorded after the repair",
+             "Written repair quote, and replacement pricing if the unit is past about 15 years"]},
+  {"type": "split", "photo": "sys", "h2": "Why a two-storey Markham house is hard on an air conditioner",
+   "html": "<p>Picture a July afternoon in Berczy Village. The attic is 50°C, the west windows have been in full sun since lunch, and the only thermostat is in a shaded front hall on the main floor. The AC cools the hall, shuts off, and the bedrooms upstairs keep soaking up heat. That's the pattern behind most of the AC repair calls we take in Markham, and in two-storey homes across southern Ontario.</p>"
+           "<p>The outdoor unit takes the beating. It runs long hours at full load, so a slightly weak capacitor or a coil coated in dust fails earlier than it would in a bungalow. The indoor side suffers too: a single return on the main floor means warm, humid air from upstairs never gets pulled back to the coil, so the top floor stays clammy even when the air at the registers is cold.</p>"
+           "<p>That's why our diagnosis includes airflow, not just refrigerant. We check the return path, the blower speed and the duct runs to the second floor. Often the repair that fixes the upstairs is a blower setting and a balanced duct, which costs far less than a bigger air conditioner. When the unit really is at the end of its life, we show you a cold-climate heat pump next to a plain AC replacement, because the heat pump cools the same way in summer and earns a rebate.</p>"
+           "<ul class=\"checklist\"><li>Thermostat location and return air from the second floor</li><li>Condenser load after long run times, including capacitor and amp draw</li><li>Duct balance between floors before any talk of a bigger unit</li><li>Repair quote beside a heat pump quote when the unit is past about 15 years</li></ul>"
+           "<p>Our province-wide page on <a href='/ac/repair-maintenance/'>AC repair and maintenance</a> covers the annual tune-up in more detail. For furnaces, heat pumps and everything else we do locally, start at <a href='/markham/'>HVAC services in Markham</a>.</p>"},
+  {"type": "money"}],
+ "faqs": [
+  ("How much does AC repair cost in Markham?", "AC repair in Markham is priced after diagnosis and quoted in writing, so you know the number before we start. Capacitors and contactors are small repairs, while a compressor or an evaporator coil is a major one. If replacement is the better value, a cold-climate heat pump starts from $5,500 installed."),
+  ("Why is the upstairs still hot when the AC is running?", "The main-floor thermostat satisfies before the second storey cools, and the return air from upstairs is often too small to pull the warm air back. Fixes range from a blower speed change and duct balancing to a ductless head in the hottest bedroom."),
+  ("How quickly can you come for AC repair in Markham?", "We book AC repair in Markham seven days a week and take emergency calls evenings, weekends and holidays. During a heat wave we prioritise homes with no cooling. We give you a booking window when you call instead of promising a time we can't keep."),
+  ("Do you offer emergency AC repair in Markham?", "Yes. Emergency AC repair in Markham is available evenings, weekends and holidays. Call 1-647-694-5845, tell us the AC is completely down, and we'll get you into the next available slot."),
+  ("Should I repair my old air conditioner or replace it with a heat pump?", "Repair it if it's under about 10 years old and the fix is a capacitor, contactor, fan motor or drain. Past 15 years with a compressor or coil failure, a cold-climate heat pump usually wins because it cools the same way, heats most of the winter and may qualify for a Home Renovation Savings Program rebate."),
+  ("Does AC repair include a tune-up?", "The diagnostic covers the parts we test to find the fault. A full AC tune-up with coil cleaning, drain flush and a refrigerant check is a separate service we can add to the same visit, and it keeps most manufacturer warranties valid.")],
+ "related": ["/ac/repair-maintenance/", "/services/emergency-hvac/", "/ac/", "/heat-pump/central/", "/markham/"],
+}

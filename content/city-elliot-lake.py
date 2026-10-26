@@ -20,6 +20,7 @@ PAGE = {
     {"url": "/services/thermostats/", "title": "Easy-to-read thermostats", "text": "Large, clear displays and simple schedules."},
     {"url": "/services/hvac-repair-maintenance/", "title": "Yearly maintenance visits", "text": "One check a year that keeps the system quiet and efficient."},
     {"url": "/heat-pump-rebates/", "title": "Rebates for electric-heated homes", "text": "Up to $7,500 for eligible electrically heated homes, paperwork included."}]},
+  {"type": "cost_guide", "h2": 'Elliot Lake prices for simple, quiet heating', "lead": 'Retirees leaving baseboards for a heat pump ask about cost first. Starting prices below, with the higher rebate tier often applying.', "keys": ['ductless_single', 'heat_pump_ducted', 'furnace_install']},
   {"type": "checklist", "photo": "out",
    "h2": "Our low-maintenance checklist for Elliot Lake heating and cooling",
    "lead": "Simple to live with is a design choice. These are the details we build in from the start.",

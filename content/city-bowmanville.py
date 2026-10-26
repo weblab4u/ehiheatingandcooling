@@ -21,6 +21,7 @@ PAGE = {
     {"url": "/services/thermostats/", "title": "Smart thermostat setup", "text": "Better scheduling and control, with a $100 rebate where eligible."},
     {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Bowmanville", "text": "Ignition, blower and pressure switch faults on older and newer furnaces."},
     {"url": "/services/emergency-hvac/", "title": "Emergency HVAC across Clarington", "text": "Evenings, weekends and holidays when the heat or cooling stops."}]},
+  {"type": "cost_guide", "h2": 'Clarington new-build upgrade prices', "lead": 'Adding AC or a heat pump to a builder-grade system is the common Bowmanville job. Starting prices below.', "keys": ['ac_install', 'heat_pump_ducted', 'furnace_install', 'furnace_repair']},
   {"type": "checklist", "photo": "out", "h2": "Why rooms in a new Clarington home feel wrong: our airflow checklist",
    "lead": "Builders pick equipment to pass inspection and hit a budget. These are the gaps we look for first.",
    "items": ["Furnace and AC size compared with a room-by-room heat-loss and heat-gain calculation",

@@ -20,6 +20,7 @@ PAGE = {
     {"problem": "Lake snow buries everything close to the shore", "solution": "Outdoor units go on raised stands or wall brackets, away from roof edges and drift paths, so the coil keeps breathing all winter."},
     {"problem": "Baseboards in a Bobcaygeon house mean brutal hydro bills", "solution": "A multi-zone ductless system heats the main rooms with far less power than baseboards in most weather. Electric-heated homes also fall in the higher rebate tier."},
     {"problem": "You doubt a heat pump can keep up with a Kinmount winter", "solution": "The northern end of the city gets properly cold. We size the heat pump for your local design temperature and plan backup heat, from your existing furnace or an electric air handler, for nights below its rated range."}]},
+  {"type": "cost_guide", "h2": 'Lindsay and Kawartha Lakes pricing for oil and propane replacement', "lead": 'Moving a farmhouse or cottage off oil or propane usually means a heat pump with backup. Starting prices below.', "keys": ['heat_pump_ducted', 'ductless_single', 'furnace_install']},
   {"type": "snapshot", "h2": "What we know about Kawartha Lakes homes before we visit",
    "lead": "Every quote here starts with the same few questions.",
    "items": [

@@ -19,7 +19,10 @@ PAGE = {
     {"problem": "The builder's AC falls behind on a humid July afternoon", "solution": "Basic units are often undersized for big windows and open layouts. We run a cooling load calculation and replace it with a heat pump or AC matched to the house."},
     {"problem": "An old furnace in Centrepointe or Craig Henry keeps needing parts", "solution": "Once repairs pile up on an aging unit, fixing it stops being good value. We price the repair and the replacement side by side and explain which one we'd choose in your shoes."},
     {"problem": "A heat pump salesperson sized it from your square footage", "solution": "At -25°C, the wrong size shows. We do a heat-loss calculation, pick a cold-climate model rated to -30°C and plan backup heat for the nights colder than that."},
-    {"problem": "The finished basement in your new build never warms up", "solution": "Many newer basements have a couple of supply registers and no return air. We add returns or a ductless head, so the basement becomes a room people actually use in winter."}]},
+    {"problem": "The finished basement in your new build never warms up", "solution": "Many newer basements have a couple of supply registers and no return air. We add returns or a ductless head, so the basement becomes a room people actually use in winter."},
+    {"problem": "Your Manotick home is off the gas line and the propane furnace is original", "solution": "If the house heats with propane or oil, a cold-climate heat pump can carry most of the winter and the old furnace can stay as backup until you're ready to retire it. Homes heated that way may qualify for the higher rebate tier, up to $7,500. Where the furnace is done, a heat pump with an electric air handler replaces it outright, sized for a -25°C design night."}]},
+  {"type": "cost_guide", "h2": "Nepean replacement and upgrade costs, old house or new", "keys": ["furnace_install", "ac_install", "heat_pump_ducted", "furnace_repair", "ac_repair"],
+   "lead": "Whether it's a 1960s furnace in Craig Henry or a builder-grade AC in Barrhaven, the starting prices are the same. The quote adjusts for ducts, panel and backup heat."},
   {"type": "snapshot", "h2": "Two kinds of Nepean homes, one Ottawa winter",
    "lead": "The equipment plan for a Qualicum bungalow and a Riverside South two-storey looks very different. Here's why.",
    "items": [
@@ -46,6 +49,8 @@ PAGE = {
    "photo": "sys", "form_h3": "Get my Nepean upgrade quote"},
   {"type": "mosaic", "count": 3, "h2": "Equipment and finishing work from recent jobs",
    "lead": "Photos from our installs elsewhere in Ontario, showing the line sets, stands and furnace rooms we leave behind."},
+  {"type": "equipment", "h2": "Furnaces and heat pumps we install across Nepean", "groups": ["furnaces", "heat_pumps"],
+   "lead": "Two-stage furnaces and heat pumps rated to -30°C, replacing the single-stage builder units in Barrhaven and the 1960s-era equipment in Bells Corners alike."},
   {"type": "money"}],
  "faqs": [
   ("Is builder-grade HVAC worth replacing in a newer Nepean home?", "Only if it's failing, undersized or leaving the house uncomfortable. If it still works, balancing the ducts, adding returns or upgrading the thermostat can help before you spend on new equipment."),
@@ -53,6 +58,7 @@ PAGE = {
   ("What size heat pump does a Nepean home need?", "It depends on the home's heat loss, not its square footage. We calculate it room by room for a -25°C design day and size the cold-climate unit and backup heat from that."),
   ("Does an older central Nepean home need new ducts for a heat pump?", "Not always. Many older ducts work once they're sealed and balanced, and where they can't carry enough air, a ductless head can cover the rooms they miss."),
   ("Can I get furnace repair in Nepean from your team?", "Yes. Our TSSA-certified gas technicians repair furnaces across Nepean, and you see the price in writing before any work begins."),
-  ("Are Barrhaven and Riverside South part of your heat pump service area?", "Yes. We install cold-climate and hybrid heat pump systems in Barrhaven, Riverside South and Manotick, and we book the assessment and install dates with you.")],
+  ("Are Barrhaven and Riverside South part of your heat pump service area?", "Yes. We install cold-climate and hybrid heat pump systems in Barrhaven, Riverside South and Manotick, and we book the assessment and install dates with you."),
+  ("What does it cost to replace a builder-grade furnace and AC in Nepean?", "A high-efficiency two-stage furnace starts from $3,300 installed, and a cold-climate heat pump that replaces the AC starts from $5,500, before any rebate. Installed pricing depends on size and installation requirements, and the written quote for your home is guaranteed.")],
  "related": ["/heat-pump/cold-climate/", "/furnace/high-efficiency/", "/services/hvac-installation-replacement/", "/heat-pump/hybrid-furnace-systems/", "/ac/ductless-mini-split/", "/heat-pump-rebates/"],
 }

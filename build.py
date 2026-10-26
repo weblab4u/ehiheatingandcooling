@@ -18,7 +18,11 @@ ADDRESS = {"street": "4261 Bloomington Road", "city": "Whitchurch-Stouffville", 
 TODAY = datetime.date.today().isoformat()
 GBP_URL = "https://maps.app.goo.gl/hPDoCQ6tHRCjxoDd9"
 GBP_LAT, GBP_LNG = "43.9919795", "-79.3224239"
-GBP_RATING = ("4.5", "87")   # from the Google listing embed data; update when it changes
+GBP_RATING = ("4.5", "87")
+# Licensing and guarantee: shown site-wide once EHI supplies them. Leave empty to hide.
+TSSA_NUMBER = ""          # e.g. "FSR0001234567"
+ESA_NUMBER = ""           # e.g. "ECRA/ESA 7001234"
+GUARANTEE = ""            # one sentence, e.g. "If a repair we did fails within 90 days, we come back and fix it free."   # from the Google listing embed data; update when it changes
 GBP_FTID = "0x882b2b96937f7999:0x4e1e3d096ab36ce7"
 GBP_PLACE_ID = "ChIJmXl_k5YrK4gR52yzagk9Hk4"
 GBP_REVIEWS_URL = f"https://search.google.com/local/reviews?placeid={GBP_PLACE_ID}"
@@ -286,7 +290,7 @@ def breadcrumbs(url):
         u = acc + "/"
         if u in REG:
             crumbs.append((u, title_of(u)))
-    if url in CITY_URLS:
+    if url in CITY_URLS or ("/" + url.strip("/").split("/")[0] + "/") in CITY_URLS:
         crumbs.insert(1, ("/service-areas/", title_of("/service-areas/")))
     # heat-pump-rebates etc live under none; fine.
     if len(crumbs) < 2: return "", ""
@@ -389,13 +393,18 @@ def render_block(b, page):
         return why_block()
     if t == "areas":
         return areas_block()
+    if t == "blog_index":
+        live = sorted([pg for pg in ALL_PAGES if pg.get("guide")], key=lambda pg: pg.get("published", TODAY), reverse=True)
+        items = "".join(f'<article><h3><a href="{pg["url"]}">{re.sub("<[^>]+>", "", pg["h1"])}</a></h3><time datetime="{pg.get("published", TODAY)}">{datetime.date.fromisoformat(pg.get("published", TODAY)).strftime("%B %Y")}</time><p>{esc(pg["description"])}</p></article>' for pg in live)
+        items += "".join(f'<article class="planned"><h3>{t_}</h3><time>Coming soon</time><p>{d}</p></article>' for t_, d, u in b.get("planned", []))
+        return f'<section class="sec"><div class="wrap narrow blog-list">{h2(b)}{items}</div></section>'
     if t == "area_dir":
         cols = "".join(f'<div class="area-col"><h3>{icon("pin")}{g}</h3><ul>' + "".join(f'<li>{city_name_link(c)}</li>' for c in cities) + '</ul></div>' for g, cities in AREA_GROUPS)
         return f'<section class="sec"><div class="wrap">{h2(b)}{lead(b)}<div class="area-cols">{cols}</div></div></section>'
     if t == "brands":
         return brands_block()
     if t == "reviews":
-        return reviews_block()
+        return reviews_block(page)
     if t == "faq":
         return faq_block(b["items"], b.get("h2", "Frequently asked questions"))
     if t == "form":
@@ -420,8 +429,9 @@ def why_block():
         ("check", "Authorized Midea, Lennox, Kepler and Rinnai dealer", "Factory-backed equipment, factory-backed warranties, and techs trained on the gear we install."),
         ("dollar", "Guaranteed final pricing", "The number on your quote is the number on your invoice. We may also beat comparable reputable quotes by up to 10%."),
         ("leaf", "Rebate paperwork handled", "Pre-approval, heat-loss calculation and documentation for the Home Renovation Savings Program. You just sign."),
-        ("wrench", "Licensed, certified crews", "TSSA-certified gas technicians, licensed refrigeration techs and ESA-licensed electrical work on every job."),
-    ]
+        ("wrench", "Licensed, certified crews", "TSSA-certified gas technicians, licensed refrigeration techs and ESA-licensed electrical work on every job."
+                   + (f" TSSA {TSSA_NUMBER}." if TSSA_NUMBER else "") + (f" {ESA_NUMBER}." if ESA_NUMBER else "")),
+    ] + ([("clipboard", "Our guarantee", GUARANTEE)] if GUARANTEE else [])
     lis = "".join(f'<li><span class="card-icon">{icon(i)}</span><h3>{t}</h3><p>{d}</p></li>' for i, t, d in items)
     lis += fill_cta(len(items), (4, 2), "li", "Ready when you are", "Call us or send the form. Quotes are free, guaranteed and come with your rebate estimate.")
     return f'<section class="sec why" id="why-ehi"><div class="wrap"><h2>Why Ontario homes and businesses choose EHI Heating &amp; Cooling</h2><ul class="why-grid">{lis}</ul></div></section>'
@@ -569,8 +579,9 @@ def google_g():
             '<path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.2.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/>'
             '<path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.3 0-11.6-4.2-13.5-10l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>')
 
-def reviews_block():
-    """Google rating panel plus real reviews from data/reviews.json (never placeholder text)."""
+def reviews_block(page=None):
+    """Google rating panel plus real reviews from data/reviews.json (never placeholder text).
+    On a city page, reviews that name that city or a nearby one come first."""
     rating, count = GBP_RATING if GBP_RATING else ("", "")
     stars = icon("star") * 5
     panel = (f'<div class="g-panel">{google_g()}<div class="g-score"><strong>{rating}</strong><span class="stars" aria-hidden="true">{stars}</span>'
@@ -578,10 +589,15 @@ def reviews_block():
              f'<div class="btn-group small"><a class="btn btn-primary" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">Read our Google reviews{icon("arrow")}</a>'
              f'<a class="btn btn-secondary" href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Write a review</a></div></div>')
     revs = [r for r in load_reviews() if not r.get("reviews_page_only")]
+    if page and page.get("city"):
+        c = CITY_BY_SLUG[page["city"]]
+        near = {c["name"].lower()} | {CITY_BY_SLUG[n]["name"].lower() for n in c["nearby"]}
+        revs.sort(key=lambda r: 0 if (r.get("city") or "").lower() in near else 1)
     cards = "".join(review_card(r, i, "rv-slide") for i, r in enumerate(revs[:12]))
     grid = (f'<div class="rv-carousel" data-carousel><button class="rv-nav prev" type="button" aria-label="Previous reviews">{icon("arrow")}</button>'
             f'<div class="rv-track" tabindex="0">{cards}</div><button class="rv-nav next" type="button" aria-label="Next reviews">{icon("arrow")}</button></div>') if cards else ""
-    return (f'<section class="sec reviews-sec"><div class="wrap"><h2>What our customers say</h2>'
+    h = f'What {esc(CITY_BY_SLUG[page["city"]]["name"])} homeowners can expect: our customers in their own words' if page and page.get("city") else "What our customers say"
+    return (f'<section class="sec reviews-sec"><div class="wrap"><h2>{h}</h2>'
             f'<p class="lead">Rated {rating} on Google and voted Best Company 2019, 2020 and 2021 on HomeStars.</p>{panel}{grid}'
             f'<p><a class="more" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">See all our Google reviews{icon("arrow")}</a></p></div></section>')
 
@@ -653,7 +669,7 @@ SERVICE_OPTIONS = ["Heat pump installation", "Furnace installation or replacemen
 
 SERVICE_PREFIXES = ("/services/", "/furnace/", "/ac/", "/heat-pump/", "/water-heater/")
 def preselect_for(url):
-    rules = [("/services/emergency-hvac/", "Emergency, no heat or no cooling"), ("repair-maintenance", "Repair (furnace, AC or heat pump)"), ("/repair/", "Repair (furnace, AC or heat pump)"),
+    rules = [("/heat-pump-installation/", "Heat pump installation"), ("/furnace-repair/", "Repair (furnace, AC or heat pump)"), ("/ac-repair/", "Repair (furnace, AC or heat pump)"),("/services/emergency-hvac/", "Emergency, no heat or no cooling"), ("repair-maintenance", "Repair (furnace, AC or heat pump)"), ("/repair/", "Repair (furnace, AC or heat pump)"),
              ("/services/humidifiers/", "Humidifier, HRV/ERV or thermostat"), ("/services/hrv-erv/", "Humidifier, HRV/ERV or thermostat"), ("/services/thermostats/", "Humidifier, HRV/ERV or thermostat"),
              ("/water-heater/", "Tankless water heater"), ("ductless", "Ductless mini-split"), ("/heat-pump", "Heat pump installation"), ("/furnace/", "Furnace installation or replacement"), ("/ac/", "AC installation or replacement")]
     for k, v in rules:
@@ -710,7 +726,7 @@ def hero(page):
     for b in ("midea", "lennox", "rinnai", "kepler"):
         if page["url"].startswith(f"/brands/{b}") and os.path.exists(os.path.join(ROOT, "assets", "img", f"{b}.webp")):
             eyebrow = f'<img class="hero-brand" src="/assets/img/{b}.webp" alt="{b.title()} logo" width="180" height="60">' + eyebrow
-    is_service = page["url"].startswith(SERVICE_PREFIXES) and page["url"] != "/services/"
+    is_service = (page["url"].startswith(SERVICE_PREFIXES) and page["url"] != "/services/") or bool(page.get("city_service"))
     use_form = page.get("hero_form", is_service)
     right = form_block({"h3": page.get("form_h3", "Get your free guaranteed quote"), "sub": page.get("form_sub", "Same-day reply in most cases. No pressure, no spam.")}, compact=True, preselect=preselect_for(page["url"])) if use_form else img_frame(page.get("hero_image", "Hero photo"), "4/3", "hero-img", src=page.get("hero_img"), fit=page.get("hero_img_fit", "contain"), credit=page.get("hero_img_credit"), eager=True, pos=page.get("hero_img_pos", "50% 55%"))
     cls = page.get("hero_cls", "svc-hero" if is_service else ("page-hero" if page["url"] != "/" else ""))
@@ -722,11 +738,24 @@ def hero(page):
   <div class="hero-side">{right}</div>
 </div></section>'''
 
+def _review_date(d):
+    """'August 2026' -> '2026-08'; '2025' -> '2025'; anything else -> None."""
+    if not d: return None
+    m = re.match(r"^(?:([A-Za-z]+) )?(\d{4})$", d.strip())
+    if not m: return None
+    months = ["january","february","march","april","may","june","july","august","september","october","november","december"]
+    if m.group(1) and m.group(1).lower() in months: return f"{m.group(2)}-{months.index(m.group(1).lower())+1:02d}"
+    return m.group(2)
+
 def local_business_ld():
     return {
         "@type": "HVACBusiness", "@id": SITE + "/#organization", "name": SITE_NAME, "alternateName": [LEGAL, "EHI"],
         "url": SITE + "/", "logo": SITE + "/assets/img/ehi-logo.webp", "image": SITE + "/assets/img/ehi-logo.webp",
         "telephone": PHONE_TEL, "email": EMAIL, "priceRange": "$$",
+        **({"aggregateRating": {"@type": "AggregateRating", "ratingValue": GBP_RATING[0], "reviewCount": GBP_RATING[1], "bestRating": "5", "worstRating": "1"}} if GBP_RATING else {}),
+        **({"review": [{"@type": "Review", "author": {"@type": "Person", "name": r.get("name", "Google reviewer")}, "reviewRating": {"@type": "Rating", "ratingValue": str(r.get("stars", 5)), "bestRating": "5"},
+                        "reviewBody": r["text"], **({"datePublished": _review_date(r["date"])} if _review_date(r.get("date")) else {})} for r in load_reviews()[:5]]} if load_reviews() else {}),
+        **({"hasCredential": [{"@type": "EducationalOccupationalCredential", "name": n} for n in ([f"TSSA contractor registration {TSSA_NUMBER}"] if TSSA_NUMBER else []) + ([f"ESA/ECRA licence {ESA_NUMBER}"] if ESA_NUMBER else [])]} if (TSSA_NUMBER or ESA_NUMBER) else {}),
         "address": {"@type": "PostalAddress", "streetAddress": ADDRESS["street"], "addressLocality": ADDRESS["city"],
                     "addressRegion": ADDRESS["region"], "postalCode": ADDRESS["postal"], "addressCountry": "CA"},
         "areaServed": [{"@type": "City", "name": a + ", ON"} for a in AREAS] + [{"@type": "State", "name": "Ontario"}],
@@ -772,9 +801,16 @@ def render(page):
     crumbs_html, crumbs_ld = breadcrumbs(url)
     article = page.get("layout") == "article"
     if article:
-        body = (f'<article class="legal"><div class="wrap narrow"><header class="legal-head"><h1>{page["h1"]}</h1>'
-                f'<p class="legal-meta">{page.get("meta_line", "Last updated " + datetime.date.today().strftime("%B %Y"))}</p>{page["intro"]}</header>'
-                + "".join(b["html"] for b in page.get("blocks", []) if b["type"] == "text") + '</div></article>')
+        texts = [b for b in page.get("blocks", []) if b["type"] == "text"]
+        toc = ""
+        if page.get("guide"):
+            heads = [(re.sub(r"[^a-z0-9]+", "-", re.sub("<[^>]+>", "", b["h2"]).lower()).strip("-"), b["h2"]) for b in texts if b.get("h2")]
+            toc = '<nav class="toc" aria-label="In this guide"><p class="toc-h">In this guide</p><ol>' + "".join(f'<li><a href="#{i}">{h}</a></li>' for i, h in heads) + '</ol></nav>' if heads else ""
+        sections = "".join((f'<h2 id="{re.sub(r"[^a-z0-9]+", "-", re.sub("<[^>]+>", "", b["h2"]).lower()).strip("-")}">{b["h2"]}</h2>' if b.get("h2") else "") + b["html"] for b in texts)
+        tail = (f'<div class="guide-cta"><h2>{page.get("cta_h2", "Want a quote from us?")}</h2><p>{page.get("cta_text", "Free, written and guaranteed, with your rebate estimate. No pressure.")}</p>{cta_buttons()}</div>') if page.get("guide") else ""
+        body = (f'<article class="legal{" guide" if page.get("guide") else ""}"><div class="wrap narrow"><header class="legal-head"><h1>{page["h1"]}</h1>'
+                f'<p class="legal-meta">{page.get("meta_line", "Last updated " + datetime.date.today().strftime("%B %Y"))}</p>{page["intro"]}</header>{toc}'
+                + sections + tail + '</div></article>')
         blocks = []
     elif page.get("banner"):
         body = (f'<section class="banner-hero"><div class="wrap"><h1>{page["h1"]}</h1><p>{page["intro"]}</p>'
@@ -797,16 +833,29 @@ def render(page):
     for i, b in enumerate(blocks):
         if gal and i == mid:
             body += gal; prev_dark = False
-        html_b = (city_block(b, page) if page.get("city") else None) or render_block(b, page)
+        html_b = (city_block(b, page) if (page.get("city") or page.get("city_service")) else None) or render_block(b, page)
         out, prev_dark = with_variant(html_b, b["type"], page, prev_dark)
         body += out
+    if page.get("city_service"):
+        body += reviews_block({"city": page["city_service"]})
+        cn = CITY_BY_SLUG[page["city_service"]]["name"]
+        body += gbp_block({"h2": f"Our office, hours and how to reach us from {esc(cn)}", "lead": "We're a service-area business based in Whitchurch-Stouffville. Our crews come to you."})
+        body += nearby_block({"city": page["city_service"], "nearby_h2": f"More HVAC help in {esc(cn)} and nearby"})
     if page["url"].startswith(SERVICE_PREFIXES) and page["url"] != "/services/" and not page.get("no_gbp"):
         body += gbp_block({"h2": "Serving Ontario from our Stouffville office", "lead": "Find us on Google, get directions, or check our hours. Our crews travel to your home or business across the province."})
     if page.get("city"):
+        body += city_local_links(page)
+        if not any(b["type"] in ("reviews", "g_reviews", "testimonials") for b in page.get("blocks", [])):
+            body += reviews_block(page)
+        if not any(b["type"] == "gbp" for b in page.get("blocks", [])):
+            cn = CITY_BY_SLUG[page["city"]]["name"]
+            body += gbp_block({"h2": f"Our office, hours and how to reach us from {esc(cn)}", "lead": "We're a service-area business based in Whitchurch-Stouffville. Our crews come to you; the office is where quotes, permits and rebate paperwork get done."})
         body += nearby_block(page)
     if page.get("faqs"):
         body += with_variant(faq_block(page["faqs"], page.get("faq_h2", "Frequently asked questions")), "faq", page)[0]
     body += related_block(page.get("related", []))
+    if page.get("city") or page.get("city_service"):
+        body += f'<p class="wrap updated">Page reviewed and updated {datetime.date.fromisoformat(page.get("updated", TODAY)).strftime("%B %d, %Y").replace(" 0", " ")}. Prices, rebates and program terms are checked at each update.</p>'
 
     graph = [local_business_ld()]
     graph.append({"@type": "WebPage", "@id": canonical + "#webpage", "url": canonical, "name": page["title"],
@@ -827,6 +876,11 @@ def render(page):
     if page.get("faqs"):
         graph.append({"@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": re.sub("<[^>]+>", "", q), "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}} for q, a in page["faqs"]]})
+    if page.get("guide"):
+        graph.append({"@type": "Article", "@id": canonical + "#article", "headline": re.sub("<[^>]+>", "", page["h1"]), "description": page["description"],
+                      "author": {"@type": "Organization", "name": SITE_NAME, "@id": SITE + "/#organization"}, "publisher": {"@id": SITE + "/#organization"},
+                      "datePublished": page.get("published", TODAY), "dateModified": page.get("updated", TODAY), "mainEntityOfPage": {"@id": canonical + "#webpage"},
+                      "about": {"@type": "City", "name": page.get("guide_city", "Ontario")}, "inLanguage": "en-CA"})
     for extra in page.get("extra_ld", []):
         graph.append(extra)
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
@@ -879,11 +933,13 @@ _cities_mod = _load_data("ehi_cities", "cities.py")
 CITIES, CITY_BY_SLUG = _cities_mod.CITIES, _cities_mod.CITY_BY_SLUG
 CITY_URLS = {f"/{c['slug']}/": c for c in CITIES}
 _cp = _load_data("ehi_city_photos", "city_photos.py")
+PRICING = _load_data("ehi_pricing", "pricing.py")
 CITY_PHOTOS = dict(_cp.NEW)
 for _k, (_cat, _alt) in GALLERY_PHOTOS.items():
     CITY_PHOTOS.setdefault(_k, (_cp.OLD_KIND.get(_cat, "sys"), _alt))
 CITY_NEW = set(_cp.NEW)
 CITY_PAGES = set()          # city urls that have a content file (filled in main)
+ALL_PAGES = []              # every loaded page dict (filled in main)
 HERO_SLOTS = {"A": ["out", "in", "any"], "B": ["out"], "C": ["out", "in", "in"], "D": ["out", "in", "sys", "in"], "E": ["out"], "F": []}
 MOSAIC_KINDS = ["out", "in", "sys", "in", "out", "detail"]
 
@@ -915,6 +971,10 @@ def allocate_city_photos(pages):
         if hero: hero_count[k] += 1; hero_by_url.setdefault(url, []).append(k)
         return k
     city_pages = [pg for pg in pages if pg.get("city")]
+    for pg in [x for x in pages if x.get("city_service")]:      # city-service pages: section photos only, least-used first
+        taken = set()
+        for b in pg.get("blocks", []):
+            if b.get("photo"): b["_imgs"] = [pick(pg["url"], b["photo"], taken)]
     for batch in sorted({CITY_BY_SLUG[pg["city"]].get("batch", 1) for pg in city_pages}):
         group = [pg for pg in city_pages if CITY_BY_SLUG[pg["city"]].get("batch", 1) == batch]
         taken_by = {pg["url"]: set() for pg in group}
@@ -979,7 +1039,23 @@ SVC_ICON = {"/furnace/": "furnace", "/furnace/repair-maintenance/": "wrench", "/
             "/furnace/high-efficiency/": "flame", "/heat-pump/central/": "heatpump"}
 
 def city_block(b, page):
-    t = b["type"]; c = CITY_BY_SLUG[page["city"]]
+    t = b["type"]; c = CITY_BY_SLUG[page.get("city") or page["city_service"]]
+    if t == "cost_guide":
+        keys = b.get("keys", ["furnace_repair", "ac_repair", "furnace_install", "ac_install", "heat_pump_ducted", "ductless_single", "tankless_install"])
+        rows = "".join(f'<tr><td><strong>{PRICING.LABELS[k][0]}</strong><br><small>{PRICING.LABELS[k][1]}</small></td><td class="num">{PRICING.price_cell(k)}</td></tr>' for k in keys)
+        note = b.get("note", f"Installed pricing depends on size and installation requirements, and every job gets a written, guaranteed quote. Qualifying cold-climate heat pumps can bring back up to $7,500 through the Home Renovation Savings Program, and financing runs 0% for 3, 6 or 9 months on approved credit.")
+        return (f'<section class="sec table-sec cost-guide"><div class="wrap narrow">{h2(b)}{lead(b)}<div class="table-wrap"><table><thead><tr><th>Service</th><th>Typical price in {esc(c["name"])}</th></tr></thead><tbody>{rows}</tbody></table></div>'
+                f'<p class="note">{note}</p></div></section>')
+    if t == "equipment":
+        groups = b.get("groups", ["heat_pumps", "furnaces"])
+        titles = {"furnaces": "Gas furnaces", "heat_pumps": "Heat pumps and ductless", "water_heaters": "Tankless water heaters"}
+        cards = ""
+        for g in groups:
+            for model, kind, specs, warr in PRICING.EQUIPMENT[g]:
+                img = PRICING.EQUIPMENT_IMG.get(model)
+                pic = f'<img src="/assets/img/brands/{img}.webp" alt="{esc(model)} {esc(kind.lower())}" loading="lazy" decoding="async">' if img and os.path.exists(os.path.join(ROOT, "assets", "img", "brands", img + ".webp")) else ""
+                cards += f'<article class="eq-card{" has-img" if pic else ""}">{pic}<div><span class="eq-kind">{esc(kind)}</span><h3>{esc(model)}</h3><p>{esc(specs)}</p><p class="eq-warr">{icon("shield")}{esc(warr)}</p></div></article>'
+        return f'<section class="sec equipment-sec"><div class="wrap">{h2(b)}{lead(b)}<div class="eq-grid">{cards}</div></div></section>'
     if t == "snapshot":
         items = "".join(f'<li><span class="snap-ic">{icon(i.get("icon","pin"))}</span><span class="snap-label">{i["label"]}</span><strong>{i["value"]}</strong><p>{i["text"]}</p></li>' for i in b["items"])
         return f'<section class="sec snapshot-sec"><div class="wrap">{h2(b)}{lead(b)}<ul class="snapshot">{items}</ul></div></section>'
@@ -1009,13 +1085,51 @@ def city_block(b, page):
         return render_block(dict(b, image=CITY_PHOTOS[k][1], image_src=f"/assets/img/work/{k}.webp", image_fit="cover"), page)
     return None
 
+def city_local_links(page):
+    """Links from a city page to its own service pages and guide, when they exist."""
+    slug = page["city"]; cn = esc(CITY_BY_SLUG[slug]["name"])
+    svcs = [(f"/{slug}/heat-pump-installation/", "heatpump", f"Heat pump installation in {cn}", "Cold-climate heat pumps, rebates and sizing for local homes"),
+            (f"/{slug}/furnace-repair/", "furnace", f"Furnace repair in {cn}", "No heat, short cycling, ignitors and blowers, quoted in writing"),
+            (f"/{slug}/ac-repair/", "snow", f"AC repair in {cn}", "Warm air, ice on the coil, leaks and tripped breakers")]
+    svcs = [x for x in svcs if x[0] in REG]
+    guide = f"/blog/how-to-choose-an-hvac-company-in-{slug}/"
+    if not svcs and guide not in REG: return ""
+    cards = "".join(f'<a class="svc-link" href="{u}"><span class="card-icon">{icon(ic)}</span><span><strong>{t}</strong><small>{d}</small></span>{icon("arrow")}</a>' for u, ic, t, d in svcs)
+    if guide in REG:
+        cards += f'<a class="svc-link guide-link" href="{guide}"><span class="card-icon">{icon("clipboard")}</span><span><strong>How to choose an HVAC company in {cn}</strong><small>Licences to check, questions to ask, red flags and a quote checklist</small></span>{icon("arrow")}</a>'
+    return f'<section class="sec svclinks-sec local-svc"><div class="wrap"><h2>{cn} service pages</h2><p class="lead">Detailed local pages for the work we do most often in {cn}.</p><div class="svc-links">{cards}</div></div></section>'
+
+def region_of(slug):
+    """(region name, [slugs of city pages in that region]) from AREA_GROUPS, via the same aliases the Service Areas page uses."""
+    for g, cities in AREA_GROUPS:
+        slugs = []
+        for n in cities:
+            u = city_href(n)
+            if u and u.strip("/") not in slugs: slugs.append(u.strip("/"))
+        if slug in slugs: return g, slugs
+    return None, []
+
 def nearby_block(page):
-    c = CITY_BY_SLUG[page["city"]]
+    c = CITY_BY_SLUG[page["city"]]; cn = esc(c["name"])
     slugs = list(c["nearby"]) + [o["slug"] for o in CITIES if c["slug"] in o["nearby"] and o["slug"] not in c["nearby"]]
-    links = "".join(f'<li><a href="/{s}/">{icon("pin")}HVAC {esc(CITY_BY_SLUG[s]["name"])}</a></li>' for s in [x for x in slugs if f"/{x}/" in CITY_PAGES][:7])
-    if not links: return ""
-    return (f'<section class="sec nearby-sec"><div class="wrap"><h2>{page.get("nearby_h2", "We also serve communities near " + esc(c["name"]))}</h2>'
-            f'<ul class="nearby">{links}<li><a class="all" href="/service-areas/">All service areas{icon("arrow")}</a></li></ul></div></section>')
+    near = [x for x in slugs if f"/{x}/" in CITY_PAGES][:7]
+    region, members = region_of(c["slug"])
+    others = [x for x in members if x != c["slug"]]
+    out = ""
+    if near:
+        links = "".join(f'<li><a href="/{x}/">{icon("pin")}HVAC {esc(CITY_BY_SLUG[x]["name"])}</a></li>' for x in near)
+        out += (f'<section class="sec nearby-sec"><div class="wrap"><h2>{page.get("nearby_h2", "We also serve communities near " + cn)}</h2>'
+                f'<ul class="nearby">{links}</ul></div></section>')
+    if region and others:
+        pretty = {"Toronto and York Region": "Toronto and York Region", "Peel and Halton": "Peel and Halton", "Durham Region": "Durham Region",
+                  "Simcoe, Muskoka and cottage country": "Simcoe County and Muskoka", "Hamilton and Niagara": "Hamilton and the Niagara Region",
+                  "Southwestern Ontario": "Southwestern Ontario", "Eastern Ontario": "Eastern Ontario", "Northern Ontario": "Northern Ontario"}
+        region = pretty.get(region, region)
+        cards = "".join(f'<li><a href="/{x}/"><span class="rg-name">{esc(CITY_BY_SLUG[x]["name"])}</span><span class="rg-sub">HVAC services</span>{icon("arrow")}</a></li>' for x in others)
+        out += (f'<section class="sec region-sec"><div class="wrap"><div class="rg-head"><div><h2>Other cities in {esc(region)} we serve</h2>'
+                f'<p class="lead">Every city gets the same licensed crews, guaranteed pricing and rebate paperwork. Pick yours for local details.</p></div>'
+                f'<a class="more" href="/service-areas/">All service areas{icon("arrow")}</a></div><ul class="region-grid">{cards}</ul></div></section>')
+    return out
 
 # ---------------------------------------------------------------- lint
 BANNED = ["meticulous", "navigating", "complexities", "realm", "bespoke", "tailored", "towards", "underpins", "ever changing", "ever-evolving",
@@ -1077,7 +1191,10 @@ def main():
     os.makedirs(OUT)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"))
     pages = load_pages()
+    ALL_PAGES[:] = pages
     for pg in pages:
+        if pg.get("city_service") or pg.get("guide"):
+            REG.setdefault(pg["url"], (re.sub("<[^>]+>", "", pg["h1"]), pg["description"]))
         if pg.get("city"):
             CITY_PAGES.add(pg["url"])
             REG.setdefault(pg["url"], (f'HVAC {CITY_BY_SLUG[pg["city"]]["name"]}', f'HVAC services, repairs and installs in {CITY_BY_SLUG[pg["city"]]["name"]}.'))

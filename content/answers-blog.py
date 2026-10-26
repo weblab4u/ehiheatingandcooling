@@ -52,7 +52,7 @@ BLOG = {
  "hero_points": ["Written by licensed EHI technicians", "Ontario-specific: rebates, utilities, climate", "No recycled generic advice", "New guides added regularly"],
  "hero_image": "Midea ductless head above a window in a bright bedroom, installed by EHI", "hero_img": "/assets/img/work/midea-wall-head-bright-room.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 28%", "hero_img_credit": "EHI install",
  "blocks": [
-  {"type": "html", "html": '<section class="sec"><div class="wrap narrow blog-list"><h2>Upcoming and recent posts</h2>' + "".join(f'<article><h3><a href="{u}">{t}</a></h3><time datetime="2026-10">Coming soon</time><p>{d}</p></article>' for t, d, u in POSTS) + '<p class="note">Blog posts live at /blog/post-slug/. Each one should include author name, publish date, an image with alt text, links to the related service page, and a call to action.</p></div></section>'},
+  {"type": "blog_index", "h2": "Guides and recent posts", "planned": POSTS},
   {"type": "cta", "h2": "Rather just talk to someone?", "text": "Our comfort advisors answer the questions these posts cover, seven days a week."},
  ],
  "faqs": [],

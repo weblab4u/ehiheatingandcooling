@@ -14,6 +14,7 @@ PAGE = {
    "html": "<p>Lake Simcoe brings plenty of snow and wind to this shoreline. That matters for a heat pump, because the outdoor unit has to pull air through its coil all winter. Bury it in a drift or park it under a dripping roof edge and it struggles, ices up and spends too long in defrost.</p>"
            "<p>Placement is the part we plan most carefully. We look at where snow piles up on your lot, where the roof sheds ice and meltwater, and where the plow or snowblower throws it. Then we pick the spot, the stand height and the drain path.</p>"
            "<p>In Alcona's newer subdivisions, side yards are often narrow, so wall brackets can be a good fit. At cottages near Big Bay Point or Sandy Cove, a raised stand on solid footing often works better.</p>"
+           "<p>Further from the water, in Stroud and Cookstown, the drifts are smaller but the wind across open fields is stronger. There we favour the sheltered side of the house and keep the unit off the corner where wind wraps around and drives snow into the coil.</p>"
            "<ul class=\"checklist\"><li>Raised stands or wall brackets above typical drift height</li><li>Kept out from under roof edges and eavestroughs</li><li>Defrost water drained away from walkways and steps</li><li>Line sets sealed and covered where they enter the house</li></ul>"},
   {"type": "svc_links", "h2": "HVAC services in Innisfil for every kind of home",
    "lead": "Each page covers the equipment, the options and how pricing works.",
@@ -34,7 +35,10 @@ PAGE = {
     {"problem": "Ice builds up on the outdoor unit after every storm", "solution": "That usually points to placement: too low, under a roof edge, or where meltwater refreezes. We relocate or raise the unit, fix the drain path and check the defrost cycle."},
     {"problem": "A lakeside home feels damp and musty in summer", "solution": "Humid air off the lake settles into older cottages. A heat pump or ductless system pulls moisture out while it cools, and an HRV or ERV can add steady fresh air."},
     {"problem": "Your InnPower bill spikes every winter", "solution": "Electric baseboards and old electric furnaces are expensive to run. A cold-climate heat pump delivers much more heat per kilowatt-hour on most winter days, and that shows up on the bill."},
-    {"problem": "Comparing gas and electric heat for a new build is confusing", "solution": "We put the numbers side by side: Enbridge gas, InnPower electricity, and what a heat pump or hybrid system would cost to run in your house. Then you choose."}]},
+    {"problem": "Comparing gas and electric heat for a new build is confusing", "solution": "We put the numbers side by side: Enbridge gas, InnPower electricity, and what a heat pump or hybrid system would cost to run in your house. Then you choose."},
+    {"problem": "The cottage at Lefroy has a small electrical service and a wood stove doing most of the work", "solution": "A single-zone ductless unit draws modestly, but it still needs its own 240V circuit and room in the panel. We check the service size on the first visit, and if the panel is full or the service is too small, the upgrade is done through ESA-licensed electrical work and priced on the same quote. Wood-heated cottages can also land in the higher rebate tier."}]},
+  {"type": "cost_guide", "h2": "Repair and ductless pricing for Innisfil, lakeshore and Alcona", "keys": ["furnace_repair", "ac_repair", "ductless_single", "heat_pump_ducted"],
+   "lead": "The upgrade table further down covers whole systems. These are the repair and single-room figures people ask about first, and each is confirmed in writing before any work."},
   {"type": "mosaic", "count": 4, "h2": "Recent ductless and heat pump installs",
    "lead": "A few recent Ontario jobs from our crew, with raised outdoor units and tidy line sets, set up the way we'd do a Lake Simcoe cottage."},
   {"type": "table", "h2": "Air conditioning in Innisfil and other upgrade costs",
@@ -48,6 +52,8 @@ PAGE = {
     ["High-efficiency gas furnace", "Homes replacing an ageing furnace", "From $3,300"],
     ["Rinnai condensing tankless water heater", "Families on gas who keep running out of hot water", "From $3,300"]],
    "note": "Installed pricing depends on size and installation requirements, and we hold the price on your guaranteed quote. Cottages and homes heated with electricity, oil or propane may qualify for up to $7,500 toward a qualifying heat pump, and gas-heated homes for a smaller amount. Always confirm eligibility before installation, as the program terms can change. Ask about 0% financing for 3, 6 or 9 months, or open loans from 2.99% OAC."},
+  {"type": "equipment", "h2": "Ducted and ductless heat pumps we install in Innisfil", "groups": ["heat_pumps", "furnaces"],
+   "lead": "Ducted units for Alcona's newer homes, wall-mounted Midea heads for the cottages at Sandy Cove and Gilford, and a two-stage furnace where gas stays as the backup."},
   {"type": "neighbourhoods", "h2": "Innisfil hamlets and shoreline areas on our list",
    "lead": "From Alcona and Lefroy along the lake to Stroud, Cookstown and the shoreline at Big Bay Point, we serve:"},
   {"type": "why"},

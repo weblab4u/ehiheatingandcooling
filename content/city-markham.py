@@ -19,7 +19,10 @@ PAGE = {
     {"problem": "The furnace roars on, blasts hot air, then cuts out", "solution": "That's a single-stage furnace doing exactly what it was built to do. A two-stage, variable-speed model like the Lennox ML296V spends most of its time on low fire, so heat spreads evenly and the noise drops."},
     {"problem": "One thermostat can't please the whole family", "solution": "Zoning splits the house into areas with their own thermostats, using motorized dampers in the ducts. It works best with two-stage or variable-speed equipment, sized together so the system stays quiet when only one zone is calling."},
     {"problem": "Gas bills keep climbing and the house still isn't comfortable", "solution": "A hybrid system adds a cold-climate heat pump to your furnace. The heat pump covers most of the heating season and the furnace steps in during deep cold, so you burn less gas without giving up backup heat."},
-    {"problem": "Your heritage home in Unionville has nowhere to run ducts", "solution": "Older houses in Unionville and Markham Village often have plaster walls and tight framing. Ductless and multi-zone systems add heating and cooling with one small wall opening per indoor head."}]},
+    {"problem": "Your heritage home in Unionville has nowhere to run ducts", "solution": "Older houses in Unionville and Markham Village often have plaster walls and tight framing. Ductless and multi-zone systems add heating and cooling with one small wall opening per indoor head."},
+    {"problem": "The Cornell townhouse keeps its furnace in a closet and the AC on a tiny rear pad", "solution": "Tight townhome mechanical rooms limit what fits, and the outdoor unit often sits a metre from a neighbour's bedroom window. We measure clearances before choosing a model, pick a compact furnace with the right venting route, and use a quiet inverter outdoor unit on a bracket or slim pad so it stays within the space and the noise stays down."}]},
+  {"type": "cost_guide", "h2": "Markham pricing for zoning, hybrids and two-stage furnaces", "keys": ["furnace_install", "ac_install", "heat_pump_ducted", "ductless_single", "furnace_repair", "ac_repair"],
+   "lead": "Zoning dampers and controls are priced after we count the duct runs, so they show up as a written quote. The equipment itself starts at the figures below."},
   {"type": "snapshot", "h2": "Air conditioning in Markham: what your house is up against",
    "lead": "A few local facts shape every system we recommend in this city.",
    "items": [
@@ -45,6 +48,8 @@ PAGE = {
            "<ul class=\"checklist\"><li>Heat pump rated to heat down to -30°C</li><li>Furnace stays in place for the deepest cold</li><li>One smart thermostat manages the switchover</li><li>Enbridge gas-heated homes may qualify for a heat pump rebate</li></ul>"},
   {"type": "mosaic", "count": 3, "h2": "Three recent jobs from our crew",
    "lead": "Recent Ontario installs: heat pumps, furnaces and air handlers set up so they're easy to service for years."},
+  {"type": "equipment", "h2": "Two-stage and variable-speed equipment for Markham two-storeys", "groups": ["furnaces", "heat_pumps"],
+   "lead": "The models below spend most of their running time on low, which is exactly what a tall house with an open stairwell needs to stay even from the basement to the bedrooms."},
   {"type": "money"}],
  "faqs": [
   ("Why is the upstairs of my Markham house so hot?", "Heat rises, the roof warms the top floor, and most homes have one thermostat on the main level. Better return airflow, a variable-speed blower, zoning or a ductless head upstairs usually solves it."),
@@ -52,6 +57,7 @@ PAGE = {
   ("What is a hybrid heat pump system?", "A hybrid heat pump system is a cold-climate heat pump paired with a gas furnace, where the heat pump handles most heating and all cooling and the furnace takes over in deep cold. One thermostat controls the switch."),
   ("How much does heat pump installation in Markham cost?", "Cold-climate heat pumps start from $5,500 installed, and high-efficiency furnaces start from $3,300. Installed pricing depends on size and installation requirements, and every quote is guaranteed in writing."),
   ("Do Markham HVAC companies need permits to replace a furnace?", "Most furnace and heat pump installs need a permit, and all gas work must be done by TSSA-certified technicians. We look after the permits that apply to your job."),
-  ("Can you add heating and cooling to a heritage home in Unionville?", "Yes. In older Unionville and Markham Village homes we often use ductless or multi-zone systems, which need small wall openings instead of new duct runs.")],
+  ("Can you add heating and cooling to a heritage home in Unionville?", "Yes. In older Unionville and Markham Village homes we often use ductless or multi-zone systems, which need small wall openings instead of new duct runs."),
+  ("How many zones does a two-storey Markham home usually need?", "Two is the most common: one for the main floor and basement, one for the upstairs bedrooms. Larger homes sometimes add a third for a bonus room or a finished basement. The number comes from how the ducts are laid out and which areas drift apart, which we check before quoting.")],
  "related": ["/heat-pump/hybrid-furnace-systems/", "/furnace/high-efficiency/", "/ac/multi-zone-ductless-system/", "/services/thermostats/", "/heat-pump/central/", "/heat-pump-rebates/"],
 }

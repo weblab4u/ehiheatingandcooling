@@ -32,7 +32,11 @@ PAGE = {
     {"problem": "The far bedrooms are stuffy while the kitchen is cold", "solution": "Long duct runs lose pressure before they reach the end of the house. A multi-zone ductless system can serve several rooms from one outdoor unit, each with its own control."},
     {"problem": "The work area by the loading door in Concord never warms up", "solution": "Big doors dump heat every time they open. We look at the space, the doors and the equipment already there, then recommend capacity that recovers quickly after each opening."},
     {"problem": "Heating a big house costs more every winter", "solution": "An old single-stage furnace wastes a lot of gas in a large home. A two-stage, variable-speed furnace up to 120,000 BTU, or a hybrid heat pump setup, cuts that waste."},
-    {"problem": "Outdoor units and line sets clash with the look of a custom home", "solution": "We plan line set routes before install day, use paintable covers and set condensers out of sight lines where the lot allows, so the system suits the house."}]},
+    {"problem": "Outdoor units and line sets clash with the look of a custom home", "solution": "We plan line set routes before install day, use paintable covers and set condensers out of sight lines where the lot allows, so the system suits the house."},
+    {"problem": "The showroom's rooftop unit has no service history and the landlord shrugs", "solution": "A rooftop unit that has never been looked at is a breakdown waiting for the busiest Saturday of the year. We inspect it, record the model, filters, belts and refrigerant charge, and set up a maintenance schedule with the readings on file. If the unit is past saving, you get a written replacement price to take to the landlord or your lease negotiations."}]},
+  {"type": "cost_guide", "h2": "Vaughan pricing for multi-zone, high-capacity and commercial HVAC",
+   "lead": "A multi-zone system is priced by the number of heads, and a two-system home as two separate installs. The rows below are the starting points for each piece of the job.",
+   "keys": ["ductless_single", "heat_pump_ducted", "furnace_install", "ac_install", "ac_repair"]},
   {"type": "mosaic", "count": 6, "h2": "Six recent installs from our crew",
    "lead": "A few of our recent Ontario projects: multi-zone heads, outdoor units, air handlers and furnaces. Bigger systems, finished cleanly."},
   {"type": "steps", "h2": "How we deliver HVAC services in Vaughan",
@@ -42,6 +46,13 @@ PAGE = {
     {"title": "Calculate the real load", "text": "A room-by-room heat-loss and heat-gain calculation tells us whether one system, two systems or a multi-zone setup is right."},
     {"title": "Hand you a guaranteed quote", "text": "Model numbers, BTU sizes, rebate estimates and financing options in writing, with one price that holds for the agreed scope."},
     {"title": "Install, commission and hand over", "text": "We start up each zone, check refrigerant charge and airflow, set up the controls and register your warranty."}]},
+  {"type": "equipment", "h2": "High-capacity furnaces and multi-zone heat pumps for Vaughan",
+   "lead": "Furnaces up to 120,000 BTU for the biggest Kleinburg and Maple homes, 5-ton ducted heat pumps, and multi-zone outdoor units up to 60,000 BTU that feed several heads from one spot on the lot.",
+   "groups": ["furnaces", "heat_pumps"]},
+  {"type": "split", "photo": "sys", "h2": "One big system or two: how we decide for a Vaughan home",
+   "html": "<p>Past a certain size, a single furnace or heat pump stops being the right answer, and the decision comes down to the shape of the house rather than its square footage.</p>"
+           "<p>A long two-storey with the mechanical room at one end can rarely push enough air to the far bedrooms upstairs, no matter how big the blower is. Two systems, one per floor, solve that with shorter duct runs and separate thermostats. A home with a great room full of glass has a cooling load in one spot that the rest of the house doesn't share, and a dedicated ductless zone handles it without oversizing everything else. A wide bungalow with a central furnace room often does fine on one large two-stage unit and a properly balanced duct system.</p>"
+           "<p>The room-by-room load calculation tells us which case you're in. The quote then shows one system, two systems or a main system plus zones, each priced separately so you can see what the extra equipment buys you.</p>"},
   {"type": "quote_split", "photo": "out", "h2": "Ask a Vaughan HVAC contractor for a multi-zone or high-capacity quote",
    "form_h3": "Request your Vaughan HVAC quote",
    "html": "<p>Large homes and commercial spaces don't fit a one-size quote. Tell us the square footage, the number of floors and the rooms that give you trouble, and we'll come back with real options instead of a sales pitch.</p>"
@@ -54,6 +65,7 @@ PAGE = {
   ("Do you do commercial HVAC in Vaughan?", "Yes. We install and service rooftop units, split systems, ductless and heat pumps for shops, showrooms, offices and warehouses in Concord and across Vaughan, and we can work around your hours."),
   ("Can a heat pump cool a big house during a Vaughan heat wave?", "Yes, when it's sized from a proper heat-gain calculation. A cold-climate heat pump cools like central air in summer and heats down to -30°C in winter."),
   ("What if my furnace or AC quits in Vaughan after hours?", "Yes. We take emergency HVAC calls in Vaughan evenings, weekends and holidays. Call 1-647-694-5845 to reach us."),
-  ("Can one HVAC company in Vaughan look after my house and my shop?", "Yes. We handle residential and commercial work, so one company can look after your home and your Concord unit. Each one gets its own assessment and quote.")],
+  ("Can one HVAC company in Vaughan look after my house and my shop?", "Yes. We handle residential and commercial work, so one company can look after your home and your Concord unit. Each one gets its own assessment and quote."),
+  ("How much does HVAC installation cost for a large Vaughan home?", "Starting points in Vaughan are $3,300 installed for a high-efficiency furnace and $5,500 for a cold-climate heat pump, and a home that needs two systems is priced as two installs. Multi-zone ductless is quoted by the number of heads. Installed pricing depends on size and installation requirements, and the written quote is guaranteed for the agreed scope.")],
  "related": ["/ac/multi-zone-ductless-system/", "/heat-pump/central/", "/ac/", "/furnace/high-efficiency/", "/services/hvac-installation-replacement/", "/offers/"],
 }

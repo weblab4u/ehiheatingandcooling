@@ -32,7 +32,11 @@ PAGE = {
     {"problem": "The ducts are fine but the cooling feels weak", "solution": "Twenty-year-old ductwork in Courtice is usually still usable. A ducted cold-climate heat pump connects to it in place of the old AC, so you get fresh cooling and efficient heating without tearing into walls."},
     {"problem": "Winter gas bills keep creeping up", "solution": "A hybrid system lets a heat pump handle most of the season while the furnace covers the coldest days. Enbridge gas-heated homes commonly qualify for up to $2,000 toward a qualifying heat pump."},
     {"problem": "The price of a full replacement feels out of reach", "solution": "We lay out 0% financing for 3, 6 or 9 months and open loans from 2.99% OAC next to the cash price, with rebates already subtracted, so you can see the monthly number before you decide."},
-    {"problem": "Wind off the lake makes the family room drafty", "solution": "Leaky duct joints and a weak supply run let cold air win. We seal accessible ducts in the basement, check that the room gets enough supply air, and size the new system for the real heat loss."}]},
+    {"problem": "Wind off the lake makes the family room drafty", "solution": "Leaky duct joints and a weak supply run let cold air win. We seal accessible ducts in the basement, check that the room gets enough supply air, and size the new system for the real heat loss."},
+    {"problem": "You'd planned to replace everything in the fall, but the AC may not make it through July", "solution": "Then we stage it. The heat pump goes in first, on the same ducts, and replaces the AC right away. The furnace follows in the fall as a matched unit, or stays if it tests sound. One assessment, two visits, and the price for both is locked on the first quote so the second step doesn't creep."}]},
+  {"type": "cost_guide", "h2": "Courtice replacement prices you can plan a budget around",
+   "lead": "A planned replacement should come with a number months ahead of the install. These are the starting points, and the written quote holds until the work is done.",
+   "keys": ["furnace_install", "ac_install", "heat_pump_ducted", "furnace_repair", "ac_repair"]},
   {"type": "mosaic", "count": 6, "h2": "Six jobs from our installation crew",
    "lead": "Recent work from around Ontario: heat pumps on pads, matched furnaces and coils, and clean line sets."},
   {"type": "steps", "h2": "Planning a furnace installation in Courtice, step by step",
@@ -42,6 +46,13 @@ PAGE = {
     {"title": "Get options, not a sales pitch", "text": "Usually a straight furnace and AC swap, plus a heat pump option on the same ducts, each with a guaranteed price."},
     {"title": "Line up rebates and financing", "text": "We confirm eligibility, file rebate pre-approval and set up your payment plan before install day."},
     {"title": "Install and hand over", "text": "Our crew installs, tests and cleans up, then shows you the thermostat and registers your warranty."}]},
+  {"type": "equipment", "h2": "Replacement furnaces and heat pumps for Courtice homes from the 80s, 90s and 2000s",
+   "lead": "All of these connect to the forced-air ducts your house already has. The furnaces run two-stage and variable-speed, and the heat pumps are rated to -30°C.",
+   "groups": ["furnaces", "heat_pumps"]},
+  {"type": "split", "photo": "sys", "h2": "Spring or fall: when to book a planned replacement in Courtice",
+   "html": "<p>If the equipment still runs, you get to choose the season. Each one has a case.</p>"
+           "<p>Spring suits a heat pump or AC replacement. The old unit has survived the winter, the new one gets commissioned in cooling mode before the first heat wave, and install dates are easier to pick before the summer rush. Fall suits a furnace, for the same reason in reverse: the new furnace is tested in heating mode while the weather is still mild, and you head into January with fresh equipment and a registered warranty.</p>"
+           "<p>What matters more than the month is the lead time. Rebate pre-approval, financing approval and equipment ordering all take a little while, so the ideal call comes a season before you want the work done. For a commuter household in North Courtice or Courtice Shores, that also means we can hold an evening or Saturday slot instead of fitting you in around an emergency.</p>"},
   {"type": "quote_split", "photo": "out", "h2": "Ask our HVAC company in Courtice for a replacement plan",
    "form_h3": "Start your Courtice replacement quote",
    "html": "<p>If your system is 20 years old or more, the best time to price a replacement is before it breaks. Send us a few details about your home and what you have now.</p>"

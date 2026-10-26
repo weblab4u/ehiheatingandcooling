@@ -19,6 +19,7 @@ PAGE = {
     {"url": "/services/thermostats/", "title": "Smart thermostats for landlords and cottagers", "text": "Check the temperature and get alerts without driving over."},
     {"url": "/services/hvac-repair-maintenance/", "title": "Tune-ups between tenants", "text": "Yearly service with records you can keep on file."},
     {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Peterborough", "text": "Evenings, weekends and holidays, for houses, rentals and cottages."}]},
+  {"type": "cost_guide", "h2": 'Peterborough prices for rentals, cottages and family homes', "lead": 'Landlords and cottage owners ask about cost first. Here is where each job starts; the written quote covers the rest.', "keys": ['furnace_repair', 'ductless_single', 'heat_pump_ducted', 'furnace_install']},
   {"type": "checklist", "photo": "out",
    "h2": "A landlord's checklist from an HVAC contractor in Peterborough",
    "lead": "Student houses near Trent and Fleming work hard. Before you choose equipment or approve a repair, these are the points we go through with owners.",

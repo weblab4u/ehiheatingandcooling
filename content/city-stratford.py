@@ -20,6 +20,7 @@ PAGE = {
     {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Stratford", "text": "No-heat calls and noisy blowers, with a written price first."},
     {"url": "/services/hrv-erv/", "title": "Fresh air for older houses", "text": "HRV and ERV ventilation that brings in outdoor air without drafts."},
     {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Stratford", "text": "Evenings, weekends and holidays, when guests are booked and the heat quits."}]},
+  {"type": "cost_guide", "h2": 'Stratford pricing for Victorian homes and B&Bs', "lead": 'Quiet ductless and multi-zone systems suit guest rooms and plaster walls. Here is where that pricing starts.', "keys": ['ductless_single', 'heat_pump_ducted', 'furnace_install']},
   {"type": "checklist", "photo": "out",
    "h2": "How our Stratford HVAC contractor protects a heritage home",
    "lead": "Old houses here have details you can't buy anymore. These are the precautions we take before and during every install.",

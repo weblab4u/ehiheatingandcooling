@@ -21,6 +21,7 @@ PAGE = {
     {"url": "/ac/repair-maintenance/", "title": "AC repair in Barrie", "text": "Warm air and short cycling sorted out before cottage season."},
     {"url": "/services/humidifiers/", "title": "Humidifiers for dry winter air", "text": "Whole-home humidity control for long heating seasons."},
     {"url": "/brands/kepler-heat-pumps/", "title": "Kepler cold-climate heat pumps", "text": "Quiet units from 1.5 to 5 ton, rated down to -30°C."}]},
+  {"type": "cost_guide", "h2": 'Barrie heating and cooling prices, snow and all', "lead": 'Snowbelt installs need raised stands and careful placement, which is why every Barrie job gets a written quote after we see the lot.', "keys": ['furnace_repair', 'furnace_install', 'heat_pump_ducted', 'ductless_single']},
   {"type": "checklist", "h2": "Heat pump installation in Barrie: our snow-proof placement checklist", "photo": "out",
    "lead": "A heat pump buried in a drift can't breathe, and one sitting under the eaves gets hammered by ice. Where the outdoor unit goes matters as much as which unit you buy.",
    "items": [

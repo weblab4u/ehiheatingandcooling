@@ -20,6 +20,7 @@ PAGE = {
     {"problem": "Windows fog up and the air feels heavy", "solution": "More people means more showers, more cooking and more moisture. An HRV or ERV swaps stale, damp air for fresh air, and a properly sized AC removes humidity in summer instead of short cycling."},
     {"problem": "Someone always ends up with a cold shower", "solution": "A standard tank empties fast when several people shower back to back. A Rinnai RX199iN tankless heater makes hot water on demand at up to about 11.1 GPM, so the last shower runs as hot as the first."},
     {"problem": "The top floor won't cool on a July afternoon", "solution": "With a full family home all day, the cooling load is higher than many builders planned for. We redo the heat-gain calculation and size the system, or add a second one, to match how the house is actually used."}]},
+  {"type": "cost_guide", "h2": 'Pricing for big Woodbridge homes with long duct runs', "lead": 'Large houses need larger equipment and sometimes two systems, so the starting prices below are a floor, not a quote.', "keys": ['furnace_install', 'heat_pump_ducted', 'ductless_single', 'tankless_install']},
   {"type": "snapshot", "h2": "What Woodbridge homes ask of an HVAC system",
    "lead": "Woodbridge is part of Vaughan, and our <a href=\"/vaughan/\">HVAC in Vaughan</a> page covers the wider city. These facts are specific to Woodbridge houses.",
    "items": [

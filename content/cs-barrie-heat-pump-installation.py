@@ -1,0 +1,68 @@
+# /barrie/heat-pump-installation/
+PAGE = {
+ "url": "/barrie/heat-pump-installation/", "city_service": "barrie", "priority": "0.7",
+ "title": "Heat Pump Installation Barrie | Snowbelt Sizing, -30°C",
+ "description": "Heat pump installation in Barrie sized for Snowbelt cold, mounted above the drifts and rated to -30°C. Rebates up to $7,500. Get a guaranteed written quote.",
+ "eyebrow": "Heat Pump Installation · Barrie",
+ "h1": "Heat Pump Installation in Barrie Built for Snowbelt Winters",
+ "tagline": "Sized for Barrie's cold, not a Toronto chart",
+ "intro": "<p>Heat pump installation in Barrie starts with one honest question: will it still heat the house at 2 a.m. in February when the wind is coming off Kempenfelt Bay? Ours do. We install cold-climate heat pumps rated to -30°C, run the heat-loss math at Barrie's colder design temperature, and set the outdoor unit where lake-effect snow can't bury it. Serving Barrie and Simcoe County from our Ontario base, with a written price that doesn't change.</p>",
+ "hero_points": ["Heat-loss sizing at Barrie's design temperature", "Outdoor unit on a stand above the drift line",
+                 "ESA-licensed 240V circuit, Alectra-ready", "Rebate pre-approval filed before install day"],
+ "hero_image": "Cold-climate heat pump on a raised steel stand beside a snow-covered Barrie home, line set wrapped and sealed",
+ "service": {"name": "Heat Pump Installation in Barrie", "type": "Cold-climate heat pump installation", "area": "Barrie"},
+ "blocks": [
+  {"type": "problems", "h2": "Heat pump installation problems Barrie homes run into",
+   "lead": "Most of these come from installers who treat Barrie like it sits inside the GTA. It doesn't, and the equipment knows it.",
+   "items": [
+    {"problem": "The quote was sized from a GTA chart", "solution": "Barrie's design temperature sits several degrees below Toronto's, and a heat pump loses capacity as the air gets colder. We size from a Manual J heat loss run at Barrie's number, then check the unit's output at that temperature on the manufacturer's capacity table. The nameplate tonnage is not the whole story."},
+    {"problem": "Your hydro panel is already full", "solution": "A cold-climate heat pump needs its own 240V circuit, and older Allandale and east-end panels often have no free slots. Our ESA-licensed electricians add the circuit or quote a panel upgrade up front, and the ESA inspection is part of the job, not an extra."},
+    {"problem": "Ducts were built for a furnace, not a heat pump", "solution": "Heat pumps move more air at a lower supply temperature. Tight returns and undersized trunks in 1980s and 1990s subdivisions choke the airflow. We measure static pressure before we quote and fix the ducts that need it, so the system doesn't short cycle."},
+    {"problem": "You heat with Enbridge gas and doubt a heat pump pays", "solution": "It often does when it runs as a <a href=\"/heat-pump/hybrid-furnace-systems/\">hybrid with your furnace</a>. The heat pump covers the mild and medium cold, the furnace takes the deep freeze, and we set the switchover point to your gas and Alectra rates instead of a default."},
+    {"problem": "Everyone says heat pumps ice up in the Snowbelt", "solution": "They do when the outdoor unit sits on a ground pad under the eaves. We mount it on a raised stand, keep it out of the roof-slide zone, and give the defrost meltwater a drain path so it can't refreeze in the base pan."},
+    {"problem": "The rebate rules are a maze", "solution": "The Home Renovation Savings Program pays up to $7,500 for a qualifying cold-climate heat pump, with a smaller tier, commonly up to $2,000, for Enbridge gas-heated homes. The model has to be on NRCan's qualified list and pre-approval has to be in place first. We handle the paperwork."},
+    {"problem": "The AC is dead and the furnace is on borrowed time", "solution": "One cold-climate heat pump replaces the air conditioner outright and takes most of the heating load off the furnace. One outdoor unit, one warranty, one quote."},
+   ]},
+  {"type": "cost_guide", "h2": "What heat pump installation costs in Barrie",
+   "lead": "Cold-climate heat pumps start at $5,500 installed. The final number depends on tonnage, the stand and line set run, electrical work and whether ducts need attention, and you get it in writing before we book.",
+   "keys": ["heat_pump_ducted", "ductless_single"]},
+  {"type": "steps", "h2": "How a Barrie heat pump installation goes",
+   "lead": "Four stages, and you know the price before the second one ends.",
+   "items": [
+    {"title": "Home visit and heat loss", "text": "We measure the house, check insulation and windows, look at the ducts and panel, and run the heat loss at Barrie's design temperature. We also walk the yard to pick a spot clear of drifts, plow banks and roof slides."},
+    {"title": "Written quote and pre-approval", "text": "You get a guaranteed price with the model, tonnage, stand height, electrical scope and rebate estimate. If you go ahead, we file the rebate pre-approval and book the install only after it is in place."},
+    {"title": "Install day", "text": "Licensed refrigeration technicians set the outdoor unit on its stand, run and insulate the line set, pull a deep vacuum and weigh in the charge. The electrician lands the 240V circuit the same day. Most Barrie homes are done in one day."},
+    {"title": "Commissioning and handover", "text": "We check airflow and static pressure, run a defrost cycle to confirm drainage, set the thermostat switchover, register the warranty and file the final rebate documents. You get a walkthrough, not a wave from the driveway."},
+   ]},
+  {"type": "equipment", "h2": "Cold-climate heat pumps we install in Barrie", "groups": ["heat_pumps"],
+   "lead": "Every unit here is rated to -30°C and sits on NRCan's qualified products list. We're an authorized Midea and Kepler dealer, so warranty registration goes through us."},
+  {"type": "checklist", "h2": "What's included with every Barrie heat pump install", "photo": "out",
+   "lead": "This is the scope on the quote. Nothing on this list shows up later as an extra.",
+   "items": [
+    "Manual J heat-loss calculation at Barrie's design temperature, with the capacity table check",
+    "Raised stand or wall bracket, set at a height chosen for your lot's drift pattern",
+    "Insulated, sleeved line set with the wall penetration sealed against wind-driven snow",
+    "Dedicated 240V circuit by an ESA-licensed electrician, with the ESA inspection booked",
+    "Deep vacuum and weighed-in refrigerant charge by a licensed refrigeration technician",
+    "Static pressure and airflow test, with any duct fixes already in the quote",
+    "Thermostat set-up with the hybrid switchover or backup strip settings explained",
+    "Warranty registration, rebate pre-approval and final paperwork filed for you",
+   ]},
+  {"type": "split", "h2": "Hybrid or all-electric: how we decide for a Barrie home", "photo": "sys",
+   "html": "<p>Two ways to back up a cold-climate heat pump on the handful of nights that go past -30°C. Which one fits depends on what fuel you have, what you pay for it and how long you plan to stay.</p>"
+           "<p>On Enbridge gas, a hybrid usually wins. The furnace stays, the heat pump takes over the ducts for most of the season, and the thermostat hands off at a balance point we set from your rates. A gas-heated home gets the smaller rebate tier, so the quote shows the net cost honestly.</p>"
+           "<p>No gas line, or you're on propane or baseboards in the outskirts? An <a href=\"/heat-pump/electric-air-handler-systems/\">electric air handler with heat strips</a> makes the home all-electric, and it lands in the higher rebate tier, up to $7,500. The strips only run during defrost and the deepest cold.</p>"
+           "<p>Either way, we give you both numbers. If you want the longer version of how cold-climate units hold capacity at -15°C, read our <a href=\"/heat-pump/cold-climate/\">cold-climate heat pump</a> page. For everything else we do in the city, see <a href=\"/barrie/\">HVAC in Barrie</a>.</p>"
+           "<ul class=\"checklist\"><li>Balance point set from your Enbridge and Alectra rates, not a factory default</li><li>Backup sized to carry the house alone if the heat pump is ever in defrost or service</li><li>Net cost after the rebate tier that applies to your fuel</li></ul>"},
+  {"type": "money"},
+ ],
+ "faqs": [
+  ("How much does heat pump installation cost in Barrie?", "Heat pump installation in Barrie starts at $5,500 installed for a cold-climate ducted system. Installed pricing depends on size and installation requirements such as the stand, line set run, electrical work and ductwork, and we give you a guaranteed written quote before anything is booked. A qualifying unit can bring back up to $7,500 through the Home Renovation Savings Program."),
+  ("How long does a heat pump installation take in Barrie?", "Most Barrie heat pump installations are finished in a single day once the rebate pre-approval is in place. The wait for an install date depends on the season and on how much electrical or duct work the quote includes, and we give you a realistic date when you sign rather than a guess on the phone."),
+  ("Can a heat pump heat a Barrie home without a furnace?", "Yes, a cold-climate heat pump sized at Barrie's design temperature can carry a well-insulated home on its own, with electric heat strips in the air handler for defrost and the coldest nights. Homes on Enbridge gas usually keep the furnace as a hybrid backup because gas is the cheapest way to cover a deep freeze."),
+  ("What heat pump rebate can Barrie homeowners get?", "Barrie homes heated by electricity, propane, oil or wood can receive up to $7,500 for a qualifying cold-climate heat pump through the Home Renovation Savings Program, and Enbridge gas-heated homes get a smaller amount, commonly up to $2,000. The unit must be on NRCan's qualified list and pre-approval must be in place before installation. Confirm eligibility first, because program terms can change."),
+  ("Do heat pump installers in Barrie handle the electrical work too?", "We do. The 240V circuit, any panel work and the ESA inspection are done by our ESA-licensed electricians as part of the same job, so you are not coordinating two contractors or waiting on a second visit."),
+  ("Is ducted or ductless better for a Barrie house?", "Ducted is the better fit when the home already has a furnace and decent ductwork, which covers most of Painswick, Holly and the newer south end. Ductless makes sense for older Allandale homes without ducts, additions and finished basements, and a multi-zone system can cover a whole house. We quote whichever fits, and sometimes both."),
+ ],
+ "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/heat-pump-rebates/", "/financing/", "/barrie/"],
+}

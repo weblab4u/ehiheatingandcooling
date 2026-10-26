@@ -32,7 +32,11 @@ PAGE = {
     {"problem": "The finished basement feels damp and chilly", "solution": "Basement rooms sit against cold, damp ground, and one or two old registers can't keep up. A ductless heat pump heats, cools and dehumidifies the space on its own controls."},
     {"problem": "The renovation added rooms but kept the old furnace", "solution": "More square footage means more heat loss. We redo the load calculation and size a two-stage, high-efficiency furnace or a cold-climate heat pump for the new layout."},
     {"problem": "The original AC can't cool the bigger house", "solution": "Adding space without adding cooling capacity leaves the far rooms warm. We match a new condenser or heat pump to the new load and to the furnace blower, so the two work as one system."},
-    {"problem": "The panel has no room left for a heat pump", "solution": "Older bungalows often have small panels. Our ESA-licensed electrical work covers panel upgrades and the 240V circuit a heat pump needs, ideally timed with the renovation's own electrical work."}]},
+    {"problem": "The panel has no room left for a heat pump", "solution": "Older bungalows often have small panels. Our ESA-licensed electrical work covers panel upgrades and the 240V circuit a heat pump needs, ideally timed with the renovation's own electrical work."},
+    {"problem": "The chimney is coming down with the renovation, and the furnace vents into it", "solution": "Good news: a 96% or 97% furnace doesn't need a chimney. It vents through PVC pipe out a side wall, and a condensing tankless water heater does the same. We plan both vent terminations on the drawings so they clear windows, the neighbour's property line and the new addition, and the chimney can come out with the rest of the demolition."}]},
+  {"type": "cost_guide", "h2": "Etobicoke renovation HVAC costs: furnaces, heat pumps and ductless",
+   "lead": "Equipment for the finished house, a ductless head for the basement and any duct rough-in are quoted as separate lines, so your builder's budget can carry each one. Starting points are below.",
+   "keys": ["furnace_install", "heat_pump_ducted", "ductless_single", "ac_install", "furnace_repair"]},
   {"type": "mosaic", "count": 6, "h2": "Six jobs from our recent install list",
    "lead": "Recent Ontario installs, from furnace rooms to outdoor units on wall brackets. They show the finish you can expect on an Etobicoke renovation."},
   {"type": "steps", "h2": "How HVAC fits into your Etobicoke renovation timeline",
@@ -42,6 +46,13 @@ PAGE = {
     {"title": "Mark the routes at framing", "text": "We walk the site with your contractor and mark duct chases, returns, the line set path and the outdoor unit location."},
     {"title": "Rough-in, then equipment", "text": "Ducts go in before insulation and drywall. Equipment follows once the space is ready, with permits and gas work handled by our TSSA-certified techs."},
     {"title": "Start-up and balancing", "text": "We commission the system, balance airflow to every room, set up the thermostat and register the warranty."}]},
+  {"type": "equipment", "h2": "Systems we install in Etobicoke additions and renovated bungalows",
+   "lead": "Sized for the finished house rather than the old one. Two-stage furnaces and cold-climate heat pumps for the main system, and ductless heads for basements and the rooms the ducts can't reach.",
+   "groups": ["heat_pumps", "furnaces"]},
+  {"type": "split", "photo": "sys", "h2": "Lakeshore renovations in Mimico and Long Branch: humidity and fresh air",
+   "html": "<p>A renovated house near the lake is tighter than the one it replaced. New windows, spray foam and sealed rim joists cut the drafts that used to carry damp air out, and that's where the summer stickiness and the winter window condensation come from.</p>"
+           "<p>Two things fix it. First, cooling sized from a heat-gain calculation rather than the old label, so the system runs long enough to dry the air instead of short-cycling. Second, an HRV or ERV that brings in fresh air and pushes stale air out while keeping most of the heat. In a tight house that's not a luxury, it's the ventilation the building code expects.</p>"
+           "<p>We draw the HRV ducting on the same plan as the heating runs, so the fresh-air supplies reach the bedrooms and the exhaust pulls from the bathrooms and kitchen. Done at framing, it's a modest line on the renovation budget. Done after the drywall, it's a headache.</p>"},
   {"type": "quote_split", "photo": "out", "h2": "Talk to an Etobicoke HVAC contractor before you renovate",
    "form_h3": "Send your Etobicoke project details",
    "html": "<p>A renovation is the cheapest time to get your heating and cooling right. The walls are open, the electrician is already on site, and duct runs can go exactly where they should. Wait until the drywall is up and every fix costs more.</p>"

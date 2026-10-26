@@ -20,6 +20,7 @@ PAGE = {
     {"problem": "Back bedrooms in your post-war bungalow never warm up", "solution": "Bungalows from the 1950s and 1960s often have small ducts and one central return. We measure static pressure, balance the runs and add return air where rooms are starved, then size new equipment to suit."},
     {"problem": "The basement smells damp and the house feels sticky", "solution": "Humid summers and damp, lake-effect winters both load the house with moisture. A correctly sized variable-speed AC or heat pump runs long, slow cycles that wring out humidity, and an HRV or ERV keeps fresh air moving."},
     {"problem": "A house full of students cranks the thermostat to 26°C", "solution": "A smart thermostat with a locked temperature range keeps the house comfortable without letting anyone turn it into a sauna. It also lets you check on the system from home."}]},
+  {"type": "cost_guide", "h2": 'St. Catharines and Thorold pricing for homes and rentals', "lead": 'Older homes and rental houses near Brock get the same starting prices and the same written quote.', "keys": ['furnace_repair', 'ac_repair', 'furnace_install', 'ductless_single']},
   {"type": "snapshot", "h2": "St. Catharines HVAC facts that shape your system",
    "lead": "St. Catharines is mild for Ontario, but the moisture and the age of the housing still make demands on any system.",
    "items": [

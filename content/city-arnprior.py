@@ -20,6 +20,7 @@ PAGE = {
     {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Arnprior", "text": "Ignition faults, short cycling and blower trouble, priced first."},
     {"url": "/offers/", "title": "Our price-beat offer", "text": "Show us a like-for-like quote from a reputable firm, and we may come in up to 10% lower."},
     {"url": "/financing/", "title": "Spread the cost", "text": "Interest-free terms of 3, 6 or 9 months, or open loans from 2.99% OAC."}]},
+  {"type": "cost_guide", "h2": 'Arnprior pricing, itemized before you sign', "lead": 'Commuters want a number they can trust. Here is where the usual jobs start, and the written quote is the number you pay.', "keys": ['furnace_repair', 'ac_repair', 'furnace_install', 'heat_pump_ducted']},
   {"type": "checklist", "photo": "out",
    "h2": "What goes into every Arnprior HVAC quote",
    "lead": "A fair price starts with a quote that spells everything out. Here's what ours include, line by line.",
