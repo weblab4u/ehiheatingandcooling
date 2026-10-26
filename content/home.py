@@ -22,7 +22,7 @@ PAGE = {
  "hero_photo": "/assets/img/ehi-team.webp",
  "hero_photo_desktop": "/assets/img/ehi-team-hero.webp",
  "hero_photo_alt": "The EHI Heating and Cooling team standing in front of two EHI service vans outside an Ontario home",
- "kicker": "Ontario HVAC Contractor with 20+ Years of Experience",
+ "kicker": "EHI Heating And Cooling - Serving Ontario For 20+ Years",
  "h1": "Heating and Cooling Done Right, Priced Once, Backed for Years",
  "h1_line1": "Heating &amp; Cooling Done Right",
  "h1_line2": "Priced Once. Backed for Years.",
@@ -74,7 +74,7 @@ PAGE = {
   {"type": "areas"},
  ],
  "faqs": [
-  ("What does EHI Heating & Cooling do?", "EHI Heating &amp; Cooling (Efficient Home Improvements) is a licensed residential and commercial HVAC contractor in Ontario. We install, replace, repair and maintain heat pumps, gas furnaces, central air conditioners, ductless mini-splits, tankless water heaters, humidifiers, HRV/ERV ventilation and thermostats, and we help homeowners claim Ontario heat pump rebates. We also serve offices, retail units, warehouses and multi-unit buildings."),
+  ("What does EHI Heating And Cooling do?", "EHI Heating And Cooling (Efficient Home Improvements) is a licensed residential and commercial HVAC contractor in Ontario. We install, replace, repair and maintain heat pumps, gas furnaces, central air conditioners, ductless mini-splits, tankless water heaters, humidifiers, HRV/ERV ventilation and thermostats, and we help homeowners claim Ontario heat pump rebates. We also serve offices, retail units, warehouses and multi-unit buildings."),
   ("Which areas of Ontario do you serve?", "We serve Toronto and the GTA including Stouffville, Markham, Richmond Hill, Vaughan, Aurora, Newmarket, Brampton, Mississauga, Milton and Oakville, plus Durham Region, Barrie and Wasaga Beach, Hamilton, Kitchener-Waterloo, London, Sarnia, Kingston, Ottawa, Pembroke, North Bay, Sudbury and Timmins. See our <a href=\"/service-areas/\">service areas</a> page."),
   ("How much does a new HVAC system cost in Ontario?", "With EHI, gas furnaces start at $3,300 installed, cold-climate heat pumps at $5,500 and Rinnai tankless water heaters at $3,300. Final pricing depends on equipment size and installation requirements, and your quote is guaranteed before work starts. Rebates of up to $7,500 and 0% financing can bring the net cost down."),
   ("Are your technicians licensed?", "Yes. Gas work is done by TSSA-certified gas technicians, refrigerant work by licensed refrigeration technicians, and electrical connections by ESA-licensed electricians. EHI has been installing HVAC in Ontario homes for more than 20 years and was voted Best Company in 2019, 2020 and 2021."),

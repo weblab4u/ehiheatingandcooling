@@ -9,6 +9,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "site")
 SITE = "https://efficienthomeimprovements.ca"
 BRAND = "EHI Heating & Cooling"
+SITE_NAME = "EHI Heating And Cooling"   # the name we want Google to show as the site name
 LEGAL = "Efficient Home Improvements"
 PHONE = "1-647-694-5845"
 PHONE_TEL = "+16476945845"
@@ -683,8 +684,8 @@ def photo_hero(page):
     return f'''<section class="hero home-hero">
   <div class="wrap hh-grid">
     <div class="hero-copy">
-      <p class="kicker">{page.get("kicker","")}</p>
-      <h1><span class="l1">{page["h1_line1"]}</span> <span class="l2">{page["h1_line2"]}</span></h1>
+      <h1 class="kicker">{page.get("kicker","")}</h1>
+      <p class="hh-title"><span class="l1">{page["h1_line1"]}</span> <span class="l2">{page["h1_line2"]}</span></p>
       <p class="sub">{page["intro"]}</p>
       <div class="btn-group"><a class="btn btn-call big" href="tel:{PHONE_TEL}">{icon("phone")}Call Today: {PHONE}</a><a class="btn btn-primary big" href="/contact/">Get a Free Quote{icon("arrow")}</a></div>
       <ul class="hero-points two">{pts}</ul>
@@ -717,7 +718,7 @@ def hero(page):
 
 def local_business_ld():
     return {
-        "@type": "HVACBusiness", "@id": SITE + "/#organization", "name": BRAND, "alternateName": LEGAL,
+        "@type": "HVACBusiness", "@id": SITE + "/#organization", "name": SITE_NAME, "alternateName": [LEGAL, "EHI"],
         "url": SITE + "/", "logo": SITE + "/assets/img/ehi-logo.webp", "image": SITE + "/assets/img/ehi-logo.webp",
         "telephone": PHONE_TEL, "email": EMAIL, "priceRange": "$$",
         "address": {"@type": "PostalAddress", "streetAddress": ADDRESS["street"], "addressLocality": ADDRESS["city"],
@@ -805,7 +806,7 @@ def render(page):
     graph.append({"@type": "WebPage", "@id": canonical + "#webpage", "url": canonical, "name": page["title"],
                   "description": page["description"], "isPartOf": {"@id": SITE + "/#website"}, "inLanguage": "en-CA",
                   "dateModified": TODAY, "about": {"@id": SITE + "/#organization"}})
-    graph.append({"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": BRAND, "publisher": {"@id": SITE + "/#organization"}})
+    graph.append({"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": SITE_NAME, "alternateName": ["EHI", LEGAL], "publisher": {"@id": SITE + "/#organization"}})
     if crumbs_ld: graph.append(crumbs_ld)
     crumbs_top = crumbs_html
     m = re.search(r'<section class="(?:hero [^"]*|banner-hero)"[^>]*>', body) if crumbs_html else None
@@ -835,7 +836,7 @@ def render(page):
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="{page.get("robots","index, follow, max-image-preview:large")}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="{esc(BRAND)}">
+<meta property="og:site_name" content="{esc(SITE_NAME)}">
 <meta property="og:title" content="{esc(page["title"])}">
 <meta property="og:description" content="{esc(page["description"])}">
 <meta property="og:url" content="{canonical}">
