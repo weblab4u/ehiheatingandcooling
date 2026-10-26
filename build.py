@@ -389,6 +389,9 @@ def render_block(b, page):
         return why_block()
     if t == "areas":
         return areas_block()
+    if t == "area_dir":
+        cols = "".join(f'<div class="area-col"><h3>{icon("pin")}{g}</h3><ul>' + "".join(f'<li>{city_name_link(c)}</li>' for c in cities) + '</ul></div>' for g, cities in AREA_GROUPS)
+        return f'<section class="sec"><div class="wrap">{h2(b)}{lead(b)}<div class="area-cols">{cols}</div></div></section>'
     if t == "brands":
         return brands_block()
     if t == "reviews":

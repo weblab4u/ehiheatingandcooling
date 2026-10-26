@@ -33,8 +33,6 @@ CONTACT = {
  "related": ["/services/emergency-hvac/", "/heat-pump-rebates/", "/financing/", "/service-areas/"],
 }
 
-GROUPS = AREA_GROUPS
-area_html = "".join(f'<div class="area-col"><h3>{icon("pin")}{g}</h3><ul>' + "".join(f'<li>{c}</li>' for c in cities) + '</ul></div>' for g, cities in GROUPS)
 
 SERVICE_AREAS = {
  "url": "/service-areas/",
@@ -47,7 +45,7 @@ SERVICE_AREAS = {
  "hero_points": ["Same guaranteed pricing in every city we serve", "Rebate eligibility confirmed for your address and utility", "Emergency service across the core GTA area", "Northern Ontario installs scheduled in efficient routes"],
  "hero_image": "Midea ductless head on a cedar wall at a cottage, installed by EHI", "hero_img": "/assets/img/work/midea-wall-head-cedar-cottage.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 30%", "hero_img_credit": "EHI install",
  "blocks": [
-  {"type": "html", "html": f'<section class="sec"><div class="wrap"><h2>Cities and regions we serve</h2><p class="lead">City-specific pages for each service are coming. Until then, every service page applies to every city below.</p><div class="area-cols">{area_html}</div></div></section>'},
+  {"type": "area_dir", "h2": "Cities and regions we serve", "lead": "Pick your city for local HVAC services, typical costs, rebates and the neighbourhoods we cover. Every service page applies to every city below."},
   {"type": "text", "h2": "A note on rebates by location", "html": "<p>The Home Renovation Savings Program applies province-wide, but the rebate tier depends on your heating fuel and utility. Enbridge gas customers sit in one tier; homes on electricity, propane, oil or wood (common in cottage country and Northern Ontario) sit in the higher tier, up to $7,500. Some local hydro utilities add their own incentives. We check all of it for your address. See the <a href=\"/heat-pump-rebates/\">Ontario heat pump rebate guide</a>.</p><p>Northern homeowners: cold-climate heat pumps rated to -30°C, like the <a href=\"/brands/midea-heat-pumps/\">Midea EVOX G3</a> and <a href=\"/brands/kepler-heat-pumps/\">Kepler</a>, are built for Sudbury, North Bay and Timmins winters. We'll still recommend a backup heat source and size it properly for your design temperature.</p>"},
   {"type": "cards", "h2": "Most requested services by region", "items": [
     {"icon": "heatpump", "title": "GTA and York Region", "text": "Hybrid furnace + heat pump systems and central AC replacements in gas-heated homes.", "link": "/heat-pump/hybrid-furnace-systems/"},
