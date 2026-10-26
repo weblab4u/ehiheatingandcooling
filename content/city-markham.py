@@ -1,0 +1,57 @@
+PAGE = {
+ "url": "/markham/", "city": "markham", "layout": "C", "priority": "0.7",
+ "title": "HVAC Markham | Zoned Heating & Cooling for Two-Storey Homes",
+ "description": "Markham HVAC for hot upstairs bedrooms and cold basements. Two-stage furnaces, hybrid heat pumps and zoning, with a guaranteed quote. Call 1-647-694-5845.",
+ "eyebrow": "Markham · York Region",
+ "h1": "Markham HVAC Services That Even Out Every Floor",
+ "tagline": "Upstairs too hot, basement too cold? That's fixable.",
+ "intro": "<p>Ask around Markham and you'll hear the same HVAC complaint over and over: the upstairs bakes while the basement stays chilly. We fix it with proper sizing, two-stage and variable-speed equipment, zoning and hybrid heat pump systems, all installed by licensed technicians. You get a written, guaranteed price before anything is booked.</p>",
+ "hero_points": ["Room-by-room airflow checks before we recommend anything", "Two-stage and variable-speed Lennox and Midea equipment",
+                 "Hybrid heat pump setups that keep your gas furnace as backup", "0% financing for 3, 6 or 9 months on approved credit"],
+ "hero_stats": [("-30°C", "Cold-climate heat pump rating"), ("Up to 97%", "AFUE on Lennox furnaces"), ("Alectra", "Local hydro utility")],
+ "service": {"name": "HVAC services in Markham", "type": "HVAC contractor", "area": "Markham"},
+ "blocks": [
+  {"type": "problems", "h2": "Why one floor is always the wrong temperature",
+   "lead": "Big two-storey houses share a handful of comfort problems. Here's what causes each one and how we sort it out.",
+   "items": [
+    {"problem": "Bedrooms upstairs feel like a sauna by 9 pm", "solution": "Heat rises, the attic cooks the ceilings, and a single-stage AC shuts off as soon as the hallway thermostat is happy. A variable-speed system runs longer at a lower speed, which pulls more heat and humidity out of the upper floor."},
+    {"problem": "The basement feels like a cellar even with the furnace running", "solution": "Subdivision homes often have too few supply registers in the lower level. We check static pressure, adjust the dampers, and where it makes sense add a supply run or a ductless head so the basement stops lagging behind."},
+    {"problem": "The furnace roars on, blasts hot air, then cuts out", "solution": "That's a single-stage furnace doing exactly what it was built to do. A two-stage, variable-speed model like the Lennox ML296V spends most of its time on low fire, so heat spreads evenly and the noise drops."},
+    {"problem": "One thermostat can't please the whole family", "solution": "Zoning splits the house into areas with their own thermostats, using motorized dampers in the ducts. It works best with two-stage or variable-speed equipment, sized together so the system stays quiet when only one zone is calling."},
+    {"problem": "Gas bills keep climbing and the house still isn't comfortable", "solution": "A hybrid system adds a cold-climate heat pump to your furnace. The heat pump covers most of the heating season and the furnace steps in during deep cold, so you burn less gas without giving up backup heat."},
+    {"problem": "Your heritage home in Unionville has nowhere to run ducts", "solution": "Older houses in Unionville and Markham Village often have plaster walls and tight framing. Ductless and multi-zone systems add heating and cooling with one small wall opening per indoor head."}]},
+  {"type": "snapshot", "h2": "Air conditioning in Markham: what your house is up against",
+   "lead": "A few local facts shape every system we recommend in this city.",
+   "items": [
+    {"icon": "house", "label": "Typical homes", "value": "Two-storey detached and townhomes", "text": "Much of Markham was built between the 1980s and 2010s, with open stairwells that let warm air pool upstairs. Cornell and Berczy add plenty of townhomes to the mix."},
+    {"icon": "bolt", "label": "Hydro and gas", "value": "Alectra and Enbridge Gas", "text": "We weigh your Alectra electricity rates against your Enbridge gas use to decide how much of the heating a heat pump should carry in a hybrid setup."},
+    {"icon": "snow", "label": "Climate", "value": "Muggy summers, sharp cold snaps", "text": "Humid July nights and February deep freezes both test a system. The equipment has to pull moisture in summer and hold steady when the cold settles in."},
+    {"icon": "rebate", "label": "Rebates", "value": "Gas-heated homes qualify too", "text": "Enbridge gas-heated homes usually qualify for a smaller heat pump rebate, commonly up to $2,000. Pre-approval comes first, and we file the paperwork."}]},
+  {"type": "split", "photo": "in", "reverse": True, "h2": "What a good HVAC company in Markham checks in a two-storey house",
+   "html": "<p>A two-storey house is really two climates stacked on top of each other. In summer the upper floor soaks up heat from the roof and the sun on the windows. In winter the basement sits against cold ground. One thermostat in the front hall can't read both.</p>"
+           "<p>So before we quote, we look at the whole house. We measure static pressure on the ducts, count supply and return registers on each floor, and run a Manual J heat-loss and heat-gain calculation. Then we pick equipment that fits the house, not whatever happens to be on the truck.</p>"
+           "<ul class=\"checklist\"><li>Supply and return balance on every floor</li><li>Duct leaks at the trunk line and basement joints</li><li>Furnace and AC size compared with the actual load</li><li>Whether zoning, a variable-speed blower or one ductless head solves it for less</li><li>Panel space for a 240V heat pump circuit</li></ul>"},
+  {"type": "steps", "h2": "How a Markham HVAC technician plans your new system",
+   "lead": "Clear steps, a written price and zero pressure to sign.",
+   "items": [
+    {"title": "Tell us which rooms bother you", "text": "Call or use the form. The more you tell us about the hot and cold rooms, the more useful our first visit is."},
+    {"title": "We measure the house floor by floor", "text": "Room temperatures, duct sizes, your electrical panel and the gas line all get checked before we suggest anything."},
+    {"title": "Compare two or three options", "text": "You see the choices side by side, such as a two-stage furnace with a new AC or a hybrid heat pump setup, with prices and rebate estimates."},
+    {"title": "Install, balance and walk you through it", "text": "After the install we balance airflow between floors, program the thermostat, register your warranty and file any rebate paperwork."}]},
+  {"type": "quote_split", "photo": "sys", "h2": "Heat pump installation in Markham, paired with the furnace you rely on",
+   "form_h3": "Get your Markham hybrid system quote",
+   "html": "<p>You don't have to give up gas to cut your gas bill. A hybrid system adds a cold-climate heat pump, such as the Midea EVOX G3, to a high-efficiency furnace. The heat pump heats and cools for most of the year. Once the temperature drops far enough, the furnace takes over on its own.</p>"
+           "<p>It suits Markham families who want lower bills and a dependable backup for the coldest weeks in Ontario. Send a few details and we'll come back with a guaranteed price.</p>"
+           "<ul class=\"checklist\"><li>Heat pump rated to heat down to -30°C</li><li>Furnace stays in place for the deepest cold</li><li>One smart thermostat manages the switchover</li><li>Enbridge gas-heated homes may qualify for a heat pump rebate</li></ul>"},
+  {"type": "mosaic", "count": 3, "h2": "Three recent jobs from our crew",
+   "lead": "Recent Ontario installs: heat pumps, furnaces and air handlers set up so they're easy to service for years."},
+  {"type": "money"}],
+ "faqs": [
+  ("Why is the upstairs of my Markham house so hot?", "Heat rises, the roof warms the top floor, and most homes have one thermostat on the main level. Better return airflow, a variable-speed blower, zoning or a ductless head upstairs usually solves it."),
+  ("Is zoning worth it in a two-storey home?", "Zoning is worth it when floors stay several degrees apart even after the ducts are balanced. It works best with two-stage or variable-speed equipment."),
+  ("What is a hybrid heat pump system?", "A hybrid heat pump system is a cold-climate heat pump paired with a gas furnace, where the heat pump handles most heating and all cooling and the furnace takes over in deep cold. One thermostat controls the switch."),
+  ("How much does heat pump installation in Markham cost?", "Cold-climate heat pumps start from $5,500 installed, and high-efficiency furnaces start from $3,300. Installed pricing depends on size and installation requirements, and every quote is guaranteed in writing."),
+  ("Do Markham HVAC companies need permits to replace a furnace?", "Most furnace and heat pump installs need a permit, and all gas work must be done by TSSA-certified technicians. We look after the permits that apply to your job."),
+  ("Can you add heating and cooling to a heritage home in Unionville?", "Yes. In older Unionville and Markham Village homes we often use ductless or multi-zone systems, which need small wall openings instead of new duct runs.")],
+ "related": ["/heat-pump/hybrid-furnace-systems/", "/furnace/high-efficiency/", "/ac/multi-zone-ductless-system/", "/services/thermostats/", "/heat-pump/central/", "/heat-pump-rebates/"],
+}

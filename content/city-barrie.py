@@ -1,0 +1,59 @@
+PAGE = {
+ "url": "/barrie/", "city": "barrie", "layout": "D", "priority": "0.7",
+ "title": "HVAC Barrie | Snowbelt Heat Pumps, Furnaces & AC",
+ "description": "Barrie HVAC built for Snowbelt winters: cold-climate heat pumps on raised stands, furnace repair and AC service. Get a guaranteed written quote today.",
+ "eyebrow": "Barrie · Simcoe County",
+ "h1": "HVAC Contractor in Barrie for Snowbelt Heating and Cooling",
+ "tagline": "Lake-effect snow is part of the plan, not a surprise",
+ "intro": "<p>Choosing HVAC in Barrie means planning for lake-effect snow off Georgian Bay and Lake Simcoe, and for nights that run colder than the GTA. We set cold-climate heat pumps on raised stands above the drifts, size them for a real Barrie winter, and repair furnaces and air conditioners across the city. Before any work begins, you get a price in writing that we stand behind.</p>",
+ "hero_points": ["Outdoor units mounted above the snow line", "Heat pumps rated to -30°C",
+                 "Defrost drainage planned so ice can't build up", "Emergency no-heat calls evenings and weekends"],
+ "service": {"name": "HVAC services in Barrie", "type": "HVAC contractor", "area": "Barrie"},
+ "blocks": [
+  {"type": "svc_links", "h2": "Barrie HVAC services built for winter",
+   "lead": "Every service here is planned around snow, wind and deep cold. Choose the one you need.",
+   "items": [
+    {"url": "/heat-pump/cold-climate/", "title": "Heat pumps for Barrie winters", "text": "Midea EVOX G3 and Kepler units rated to -30°C, sized from a heat-loss calculation."},
+    {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Barrie", "text": "No heat, frozen intake pipes, ignition faults and blower trouble."},
+    {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Barrie", "text": "Evening, weekend and holiday calls when the heat quits in a storm."},
+    {"url": "/heat-pump/hybrid-furnace-systems/", "title": "Hybrid heat pump with furnace backup", "text": "Heat pump for most of the year, gas furnace for the bitter nights."},
+    {"url": "/heat-pump/repair-maintenance/", "title": "Heat pump repair and defrost problems", "text": "Iced coils, blocked drains and units that won't come out of defrost."},
+    {"url": "/ac/repair-maintenance/", "title": "AC repair in Barrie", "text": "Warm air and short cycling sorted out before cottage season."},
+    {"url": "/services/humidifiers/", "title": "Humidifiers for dry winter air", "text": "Whole-home humidity control for long heating seasons."},
+    {"url": "/brands/kepler-heat-pumps/", "title": "Kepler cold-climate heat pumps", "text": "Quiet units from 1.5 to 5 ton, rated down to -30°C."}]},
+  {"type": "checklist", "h2": "Heat pump installation in Barrie: our snow-proof placement checklist", "photo": "out",
+   "lead": "A heat pump buried in a drift can't breathe, and one sitting under the eaves gets hammered by ice. Where the outdoor unit goes matters as much as which unit you buy.",
+   "items": [
+    "A raised stand or wall bracket that keeps the coil above the usual drift height",
+    "Clear of roof drip lines, so falling ice and snow miss the unit",
+    "Out of the path of plow banks and the snowblower chute",
+    "Defrost meltwater drains away from walkways, steps and the foundation",
+    "Air discharge aimed away from the prevailing wind where the lot allows",
+    "Line set and wiring sealed where they pass through the wall",
+    "Easy for you to reach with a brush after a big storm",
+    "Drain path checked so meltwater can't refreeze in the base pan"]},
+  {"type": "split", "h2": "Sizing a Barrie heat pump for Snowbelt cold", "photo": "in", "reverse": False,
+   "html": "<p>A cold-climate heat pump is an air-source heat pump built to keep producing useful heat far below freezing. The ones we install are rated down to -30°C, and they hold strong capacity at -15°C. That is what makes them a real option in Barrie, not just a shoulder-season helper.</p>"
+           "<p>Rated isn't the same as sized, though. We run a Manual J heat-loss calculation using a colder design temperature than we would use in Toronto, then check the unit's output at that temperature, not just its nameplate number.</p>"
+           "<p>We also explain the defrost cycle up front. A defrost cycle is a short reverse run that melts frost off the outdoor coil. You may see steam rising from the unit and hear a whoosh. It is normal, and good drainage keeps that meltwater from turning into an ice dam.</p>"
+           "<ul class=\"checklist\"><li>Backup heat planned: furnace in a hybrid setup, or electric heat strips in an air handler</li><li>Thermostat switchover set to your comfort and your rates</li><li>Capacity checked at your design temperature, not the brochure's</li></ul>"},
+  {"type": "mosaic", "count": 5, "h2": "Outdoor units, stands and line sets from recent jobs",
+   "lead": "A sample of recent Ontario installs by our crews. Look at the stands, brackets and line sets: that is the level of finish a Barrie home gets."},
+  {"type": "quote_split", "h2": "Emergency HVAC in Barrie or a planned upgrade, priced up front", "photo": "any",
+   "form_h3": "Get a Barrie heat pump or furnace quote",
+   "html": "<p>If the furnace quits during a storm, call us. We take emergency calls evenings, weekends and holidays, and we'll tell you honestly how soon a technician can get there given the roads.</p>"
+           "<p>Planning ahead instead? Smart move. Upgrading before the first big snowfall is far easier than in the middle of it. Your quote includes:</p>"
+           "<ul class=\"checklist\"><li>Equipment model, size and cold-weather output</li><li>Stand or bracket height and placement plan</li><li>Electrical work, including a 240V circuit if needed</li><li>Rebate estimate, with pre-approval filed before installation</li><li>Financing options, from 0% for 3, 6 or 9 months</li></ul>"},
+  {"type": "gbp", "h2": "Our Google Business Profile and hours",
+   "lead": "Check our hours and read our Google reviews before you book. Our office is in Stouffville, and our crews travel to Barrie for installs, repairs and service."},
+  {"type": "neighbourhoods", "h2": "Barrie areas we work in",
+   "lead": "From Allandale and the east end to the newer south-end streets, we plan installs all over the city, including:"}],
+ "faqs": [
+  ("Will a heat pump keep a Barrie home warm in a cold snap?", "Yes, when it is a cold-climate model sized for Barrie's colder design temperature. Units rated to -30°C keep producing heat in a deep freeze, and we plan backup heat for the very coldest nights."),
+  ("How high should a heat pump stand be in Barrie?", "High enough to keep the coil above the snow that usually piles up in that spot. We set the height for your location after looking at drifting, roof lines and plow banks."),
+  ("Why is my heat pump steaming in winter?", "It is almost always the defrost cycle melting frost off the outdoor coil. Steam for a few minutes is normal, but ice that keeps building up means a drainage or defrost problem worth a service call."),
+  ("Do I still need a furnace with a heat pump in Barrie?", "Not always. Many homes keep a gas furnace as backup in a hybrid system, while others use an electric air handler with backup heat strips."),
+  ("Can I get emergency HVAC in Barrie during a snowstorm?", "Yes. We take emergency calls evenings, weekends and holidays, and we'll give you an honest arrival estimate based on the weather and road conditions."),
+  ("Is there a heat pump rebate for Barrie homes on Enbridge gas?", "Yes, though it is smaller than the electric-heat tier, commonly up to $2,000. Homes heated by electricity, oil or propane can get up to $7,500, and pre-approval must be in place before installation.")],
+ "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/repair-maintenance/", "/services/emergency-hvac/", "/furnace/repair-maintenance/", "/brands/kepler-heat-pumps/"],
+}

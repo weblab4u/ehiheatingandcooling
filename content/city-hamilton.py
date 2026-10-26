@@ -1,0 +1,72 @@
+PAGE = {
+ "url": "/hamilton/", "city": "hamilton", "layout": "F", "priority": "0.8",
+ "title": "HVAC Hamilton | Ductless, Heat Pump & Furnace Contractor",
+ "description": "HVAC Hamilton homeowners use for older brick houses: ductless heat pumps, AC and furnaces with no torn-up plaster. Guaranteed quote. Call 1-647-694-5845.",
+ "eyebrow": "Hamilton · Lower City to the Mountain",
+ "h1": "Hamilton HVAC Services for Century Brick Homes and Newer Builds",
+ "tagline": "Cooling and heat pumps for houses that were never built for ducts",
+ "intro": "<p>Looking for HVAC in Hamilton that works in a house with plaster walls, hot-water radiators and no ductwork? We install ductless heat pumps, compact duct systems and high-efficiency furnaces from the lower city up to the Mountain. You get a written, guaranteed price before anyone drills a single hole.</p>",
+ "hero_points": ["Ductless and small-duct options for homes with no ducts", "Keep your boiler and add AC plus heat pump heating",
+                 "TSSA-certified gas techs and licensed refrigeration techs", "Rebate pre-approval paperwork handled for you"],
+ "hero_stats": [("Alectra Utilities", "Hydro utility"), ("Enbridge Gas", "Natural gas supplier"),
+                ("-30°C", "Cold-climate heat pump rating"), ("Up to $7,500", "Heat pump rebate, if eligible")],
+ "service": {"name": "HVAC services in Hamilton", "type": "HVAC contractor", "area": "Hamilton"},
+ "blocks": [
+  {"type": "split", "photo": "in", "reverse": False,
+   "h2": "Heating and cooling in Hamilton homes that have no ductwork",
+   "html": "<p>A lot of Hamilton's older housing stock was heated by a boiler and cast iron radiators, or by an early furnace with a few small, tired ducts. That setup can keep you warm. It does nothing for a muggy July night in Kirkendall or Crown Point, and it leaves no easy path for central air.</p>"
+           "<p>You don't have to open walls to fix that. A ductless heat pump puts a slim indoor head on the wall and connects it to one outdoor unit through a hole about 8 cm wide. One outdoor unit can run several heads, so the bedrooms, the main floor and the attic room each get their own control.</p>"
+           "<p>Some homes suit a small concealed air handler instead. It sits in the attic or a closet and feeds a few rooms through short duct runs. We look at your floor plan, your electrical panel and your heat loss, then show you which route costs less and works better.</p>"
+           "<ul class=\"checklist\"><li>Keep the boiler for the coldest days, let the heat pump carry the rest</li>"
+           "<li>Line sets run on the outside of the brick and get covered with a painted line hide</li>"
+           "<li>Heat-loss sizing room by room, not a guess from square footage</li>"
+           "<li>240V circuit and panel work done by ESA-licensed electricians</li></ul>"},
+  {"type": "problems", "h2": "Problems a Hamilton HVAC contractor sees in older houses",
+   "lead": "These are the calls that come in from century homes, post-war houses on the Mountain and newer builds alike.",
+   "items": [
+    {"problem": "Window units are the only cooling in your radiator house", "solution": "They're loud, they block the view and they only cool one room. A multi-zone ductless system replaces them with quiet wall heads that cool and heat, and the windows go back to being windows."},
+    {"problem": "The boiler is fine, but the house has nothing for summer", "solution": "We leave the boiler in place and add a cold-climate heat pump. It cools in summer, heats through spring and fall, and the boiler only takes over when the temperature really drops."},
+    {"problem": "You're worried an install will crack your plaster", "solution": "Ductless work needs one small core hole per head. We drill from the inside out, seal the opening and route refrigerant lines down the exterior, so the plaster and trim stay as they are."},
+    {"problem": "The old ducts are too small for central air", "solution": "Ducts sized for a 1950s furnace often choke a modern AC coil. We measure static pressure first, then tell you plainly whether to reuse them, upsize a few runs or go ductless."},
+    {"problem": "Your house on the Mountain takes the wind head on", "solution": "Open, higher ground loses heat faster. We size from a Manual J heat-loss calculation, pick equipment rated to -30°C, and set the outdoor unit on a stand out of the prevailing wind and above the drifts."},
+    {"problem": "Oil heat costs keep climbing every winter", "solution": "Switching an oil-heated home to a cold-climate heat pump can qualify for the higher rebate tier, up to $7,500 based on size. We handle the pre-approval before installation."},
+    {"problem": "A builder furnace in a Binbrook or Waterdown home is acting up early", "solution": "Our TSSA-certified gas technicians check the flame sensor, inducer, pressure switch and condensate drain, then give you a written repair price or an honest replace quote."}]},
+  {"type": "svc_links", "h2": "What our HVAC company in Hamilton can do for you",
+   "lead": "Each service page covers the options, the equipment and how the job runs.",
+   "items": [
+    {"url": "/ac/ductless-mini-split/", "title": "Ductless heat pumps in Hamilton", "text": "Wall heads for radiator homes, attic rooms and additions with no ducts."},
+    {"url": "/ac/multi-zone-ductless-system/", "title": "Multi-zone ductless for whole houses", "text": "One outdoor unit, up to several rooms, each with its own control."},
+    {"url": "/heat-pump/hybrid-furnace-systems/", "title": "Hybrid heat pump systems", "text": "A heat pump paired with a gas furnace or kept alongside your boiler."},
+    {"url": "/heat-pump/cold-climate/", "title": "Heat pump installation in Hamilton", "text": "Midea EVOX G3 and Kepler units rated to heat down to -30°C."},
+    {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Hamilton", "text": "No heat, short cycling or odd noises, diagnosed with a written price first."},
+    {"url": "/ac/repair-maintenance/", "title": "AC repair in Hamilton", "text": "Warm air, frozen coils, leaks and outdoor units that won't start."},
+    {"url": "/furnace/high-efficiency/", "title": "High-efficiency furnace replacement", "text": "Lennox and Midea furnaces from 96% to 97% AFUE."},
+    {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Hamilton", "text": "Evening, weekend and holiday calls when heat or cooling stops."}]},
+  {"type": "table", "h2": "Hamilton HVAC price guide by system",
+   "lead": "Starting prices for the systems we install most in older and newer Hamilton homes. Your guaranteed quote replaces these numbers once we've seen the house.",
+   "headers": ["System", "Best fit", "Installed price"],
+   "rows": [
+    ["Single-zone ductless heat pump", "One problem room, an attic bedroom or an addition", "Quote"],
+    ["Multi-zone ductless system", "Radiator homes that want cooling in most rooms", "Quote"],
+    ["Cold-climate ducted heat pump", "Homes with usable ductwork", "From $5,500"],
+    ["Heat pump plus gas furnace (hybrid)", "Mountain homes that want a gas backup", "Quote"],
+    ["High-efficiency gas furnace", "Replacing an old or failing furnace", "From $3,300"],
+    ["Central air conditioner", "Ducted homes that only need cooling", "Quote"],
+    ["Rinnai tankless water heater", "Freeing up basement space", "From $3,300"]],
+   "note": "Installed pricing depends on size and installation requirements. Heat pumps may qualify for the Home Renovation Savings Program, up to $7,500 for homes heated by electricity, oil, propane or wood, and a smaller amount for gas-heated homes. Program terms can change, so we confirm eligibility before installation. Financing is available at 0% for 3, 6 or 9 months, or open loans from 2.99% OAC."},
+  {"type": "mosaic", "count": 4, "h2": "Ductless heads, line sets and outdoor units we've installed",
+   "lead": "A handful of recent jobs from around Ontario. Your Hamilton home gets the same planning and the same tidy finish."},
+  {"type": "why"},
+  {"type": "neighbourhoods", "h2": "Hamilton neighbourhoods and communities we cover",
+   "lead": "From Westdale and Locke Street in the lower city to Ancaster, Stoney Creek and Binbrook, we book appointments right across Hamilton, including:"},
+  {"type": "cta", "h2": "No ducts? Let's price your options anyway.",
+   "text": "Send a few details about your house and we'll reply with next steps, usually the same day."}],
+ "faqs": [
+  ("Can you add air conditioning to a Hamilton house with radiators?", "Yes. A ductless or multi-zone heat pump cools a radiator home without any ductwork, and it also heats in spring and fall so the boiler runs less."),
+  ("Do I have to remove my boiler to get a heat pump?", "No. Many homeowners keep the boiler as backup for the coldest weeks and let the heat pump handle cooling and milder heating days."),
+  ("How much does a ductless heat pump cost in Hamilton?", "Ductless systems are quoted per home because the price depends on how many rooms you want covered and where the heads go. Ducted cold-climate heat pumps start from $5,500 installed, and every quote is guaranteed in writing."),
+  ("Will a heat pump keep up on Hamilton Mountain in January?", "Yes, when it's sized from a proper heat-loss calculation. Cold-climate models like the Midea EVOX G3 are rated to heat down to -30°C, and a hybrid setup adds a gas furnace as backup if you want one."),
+  ("Is there emergency HVAC in Hamilton on weekends?", "Yes. We take emergency calls evenings, weekends and holidays. Call 1-647-694-5845 and we'll tell you when a technician can get to you."),
+  ("What should I ask Hamilton HVAC companies before hiring one?", "Ask who does the install, whether the quote lists model numbers and permits, and who files the rebate pre-approval. Our TSSA-certified and licensed refrigeration techs do the work, and we handle the rebate paperwork.")],
+ "related": ["/ac/ductless-mini-split/", "/ac/multi-zone-ductless-system/", "/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump-rebates/", "/financing/"],
+}

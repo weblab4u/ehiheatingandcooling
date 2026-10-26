@@ -233,7 +233,7 @@ def footer(show_cta=True):
                   ["/heat-pump/", "/furnace/", "/ac/", "/ac/ductless-mini-split/", "/water-heater/", "/services/emergency-hvac/", "/services/hvac-repair-maintenance/", "/services/"])
     co = "".join(f'<li><a href="{u}">{esc(title_of(u))}</a></li>' for u in
                  ["/about-ehi/", "/reviews/", "/heat-pump-rebates/", "/financing/", "/offers/", "/warranty/", "/brands/", "/answers/", "/blog/", "/contact/"])
-    areas = ", ".join(f'<a href="/service-areas/">{a}</a>' if i == 0 else a for i, a in enumerate(AREAS))
+    areas = ", ".join(f'<a href="{city_href(a) or "/service-areas/"}">{a}</a>' if (i == 0 or city_href(a)) else a for i, a in enumerate(AREAS))
     cta = f'''<section class="final-cta" aria-labelledby="final-cta-h"><div class="wrap">
   <div><h2 id="final-cta-h">Ready for a guaranteed quote?</h2>
   <p>Home or business, tell us what's going on with your heating, cooling or hot water. We'll size it right, price it once, and show you every rebate you qualify for.</p></div>
@@ -285,6 +285,8 @@ def breadcrumbs(url):
         u = acc + "/"
         if u in REG:
             crumbs.append((u, title_of(u)))
+    if url in CITY_URLS:
+        crumbs.insert(1, ("/service-areas/", title_of("/service-areas/")))
     # heat-pump-rebates etc live under none; fine.
     if len(crumbs) < 2: return "", ""
     lis = "".join(
@@ -360,7 +362,7 @@ def render_block(b, page):
         img = img_frame(b["image"], "4/5", src=b.get("image_src"), fit="cover", credit=b.get("image_credit"), pos=b.get("image_pos", "50% 55%"))
         return f'<section class="sec type-lists-sec"><div class="wrap split"><div><h2>{b["h2"]}</h2><div class="type-cols">{cols}</div></div>{img}</div></section>'
     if t == "locations_cta":
-        pins = "".join(f'<li>{icon("pin")}{esc(c)}</li>' for g, cities in AREA_GROUPS for c in cities[:6])
+        pins = "".join(f'<li>{icon("pin")}{city_name_link(c)}</li>' for g, cities in AREA_GROUPS for c in cities[:6])
         return (f'<section class="sec loc-cta-sec"><div class="wrap loc-cta"><div><h2>{b["h2"]}</h2><p class="lead">{b["lead"]}</p><ul class="pin-list">{pins}</ul>'
                 f'<p><a class="more" href="/service-areas/">See every city we serve{icon("arrow")}</a></p></div>'
                 f'<aside class="quote-card"><h3>{b["cta_h"]}</h3><p>{b["cta_text"]}</p>{cta_buttons("Get a Fast Quote", small=True)}'
@@ -420,8 +422,19 @@ def why_block():
     lis += fill_cta(len(items), (4, 2), "li", "Ready when you are", "Call us or send the form. Quotes are free, guaranteed and come with your rebate estimate.")
     return f'<section class="sec why" id="why-ehi"><div class="wrap"><h2>Why Ontario homes and businesses choose EHI Heating &amp; Cooling</h2><ul class="why-grid">{lis}</ul></div></section>'
 
+CITY_ALIASES = {"Kitchener": "kitchener-waterloo", "Waterloo": "kitchener-waterloo"}
+def city_href(name):
+    """URL of the city landing page for a place name, or None if that page doesn't exist (yet)."""
+    slug = CITY_ALIASES.get(name, re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"))
+    u = f"/{slug}/"
+    return u if u in CITY_PAGES else None
+
+def city_name_link(name, cls=""):
+    u = city_href(name)
+    return f'<a href="{u}"{f" class={chr(34)}{cls}{chr(34)}" if cls else ""}>{esc(name)}</a>' if u else esc(name)
+
 def areas_block():
-    cols = "".join(f'<div class="area-col"><h3>{icon("pin")}{g}</h3><ul>' + "".join(f'<li>{c}</li>' for c in cities) + '</ul></div>' for g, cities in AREA_GROUPS)
+    cols = "".join(f'<div class="area-col"><h3>{icon("pin")}{g}</h3><ul>' + "".join(f'<li>{city_name_link(c)}</li>' for c in cities) + '</ul></div>' for g, cities in AREA_GROUPS)
     return (f'<section class="sec areas-sec"><div class="wrap"><div class="areas-head"><div><h2>HVAC service across Ontario</h2>'
             f'<p class="lead">We\'re a service-area business. Our crews come to your home or business, from the GTA to Northern Ontario. Don\'t see your town? Call, we probably cover it.</p></div>'
             f'{cta_buttons("Check My Area", small=True)}</div>'
@@ -650,7 +663,7 @@ def form_block(b=None, compact=False, preselect=None):
   <div class="f-row"><label>Name<input type="text" name="name" autocomplete="name" required></label>
   <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label></div>
   <div class="f-row"><label>Email<input type="email" name="email" autocomplete="email"></label>
-  <label>City<input type="text" name="city" autocomplete="address-level2" placeholder="e.g. Markham" required></label></div>
+  <label>City<input type="text" name="city" autocomplete="address-level2" placeholder="e.g. Markham"{f' value="{esc(b["city"])}"' if b.get("city") else ""} required></label></div>
   <label>What do you need?<select name="service">{opts}</select></label>
   <label>Tell us a bit more (optional)<textarea name="message" rows="3" placeholder="e.g. 15-year-old furnace, 2,000 sq ft, want to look at a heat pump and the rebate"></textarea></label>
   <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -760,6 +773,9 @@ def render(page):
         body = (f'<section class="banner-hero"><div class="wrap"><h1>{page["h1"]}</h1><p>{page["intro"]}</p>'
                 f'{cta_buttons(page.get("cta_primary","Get a Free Quote"))}</div></section>')
         blocks = list(page.get("blocks", []))
+    elif page.get("city"):
+        body = city_hero(page)
+        blocks = list(page.get("blocks", []))
     else:
         body = page.get("custom_hero") or (hero(page) if page.get("h1") else "")
         blocks = list(page.get("blocks", []))
@@ -774,10 +790,13 @@ def render(page):
     for i, b in enumerate(blocks):
         if gal and i == mid:
             body += gal; prev_dark = False
-        out, prev_dark = with_variant(render_block(b, page), b["type"], page, prev_dark)
+        html_b = (city_block(b, page) if page.get("city") else None) or render_block(b, page)
+        out, prev_dark = with_variant(html_b, b["type"], page, prev_dark)
         body += out
     if page["url"].startswith(SERVICE_PREFIXES) and page["url"] != "/services/" and not page.get("no_gbp"):
         body += gbp_block({"h2": "Serving Ontario from our Stouffville office", "lead": "Find us on Google, get directions, or check our hours. Our crews travel to your home or business across the province."})
+    if page.get("city"):
+        body += nearby_block(page)
     if page.get("faqs"):
         body += with_variant(faq_block(page["faqs"], page.get("faq_h2", "Frequently asked questions")), "faq", page)[0]
     body += related_block(page.get("related", []))
@@ -796,7 +815,7 @@ def render(page):
     if page.get("service"):
         s = page["service"]
         graph.append({"@type": "Service", "name": s["name"], "serviceType": s.get("type", s["name"]), "provider": {"@id": SITE + "/#organization"},
-                      "areaServed": {"@type": "State", "name": "Ontario"}, "url": canonical, "description": page["description"],
+                      "areaServed": ({"@type": "City", "name": s["area"], "containedInPlace": {"@type": "State", "name": "Ontario"}} if s.get("area") else {"@type": "State", "name": "Ontario"}), "url": canonical, "description": page["description"],
                       **({"offers": {"@type": "Offer", "priceCurrency": "CAD", "price": s["from_price"], "priceSpecification": {"@type": "PriceSpecification", "minPrice": s["from_price"], "priceCurrency": "CAD"}, "description": "Installed price starting from, varies by size and installation"}} if s.get("from_price") else {})})
     if page.get("faqs"):
         graph.append({"@type": "FAQPage", "mainEntity": [
@@ -843,6 +862,138 @@ def render(page):
 {footer(show_cta=not (page.get('layout') == 'article' or page.get('no_final_cta')))}
 </body>
 </html>'''
+
+
+# ---------------------------------------------------------------- city landing pages (/city-slug/)
+def _load_data(name, file):
+    spec = _ilu.spec_from_file_location(name, os.path.join(ROOT, "data", file)); m = _ilu.module_from_spec(spec); spec.loader.exec_module(m)
+    return m
+_cities_mod = _load_data("ehi_cities", "cities.py")
+CITIES, CITY_BY_SLUG = _cities_mod.CITIES, _cities_mod.CITY_BY_SLUG
+CITY_URLS = {f"/{c['slug']}/": c for c in CITIES}
+_cp = _load_data("ehi_city_photos", "city_photos.py")
+CITY_PHOTOS = dict(_cp.NEW)
+for _k, (_cat, _alt) in GALLERY_PHOTOS.items():
+    CITY_PHOTOS.setdefault(_k, (_cp.OLD_KIND.get(_cat, "sys"), _alt))
+CITY_NEW = set(_cp.NEW)
+CITY_PAGES = set()          # city urls that have a content file (filled in main)
+HERO_SLOTS = {"A": ["out", "in", "any"], "B": ["out"], "C": ["out", "in", "in"], "D": ["out", "in", "sys", "in"], "E": ["out"], "F": []}
+MOSAIC_KINDS = ["out", "in", "sys", "in", "out", "detail"]
+
+def allocate_city_photos(pages):
+    """Give every city page its own photo set: hero photos are never reused as another city's hero,
+    body photos go least-used first (new photos before older ones), and nothing repeats within a page."""
+    import zlib
+    have = [k for k in CITY_PHOTOS if os.path.exists(os.path.join(ROOT, "assets", "img", "work", k + ".webp"))]
+    usage = {k: 0 for k in have}
+    hero_used = set()
+    city_pages = [pg for pg in pages if pg.get("city")]
+    def pick(url, kind, taken, hero=False):
+        pool = [k for k in have if k not in taken and (kind == "any" or CITY_PHOTOS[k][0] == kind)]
+        if hero: pool = [k for k in pool if k not in hero_used] or pool
+        if not pool: pool = [k for k in have if k not in taken]
+        pool.sort(key=lambda k: (usage[k], k not in CITY_NEW, zlib.crc32((url + k).encode())))
+        k = pool[0]; usage[k] += 1; taken.add(k)
+        if hero: hero_used.add(k)
+        return k
+    taken_by = {pg["url"]: set() for pg in city_pages}
+    for pg in city_pages:                        # pass 1: heroes, so each city gets a hero nobody else has
+        pg["_hero_imgs"] = [pick(pg["url"], kind, taken_by[pg["url"]], hero=True) for kind in HERO_SLOTS[pg["layout"]]]
+    for pg in city_pages:                        # pass 2: section photos
+        for b in pg.get("blocks", []):
+            if b["type"] == "mosaic":
+                b["_imgs"] = [pick(pg["url"], k, taken_by[pg["url"]]) for k in MOSAIC_KINDS[:b.get("count", 5)]]
+            elif b.get("photo"):
+                b["_imgs"] = [pick(pg["url"], b["photo"], taken_by[pg["url"]])]
+    return usage
+
+def city_img(k, cls="", eager=False):
+    alt = esc(CITY_PHOTOS[k][1])
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    return f'<figure class="ci {cls}"><img src="/assets/img/work/{k}.webp" alt="{alt}" {load} decoding="async"></figure>'
+
+def city_hero(page):
+    c = CITY_BY_SLUG[page["city"]]; L = page["layout"]; imgs = page.get("_hero_imgs", [])
+    pts = "".join(f'<li>{icon("check")}<span>{p}</span></li>' for p in page.get("hero_points", []))
+    eyebrow = f'<p class="ch-pin">{icon("pin")}<span>{esc(page.get("eyebrow", c["name"] + " · " + c["region"]))}</span></p>'
+    tagline = f'<p class="tagline">{page["tagline"]}</p>' if page.get("tagline") else ""
+    copy = f'{eyebrow}<h1>{page["h1"]}</h1>{tagline}{page["intro"]}'
+    btns = cta_buttons(page.get("cta_primary", "Get a Free Quote"))
+    form = form_block({"h3": page.get("form_h3", f"Get your free {c['name']} HVAC quote"), "sub": "Same-day reply in most cases. No pressure, no spam.", "city": c["name"]}, compact=True)
+    trust = f'<p class="hero-trust">{icon("star")} Voted Best Company 2019 to 2021 · Authorized Midea, Lennox, Kepler &amp; Rinnai dealer · 20+ years</p>'
+    if L == "A":
+        strip = "".join(city_img(k, "ch-strip-img", eager=(i == 0)) for i, k in enumerate(imgs))
+        return (f'<section class="hero city-hero ch-a"><div class="wrap ch-grid"><div class="hero-copy">{copy}<ul class="hero-points">{pts}</ul>{trust}</div>'
+                f'<div class="hero-side">{form}</div></div><div class="wrap"><div class="ch-strip">{strip}</div></div></section>')
+    if L == "B":
+        bg = f'<img class="ch-bg" src="/assets/img/work/{imgs[0]}.webp" alt="{esc(CITY_PHOTOS[imgs[0]][1])}" fetchpriority="high">' if imgs else ""
+        return (f'<section class="hero city-hero ch-b">{bg}<div class="wrap ch-grid"><div class="hero-copy">{copy}<ul class="hero-points">{pts}</ul>{btns}</div>'
+                f'<div class="hero-side">{form}</div></div></section>')
+    if L == "C":
+        mos = "".join(city_img(k, f"m{i}", eager=(i == 0)) for i, k in enumerate(imgs))
+        stats = "".join(f'<li><strong>{v}</strong><span>{l}</span></li>' for v, l in page.get("hero_stats", []))
+        return (f'<section class="hero city-hero ch-c"><div class="wrap ch-grid"><div class="hero-copy">{copy}<ul class="hero-points">{pts}</ul>{btns}'
+                + (f'<ul class="ch-stats">{stats}</ul>' if stats else "") + f'</div><div class="ch-mosaic">{mos}</div></div></section>')
+    if L == "D":
+        tiles = "".join(city_img(k, "ch-tile", eager=(i < 2)) for i, k in enumerate(imgs))
+        chips = "".join(f'<li>{icon("check")}{p}</li>' for p in page.get("hero_points", []))
+        return (f'<section class="hero city-hero ch-d"><div class="wrap narrow ch-center">{copy}{btns}<ul class="ch-chips">{chips}</ul></div>'
+                f'<div class="wrap"><div class="ch-tiles">{tiles}</div></div></section>')
+    if L == "E":
+        card = city_img(imgs[0], "ch-card", eager=True) if imgs else ""
+        label = f'<span class="ch-card-label">{icon("pin")}Serving {esc(c["name"])} and area</span>'
+        return (f'<section class="hero city-hero ch-e"><div class="wrap ch-grid"><div class="hero-copy">{copy}<ul class="hero-points">{pts}</ul>{btns}{trust}</div>'
+                f'<div class="ch-card-wrap">{card}{label}</div></div></section>')
+    # F: navy, form on the right, local facts bar underneath
+    facts = page.get("hero_stats") or []
+    bar = "".join(f'<li><span>{l}</span><strong>{v}</strong></li>' for v, l in facts)
+    return (f'<section class="hero city-hero ch-f"><div class="wrap ch-grid"><div class="hero-copy">{copy}<ul class="hero-points">{pts}</ul>{trust}</div>'
+            f'<div class="hero-side">{form}</div></div>' + (f'<div class="wrap"><ul class="ch-factbar">{bar}</ul></div>' if bar else "") + '</section>')
+
+SVC_ICON = {"/furnace/": "furnace", "/furnace/repair-maintenance/": "wrench", "/ac/": "snow", "/ac/repair-maintenance/": "wrench", "/heat-pump/": "heatpump",
+            "/heat-pump/cold-climate/": "heatpump", "/heat-pump/hybrid-furnace-systems/": "flame", "/ac/ductless-mini-split/": "ductless",
+            "/ac/multi-zone-ductless-system/": "multizone", "/water-heater/": "tankless", "/services/emergency-hvac/": "alert",
+            "/services/hvac-repair-maintenance/": "wrench", "/services/hvac-installation-replacement/": "install", "/services/humidifiers/": "humidity",
+            "/services/hrv-erv/": "hrv", "/services/thermostats/": "thermostat", "/heat-pump-rebates/": "rebate", "/financing/": "dollar",
+            "/furnace/high-efficiency/": "flame", "/heat-pump/central/": "heatpump"}
+
+def city_block(b, page):
+    t = b["type"]; c = CITY_BY_SLUG[page["city"]]
+    if t == "snapshot":
+        items = "".join(f'<li><span class="snap-ic">{icon(i.get("icon","pin"))}</span><span class="snap-label">{i["label"]}</span><strong>{i["value"]}</strong><p>{i["text"]}</p></li>' for i in b["items"])
+        return f'<section class="sec snapshot-sec"><div class="wrap">{h2(b)}{lead(b)}<ul class="snapshot">{items}</ul></div></section>'
+    if t == "neighbourhoods":
+        chips = "".join(f'<li>{icon("pin")}{esc(n)}</li>' for n in c["neighbourhoods"])
+        return (f'<section class="sec hoods-sec"><div class="wrap hoods"><div>{h2(b)}{lead(b)}<ul class="hood-chips">{chips}</ul></div>'
+                f'<aside class="hood-card"><h3>{b.get("card_h", "Not sure if we cover your street?")}</h3><p>{b.get("card_text", "If you are in or around " + c["name"] + ", we probably do. Call or send the form and we will confirm the same day.")}</p>'
+                f'{cta_buttons("Check My Address", small=True)}</aside></div></section>')
+    if t == "mosaic":
+        figs = "".join(f'<figure class="mz mz{i}"><img src="/assets/img/work/{k}.webp" alt="{esc(CITY_PHOTOS[k][1])}" loading="lazy" decoding="async"><figcaption>{esc(CITY_PHOTOS[k][1])}</figcaption></figure>' for i, k in enumerate(b.get("_imgs", [])))
+        return (f'<section class="sec mosaic-sec"><div class="wrap"><div class="mz-head"><div>{h2(b)}{lead(b)}</div><a class="more" href="/our-work/">See more of our work{icon("arrow")}</a></div>'
+                f'<div class="mz-grid n{len(b.get("_imgs", []))}">{figs}</div></div></section>')
+    if t == "svc_links":
+        cards = "".join(f'<a class="svc-link" href="{i["url"]}"><span class="card-icon">{icon(SVC_ICON.get(i["url"], "wrench"))}</span><span><strong>{i["title"]}</strong><small>{i["text"]}</small></span>{icon("arrow")}</a>' for i in b["items"])
+        return f'<section class="sec svclinks-sec"><div class="wrap">{h2(b)}{lead(b)}<div class="svc-links">{cards}</div></div></section>'
+    if t == "quote_split":
+        img = city_img(b["_imgs"][0], "qs-img") if b.get("_imgs") else ""
+        body = re.sub(r'<ul class="checklist">(.*?)</ul>', lambda m: '<ul class="checklist">' + re.sub(r'<li>(?!<svg)', '<li>' + icon("check") + '<span>', m.group(1)).replace('</li>', '</span></li>') + '</ul>', b["html"], flags=re.S)
+        form = form_block({"h3": b.get("form_h3", f"Book your {c['name']} HVAC quote"), "sub": "We reply fast during business hours.", "city": c["name"]}, compact=True)
+        return f'<section class="sec quote-split-sec"><div class="wrap qs"><div class="qs-copy">{h2(b)}{body}{img}</div><div class="qs-form">{form}</div></div></section>'
+    if t == "split" and b.get("_imgs"):
+        k = b["_imgs"][0]
+        b = dict(b, image=CITY_PHOTOS[k][1], image_src=f"/assets/img/work/{k}.webp", image_fit="cover", image_pos=b.get("image_pos", "50% 50%"))
+        return render_block(dict(b, type="split"), page)
+    if t == "checklist" and b.get("_imgs"):
+        k = b["_imgs"][0]
+        return render_block(dict(b, image=CITY_PHOTOS[k][1], image_src=f"/assets/img/work/{k}.webp", image_fit="cover"), page)
+    return None
+
+def nearby_block(page):
+    c = CITY_BY_SLUG[page["city"]]
+    links = "".join(f'<li><a href="/{s}/">{icon("pin")}HVAC {esc(CITY_BY_SLUG[s]["name"])}</a></li>' for s in c["nearby"] if f"/{s}/" in CITY_PAGES)
+    if not links: return ""
+    return (f'<section class="sec nearby-sec"><div class="wrap"><h2>{page.get("nearby_h2", "We also serve communities near " + esc(c["name"]))}</h2>'
+            f'<ul class="nearby">{links}<li><a class="all" href="/service-areas/">All service areas{icon("arrow")}</a></li></ul></div></section>')
 
 # ---------------------------------------------------------------- lint
 BANNED = ["meticulous", "navigating", "complexities", "realm", "bespoke", "tailored", "towards", "underpins", "ever changing", "ever-evolving",
@@ -904,7 +1055,12 @@ def main():
     os.makedirs(OUT)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"))
     pages = load_pages()
-    photo_usage = allocate_galleries(pages)
+    for pg in pages:
+        if pg.get("city"):
+            CITY_PAGES.add(pg["url"])
+            REG.setdefault(pg["url"], (f'HVAC {CITY_BY_SLUG[pg["city"]]["name"]}', f'HVAC services, repairs and installs in {CITY_BY_SLUG[pg["city"]]["name"]}.'))
+    photo_usage = allocate_galleries([pg for pg in pages if not pg.get("city")])   # city pages never shift the service galleries
+    city_usage = allocate_city_photos(pages)
     urls = []
     issues = {}
     for p in pages:
@@ -966,6 +1122,9 @@ def main():
     print(f"Job photos: {len(photo_usage)} in library, {sum(1 for v in photo_usage.values() if v)} used, {len(reused)} appear on more than one page")
     missing = [u for u in REG if u not in {p['url'] for p in pages} and u not in ("/privacy-policy/", "/terms/")]
     if missing: print("MISSING pages:", missing)
+    if CITY_PAGES:
+        cu = [v for v in city_usage.values() if v]
+        print(f"City pages: {len(CITY_PAGES)}, photos used {len(cu)}, max uses of one photo {max(cu) if cu else 0}")
     for u, pr in issues.items(): print("LINT", u, pr)
 
 if __name__ == "__main__":

@@ -1,0 +1,57 @@
+PAGE = {
+ "url": "/richmond-hill/", "city": "richmond-hill", "layout": "D", "priority": "0.7",
+ "title": "HVAC Richmond Hill | Furnace & AC Repair or Replacement",
+ "description": "Richmond Hill HVAC help for aging furnaces and ACs: honest repair or replace advice, guaranteed quotes and rebate help. Book your free assessment today.",
+ "eyebrow": "Richmond Hill · York Region",
+ "h1": "Richmond Hill HVAC Services for Furnaces and ACs Nearing the End",
+ "tagline": "Repair it or replace it? You'll get a straight answer.",
+ "intro": "<p>A lot of HVAC equipment in Richmond Hill went in when the house was built in the 1990s or 2000s, and much of it is wearing out at the same time. Our licensed technicians tell you plainly whether a repair still makes sense or whether it's time to plan a replacement. Either way, the price is in writing before we start.</p>",
+ "hero_points": ["Honest repair or replace advice", "Plan the swap before the old unit fails", "TSSA-certified gas technicians", "Guaranteed price, no surprise extras"],
+ "service": {"name": "HVAC services in Richmond Hill", "type": "HVAC contractor", "area": "Richmond Hill"},
+ "blocks": [
+  {"type": "svc_links", "h2": "Furnace repair in Richmond Hill, and everything that comes after it",
+   "lead": "Start with a repair, a tune-up or a full replacement. Each page explains what's involved and what it costs.",
+   "items": [
+    {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Richmond Hill", "text": "Ignitors, inducer motors, control boards and heat exchanger checks on older furnaces."},
+    {"url": "/ac/repair-maintenance/", "title": "AC repair in Richmond Hill", "text": "Leaks, failed capacitors and worn compressors on aging central air."},
+    {"url": "/services/hvac-installation-replacement/", "title": "Furnace and AC replacement", "text": "Swap both at once and size them as one matched system."},
+    {"url": "/furnace/high-efficiency/", "title": "High-efficiency furnaces", "text": "Lennox and Midea two-stage furnaces from 96% to 97% AFUE."},
+    {"url": "/heat-pump/central/", "title": "Central heat pumps for Richmond Hill homes", "text": "Replace a tired AC with a heat pump that also heats."},
+    {"url": "/services/hvac-repair-maintenance/", "title": "HVAC tune-ups", "text": "A yearly check that shows how much life an older system has left."},
+    {"url": "/water-heater/", "title": "Tankless water heaters", "text": "Rinnai condensing units to replace an old rental tank."},
+    {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in Richmond Hill", "text": "Evening, weekend and holiday help when an old system finally gives out."}]},
+  {"type": "checklist", "photo": "out", "h2": "Repair or replace? What an HVAC technician in Richmond Hill looks at first",
+   "lead": "Age alone doesn't settle it. These are the checks we run before we give you an answer.",
+   "items": ["The real age of the furnace and AC, read off the rating plate",
+             "Heat exchanger condition, including any cracks or rust",
+             "Repair history and how many parts have failed in recent years",
+             "The cost of this repair against the value left in the unit",
+             "Refrigerant type, since older R-22 systems are costly to recharge",
+             "Efficiency: an older mid-efficiency furnace against a new 96% two-stage model",
+             "Whether parts for your model are still easy to get",
+             "Rebates and financing that change the math on replacing"]},
+  {"type": "split", "photo": "in", "h2": "Furnace installation in Richmond Hill when everything hits 25 at once",
+   "html": "<p>Here's a pattern we run into a lot. The house went up around 1998. The furnace, the air conditioner, the water heater and the humidifier all went in that same year. Now they're all old, and each one is waiting for its turn to quit.</p>"
+           "<p>You can replace them one emergency at a time. Or you can plan it. Planning lets you pick the season, compare options, get rebate pre-approval in place and spread the cost with financing. A furnace that dies in a January cold snap rarely leaves you that kind of choice.</p>"
+           "<p>Homes up in Oak Ridges sit on the moraine, which runs a little colder and snowier than the city to the south, so we factor that into sizing. A planned replacement also opens doors a rushed one can't, like trading the old AC for a cold-climate heat pump that works alongside a new furnace.</p>"
+           "<ul class=\"checklist\"><li>Furnace, coil and outdoor unit matched to work as one system</li><li>Fresh heat-loss sizing, since many original units were oversized</li><li>Permits, gas line checks and proper venting</li><li>Rebate pre-approval in place before install day</li></ul>"},
+  {"type": "mosaic", "count": 5, "h2": "Recent replacement work from our crew",
+   "lead": "A sample of recent Ontario jobs: new furnaces, heat pumps and outdoor units with clean, labelled connections."},
+  {"type": "quote_split", "photo": "any", "h2": "Get a replacement plan from an HVAC contractor in Richmond Hill",
+   "form_h3": "Ask for your Richmond Hill repair or replace quote",
+   "html": "<p>Not ready to replace yet? That's fine. Book an assessment and we'll tell you roughly how much life your equipment has left, what's likely to fail first, and what a replacement would cost when the time comes.</p>"
+           "<p>No scare tactics. Just straight answers and a written quote you can plan around, from a team with 20+ years of HVAC work across Ontario.</p>"
+           "<ul class=\"checklist\"><li>An honest read on repair versus replace</li><li>A guaranteed price that holds for the agreed scope</li><li>0% financing for 3, 6 or 9 months, OAC</li><li>Up to 12 years parts and labour on select systems</li></ul>"},
+  {"type": "gbp", "h2": "Look us up on Google before you book",
+   "lead": "Check our verified listing, hours and reviews. Our office is in Whitchurch-Stouffville, and we come to homes all over Richmond Hill and the rest of York Region."},
+  {"type": "neighbourhoods", "h2": "Where we work in Richmond Hill",
+   "lead": "From the older streets around Mill Pond to the estate homes of Oak Ridges and the family homes in Rouge Woods, we cover the whole town, including:"}],
+ "faqs": [
+  ("How long does a furnace last in a Richmond Hill home?", "Most gas furnaces last about 15 to 20 years with regular maintenance, so many original furnaces in 1990s and 2000s Richmond Hill homes are now at or past that range."),
+  ("Should I repair or replace a 20-year-old furnace?", "Replacing usually makes more sense if the repair costs a big share of a new unit or the heat exchanger is cracked. A technician should check the heat exchanger, repair history and efficiency before you decide."),
+  ("Should I replace my furnace and AC at the same time?", "Usually yes, if both are close in age. A matched furnace, coil and outdoor unit work better together, and you only go through one install."),
+  ("What does furnace installation in Richmond Hill cost?", "High-efficiency furnaces start from $3,300 installed. Installed pricing depends on size and installation requirements, and we give you a guaranteed quote in writing."),
+  ("Is AC repair in Richmond Hill worth it on an old R-22 system?", "Sometimes, but recharging an R-22 system is costly because that refrigerant is no longer made. For many older units, a new AC or heat pump is the better use of the money."),
+  ("How do I plan an HVAC replacement before my system fails?", "Book an assessment in spring or fall, get a guaranteed quote, and line up rebate pre-approval and financing before the busy season. That way the swap happens on your schedule, not the furnace's.")],
+ "related": ["/furnace/repair-maintenance/", "/services/hvac-installation-replacement/", "/furnace/high-efficiency/", "/ac/repair-maintenance/", "/financing/", "/warranty/"],
+}
