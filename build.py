@@ -1057,7 +1057,8 @@ def city_map_block(slug):
     intro = (f"{esc(BRAND)} has kept Ontario homes and businesses comfortable for more than 20 years. Our office is right here on Bloomington Road, and our licensed crews are out across {cn} and the rest of Whitchurch-Stouffville every day."
              if home else
              f"{esc(BRAND)} has kept Ontario homes and businesses comfortable for more than 20 years. Our licensed crews come to your home or business anywhere in {cn}, with a written, guaranteed quote before any work starts.")
-    rows = (f'<li><span class="cm-ic">{icon("phone")}</span><span><strong>Phone</strong><a href="tel:{PHONE_TEL}">{PHONE}</a></span></li>'
+    rows = (f'<li><span class="cm-ic">{icon("truck")}</span><span><strong>Serving</strong><span class="cm-val">{cn}, Ontario</span></span></li>'
+            f'<li><span class="cm-ic">{icon("phone")}</span><span><strong>Phone</strong><a href="tel:{PHONE_TEL}">{PHONE}</a></span></li>'
             f'<li><span class="cm-ic">{icon("chat")}</span><span><strong>Email</strong><a href="mailto:{EMAIL}">{EMAIL}</a></span></li>')
     if home:
         rows += (f'<li><span class="cm-ic">{icon("pin")}</span><span><strong>Office</strong><a href="{GBP_URL}" target="_blank" rel="noopener">'
