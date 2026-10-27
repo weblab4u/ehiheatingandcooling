@@ -9,12 +9,15 @@
     var pg=f.querySelector('[name=page]');if(pg)pg.value=location.pathname;
     f.addEventListener('submit',function(e){
       e.preventDefault();
+      // WebMCP: when an AI agent submitted the form, hand the outcome back to it
+      var agentDone=null;if(e.agentInvoked&&e.respondWith){e.respondWith(new Promise(function(r){agentDone=r;}));}
+      function tellAgent(msg){if(agentDone){agentDone(msg);agentDone=null;}}
       var ok=true,first=null;f.querySelectorAll('[required]').forEach(function(i){if(!i.value.trim()){i.classList.add('error');ok=false;first=first||i;}else i.classList.remove('error');});
       var em=f.querySelector('[name=email]');if(em&&em.value.trim()&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){em.classList.add('error');ok=false;first=first||em;}else if(em)em.classList.remove('error');
       var err=f.querySelector('.form-err'),okMsg=f.querySelector('.form-ok'),btn=f.querySelector('button[type=submit]');
-      function fail(msg){err.innerHTML=msg+' Or call <a href="tel:+16476945845">1-647-694-5845</a>.';err.hidden=false;btn.disabled=false;btn.classList.remove('sending');}
-      if(!ok){first&&first.focus();fail('Please fill in your name, phone and city.');return;}
-      if(f.querySelector('.hp').value)return;
+      function fail(msg){tellAgent('Not sent: '+msg.replace(/<[^>]+>/g,''));err.innerHTML=msg+' Or call <a href="tel:+16476945845">1-647-694-5845</a>.';err.hidden=false;btn.disabled=false;btn.classList.remove('sending');}
+      if(!ok){first&&first.focus();fail('Please fill in your name, phone and city.');tellAgent('Not sent: name, phone and city are required, and the email must be valid.');return;}
+      if(f.querySelector('.hp').value){tellAgent('Not sent.');return;}
       err.hidden=true;btn.disabled=true;btn.classList.add('sending');
       function mailFallback(){var v=function(n){var i=f.querySelector('[name='+n+']');return i?i.value.trim():'';};
         var body='Name: '+v('name')+'\nPhone: '+v('phone')+'\nEmail: '+v('email')+'\nCity: '+v('city')+'\nService: '+v('service')+'\n\n'+v('message');
@@ -26,7 +29,7 @@
           .catch(function(){if(tries>0)return new Promise(function(ok){setTimeout(ok,2500)}).then(function(){return send(tries-1)});return {ok:false,down:true};});
       }
       send(2).then(function(j){
-          if(j.ok){f.querySelectorAll('input:not([type=hidden]),select,textarea,button').forEach(function(x){x.disabled=true;});okMsg.hidden=false;btn.classList.remove('sending');
+          if(j.ok){tellAgent('Quote request sent. EHI Heating And Cooling will call back, usually within a few business hours.');f.querySelectorAll('input:not([type=hidden]),select,textarea,button').forEach(function(x){x.disabled=true;});okMsg.hidden=false;btn.classList.remove('sending');
             var v=function(n){var i=f.querySelector('[name='+n+']');return i?i.value.trim():'';};
             try{sessionStorage.setItem('ehi_ty',JSON.stringify({name:v('name').split(/\s+/)[0],service:v('service'),city:v('city'),phone:v('phone')}));}catch(e){}
             var went=false,go=function(){if(!went){went=true;location.assign('/thank-you/');}};
