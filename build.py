@@ -1116,8 +1116,11 @@ def nearby_block(page):
     return out
 
 import schema as SCHEMA
+class _BuildGlobals:
+    """Live view of this module's globals for schema.py, however build.py was loaded (script, import or spec)."""
+    def __getattr__(self, k): return globals()[k]
 if SCHEMA.B is None:                    # content files import `build` again; keep the copy that runs the build
-    SCHEMA.B = sys.modules[__name__]
+    SCHEMA.B = _BuildGlobals()
 # ---------------------------------------------------------------- lint
 BANNED = ["meticulous", "navigating", "complexities", "realm", "bespoke", "tailored", "towards", "underpins", "ever changing", "ever-evolving",
           "the world of", "not only", "seeking more than just", "designed to enhance", "it's not merely", "it’s not merely", "our suite", "it is advisable",
@@ -1174,7 +1177,7 @@ HTACCESS = "\n".join([
 ] + [f"RewriteRule ^{re.escape(a).replace(chr(92)+'-', '-')}/?$ {b} [NC,L,R=301]" for a, b in OLD_REDIRECTS] + [""])
 
 def main():
-    SCHEMA.B = sys.modules[__name__]
+    SCHEMA.B = _BuildGlobals()
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"))

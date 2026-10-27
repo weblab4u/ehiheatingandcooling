@@ -1,7 +1,8 @@
 """Check guide and city-service content files without touching site/. Usage: python3 tools/check_page.py content/<file>.py ..."""
 import sys, os, re, importlib.util
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, ROOT)
-spec = importlib.util.spec_from_file_location("build", os.path.join(ROOT, "build.py")); B = importlib.util.module_from_spec(spec); spec.loader.exec_module(B)
+spec = importlib.util.spec_from_file_location("build", os.path.join(ROOT, "build.py")); B = importlib.util.module_from_spec(spec); sys.modules["build"] = B; spec.loader.exec_module(B)
+import schema as _S; _S.B = B._BuildGlobals()
 bad = False
 for f in sys.argv[1:]:
     spec = importlib.util.spec_from_file_location("p", f); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); pg = m.PAGE; probs = []

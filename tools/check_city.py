@@ -4,7 +4,8 @@ Prints lint problems, meta lengths, keyword placement and word count. Exit code 
 import sys, os, re, importlib.util
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
-spec = importlib.util.spec_from_file_location("build", os.path.join(ROOT, "build.py")); B = importlib.util.module_from_spec(spec); spec.loader.exec_module(B)
+spec = importlib.util.spec_from_file_location("build", os.path.join(ROOT, "build.py")); B = importlib.util.module_from_spec(spec); sys.modules["build"] = B; spec.loader.exec_module(B)
+import schema as _S; _S.B = B._BuildGlobals()
 LAYOUT_FORM = {"A": True, "B": True, "C": False, "D": False, "E": False, "F": True}
 bad = False
 for f in sys.argv[1:]:
