@@ -1,5 +1,23 @@
 ErrorDocument 404 /404.html
 Options -Indexes
+# Static files cache for a year (CSS is inlined and main.js carries a ?v= version, so changes still reach visitors)
+AddType font/woff2 .woff2
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType text/javascript "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+<FilesMatch "\.(webp|png|jpe?g|svg|woff2|css|js)$">
+Header set Cache-Control "public, max-age=31536000"
+</FilesMatch>
+</IfModule>
 RewriteEngine On
 # One address: https://efficienthomeimprovements.ca (the temporary Hostinger address is left alone)
 RewriteCond %{HTTP_HOST} ^www\.efficienthomeimprovements\.ca$ [NC]

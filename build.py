@@ -221,7 +221,7 @@ def header():
 </div></div>
 <header class="site-header" id="top">
  <div class="wrap top-row">
-  <a class="logo" href="/" aria-label="{esc(BRAND)} home"><img src="/assets/img/ehi-logo.webp" alt="{esc(BRAND)} logo" width="160" height="80"></a>
+  <a class="logo" href="/" aria-label="{esc(BRAND)} home"><img src="/assets/img/ehi-logo-320.webp" srcset="/assets/img/r/ehi-logo-160.webp 160w, /assets/img/ehi-logo-320.webp 320w" sizes="(max-width: 959px) 120px, 160px" alt="{esc(BRAND)} logo" width="160" height="80"></a>
   <nav class="top-nav" aria-label="Company"><ul>{nav_items(TOP_NAV)}</ul></nav>
   <div class="header-cta">
     <a class="emerg" href="/services/emergency-hvac/">{icon("phone")}<span><small>Emergency?</small><strong>Book here</strong></span></a>
@@ -248,7 +248,7 @@ def footer(show_cta=True):
     return f'''{cta}
 <footer class="site-footer"><div class="wrap grid-4">
   <div class="f-brand">
-    <img src="/assets/img/ehi-logo.webp" alt="{esc(BRAND)}" width="180" height="90" loading="lazy">
+    <img src="/assets/img/ehi-logo-320.webp" srcset="/assets/img/r/ehi-logo-160.webp 160w, /assets/img/ehi-logo-320.webp 320w" sizes="180px" alt="{esc(BRAND)}" width="180" height="90" loading="lazy">
     <p><strong>{esc(BRAND)}</strong> ({esc(LEGAL)}) is a licensed residential and commercial HVAC contractor with 20+ years of experience. Authorized dealer for Midea, Lennox, Kepler and Rinnai. We also install and service Goodman.</p>
     <p><a href="tel:{PHONE_TEL}">{PHONE}</a><br><a href="mailto:{EMAIL}">{EMAIL}</a><br>{ADDRESS["street"]}, {ADDRESS["city"]}, {ADDRESS["region"]} {ADDRESS["postal"]}</p>
     <img class="badge" src="/assets/img/homestars-verified.webp" alt="HomeStars Verified badge" width="90" height="90" loading="lazy">
@@ -540,7 +540,7 @@ def service_gallery(url):
     arrow = icon("arrow")
     cards = "".join(
         f'<figure class="sg-card"><button type="button" class="sg-open" data-full="/assets/img/work/{k}.webp" data-alt="{esc(GALLERY_PHOTOS[k][1])}" aria-label="Enlarge photo: {esc(GALLERY_PHOTOS[k][1])}">'
-        f'<img src="/assets/img/work/{k}.webp" alt="{esc(GALLERY_PHOTOS[k][1])}" loading="lazy" decoding="async"><span class="sg-zoom" aria-hidden="true">{icon("arrow")}</span></button>'
+        f'<img src="/assets/img/work/{k}.webp" alt="{esc(GALLERY_PHOTOS[k][1])}" loading="lazy" decoding="async" sizes="(max-width: 640px) 72vw, 300px"><span class="sg-zoom" aria-hidden="true">{icon("arrow")}</span></button>'
         f'<figcaption>{esc(GALLERY_PHOTOS[k][1])}</figcaption></figure>' for k in keys)
     nav = (f'<div class="sg-nav"><button class="sg-prev" type="button" aria-label="Previous photos">{arrow}</button>'
            f'<button class="sg-next" type="button" aria-label="Next photos">{arrow}</button></div>') if len(keys) > 4 else ""
@@ -553,7 +553,7 @@ def partners_strip():
     logos = ""
     for name, file in [("Midea", "midea"), ("Lennox", "lennox"), ("Kepler", "kepler"), ("Rinnai", "rinnai"), ("Goodman", "goodman")]:
         path = os.path.join(ROOT, "assets", "img", f"{file}.webp")
-        logos += (f'<li class="p-{file}"><img src="/assets/img/{file}.webp" alt="{name}" loading="lazy" width="160" height="56"></li>' if os.path.exists(path)
+        logos += (f'<li class="p-{file}"><img src="/assets/img/{file}.webp" {logo_srcset(file, "(max-width: 600px) 104px, 150px")} alt="{name}" loading="lazy" width="160" height="56"></li>' if os.path.exists(path)
                   else f'<li class="p-{file}"><span class="wordmark">{name}</span></li>')
     return (f'<section class="partners" aria-label="Our brand partners"><div class="wrap">'
             f'<h2 class="partners-label"><span>Our Brand Partners</span></h2>'
@@ -562,7 +562,7 @@ def partners_strip():
 def brand_logo_card(name, url, file):
     path = os.path.join(ROOT, "assets", "img", f"{file}.webp")
     if os.path.exists(path):
-        lg = f'<span class="brand-logo"><img src="/assets/img/{file}.webp" alt="{name} logo" loading="lazy" width="200" height="70"></span>'
+        lg = f'<span class="brand-logo"><img src="/assets/img/{file}.webp" {logo_srcset(file, "190px")} alt="{name} logo" loading="lazy" width="200" height="70"></span>'
     else:
         lg = f'<span class="brand-logo wordmark" role="img" aria-label="{name} logo">{name}</span>'
     return f'<li><a href="{url}">{lg}<span>Authorized {name} dealer</span></a></li>'
@@ -651,15 +651,84 @@ def related_block(urls):
 
 import hashlib
 GA_ID = "G-V5HRT0TJDR"
+# gtag.js is ~180 KB, so it loads after the page has finished loading; calls made before then queue in dataLayer
 GTAG = f'''<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
 
   gtag('config', '{GA_ID}');
+  window.addEventListener('load', function(){{var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id={GA_ID}';document.head.appendChild(s);}});
 </script>'''
+def _min_css(css):
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    css = re.sub(r"\s+", " ", css)
+    return re.sub(r"\s*([{};,])\s*", r"\1", css).replace(";}", "}")
+# ---------------------------------------------------------------- responsive images
+# Smaller copies of every large photo live in assets/img/r/ (made once, kept in git) and every <img> gets a srcset,
+# so phones download a 480 or 720 px file instead of the full-size original.
+IMG_WIDTHS = (400, 600, 800, 1080)
+_IMG_W = {}
+def _r_path(src, w):
+    return "/assets/img/r/" + src[len("/assets/img/"):-len(".webp")] + f"-{w}.webp"
+def make_img_variants():
+    try:
+        from PIL import Image
+    except ImportError:
+        print("WARN Pillow missing, responsive image copies not refreshed"); return
+    base = os.path.join(ROOT, "assets", "img")
+    for f in glob.glob(os.path.join(base, "*.webp")) + glob.glob(os.path.join(base, "work", "*.webp")) + glob.glob(os.path.join(base, "brands", "*.webp")):
+        src = "/assets/img/" + os.path.relpath(f, base).replace(os.sep, "/")
+        im = None
+        for w in IMG_WIDTHS:
+            out = os.path.join(ROOT, _r_path(src, w).lstrip("/"))
+            if os.path.exists(out) and os.path.getmtime(out) >= os.path.getmtime(f): continue
+            im = im or Image.open(f)
+            if im.width < w + 120: break
+            os.makedirs(os.path.dirname(out), exist_ok=True)
+            im.resize((w, round(im.height * w / im.width)), Image.LANCZOS).save(out, "WEBP", quality=80, method=6)
+    for b in ("midea", "lennox", "kepler", "rinnai", "goodman"):
+        f = os.path.join(base, f"{b}.webp"); out = os.path.join(base, "r", f"{b}-h{LOGO_SMALL_H}.webp")
+        if os.path.exists(f) and not (os.path.exists(out) and os.path.getmtime(out) >= os.path.getmtime(f)):
+            im = Image.open(f); im.resize((round(im.width * LOGO_SMALL_H / im.height), LOGO_SMALL_H), Image.LANCZOS).save(out, "WEBP", quality=90, method=6)
+    f = os.path.join(base, "ehi-logo-320.webp"); out = os.path.join(base, "r", "ehi-logo-160.webp")
+    if not os.path.exists(out):
+        im = Image.open(f); im.resize((160, round(im.height * 160 / im.width)), Image.LANCZOS).save(out, "WEBP", quality=90, method=6)
+LOGO_SMALL_H = 60
+def logo_srcset(file, sizes):
+    """Brand logos: a 60 px tall copy for phones and the 120 px original for larger and sharper screens."""
+    small = f"/assets/img/r/{file}-h{LOGO_SMALL_H}.webp"
+    if not os.path.exists(os.path.join(ROOT, small.lstrip("/"))): return ""
+    full = f"/assets/img/{file}.webp"
+    return f'srcset="{small} {round(_img_width(full) * LOGO_SMALL_H / 120)}w, {full} {_img_width(full)}w" sizes="{sizes}"'
+def _img_width(src):
+    if src not in _IMG_W:
+        try:
+            from PIL import Image
+            _IMG_W[src] = Image.open(os.path.join(ROOT, src.lstrip("/"))).width
+        except Exception:
+            _IMG_W[src] = 0
+    return _IMG_W[src]
+DEFAULT_SIZES = "(max-width: 959px) 92vw, 560px"
+def srcset_of(src):
+    cands = [(_r_path(src, w), w) for w in IMG_WIDTHS if os.path.exists(os.path.join(ROOT, _r_path(src, w).lstrip("/")))]
+    return ", ".join(f"{u} {w}w" for u, w in cands) + f", {src} {_img_width(src)}w" if cands else ""
+def responsive_imgs(html):
+    def fix(m):
+        tag = m.group(0)
+        if "srcset=" in tag: return tag
+        s = re.search(r'src="(/assets/img/(?:work/|brands/)?[^"/]+\.webp)"', tag)
+        if not s: return tag
+        src = s.group(1)
+        srcset = srcset_of(src)
+        if not srcset: return tag
+        extra = f' srcset="{srcset}"' + ("" if "sizes=" in tag else f' sizes="{DEFAULT_SIZES}"')
+        return tag.replace(s.group(0), s.group(0) + extra, 1)
+    return re.sub(r"<img\b[^>]*>", fix, html)
+
+# the stylesheet is inlined into every page so the first paint never waits on a second request
+CSS_INLINE = _min_css(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "css", "style.css")).read())
 # cache-busting versions: change whenever the file content changes
 ASSET_V = {k: hashlib.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", f)).read().encode()).hexdigest()[:8]
            for k, f in (("js", "js/main.js"), ("css", "css/style.css"))}
@@ -714,7 +783,7 @@ def photo_hero(page):
       <ul class="hero-points two">{pts}</ul>
     </div>
     <div class="hh-visual">
-      <picture><source media="(max-width:767px)" srcset="/assets/img/ehi-team-mobile.webp"><img class="hh-photo" src="{page["hero_photo"]}" alt="{esc(page.get("hero_photo_alt","The EHI Heating And Cooling team"))}" width="1800" height="982" fetchpriority="high"></picture>
+      <picture><source media="(max-width:767px)" srcset="/assets/img/r/ehi-team-mobile-400.webp 400w, /assets/img/r/ehi-team-mobile-600.webp 600w, /assets/img/ehi-team-mobile.webp 900w" sizes="calc(100vw - 32px)"><img class="hh-photo" sizes="(max-width: 1279px) 55vw, 700px" src="{page["hero_photo"]}" alt="{esc(page.get("hero_photo_alt","The EHI Heating And Cooling team"))}" width="1800" height="982" fetchpriority="low"></picture>
       {badge}
     </div>
   </div>
@@ -843,7 +912,10 @@ def render(page):
     graph = SCHEMA.graph(page, canonical, _crumbs_ld)
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
 
-    return f'''<!DOCTYPE html>
+    # desktop: the home hero photo is the largest paint, so fetch it early; phones show the headline first and skip this
+    hero_preload = (f'\n<link rel="preload" as="image" href="{page["hero_photo"]}" imagesrcset="{srcset_of(page["hero_photo"])}" imagesizes="(max-width: 1279px) 55vw, 700px" media="(min-width: 768px)" fetchpriority="high">'
+                    if page.get("hero_photo") else "")
+    return responsive_imgs(f'''<!DOCTYPE html>
 <html lang="en-CA">
 <head>
 <meta charset="utf-8">
@@ -866,10 +938,8 @@ def render(page):
 <meta name="theme-color" content="#0B5FA8">
 <link rel="icon" href="/assets/img/ehi-icon.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/img/ehi-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/css/style.css?v={ASSET_V['css']}">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>{hero_preload}
+<style>{CSS_INLINE}</style>
 <script type="application/ld+json">{ld}</script>
 </head>
 <body class="{page.get("body_cls","")}">
@@ -880,7 +950,7 @@ def render(page):
 </main>
 {footer(show_cta=not (page.get('layout') == 'article' or page.get('no_final_cta')))}
 </body>
-</html>'''
+</html>''')
 
 
 # ---------------------------------------------------------------- city landing pages (/city-slug/)
@@ -949,7 +1019,7 @@ def allocate_city_photos(pages):
 def city_img(k, cls="", eager=False):
     alt = esc(CITY_PHOTOS[k][1])
     load = 'fetchpriority="high"' if eager else 'loading="lazy"'
-    return f'<figure class="ci {cls}"><img src="/assets/img/work/{k}.webp" alt="{alt}" {load} decoding="async"></figure>'
+    return f'<figure class="ci {cls}"><img src="/assets/img/work/{k}.webp" alt="{alt}" {load} decoding="async" sizes="(max-width: 760px) 50vw, 420px"></figure>'
 
 def city_hero(page):
     c = CITY_BY_SLUG[page["city"]]; L = page["layout"]; imgs = page.get("_hero_imgs", [])
@@ -965,7 +1035,7 @@ def city_hero(page):
         return (f'<section class="hero city-hero ch-a"><div class="wrap ch-grid"><div class="hero-copy">{copy}<ul class="hero-points">{pts}</ul>{trust}</div>'
                 f'<div class="hero-side">{form}</div></div><div class="wrap"><div class="ch-strip">{strip}</div></div></section>')
     if L == "B":
-        bg = f'<img class="ch-bg" src="/assets/img/work/{imgs[0]}.webp" alt="{esc(CITY_PHOTOS[imgs[0]][1])}" fetchpriority="high">' if imgs else ""
+        bg = f'<img class="ch-bg" src="/assets/img/work/{imgs[0]}.webp" alt="{esc(CITY_PHOTOS[imgs[0]][1])}" fetchpriority="high" sizes="100vw">' if imgs else ""
         return (f'<section class="hero city-hero ch-b">{bg}<div class="wrap ch-grid"><div class="hero-copy">{copy}<ul class="hero-points">{pts}</ul>{btns}</div>'
                 f'<div class="hero-side">{form}</div></div></section>')
     if L == "C":
@@ -1013,7 +1083,7 @@ def city_block(b, page):
         for g in groups:
             for model, kind, specs, warr in PRICING.EQUIPMENT[g]:
                 img = PRICING.EQUIPMENT_IMG.get(model)
-                pic = (f'<span class="eq-pic"><img src="/assets/img/brands/{img}.webp" alt="{esc(model)} {esc(kind.lower())}" loading="lazy" decoding="async"></span>'
+                pic = (f'<span class="eq-pic"><img src="/assets/img/brands/{img}.webp" alt="{esc(model)} {esc(kind.lower())}" loading="lazy" decoding="async" sizes="72px"></span>'
                        if img and os.path.exists(os.path.join(ROOT, "assets", "img", "brands", img + ".webp"))
                        else f'<span class="eq-pic eq-pic-ic">{icon({"furnaces": "furnace", "heat_pumps": "heatpump", "water_heaters": "tankless"}[g])}</span>')
                 cards += (f'<article class="eq-card"><div class="eq-top">{pic}<div class="eq-name"><span class="eq-kind">{esc(kind)}</span><h3>{esc(model)}</h3></div></div>'
@@ -1028,7 +1098,7 @@ def city_block(b, page):
                 f'<aside class="hood-card"><h3>{b.get("card_h", "Not sure if we cover your street?")}</h3><p>{b.get("card_text", "If you are in or around " + c["name"] + ", we probably do. Call or send the form and we will confirm the same day.")}</p>'
                 f'{cta_buttons("Check My Address", small=True)}</aside></div></section>')
     if t == "mosaic":
-        figs = "".join(f'<figure class="mz mz{i}"><img src="/assets/img/work/{k}.webp" alt="{esc(CITY_PHOTOS[k][1])}" loading="lazy" decoding="async"><figcaption>{esc(CITY_PHOTOS[k][1])}</figcaption></figure>' for i, k in enumerate(b.get("_imgs", [])))
+        figs = "".join(f'<figure class="mz mz{i}"><img src="/assets/img/work/{k}.webp" alt="{esc(CITY_PHOTOS[k][1])}" loading="lazy" decoding="async" sizes="(max-width: 700px) 50vw, 420px"><figcaption>{esc(CITY_PHOTOS[k][1])}</figcaption></figure>' for i, k in enumerate(b.get("_imgs", [])))
         return (f'<section class="sec mosaic-sec"><div class="wrap"><div class="mz-head"><div>{h2(b)}{lead(b)}</div><a class="more" href="/our-work/">See more of our work{icon("arrow")}</a></div>'
                 f'<div class="mz-grid n{len(b.get("_imgs", []))}">{figs}</div></div></section>')
     if t == "svc_links":
@@ -1135,7 +1205,7 @@ BANNED = ["meticulous", "navigating", "complexities", "realm", "bespoke", "tailo
 LIMIT3 = ["unique", "ensure", "utmost"]
 
 def lint(url, html_out):
-    text = re.sub(r"<script.*?</script>", "", html_out, flags=re.S)
+    text = re.sub(r"<(script|style)\b.*?</\1>", "", html_out, flags=re.S)
     text = re.sub(r"<blockquote>.*?</blockquote>", "", text, flags=re.S)  # customer reviews stay verbatim
     text = re.sub(r"<[^>]+>", " ", text)
     # strip shared chrome noise is overkill; chrome is lint-clean by construction
@@ -1170,7 +1240,16 @@ OLD_REDIRECTS = [
     ("luxury-doors-&-windows", "/"), ("home-renovations", "/"), ("custom-design-decks", "/"), ("insulation/air-sealing", "/"),
 ]
 HTACCESS = "\n".join([
-    "ErrorDocument 404 /404.html", "Options -Indexes", "RewriteEngine On",
+    "ErrorDocument 404 /404.html", "Options -Indexes",
+    "# Static files cache for a year (CSS is inlined and main.js carries a ?v= version, so changes still reach visitors)",
+    "AddType font/woff2 .woff2",
+    "<IfModule mod_expires.c>", "ExpiresActive On",
+    'ExpiresByType image/webp "access plus 1 year"', 'ExpiresByType image/png "access plus 1 year"', 'ExpiresByType image/jpeg "access plus 1 year"',
+    'ExpiresByType image/svg+xml "access plus 1 year"', 'ExpiresByType font/woff2 "access plus 1 year"',
+    'ExpiresByType text/css "access plus 1 year"', 'ExpiresByType application/javascript "access plus 1 year"', 'ExpiresByType text/javascript "access plus 1 year"',
+    "</IfModule>",
+    "<IfModule mod_headers.c>", r'<FilesMatch "\.(webp|png|jpe?g|svg|woff2|css|js)$">', 'Header set Cache-Control "public, max-age=31536000"', "</FilesMatch>", "</IfModule>",
+    "RewriteEngine On",
     "# One address: https://efficienthomeimprovements.ca (the temporary Hostinger address is left alone)",
     r"RewriteCond %{HTTP_HOST} ^www\.efficienthomeimprovements\.ca$ [NC]",
     "RewriteRule ^(.*)$ https://efficienthomeimprovements.ca/$1 [R=301,L]",
@@ -1183,6 +1262,7 @@ HTACCESS = "\n".join([
 
 def main():
     SCHEMA.B = _BuildGlobals()
+    make_img_variants()
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"))

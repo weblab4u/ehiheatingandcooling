@@ -1,3 +1,4 @@
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 800;font-display:swap;src:url(/assets/fonts/inter-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 /* EHI Heating & Cooling — brand: leaf green + globe blue from the logo */
 :root{
   --green:#138A36;--green-dark:#0E6B2A;--green-light:#E6F5EA;
@@ -679,7 +680,7 @@ h2.center::after{margin-left:auto;margin-right:auto}
 .g-summary .btn{margin-top:6px}
 .rv-live .map-wrap{height:100%;min-height:380px}
 .rv-carousel{position:relative;min-width:0;padding:0 26px}
-.rv-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 10px;scrollbar-width:none}
+.rv-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;scrollbar-width:none}
 .rv-track::-webkit-scrollbar{display:none}
 @media(max-width:959px){.rv-track{grid-auto-columns:calc((100% - 16px)/2)}}
 @media(max-width:599px){.rv-track{grid-auto-columns:88%}}
@@ -743,7 +744,7 @@ h2.center::after{margin-left:auto;margin-right:auto}
 .sg-nav button:disabled{opacity:.35;cursor:default;background:#fff;color:var(--navy);border-color:var(--line)}
 .sg-prev svg{transform:rotate(180deg)}
 .sg-rail{position:relative}
-.sg-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3*18px)/4);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:2px 2px 14px;scrollbar-width:thin;scrollbar-color:#cfd8e1 transparent}
+.sg-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3*18px)/4);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 14px;scrollbar-width:thin;scrollbar-color:#cfd8e1 transparent}
 .sg-track::-webkit-scrollbar{height:6px}.sg-track::-webkit-scrollbar-thumb{background:#cfd8e1;border-radius:3px}
 .sg-track.count-2,.sg-track.count-3,.sg-track.count-4{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible}
 .sg-track.count-2{grid-template-columns:repeat(2,minmax(0,300px))}
