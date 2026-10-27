@@ -1,3 +1,9 @@
+# descriptive link text for each answer's "more" link
+MORE = {"/ac/": "More on AC installation", "/ac/multi-zone-ductless-system/": "More on multi-zone ductless", "/ac/repair-maintenance/": "More on AC repair",
+        "/furnace/": "More on furnace installation", "/furnace/repair-maintenance/": "More on furnace repair", "/heat-pump-rebates/": "More on heat pump rebates",
+        "/heat-pump/cold-climate/": "More on cold-climate heat pumps", "/heat-pump/electric-air-handler-systems/": "More on all-electric heat pump systems",
+        "/heat-pump/hybrid-furnace-systems/": "More on hybrid systems", "/services/hrv-erv/": "More on HRV and ERV", "/services/humidifiers/": "More on humidifiers",
+        "/services/hvac-repair-maintenance/": "More on HVAC maintenance", "/water-heater/": "More on tankless water heaters"}
 QA = [
  ("How much does a new furnace cost in Ontario?", "A new high-efficiency gas furnace installed by EHI starts at $3,300. Most homes land between $3,300 and $6,500 depending on BTU size, efficiency (96% or 97% AFUE), two-stage or variable-speed features and venting work. Your quote is guaranteed before install.", "/furnace/"),
  ("How much does a heat pump cost in Ontario after the rebate?", "Cold-climate heat pumps from EHI start at $5,500 installed. A typical central system runs $8,000 to $16,000 before rebates. With up to $7,500 from the Home Renovation Savings Program for electric, oil, propane or wood-heated homes, the net cost often lands in the same range as a furnace and AC replacement.", "/heat-pump-rebates/"),
@@ -24,7 +30,7 @@ ANSWERS = {
  "hero_points": ["Written by licensed Ontario HVAC technicians", "Costs quoted are real EHI starting prices", "Updated as programs and equipment change", "No sales pitch, just answers"],
  "hero_image": "The EHI Heating And Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
  "blocks": [
-  {"type": "html", "html": '<section class="sec"><div class="wrap narrow answers"><dl>' + "".join(f'<dt>{q}</dt><dd>{a} <a class="more" href="{u}">Read more</a></dd>' for q, a, u in QA) + '</dl></div></section>'},
+  {"type": "html", "html": '<section class="sec"><div class="wrap narrow answers"><dl>' + "".join(f'<dt>{q}</dt><dd>{a} <a class="more" href="{u}">{MORE.get(u, "More on this topic")}</a></dd>' for q, a, u in QA) + '</dl></div></section>'},
   {"type": "cta", "h2": "Still have a question?", "text": "Call 1-647-694-5845 or send us the form. We answer HVAC questions seven days a week."},
   {"type": "why"},
  ],

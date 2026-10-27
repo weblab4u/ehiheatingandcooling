@@ -321,7 +321,7 @@ def render_block(b, page):
     if t == "cards":
         items = ""
         for i in b["items"]:
-            link = f'<a class="more" href="{i["link"]}">{esc(i.get("link_text","Learn more"))}{icon("arrow")}</a>' if i.get("link") else ""
+            link = f'<a class="more" href="{i["link"]}">{esc(i.get("link_text") or "More on " + html.unescape(re.sub("<[^>]+>", "", i["title"])))}{icon("arrow")}</a>' if i.get("link") else ""
             ic = f'<span class="card-icon">{icon(i["icon"])}</span>' if i.get("icon") else ""
             items += f'<article class="card">{ic}<h3>{i["title"]}</h3><p>{i["text"]}</p>{link}</article>'
         if not b.get("no_fill"): items += fill_cta(len(b["items"]), (4, 2), "div")
@@ -750,16 +750,16 @@ def form_block(b=None, compact=False, preselect=None):
     b = b or {}
     opts = "".join(f'<option{" selected" if o == preselect else ""}>{o}</option>' for o in SERVICE_OPTIONS)
     cls = "quote-form compact" if compact else "quote-form"
-    return f'''<form class="{cls}" action="/api/quote.php" method="post" data-quote-form novalidate>
+    return f'''<form class="{cls}" action="/api/quote.php" method="post" data-quote-form novalidate toolname="request_hvac_quote" tooldescription="Request a free, written HVAC quote or service call from EHI Heating And Cooling in Ontario: furnaces, heat pumps, air conditioners, ductless mini-splits, tankless water heaters, repairs and rebate checks. A person calls back, usually within a few business hours. The visitor reviews and submits the form.">
   <h2 class="form-h">{b.get("h3","Get your free guaranteed quote")}</h2>
   <p class="form-sub">{b.get("sub","We reply fast during business hours. No pressure, no spam.")}</p>
-  <div class="f-row"><label>Name<input type="text" name="name" autocomplete="name" required></label>
-  <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label></div>
-  <div class="f-row"><label>Email<input type="email" name="email" autocomplete="email"></label>
-  <label>City<input type="text" name="city" autocomplete="address-level2" placeholder="e.g. Markham"{f' value="{esc(b["city"])}"' if b.get("city") else ""} required></label></div>
-  <label>What do you need?<select name="service">{opts}</select></label>
-  <label>Tell us a bit more (optional)<textarea name="message" rows="3" placeholder="e.g. 15-year-old furnace, 2,000 sq ft, want to look at a heat pump and the rebate"></textarea></label>
-  <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <div class="f-row"><label>Name<input type="text" name="name" autocomplete="name" required toolparamdescription="Full name of the person requesting the quote"></label>
+  <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" required toolparamdescription="Phone number we should call back, with area code"></label></div>
+  <div class="f-row"><label>Email<input type="email" name="email" autocomplete="email" toolparamdescription="Email address (optional)"></label>
+  <label>City<input type="text" name="city" autocomplete="address-level2" placeholder="e.g. Markham" toolparamdescription="Ontario city or town where the work is needed"{f' value="{esc(b["city"])}"' if b.get("city") else ""} required></label></div>
+  <label>What do you need?<select name="service" toolparamdescription="Type of HVAC work needed; pick the closest option">{opts}</select></label>
+  <label>Tell us a bit more (optional)<textarea name="message" rows="3" toolparamdescription="Optional details: equipment age, home size, symptoms, rebate questions" placeholder="e.g. 15-year-old furnace, 2,000 sq ft, want to look at a heat pump and the rebate"></textarea></label>
+  <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" toolparamdescription="Spam trap. Always leave this empty.">
   <input type="hidden" name="page" value="">
   <button class="btn btn-primary btn-block" type="submit">{b.get("button","Request My Free Quote")}{icon("arrow")}</button>
   <p class="form-note">Or call <a href="tel:{PHONE_TEL}">{PHONE}</a>. By submitting you agree to our <a href="/privacy-policy/">privacy policy</a>.</p>
@@ -1260,6 +1260,54 @@ HTACCESS = "\n".join([
     "# Old site URLs",
 ] + [f"RewriteRule ^{re.escape(a).replace(chr(92)+'-', '-')}/?$ {b} [NC,L,R=301]" for a, b in OLD_REDIRECTS] + [""])
 
+def llms_txt(pages):
+    """/llms.txt (llmstxt.org): a plain Markdown map of the site for AI assistants and agents."""
+    def links(urls):
+        return "\n".join(f"- [{title_of(u)}]({SITE}{u}): {blurb_of(u)}".rstrip(": ") for u in urls if u in REG)
+    by_url = {p["url"]: p for p in pages}
+    main_urls = [u for g in NAV for _, us in g[2] for u in us]
+    cities = sorted((p for p in pages if p.get("city")), key=lambda p: CITY_BY_SLUG[p["city"]]["name"])
+    guides = [p for p in pages if p.get("guide")]
+    hours = "; ".join(f"{d} {h}" for d, h in HOURS)
+    return "\n".join([
+        f"# {BRAND}",
+        "",
+        f"> {BRAND} ({LEGAL}) is a licensed residential and commercial HVAC contractor in Ontario, Canada, with 20+ years of experience. "
+        "We install, repair and maintain heat pumps, furnaces, air conditioners, ductless mini-splits and tankless water heaters, "
+        "and handle Home Renovation Savings Program heat pump rebate paperwork.",
+        "",
+        f"- Phone: {PHONE}",
+        f"- Email: {EMAIL}",
+        f"- Office: {ADDRESS['street']}, {ADDRESS['city']}, {ADDRESS['region']} {ADDRESS['postal']} (service-area business; crews come to you)",
+        f"- Hours: {hours}",
+        "- Service area: the GTA, York, Durham, Peel, Halton, Simcoe, Niagara, Hamilton, Kitchener-Waterloo, Ottawa, and towns across Eastern, Southwestern and Northern Ontario",
+        "- Authorized dealer: Midea, Lennox, Kepler and Rinnai. Also installs and services Goodman.",
+        f"- Prices: furnaces installed from ${PRICING.FROM['furnace']}, cold-climate heat pumps from ${PRICING.FROM['heat_pump']}, tankless water heaters from ${PRICING.FROM['tankless']}. Every job gets a written, guaranteed quote.",
+        "- Voted Best Company 2019 to 2021 on HomeStars",
+        f"- Free quote: [{SITE}/contact/]({SITE}/contact/)",
+        "",
+        "## Services and brands",
+        "",
+        links(main_urls),
+        "",
+        "## Company",
+        "",
+        links(["/about-ehi/", "/reviews/", "/our-work/", "/warranty/", "/offers/", "/contact/", "/service-areas/"]),
+        "",
+        "## Cities we serve",
+        "",
+        "\n".join(f"- [HVAC in {CITY_BY_SLUG[p['city']]['name']}]({SITE}{p['url']})" for p in cities),
+        "",
+        "## Guides",
+        "",
+        "\n".join(f"- [{re.sub('<[^>]+>', '', p['h1'])}]({SITE}{p['url']})" for p in guides),
+        "",
+        "## Optional",
+        "",
+        links(["/answers/", "/blog/", "/privacy-policy/", "/terms/"]),
+        "",
+    ])
+
 def main():
     SCHEMA.B = _BuildGlobals()
     make_img_variants()
@@ -1297,6 +1345,7 @@ def main():
         sm.append(f"<url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><priority>{pr}</priority></url>")
     sm.append("</urlset>")
     open(os.path.join(OUT, "sitemap.xml"), "w").write("\n".join(sm))
+    open(os.path.join(OUT, "llms.txt"), "w", encoding="utf-8").write(llms_txt(pages))
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
     shutil.copytree(os.path.join(ROOT, "server"), OUT, dirs_exist_ok=True)
     open(os.path.join(OUT, ".htaccess"), "w").write(HTACCESS)
