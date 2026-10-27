@@ -1012,8 +1012,11 @@ def city_block(b, page):
         for g in groups:
             for model, kind, specs, warr in PRICING.EQUIPMENT[g]:
                 img = PRICING.EQUIPMENT_IMG.get(model)
-                pic = f'<img src="/assets/img/brands/{img}.webp" alt="{esc(model)} {esc(kind.lower())}" loading="lazy" decoding="async">' if img and os.path.exists(os.path.join(ROOT, "assets", "img", "brands", img + ".webp")) else ""
-                cards += f'<article class="eq-card{" has-img" if pic else ""}">{pic}<div><span class="eq-kind">{esc(kind)}</span><h3>{esc(model)}</h3><p>{esc(specs)}</p><p class="eq-warr">{icon("shield")}{esc(warr)}</p></div></article>'
+                pic = (f'<span class="eq-pic"><img src="/assets/img/brands/{img}.webp" alt="{esc(model)} {esc(kind.lower())}" loading="lazy" decoding="async"></span>'
+                       if img and os.path.exists(os.path.join(ROOT, "assets", "img", "brands", img + ".webp"))
+                       else f'<span class="eq-pic eq-pic-ic">{icon({"furnaces": "furnace", "heat_pumps": "heatpump", "water_heaters": "tankless"}[g])}</span>')
+                cards += (f'<article class="eq-card"><div class="eq-top">{pic}<div class="eq-name"><span class="eq-kind">{esc(kind)}</span><h3>{esc(model)}</h3></div></div>'
+                          f'<p class="eq-specs">{esc(specs)}</p><p class="eq-warr">{icon("shield")}{esc(warr)}</p></article>')
         return f'<section class="sec equipment-sec"><div class="wrap">{h2(b)}{lead(b)}<div class="eq-grid">{cards}</div></div></section>'
     if t == "snapshot":
         items = "".join(f'<li><span class="snap-ic">{icon(i.get("icon","pin"))}</span><span class="snap-label">{i["label"]}</span><strong>{i["value"]}</strong><p>{i["text"]}</p></li>' for i in b["items"])

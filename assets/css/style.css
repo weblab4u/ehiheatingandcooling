@@ -551,11 +551,10 @@ body{padding-bottom:70px}
 .problems.v2 .prob p::before{color:#8FD3A3}
 .problems.v2 .prob a{color:#8FD3A3}
 
-/* Cards v1: icon-left tiles, two columns, mint band */
+/* Cards v1: mint band, solid green icons, two columns */
+.cards-sec.v1 .card{border-color:transparent}
+.cards-sec.v1 .card .card-icon{background:var(--green);color:#fff}
 .cards-sec.v1{background:var(--green-light)}
-.cards-sec.v1 .card{display:grid;grid-template-columns:52px 1fr;column-gap:16px;align-items:start;border-color:transparent}
-.cards-sec.v1 .card .card-icon{grid-row:1/span 3;margin:0;background:var(--green);color:#fff}
-.cards-sec.v1 .card>*:not(.card-icon){grid-column:2}
 @media(min-width:1024px){.cards-sec.v1 .cards{grid-template-columns:repeat(2,1fr)}.cards-sec.v1 .fill-cta.t2-1{grid-column:span 1!important;flex-direction:column;align-items:flex-start}.cards-sec.v1 .fill-cta.t2-0{grid-column:1/-1!important}}
 /* Cards v2: accent top-border on soft grey */
 .cards-sec.v2{background:var(--bg-soft)}
@@ -1036,9 +1035,6 @@ body.lb-open{overflow:hidden}
 .guide-cta .btn-group{margin-top:14px}
 .local-svc{background:var(--bg-soft)}
 .svc-link.guide-link{border-color:rgba(19,138,54,.35);background:var(--green-light)}
-.eq-card.has-img{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:start}
-.eq-card img{width:96px;height:96px;object-fit:contain;background:#fff;border-radius:10px;border:1px solid var(--line);padding:6px}
-@media(max-width:480px){.eq-card.has-img{grid-template-columns:72px 1fr}.eq-card img{width:72px;height:72px}}
 /* region links */
 .region-sec{background:var(--bg-soft)}
 .rg-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 24px;margin-bottom:18px}
@@ -1072,3 +1068,34 @@ body.lb-open{overflow:hidden}
 .cm-map{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--bg-soft);min-height:360px}
 .cm-map iframe{display:block;width:100%;height:460px}
 @media(max-width:600px){.cm-map iframe{height:360px}.cm-hours h3{font-size:1.25rem}.cm-hours li{font-size:.92rem}}
+/* equipment cards: image + name on one row, specs and warranty below */
+.eq-card{display:flex;flex-direction:column;gap:12px}
+.eq-top{display:flex;align-items:center;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.eq-pic{flex:none;width:72px;height:72px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:5px;overflow:hidden}
+.eq-pic img{width:100%;height:100%;object-fit:contain}
+.eq-pic-ic{background:var(--green-light);border-color:transparent;color:var(--green-dark)}
+.eq-pic-ic svg{width:32px;height:32px}
+.eq-name{min-width:0}
+.eq-name .eq-kind{display:block;line-height:1.3;margin-bottom:3px}
+.eq-name h3{margin:0;font-size:1.08rem;line-height:1.25}
+.eq-card .eq-specs{margin:0;color:#33414f;font-size:.94rem;line-height:1.55}
+.eq-card .eq-warr{margin:auto 0 0;padding-top:4px}
+
+/* Icon + heading on one row, description and links underneath at full width.
+   Shared by every icon card on the site: card grids (all variants), why, money, snapshot, thank-you steps. */
+.card:has(> .card-icon),.why-grid li:not(.fill-cta),.money-grid li:not(.fill-cta){display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;row-gap:10px;align-items:center;align-content:start}
+.card:has(> .card-icon) > .card-icon,.why-grid li:not(.fill-cta) > .card-icon,.money-grid li:not(.fill-cta) > .card-icon{grid-column:1;grid-row:1;margin:0;width:46px;height:46px}
+.card:has(> .card-icon) > h3,.why-grid li:not(.fill-cta) > h3,.money-grid li:not(.fill-cta) > h3{grid-column:2;grid-row:1;margin:0;line-height:1.25}
+.card:has(> .card-icon) > :not(.card-icon):not(h3),.why-grid li:not(.fill-cta) > :not(.card-icon):not(h3),.money-grid li:not(.fill-cta) > :not(.card-icon):not(h3){grid-column:1 / -1;margin:0}
+.card:has(> .card-icon) > .more{align-self:end;margin-top:2px}
+/* snapshot: icon beside label and value, text underneath */
+.snapshot li{grid-template-columns:auto minmax(0,1fr);column-gap:14px;row-gap:2px;align-items:center}
+.snapshot li .snap-ic{grid-column:1;grid-row:1 / span 2;margin:0}
+.snapshot li .snap-label{grid-column:2;grid-row:1;align-self:end}
+.snapshot li strong{grid-column:2;grid-row:2;align-self:start}
+.snapshot li p{grid-column:1 / -1;margin-top:10px}
+/* thank-you steps: number, icon and heading on one row */
+.ty-steps li{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;row-gap:10px;align-items:center}
+.ty-steps .ty-ic{grid-column:1;grid-row:1;margin:0}
+.ty-steps h3{grid-column:2;grid-row:1;margin:0;padding-right:36px}
+.ty-steps p{grid-column:1 / -1}
