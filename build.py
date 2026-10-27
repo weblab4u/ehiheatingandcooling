@@ -612,7 +612,7 @@ def review_card(r, i, cls="review"):
     meta = " · ".join(esc(x) for x in [r.get("city"), r.get("service")] if x)
     return (f'<article class="{cls}"><header class="rv-head"><span class="rv-avatar" style="background:{AVATAR_COLOURS[i % len(AVATAR_COLOURS)]}">{initial}</span>'
             f'<span class="rv-who"><strong>{esc(name)}</strong><span>{when}</span></span>{google_g()}</header>'
-            f'<p class="stars" aria-label="{n} star rating">{icon("star")*n}</p><blockquote>{esc(r["text"])}</blockquote>'
+            f'<p class="stars" role="img" aria-label="{n} star rating">{icon("star")*n}</p><blockquote>{esc(r["text"])}</blockquote>'
             + (f'<p class="meta">{meta}</p>' if meta else "") + '</article>')
 
 def g_reviews_block(b):
@@ -751,7 +751,7 @@ def form_block(b=None, compact=False, preselect=None):
     opts = "".join(f'<option{" selected" if o == preselect else ""}>{o}</option>' for o in SERVICE_OPTIONS)
     cls = "quote-form compact" if compact else "quote-form"
     return f'''<form class="{cls}" action="/api/quote.php" method="post" data-quote-form novalidate>
-  <h3>{b.get("h3","Get your free guaranteed quote")}</h3>
+  <h2 class="form-h">{b.get("h3","Get your free guaranteed quote")}</h2>
   <p class="form-sub">{b.get("sub","We reply fast during business hours. No pressure, no spam.")}</p>
   <div class="f-row"><label>Name<input type="text" name="name" autocomplete="name" required></label>
   <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label></div>
