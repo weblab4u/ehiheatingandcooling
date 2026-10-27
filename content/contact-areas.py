@@ -41,7 +41,7 @@ SERVICE_AREAS = {
  "priority": "0.7",
  "eyebrow": "Service Areas",
  "h1": "Where We Work: HVAC Service Across Ontario",
- "intro": "<p>EHI Heating &amp; Cooling is based in Whitchurch-Stouffville and serves homeowners from Toronto to Timmins. We're a service-area business: our licensed crews come to your home for quotes, installations, repairs and maintenance. If your city isn't listed, call anyway. We cover a large part of Ontario and surrounding communities.</p>",
+ "intro": "<p>EHI Heating And Cooling is based in Whitchurch-Stouffville and serves homeowners from Toronto to Timmins. We're a service-area business: our licensed crews come to your home for quotes, installations, repairs and maintenance. If your city isn't listed, call anyway. We cover a large part of Ontario and surrounding communities.</p>",
  "hero_points": ["Same guaranteed pricing in every city we serve", "Rebate eligibility confirmed for your address and utility", "Emergency service across the core GTA area", "Northern Ontario installs scheduled in efficient routes"],
  "hero_image": "Midea ductless head on a cedar wall at a cottage, installed by EHI", "hero_img": "/assets/img/work/midea-wall-head-cedar-cottage.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 30%", "hero_img_credit": "EHI install",
  "blocks": [

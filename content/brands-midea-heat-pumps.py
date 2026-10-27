@@ -6,7 +6,7 @@ PAGE = {
  "priority": "0.8",
  "eyebrow": "Midea EVOX G3 · Extreme Hyper Heat",
  "h1": "Authorized Midea Heat Pump Installation, Repair and Maintenance in Ontario",
- "intro": "<p>EHI Heating &amp; Cooling is an authorized Midea heat pump dealer across Ontario. We install, repair and maintain the EVOX G3 and Extreme Hyper Heat cold-climate line, and we file your rebate paperwork.</p>",
+ "intro": "<p>EHI Heating And Cooling is an authorized Midea heat pump dealer across Ontario. We install, repair and maintain the EVOX G3 and Extreme Hyper Heat cold-climate line, and we file your rebate paperwork.</p>",
  "hero_points": [
    "Midea EVOX G3 in 2, 2.5, 3, 4 and 5 ton (24,000 to 60,000 BTU)",
    "Rated to -30°C with strong capacity at -15°C, inverter driven",

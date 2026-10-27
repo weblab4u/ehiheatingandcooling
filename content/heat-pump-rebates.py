@@ -22,7 +22,7 @@ PAGE = {
     ["Ground-source (geothermal) heat pump", "Up to $12,000", "Flat amount, confirm with program"],
     ["Smart thermostat", "$100", "$100"],
     ["Heat pump water heater (with assessment bundle)", "$500", "$500"],
-  ], "note": "Figures are from the Home Renovation Savings Program at the time of writing and are provided as a guide only. The program sets final amounts and eligibility. This website is operated by EHI Heating &amp; Cooling, not by any government or utility."},
+  ], "note": "Figures are from the Home Renovation Savings Program at the time of writing and are provided as a guide only. The program sets final amounts and eligibility. This website is operated by EHI Heating And Cooling, not by any government or utility."},
   {"type": "checklist", "h2": "Who qualifies for the heat pump rebate in Ontario?", "lead": "You'll likely qualify if all of these are true. We verify each one before pre-approval.", "image": "Midea cold-climate heat pump with gauge hoses connected during commissioning, installed by EHI", "image_src": "/assets/img/work/midea-cold-climate-heat-pump-commissioning.webp", "image_fit": "cover", "image_pos": "50% 62%", "image_credit": "EHI install", "items": [
     "You own a home in Ontario (detached, semi, townhouse and many low-rise homes qualify; some property types have extra conditions)",
     "The heat pump is a cold-climate air-source model on Natural Resources Canada's qualified products list",

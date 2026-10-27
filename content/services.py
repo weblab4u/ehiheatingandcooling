@@ -13,7 +13,7 @@ PAGE = {
    "Rebate and financing paperwork handled for you",
    "TSSA-certified gas techs, licensed refrigeration techs, ESA-licensed electrical",
  ],
- "hero_image": "The EHI Heating and Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
+ "hero_image": "The EHI Heating And Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
  "service": {"name": "HVAC Services", "type": "HVAC services"},
  "blocks": [
   {"type": "cards", "h2": "Heating", "lead": "Gas furnaces, high-efficiency upgrades and electric options, installed and repaired.", "items": [

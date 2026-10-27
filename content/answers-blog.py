@@ -22,7 +22,7 @@ ANSWERS = {
  "h1": "Your HVAC Questions, Answered by People Who Install This Stuff",
  "intro": "<p>These are the questions we get on the phone, at kitchen tables and in the furnace room. Short, honest answers, with a link to the page that goes deeper. If yours isn't here, call us. We'll answer it and probably add it to the list.</p>",
  "hero_points": ["Written by licensed Ontario HVAC technicians", "Costs quoted are real EHI starting prices", "Updated as programs and equipment change", "No sales pitch, just answers"],
- "hero_image": "The EHI Heating and Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
+ "hero_image": "The EHI Heating And Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
  "blocks": [
   {"type": "html", "html": '<section class="sec"><div class="wrap narrow answers"><dl>' + "".join(f'<dt>{q}</dt><dd>{a} <a class="more" href="{u}">Read more</a></dd>' for q, a, u in QA) + '</dl></div></section>'},
   {"type": "cta", "h2": "Still have a question?", "text": "Call 1-647-694-5845 or send us the form. We answer HVAC questions seven days a week."},

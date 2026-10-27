@@ -21,7 +21,7 @@ PAGE = {
  "priority": "1.0",
  "hero_photo": "/assets/img/ehi-team.webp",
  "hero_photo_desktop": "/assets/img/ehi-team-hero.webp",
- "hero_photo_alt": "The EHI Heating and Cooling team standing in front of two EHI service vans outside an Ontario home",
+ "hero_photo_alt": "The EHI Heating And Cooling team standing in front of two EHI service vans outside an Ontario home",
  "kicker": "EHI Heating And Cooling - Serving Ontario For 20+ Years",
  "h1": "Heating and Cooling Done Right, Priced Once, Backed for Years",
  "h1_line1": "Heating &amp; Cooling Done Right",

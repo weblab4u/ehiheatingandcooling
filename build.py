@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static site builder for EHI Heating & Cooling.
+"""Static site builder for EHI Heating And Cooling.
 Usage: python3 build.py   -> writes ./site/
 Each page lives in content/<name>.py and defines PAGE = {...} (see content/heat-pump.py for the exemplar).
 """
@@ -8,7 +8,7 @@ import os, re, json, glob, importlib.util, html, datetime, shutil
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "site")
 SITE = "https://efficienthomeimprovements.ca"
-BRAND = "EHI Heating & Cooling"
+BRAND = "EHI Heating And Cooling"
 SITE_NAME = "EHI Heating And Cooling"   # the name we want Google to show as the site name
 LEGAL = "Efficient Home Improvements"
 PHONE = "1-647-694-5845"
@@ -257,7 +257,7 @@ def footer(show_cta=True):
   <div><h3>Service Areas</h3><p class="areas">{areas} and surrounding communities.</p>
     <h3>Hours</h3><p>Monday to Saturday, 8:00 am to 8:00 pm<br>Sunday, 10:00 am to 5:00 pm<br>Emergency service evenings, weekends and holidays</p></div>
 </div>
-<div class="wrap foot-bottom"><p>&copy; {datetime.date.today().year} {esc(LEGAL)}. All rights reserved. <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms/">Terms</a> · <a href="/sitemap.xml">Sitemap</a></p>
+<div class="wrap foot-bottom"><p>&copy; {datetime.date.today().year} {esc(BRAND)} ({esc(LEGAL)}). All rights reserved. <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms/">Terms</a> · <a href="/sitemap.xml">Sitemap</a></p>
 <p class="small">Rebate amounts and eligibility are set by the Home Renovation Savings Program and can change. This website is not operated by any government program. Financing on approved credit.</p>
 <p class="dev-credit">Website developed and SEO optimized by <a href="https://weblab4u.ca/" target="_blank" rel="noopener">WebLab4u</a></p></div>
 </footer>
@@ -434,7 +434,7 @@ def why_block():
     ] + ([("clipboard", "Our guarantee", GUARANTEE)] if GUARANTEE else [])
     lis = "".join(f'<li><span class="card-icon">{icon(i)}</span><h3>{t}</h3><p>{d}</p></li>' for i, t, d in items)
     lis += fill_cta(len(items), (4, 2), "li", "Ready when you are", "Call us or send the form. Quotes are free, guaranteed and come with your rebate estimate.")
-    return f'<section class="sec why" id="why-ehi"><div class="wrap"><h2>Why Ontario homes and businesses choose EHI Heating &amp; Cooling</h2><ul class="why-grid">{lis}</ul></div></section>'
+    return f'<section class="sec why" id="why-ehi"><div class="wrap"><h2>Why Ontario homes and businesses choose EHI Heating And Cooling</h2><ul class="why-grid">{lis}</ul></div></section>'
 
 CITY_ALIASES = {"Kitchener": "kitchener-waterloo", "Waterloo": "kitchener-waterloo", "East York": "toronto", "Maple": "vaughan",
                 "Keswick": "georgina", "Bolton": "caledon", "Halton Hills": "georgetown", "Clarington": "bowmanville",
@@ -464,7 +464,7 @@ def brands_block():
 
 def map_iframe(h=380):
     return (f'<div class="map-wrap"><iframe src="{MAP_EMBED}" width="100%" height="{h}" style="border:0" loading="lazy" allowfullscreen '
-            f'referrerpolicy="no-referrer-when-downgrade" title="Map showing EHI Heating and Cooling (Efficient Home Improvements) in Whitchurch-Stouffville, Ontario"></iframe></div>')
+            f'referrerpolicy="no-referrer-when-downgrade" title="Map showing EHI Heating And Cooling (Efficient Home Improvements) in Whitchurch-Stouffville, Ontario"></iframe></div>')
 
 def gbp_block(b=None):
     b = b or {}
@@ -472,11 +472,11 @@ def gbp_block(b=None):
     rating = (f'<p class="gbp-rating"><span class="stars" aria-hidden="true">{icon("star")*5}</span><strong>{GBP_RATING[0]}</strong>&nbsp;on Google · <a href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">Read reviews</a> · <a href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Write a review</a></p>') if GBP_RATING else \
              f'<p class="gbp-rating"><span class="stars" aria-hidden="true">{icon("star")*5}</span>Rated on Google. <a href="{GBP_URL}" target="_blank" rel="noopener">Read our Google reviews</a></p>'
     return f'''<section class="sec gbp-sec"><div class="wrap">
-  <h2>{b.get("h2", "Find EHI Heating &amp; Cooling on Google")}</h2>
+  <h2>{b.get("h2", "Find EHI Heating And Cooling on Google")}</h2>
   <p class="lead">{b.get("lead", "Verified business listing, office location and hours. We come to your home or business anywhere in our Ontario service area.")}</p>
   <div class="gbp-grid">
     <div class="gbp-info">
-      <h3>{esc(LEGAL)} <span class="small">(EHI Heating &amp; Cooling)</span></h3>
+      <h3>{esc(BRAND)} <span class="small">({esc(LEGAL)})</span></h3>
       {rating}
       <ul class="gbp-list">
         <li>{icon("phone")}<span><strong>Phone</strong><br><a href="tel:{PHONE_TEL}">{PHONE}</a></span></li>
@@ -616,8 +616,8 @@ def review_card(r, i, cls="review"):
 
 def g_reviews_block(b):
     rating = GBP_RATING[0] if GBP_RATING else ""
-    summary = (f'<aside class="g-summary"><img src="/assets/img/ehi-icon.png" alt="EHI Heating and Cooling" width="56" height="56">'
-               f'<a class="g-name" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">EHI Heating &amp; Cooling (Efficient Home Improvements)</a>'
+    summary = (f'<aside class="g-summary"><img src="/assets/img/ehi-icon.png" alt="EHI Heating And Cooling" width="56" height="56">'
+               f'<a class="g-name" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">EHI Heating And Cooling (Efficient Home Improvements)</a>'
                f'<p class="g-rate"><strong>{rating}</strong><span class="stars" aria-hidden="true">{icon("star")*5}</span></p>'
                f'<p class="g-powered">Powered by {google_g()} Google</p>'
                f'<a class="btn btn-primary" href="{GBP_WRITE_REVIEW_URL}" target="_blank" rel="noopener">Review us on Google</a>'
@@ -713,7 +713,7 @@ def photo_hero(page):
       <ul class="hero-points two">{pts}</ul>
     </div>
     <div class="hh-visual">
-      <picture><source media="(max-width:767px)" srcset="/assets/img/ehi-team-mobile.webp"><img class="hh-photo" src="{page["hero_photo"]}" alt="{esc(page.get("hero_photo_alt","The EHI Heating and Cooling team"))}" width="1800" height="982" fetchpriority="high"></picture>
+      <picture><source media="(max-width:767px)" srcset="/assets/img/ehi-team-mobile.webp"><img class="hh-photo" src="{page["hero_photo"]}" alt="{esc(page.get("hero_photo_alt","The EHI Heating And Cooling team"))}" width="1800" height="982" fetchpriority="high"></picture>
       {badge}
     </div>
   </div>
@@ -838,9 +838,8 @@ def render(page):
         body += out
     if page.get("city_service"):
         body += reviews_block({"city": page["city_service"]})
-        cn = CITY_BY_SLUG[page["city_service"]]["name"]
-        body += gbp_block({"h2": f"Our office, hours and how to reach us from {esc(cn)}", "lead": "We're a service-area business based in Whitchurch-Stouffville. Our crews come to you."})
-        body += nearby_block({"city": page["city_service"], "nearby_h2": f"More HVAC help in {esc(cn)} and nearby"})
+        body += city_map_block(page["city_service"])
+        body += nearby_block({"city": page["city_service"], "nearby_h2": f"More HVAC help in {esc(CITY_BY_SLUG[page['city_service']]['name'])} and nearby"})
     if page["url"].startswith(SERVICE_PREFIXES) and page["url"] != "/services/" and not page.get("no_gbp"):
         body += gbp_block({"h2": "Serving Ontario from our Stouffville office", "lead": "Find us on Google, get directions, or check our hours. Our crews travel to your home or business across the province."})
     if page.get("city"):
@@ -848,8 +847,7 @@ def render(page):
         if not any(b["type"] in ("reviews", "g_reviews", "testimonials") for b in page.get("blocks", [])):
             body += reviews_block(page)
         if not any(b["type"] == "gbp" for b in page.get("blocks", [])):
-            cn = CITY_BY_SLUG[page["city"]]["name"]
-            body += gbp_block({"h2": f"Our office, hours and how to reach us from {esc(cn)}", "lead": "We're a service-area business based in Whitchurch-Stouffville. Our crews come to you; the office is where quotes, permits and rebate paperwork get done."})
+            body += city_map_block(page["city"])
         body += nearby_block(page)
     if page.get("faqs"):
         body += with_variant(faq_block(page["faqs"], page.get("faq_h2", "Frequently asked questions")), "faq", page)[0]
@@ -1040,6 +1038,8 @@ SVC_ICON = {"/furnace/": "furnace", "/furnace/repair-maintenance/": "wrench", "/
 
 def city_block(b, page):
     t = b["type"]; c = CITY_BY_SLUG[page.get("city") or page["city_service"]]
+    if t == "gbp":
+        return city_map_block(page.get("city") or page["city_service"])
     if t == "cost_guide":
         keys = b.get("keys", ["furnace_repair", "ac_repair", "furnace_install", "ac_install", "heat_pump_ducted", "ductless_single", "tankless_install"])
         rows = "".join(f'<tr><td><strong>{PRICING.LABELS[k][0]}</strong><br><small>{PRICING.LABELS[k][1]}</small></td><td class="num">{PRICING.price_cell(k)}</td></tr>' for k in keys)
@@ -1084,6 +1084,31 @@ def city_block(b, page):
         k = b["_imgs"][0]
         return render_block(dict(b, image=CITY_PHOTOS[k][1], image_src=f"/assets/img/work/{k}.webp", image_fit="cover"), page)
     return None
+
+HOURS = [("Monday", "8:00 AM to 8:00 PM"), ("Tuesday", "8:00 AM to 8:00 PM"), ("Wednesday", "8:00 AM to 8:00 PM"), ("Thursday", "8:00 AM to 8:00 PM"),
+         ("Friday", "8:00 AM to 8:00 PM"), ("Saturday", "8:00 AM to 8:00 PM"), ("Sunday", "10:00 AM to 5:00 PM")]
+
+def city_map_block(slug):
+    """Contact and map section for city and city-service pages. The office address is shown only on the
+    Stouffville page, where the Google Business Profile is; every page embeds the GBP map with its rating."""
+    c = CITY_BY_SLUG[slug]; cn = esc(c["name"]); home = slug == "stouffville"
+    intro = (f"{esc(BRAND)} has kept Ontario homes and businesses comfortable for more than 20 years. Our office is right here on Bloomington Road, and our licensed crews are out across {cn} and the rest of Whitchurch-Stouffville every day."
+             if home else
+             f"{esc(BRAND)} has kept Ontario homes and businesses comfortable for more than 20 years. Our licensed crews come to your home or business anywhere in {cn}, with a written, guaranteed quote before any work starts.")
+    rows = (f'<li><span class="cm-ic">{icon("phone")}</span><span><strong>Phone</strong><a href="tel:{PHONE_TEL}">{PHONE}</a></span></li>'
+            f'<li><span class="cm-ic">{icon("chat")}</span><span><strong>Email</strong><a href="mailto:{EMAIL}">{EMAIL}</a></span></li>')
+    if home:
+        rows += (f'<li><span class="cm-ic">{icon("pin")}</span><span><strong>Office</strong><a href="{GBP_URL}" target="_blank" rel="noopener">'
+                 f'{ADDRESS["street"]}, {ADDRESS["city"]}, {ADDRESS["region"]} {ADDRESS["postal"]}</a></span></li>')
+    hours = "".join(f'<li><span>{d}</span><span>{h}</span></li>' for d, h in HOURS)
+    return (f'<section class="sec city-map-sec"><div class="wrap">'
+            f'<p class="cm-kicker">Licensed HVAC Contractor · Serving Ontario for 20+ Years</p>'
+            f'<h2>Proudly Serving {cn}{", Ontario" if not home else " From Our Bloomington Road Office"}</h2>'
+            f'<p class="cm-intro">{intro}</p>'
+            f'<div class="cm-grid"><div class="cm-info"><ul class="cm-contact">{rows}</ul>'
+            f'<div class="cm-hours"><h3>Business Hours</h3><ul>{hours}</ul><p>Emergency service available evenings, weekends and holidays.</p></div></div>'
+            f'<div class="cm-map"><iframe src="{MAP_EMBED}" width="100%" height="460" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" '
+            f'title="Google map and reviews for {esc(BRAND)}"></iframe></div></div></div></section>')
 
 def city_local_links(page):
     """Links from a city page to its own service pages and guide, when they exist."""
@@ -1254,7 +1279,7 @@ def main():
     open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(render({
         "url": "/404/", "title": "Page Not Found", "description": "That page moved or never existed. Find HVAC services, rebates and contact info here.",
         "robots": "noindex, follow", "h1": "Hmm, that page isn't here", "intro": "<p>The link may be old, or the page moved. Here's where most people are headed.</p>",
-        "hero_points": [], "hero_image": "The EHI Heating and Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
+        "hero_points": [], "hero_image": "The EHI Heating And Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
         "blocks": [{"type": "cards", "items": [{"title": t, "text": b, "link": u} for u, (t, b) in REG.items() if u in ("/heat-pump/", "/furnace/", "/ac/", "/services/emergency-hvac/", "/heat-pump-rebates/", "/contact/")]}]}))
     print(f"Built {len(pages)} pages -> {OUT}")
     reused = sorted(((v, k) for k, v in photo_usage.items() if v > 1), reverse=True)

@@ -6,7 +6,7 @@ PAGE = {
  "priority": "0.7",
  "eyebrow": "Brands We Install",
  "h1": "Authorized Midea, Lennox, Kepler and Rinnai Dealer: Installation, Repair and Maintenance in Ontario",
- "intro": "<p>EHI Heating &amp; Cooling is an authorized Midea, Lennox, Kepler and Rinnai dealer serving Ontario homes and businesses. Pick a brand below for models, pricing and what's included.</p>",
+ "intro": "<p>EHI Heating And Cooling is an authorized Midea, Lennox, Kepler and Rinnai dealer serving Ontario homes and businesses. Pick a brand below for models, pricing and what's included.</p>",
  "hero_points": [
    "Authorized dealer for Midea, Lennox, Kepler and Rinnai",
    "Factory warranties registered for you, up to 12 years parts and labour on select systems",

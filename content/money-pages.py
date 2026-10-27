@@ -5,7 +5,7 @@ FINANCING = {
  "priority": "0.7",
  "eyebrow": "HVAC Financing",
  "h1": "HVAC Financing in Ontario: 0% Interest for 3, 6 or 9 Months",
- "intro": "<p>A furnace that dies in February doesn't wait for payday. EHI Heating &amp; Cooling offers furnace financing, heat pump financing and air conditioner financing so you can replace the equipment now and pay over time. Interest-free terms of 3, 6 or 9 months are available, plus open loans starting at 2.99% on approved credit.</p>",
+ "intro": "<p>A furnace that dies in February doesn't wait for payday. EHI Heating And Cooling offers furnace financing, heat pump financing and air conditioner financing so you can replace the equipment now and pay over time. Interest-free terms of 3, 6 or 9 months are available, plus open loans starting at 2.99% on approved credit.</p>",
  "hero_points": ["0% interest for 3, 6 or 9 months", "Open loans from 2.99%, pay off early with no penalty", "Combine with up to $7,500 in heat pump rebates", "Quick approval, usually same day"],
  "hero_image": "Parent and child relaxing in a comfortable home", "hero_img": "/assets/img/brands/lennox-home-comfort.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 50%", "hero_img_credit": "Image: Lennox",
  "service": {"name": "HVAC Financing", "type": "Consumer financing for HVAC equipment installation"},
@@ -42,9 +42,9 @@ OFFERS = {
  "priority": "0.6",
  "eyebrow": "Offers & Price Match",
  "h1": "Current Offers and Our Price Match Promise",
- "intro": "<p>Two things never change at EHI Heating &amp; Cooling: the price on your quote is the price on your invoice, and if you bring us a comparable quote from another reputable Ontario contractor, we may beat it by up to 10%. Seasonal offers come and go. Those two promises don't.</p>",
+ "intro": "<p>Two things never change at EHI Heating And Cooling: the price on your quote is the price on your invoice, and if you bring us a comparable quote from another reputable Ontario contractor, we may beat it by up to 10%. Seasonal offers come and go. Those two promises don't.</p>",
  "hero_points": ["Guaranteed final pricing, no last-minute extras", "We may beat comparable reputable quotes by up to 10%", "Rebates up to $7,500 and 0% financing stack with promotions", "Promotions apply across our Ontario service area"],
- "hero_image": "The EHI Heating and Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
+ "hero_image": "The EHI Heating And Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
  "blocks": [
   {"type": "cards", "h2": "Always-on offers", "items": [
     {"icon": "dollar", "title": "Guaranteed final pricing", "text": "The agreed scope of work is priced once. If we missed something on our side, that's on us, not your invoice."},
@@ -71,7 +71,7 @@ WARRANTY = {
  "priority": "0.6",
  "eyebrow": "Warranty",
  "h1": "HVAC Warranty Coverage: Up to 12 Years Parts and Labour",
- "intro": "<p>A warranty is only as good as the contractor standing behind it. EHI Heating &amp; Cooling installs Midea, Lennox, Kepler and Rinnai equipment with full manufacturer coverage, and on select systems we offer up to 12 years parts and 12 years labour. We register the warranty for you so it's valid from day one.</p>",
+ "intro": "<p>A warranty is only as good as the contractor standing behind it. EHI Heating And Cooling installs Midea, Lennox, Kepler and Rinnai equipment with full manufacturer coverage, and on select systems we offer up to 12 years parts and 12 years labour. We register the warranty for you so it's valid from day one.</p>",
  "hero_points": ["Up to 12 years parts and 12 years labour on select systems", "Manufacturer warranty registered by us after install", "Rinnai extended coverage available by package", "Annual maintenance keeps your coverage valid"],
  "hero_image": "Midea two-stage gas furnace installed in a furnace room, installed by EHI", "hero_img": "/assets/img/work/midea-gas-furnace-installed.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 55%", "hero_img_credit": "EHI install",
  "blocks": [
