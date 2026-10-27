@@ -71,7 +71,7 @@ WARRANTY = {
  "priority": "0.6",
  "eyebrow": "Warranty",
  "h1": "HVAC Warranty Coverage: Up to 12 Years Parts and Labour",
- "intro": "<p>A warranty is only as good as the contractor standing behind it. EHI Heating And Cooling installs Midea, Lennox, Kepler and Rinnai equipment with full manufacturer coverage, and on select systems we offer up to 12 years parts and 12 years labour. We register the warranty for you so it's valid from day one.</p>",
+ "intro": "<p>A warranty is only as good as the contractor standing behind it. EHI Heating And Cooling installs Midea, Lennox, Kepler, Rinnai and Goodman equipment with full manufacturer coverage, and on select systems we offer up to 12 years parts and 12 years labour. We register the warranty for you so it's valid from day one.</p>",
  "hero_points": ["Up to 12 years parts and 12 years labour on select systems", "Manufacturer warranty registered by us after install", "Rinnai extended coverage available by package", "Annual maintenance keeps your coverage valid"],
  "hero_image": "Midea two-stage gas furnace installed in a furnace room, installed by EHI", "hero_img": "/assets/img/work/midea-gas-furnace-installed.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 55%", "hero_img_credit": "EHI install",
  "blocks": [

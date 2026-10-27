@@ -64,5 +64,5 @@ PAGE = {
   ("Do gas-heated homes qualify for the Ontario heat pump rebate?", "Yes, at a smaller tier. Under the Home Renovation Savings Program, homes heated by Enbridge natural gas can receive a rebate on a qualified cold-climate heat pump, commonly up to $2,000, while electric, oil, propane and wood heated homes can receive up to $7,500. Pre-approval must be in place before installation, and program terms can change."),
   ("Which furnace works best with a heat pump?", "A two-stage, variable-speed furnace such as the Lennox ML296V, Lennox EL297V or Midea MGH96 works best, because its blower can match the airflow the heat pump needs in both heating and cooling. Single-stage furnaces with older blowers can work but limit performance."),
  ],
- "related": ["/heat-pump/", "/furnace/", "/furnace/high-efficiency/", "/brands/lennox-furnaces/", "/heat-pump/central/", "/heat-pump-rebates/"],
+ "related": ["/heat-pump/", "/furnace/", "/furnace/high-efficiency/", "/brands/lennox-furnaces/", "/brands/goodman/", "/heat-pump/central/", "/heat-pump-rebates/"],
 }

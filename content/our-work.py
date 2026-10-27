@@ -7,7 +7,7 @@ PAGE = {
  "h1": "Our Work Across Ontario",
  "tagline": "Real Installs by Licensed EHI Crews",
  "intro": "<p>A look at recent heat pump, furnace, AC, ductless and tankless installations in Ontario homes and businesses. Clean installs, tidy line sets and systems sized to the home.</p>",
- "hero_points": ["Cold-climate heat pumps, furnaces, AC and tankless", "Residential and commercial projects", "Midea, Lennox, Kepler and Rinnai equipment", "Every job sized, permitted and registered"],
+ "hero_points": ["Cold-climate heat pumps, furnaces, AC and tankless", "Residential and commercial projects", "Midea, Lennox, Kepler, Rinnai and Goodman equipment", "Every job sized, permitted and registered"],
  "hero_image": "Midea ductless heat pump outdoor unit on a stand beside a brick home, installed by EHI",
  "hero_img": "/assets/img/work/midea-ductless-outdoor-brick-home.webp", "hero_img_fit": "cover", "hero_img_credit": "EHI install", "hero_img_pos": "50% 70%",
  "blocks": [

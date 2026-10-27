@@ -25,8 +25,9 @@ PAGE = {
     {"problem": "You are wondering if a heat pump makes more sense", "solution": "It often does. A cold-climate heat pump cools exactly like an AC and also heats your home, and a qualifying model can bring back up to $7,500 through the Home Renovation Savings Program. Read about <a href=\"/heat-pump/\">heat pump installation</a> before you buy a plain AC."},
     {"problem": "Someone quoted you a new condenser without touching the furnace coil", "solution": "The evaporator coil inside your furnace must match the new outdoor unit, or you lose efficiency and risk the warranty. Every EHI air conditioner installation includes a matched coil and a new line set where needed."},
   ]},
-  {"type": "cards", "h2": "Central air conditioning systems we install", "lead": "We are an authorized dealer for Lennox and Midea, so you get factory-backed equipment and warranties registered in your name.", "items": [
+  {"type": "cards", "h2": "Central air conditioning systems we install", "lead": "We are an authorized dealer for Lennox and Midea and we install Goodman too, so you get factory-backed equipment and warranties registered in your name.", "items": [
     {"icon": "ac", "title": "Lennox central air conditioners", "text": "Single-stage, two-stage and variable-speed condensers in 1.5 to 5 ton. Quiet, efficient and built for Ontario summers.", "link": "/brands/lennox-air-conditioners/"},
+    {"icon": "ac", "title": "Goodman central air conditioners", "text": "Goodman GSXH5 condensers up to 15.2 SEER2 in 1.5 to 5 ton. A dependable, fairly priced choice, matched to a coil that fits your furnace.", "link": "/brands/goodman/"},
     {"icon": "heatpump", "title": "Midea inverter air conditioning and heat pumps", "text": "Midea EVOX G3 inverter systems use R-454B low-GWP refrigerant and modulate output to match the heat load, so they hold a steady temperature without cycling on and off.", "link": "/brands/midea-heat-pumps/"},
     {"icon": "heatpump", "title": "Cold-climate heat pump instead of an AC", "text": "Same cooling as a central AC, plus heating rated to -30°C. From $5,500 installed, and rebate-eligible. Pairs with your gas furnace as a hybrid system.", "link": "/heat-pump/hybrid-furnace-systems/"},
     {"icon": "ductless", "title": "Ductless for homes without ducts", "text": "Bungalows, additions and condos with no ductwork get a Midea single-zone or multi-zone ductless system instead.", "link": "/ac/ductless-mini-split/"},
@@ -69,5 +70,5 @@ PAGE = {
   ("Do I need a new coil on my furnace when I replace the AC?", "Yes, in almost every case. The evaporator coil must match the capacity and refrigerant of the new outdoor unit, or the system will not reach its rated efficiency and the manufacturer may not honour the warranty. EHI includes a matched coil in every air conditioner replacement."),
   ("Can you install an air conditioner in a house with no ducts?", "Yes. A ductless mini-split or multi-zone system cools and heats rooms without any ductwork, which suits bungalows with baseboard heat, additions and condos. See our <a href=\"/ac/ductless-mini-split/\">ductless mini-split installation</a> page for options and pricing."),
  ],
- "related": ["/ac/repair-maintenance/", "/heat-pump/", "/ac/ductless-mini-split/", "/brands/lennox-air-conditioners/", "/services/hvac-installation-replacement/", "/financing/"],
+ "related": ["/ac/repair-maintenance/", "/heat-pump/", "/ac/ductless-mini-split/", "/brands/lennox-air-conditioners/", "/brands/goodman/", "/services/hvac-installation-replacement/", "/financing/"],
 }

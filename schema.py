@@ -107,7 +107,7 @@ def business():
         "knowsAbout": KEYWORDS,
         "keywords": ", ".join(KEYWORDS),
         "award": ["HomeStars Best Company 2019", "HomeStars Best Company 2020", "HomeStars Best Company 2021"],
-        "brand": [{"@type": "Brand", "name": n} for n in ["Midea", "Lennox", "Kepler", "Rinnai"]],
+        "brand": [{"@type": "Brand", "name": n} for n in ["Midea", "Lennox", "Kepler", "Rinnai", "Goodman"]],
         "areaServed": [city_place(c["slug"]) for c in B.CITIES] + [{"@type": "State", "name": "Ontario", "containedInPlace": {"@type": "Country", "name": "Canada"}}],
         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "HVAC services in Ontario",
                             "itemListElement": [_offer(n, u, k) for n, u, k in CORE_SERVICES if u in B.REG]},
@@ -183,7 +183,7 @@ def graph(page, canonical, crumbs_ld):
                   "availableChannel": {"@type": "ServiceChannel", "serviceUrl": canonical, "servicePhone": {"@type": "ContactPoint", "telephone": B.PHONE_TEL, "contactType": "customer service"}},
                   "hasOfferCatalog": city_catalog(page["city"]),
                   "audience": {"@type": "Audience", "audienceType": "Homeowners, landlords and businesses in " + n},
-                  "brand": [{"@type": "Brand", "name": b} for b in ["Midea", "Lennox", "Kepler", "Rinnai"]],
+                  "brand": [{"@type": "Brand", "name": b} for b in ["Midea", "Lennox", "Kepler", "Rinnai", "Goodman"]],
                   "termsOfService": B.SITE + "/terms/"})
     elif page.get("city_service"):
         slug = page["city_service"]; n = B.CITY_BY_SLUG[slug]["name"]; s = page.get("service", {})

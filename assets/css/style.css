@@ -461,7 +461,7 @@ body{padding-bottom:70px}
 .partners-label{display:flex;align-items:center;gap:18px;margin:0 0 20px;font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .partners-label::before,.partners-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line))}
 .partners-label::after{background:linear-gradient(90deg,var(--line),transparent)}
-.partners-logos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);align-items:center;gap:16px}
+.partners-logos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:16px}
 .partners-logos li{display:flex;align-items:center;justify-content:center;height:56px}
 .partners-logos img{width:auto;max-width:100%;object-fit:contain;opacity:.95;transition:filter .25s,opacity .25s,transform .25s}
 .partners-logos li:hover img{filter:grayscale(1) sepia(1) hue-rotate(88deg) saturate(5) brightness(.72);opacity:1;transform:translateY(-1px)}
@@ -469,9 +469,10 @@ body{padding-bottom:70px}
 .partners-logos .p-lennox img{height:40px}
 .partners-logos .p-kepler img{height:34px}
 .partners-logos .p-rinnai img{height:32px}
+.partners-logos .p-goodman img{height:36px}
 .partners-logos .wordmark{font-weight:800;font-size:1.25rem;color:var(--navy);letter-spacing:.06em}
 .partners-logos li:hover .wordmark{color:var(--green-dark)}
-@media(max-width:600px){.partners{padding:22px 0}.partners-logos{grid-template-columns:repeat(2,1fr);gap:10px 16px}.partners-logos li{height:48px}.partners-logos .p-midea img{height:38px}.partners-logos .p-lennox img{height:32px}.partners-logos .p-kepler img{height:28px}.partners-logos .p-rinnai img{height:26px}}
+@media(max-width:600px){.partners{padding:22px 0}.partners-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 16px}.partners-logos li{height:48px;flex:0 0 calc((100% - 32px)/3)}.partners-logos .p-goodman img{height:26px}.partners-logos .p-midea img{height:38px}.partners-logos .p-lennox img{height:32px}.partners-logos .p-kepler img{height:28px}.partners-logos .p-rinnai img{height:26px}}
 .promo+.partners{margin-top:28px;border-top:1px solid var(--line)}
 
 .gbp-office{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line)}

@@ -27,7 +27,7 @@ ABOUT = {
  "faqs": [
   ("Where is EHI Heating And Cooling located?", "Our office is at 4261 Bloomington Road, Whitchurch-Stouffville, Ontario. We're a service-area business, so our crews travel to homes across the GTA and most of Ontario."),
   ("How long has EHI been in business?", "EHI has more than 20 years of experience installing and servicing heating and cooling systems in Ontario homes."),
-  ("Are you an authorized dealer?", "Yes. EHI is an authorized dealer for Midea, Lennox, Kepler and Rinnai, which means factory-backed equipment, warranty support and training on the systems we install."),
+  ("Are you an authorized dealer?", "Yes. EHI is an authorized dealer for Midea, Lennox, Kepler and Rinnai, which means factory-backed equipment, warranty support and training on the systems we install. We also install and service Goodman furnaces, air conditioners and heat pumps."),
   ("Do you do commercial HVAC?", "Yes. Alongside residential work, EHI installs and services HVAC for offices, retail units, restaurants, warehouses, clinics and multi-unit buildings across Ontario, including rooftop units, split systems, ductless heat pumps, furnaces and commercial tankless hot water. Maintenance agreements with priority emergency response are available."),
  ],
  "related": ["/reviews/", "/service-areas/", "/brands/", "/warranty/", "/contact/"],

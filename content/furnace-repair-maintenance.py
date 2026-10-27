@@ -47,7 +47,7 @@ PAGE = {
   {"type": "money", "h2": "Furnace repair and maintenance cost", "items": [
     {"icon": "clipboard", "title": "Written quote after diagnosis", "text": "We state the diagnostic fee when you book and quote the repair in writing before any work. Simple parts like ignitors and flame sensors sit at the low end; blower motors and control boards cost more."},
     {"icon": "calendar", "title": "Annual tune-up", "text": "One fall visit keeps the warranty valid, cuts gas use and catches the small faults that become January emergencies. Ask for tune-up pricing when you call."},
-    {"icon": "tag", "title": "Every major brand", "text": "Lennox, Midea, Kepler and other furnaces sold in Ontario. Common parts ride on the truck."},
+    {"icon": "tag", "title": "Every major brand", "text": "Lennox, Midea, Kepler, <a href='/brands/goodman/'>Goodman</a> and other furnaces sold in Ontario. Common parts ride on the truck."},
     {"icon": "percent", "title": "Financing if it's time to replace", "text": "<a href=\"/financing/\">0% for 3, 6 or 9 months</a> on approved credit when the repair turns into a new furnace."},
   ]},
   {"type": "why"},

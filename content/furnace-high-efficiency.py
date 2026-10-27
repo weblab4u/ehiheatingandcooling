@@ -62,5 +62,5 @@ PAGE = {
   ("Does a high-efficiency furnace need a chimney?", "No. A condensing furnace vents through two PVC pipes out a side wall or roof, so it doesn't use the chimney. If your water heater also vents through the chimney, we'll check that it can still vent safely on its own."),
   ("Can I pair a high-efficiency furnace with a heat pump?", "Yes. A high-efficiency furnace paired with a cold-climate heat pump is called a hybrid or dual-fuel system. The heat pump handles most of the heating season and the furnace takes over in deep cold, and the heat pump can qualify for the <a href=\"/heat-pump-rebates/\">Ontario heat pump rebate</a>."),
  ],
- "related": ["/furnace/", "/brands/lennox-furnaces/", "/brands/midea-furnace-air-handlers/", "/heat-pump/hybrid-furnace-systems/", "/furnace/repair-maintenance/", "/services/humidifiers/"],
+ "related": ["/furnace/", "/brands/lennox-furnaces/", "/brands/midea-furnace-air-handlers/", "/brands/goodman/", "/heat-pump/hybrid-furnace-systems/", "/furnace/repair-maintenance/", "/services/humidifiers/"],
 }

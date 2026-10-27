@@ -25,10 +25,11 @@ PAGE = {
     {"problem": "You've had a cracked heat exchanger or CO scare", "solution": "A cracked heat exchanger is a replace-now situation. We install a new furnace, test for carbon monoxide, and leave you with a working CO alarm checklist."},
     {"problem": "You're thinking about a heat pump but want gas backup", "solution": "A new furnace pairs with a cold-climate heat pump as a <a href=\"/heat-pump/hybrid-furnace-systems/\">hybrid system</a>. The heat pump does most of the work and the furnace handles the deep cold. It also qualifies for the Ontario rebate."},
   ]},
-  {"type": "cards", "h2": "Gas furnaces we install", "lead": "We're an authorized Lennox and Midea dealer. Every model below is two-stage, variable-speed and condensing, which is what you want for an Ontario winter.", "items": [
+  {"type": "cards", "h2": "Gas furnaces we install", "lead": "We're an authorized Lennox and Midea dealer, and we install Goodman too. Every model below is two-stage, variable-speed and condensing, which is what you want for an Ontario winter.", "items": [
     {"icon": "furnace", "title": "Lennox ML296V", "text": "96% AFUE, two-stage, variable-speed ECM blower, 45,000 to 110,000 BTU. The workhorse for most homes we see.", "link": "/brands/lennox-furnaces/"},
     {"icon": "furnace", "title": "Lennox EL297V", "text": "97% AFUE, two-stage, variable-speed. Lennox's quietest and most efficient two-stage furnace, ideal if you're staying put for years.", "link": "/brands/lennox-furnaces/"},
     {"icon": "furnace", "title": "Midea MGH96", "text": "96.5% AFUE, two-stage, variable-speed, 60,000 to 120,000 BTU. Strong value and a natural match for a Midea EVOX G3 heat pump in a hybrid.", "link": "/brands/midea-furnace-air-handlers/"},
+    {"icon": "furnace", "title": "Goodman GMVC96", "text": "Up to 96% AFUE, two-stage, variable-speed ECM blower, 40,000 to 120,000 BTU/h. A dependable, fairly priced furnace with long Goodman warranties once registered.", "link": "/brands/goodman/"},
     {"icon": "heatpump", "title": "Furnace + heat pump hybrid", "text": "Any of the above paired with a Midea or Kepler cold-climate heat pump rated to -30°C. Lowest running cost for gas-heated homes.", "link": "/heat-pump/hybrid-furnace-systems/"},
   ]},
   {"type": "checklist", "h2": "What's included in every EHI furnace installation", "image": "Furnace with matched coil and supply plenum in a utility room, installed by EHI", "image_src": "/assets/img/work/furnace-coil-utility-room.webp", "image_fit": "cover", "image_credit": "EHI install", "image_pos": "50% 60%", "items": [
@@ -67,5 +68,5 @@ PAGE = {
   ("Are there furnace rebates in Ontario?", "A gas furnace on its own does not currently qualify for the Home Renovation Savings Program. Pairing it with a cold-climate heat pump as a hybrid system can qualify for up to $2,000 for Enbridge gas-heated homes. See our <a href=\"/heat-pump-rebates/\">Ontario rebate guide</a>."),
   ("Do you install natural gas furnaces outside the GTA?", "Yes. EHI installs natural gas furnaces across Ontario, including Barrie, Hamilton, Kitchener-Waterloo, London, Kingston, Ottawa and Sudbury."),
  ],
- "related": ["/furnace/high-efficiency/", "/furnace/repair-maintenance/", "/brands/lennox-furnaces/", "/brands/midea-furnace-air-handlers/", "/heat-pump/hybrid-furnace-systems/", "/financing/"],
+ "related": ["/furnace/high-efficiency/", "/furnace/repair-maintenance/", "/brands/lennox-furnaces/", "/brands/midea-furnace-air-handlers/", "/brands/goodman/", "/heat-pump/hybrid-furnace-systems/", "/financing/"],
 }

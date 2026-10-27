@@ -34,7 +34,8 @@ EQUIPMENT_IMG = {"Lennox ML296V": "lennox-ml296v-furnace", "Lennox EL297V": "len
 EQUIPMENT = {
  "furnaces": [("Lennox ML296V", "Gas furnace", "96% AFUE, two-stage, variable-speed blower, 45,000 to 110,000 BTU", "20-year limited heat exchanger warranty"),
               ("Lennox EL297V", "Gas furnace", "97% AFUE, two-stage, variable-speed blower", "20-year limited heat exchanger warranty"),
-              ("Midea MGH96", "Gas furnace", "96.5% AFUE, two-stage, variable-speed, 60,000 to 120,000 BTU", "Registered warranty, up to 12 years parts and labour on select systems")],
+              ("Midea MGH96", "Gas furnace", "96.5% AFUE, two-stage, variable-speed, 60,000 to 120,000 BTU", "Registered warranty, up to 12 years parts and labour on select systems"),
+              ("Goodman GMVC96", "Gas furnace", "Up to 96% AFUE, two-stage, variable-speed ECM blower, 40,000 to 120,000 BTU/h input", "10-year parts and unit replacement limited warranties when registered online")],
  "heat_pumps": [("Midea EVOX G3", "Cold-climate ducted heat pump", "2 to 5 ton, inverter, R-454B, ENERGY STAR cold climate, rated to -30°C", "Up to 12 years parts and labour on select systems"),
                 ("Kepler cold-climate", "Ducted heat pump", "1.5 to 5 ton, rated to -30°C, quiet operation", "Registered warranty"),
                 ("Midea ductless", "Single and multi-zone", "18,000 to 60,000 BTU outdoor units, wall-mounted heads", "Registered warranty")],
