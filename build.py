@@ -3,7 +3,7 @@
 Usage: python3 build.py   -> writes ./site/
 Each page lives in content/<name>.py and defines PAGE = {...} (see content/heat-pump.py for the exemplar).
 """
-import os, re, json, glob, importlib.util, html, datetime, shutil
+import os, sys, re, json, glob, importlib.util, html, datetime, shutil
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "site")
@@ -747,28 +747,6 @@ def _review_date(d):
     if m.group(1) and m.group(1).lower() in months: return f"{m.group(2)}-{months.index(m.group(1).lower())+1:02d}"
     return m.group(2)
 
-def local_business_ld():
-    return {
-        "@type": "HVACBusiness", "@id": SITE + "/#organization", "name": SITE_NAME, "alternateName": [LEGAL, "EHI"],
-        "url": SITE + "/", "logo": SITE + "/assets/img/ehi-logo.webp", "image": SITE + "/assets/img/ehi-logo.webp",
-        "telephone": PHONE_TEL, "email": EMAIL, "priceRange": "$$",
-        **({"aggregateRating": {"@type": "AggregateRating", "ratingValue": GBP_RATING[0], "reviewCount": GBP_RATING[1], "bestRating": "5", "worstRating": "1"}} if GBP_RATING else {}),
-        **({"review": [{"@type": "Review", "author": {"@type": "Person", "name": r.get("name", "Google reviewer")}, "reviewRating": {"@type": "Rating", "ratingValue": str(r.get("stars", 5)), "bestRating": "5"},
-                        "reviewBody": r["text"], **({"datePublished": _review_date(r["date"])} if _review_date(r.get("date")) else {})} for r in load_reviews()[:5]]} if load_reviews() else {}),
-        **({"hasCredential": [{"@type": "EducationalOccupationalCredential", "name": n} for n in ([f"TSSA contractor registration {TSSA_NUMBER}"] if TSSA_NUMBER else []) + ([f"ESA/ECRA licence {ESA_NUMBER}"] if ESA_NUMBER else [])]} if (TSSA_NUMBER or ESA_NUMBER) else {}),
-        "address": {"@type": "PostalAddress", "streetAddress": ADDRESS["street"], "addressLocality": ADDRESS["city"],
-                    "addressRegion": ADDRESS["region"], "postalCode": ADDRESS["postal"], "addressCountry": "CA"},
-        "areaServed": [{"@type": "City", "name": a + ", ON"} for a in AREAS] + [{"@type": "State", "name": "Ontario"}],
-        "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "08:00", "closes": "20:00"},
-                                      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday"], "opens": "10:00", "closes": "17:00"}],
-        "brand": [{"@type": "Brand", "name": n} for n in ["Midea", "Lennox", "Kepler", "Rinnai"]],
-        "knowsAbout": ["Cold climate heat pumps", "Furnace installation", "Air conditioning", "Ductless mini-splits", "Tankless water heaters", "Ontario heat pump rebates", "Commercial HVAC"],
-        "description": "Residential and commercial HVAC contractor in Ontario: heat pumps, furnaces, air conditioning, ductless, tankless water heaters, rebates and financing.",
-        "sameAs": [GBP_URL],
-        "hasMap": GBP_URL,
-        "geo": {"@type": "GeoCoordinates", "latitude": GBP_LAT, "longitude": GBP_LNG},
-    }
-
 VARIANT_TYPES = {"problems": 0, "cards": 1, "checklist": 2, "steps": 0, "table": 1, "money": 2, "why": 1, "faq": 2, "split": 0, "linkgrid": 1}
 def page_seed(url):
     return sum((i + 1) * ord(c) for i, c in enumerate(url))
@@ -855,32 +833,13 @@ def render(page):
     if page.get("city") or page.get("city_service"):
         body += f'<p class="wrap updated">Page reviewed and updated {datetime.date.fromisoformat(page.get("updated", TODAY)).strftime("%B %d, %Y").replace(" 0", " ")}. Prices, rebates and program terms are checked at each update.</p>'
 
-    graph = [local_business_ld()]
-    graph.append({"@type": "WebPage", "@id": canonical + "#webpage", "url": canonical, "name": page["title"],
-                  "description": page["description"], "isPartOf": {"@id": SITE + "/#website"}, "inLanguage": "en-CA",
-                  "dateModified": TODAY, "about": {"@id": SITE + "/#organization"}})
-    graph.append({"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": SITE_NAME, "alternateName": ["EHI", LEGAL], "publisher": {"@id": SITE + "/#organization"}})
-    if crumbs_ld: graph.append(crumbs_ld)
+    _crumbs_ld = crumbs_ld
     crumbs_top = crumbs_html
     m = re.search(r'<section class="(?:hero [^"]*|banner-hero)"[^>]*>', body) if crumbs_html else None
     if m:
         body = body[:m.end()] + crumbs_html.replace('class="crumbs"', 'class="crumbs in-hero"', 1) + body[m.end():]
         crumbs_top = ""
-    if page.get("service"):
-        s = page["service"]
-        graph.append({"@type": "Service", "name": s["name"], "serviceType": s.get("type", s["name"]), "provider": {"@id": SITE + "/#organization"},
-                      "areaServed": ({"@type": "City", "name": s["area"], "containedInPlace": {"@type": "State", "name": "Ontario"}} if s.get("area") else {"@type": "State", "name": "Ontario"}), "url": canonical, "description": page["description"],
-                      **({"offers": {"@type": "Offer", "priceCurrency": "CAD", "price": s["from_price"], "priceSpecification": {"@type": "PriceSpecification", "minPrice": s["from_price"], "priceCurrency": "CAD"}, "description": "Installed price starting from, varies by size and installation"}} if s.get("from_price") else {})})
-    if page.get("faqs"):
-        graph.append({"@type": "FAQPage", "mainEntity": [
-            {"@type": "Question", "name": re.sub("<[^>]+>", "", q), "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}} for q, a in page["faqs"]]})
-    if page.get("guide"):
-        graph.append({"@type": "Article", "@id": canonical + "#article", "headline": re.sub("<[^>]+>", "", page["h1"]), "description": page["description"],
-                      "author": {"@type": "Organization", "name": SITE_NAME, "@id": SITE + "/#organization"}, "publisher": {"@id": SITE + "/#organization"},
-                      "datePublished": page.get("published", TODAY), "dateModified": page.get("updated", TODAY), "mainEntityOfPage": {"@id": canonical + "#webpage"},
-                      "about": {"@type": "City", "name": page.get("guide_city", "Ontario")}, "inLanguage": "en-CA"})
-    for extra in page.get("extra_ld", []):
-        graph.append(extra)
+    graph = SCHEMA.graph(page, canonical, _crumbs_ld)
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
 
     return f'''<!DOCTYPE html>
@@ -1156,6 +1115,9 @@ def nearby_block(page):
                 f'<a class="more" href="/service-areas/">All service areas{icon("arrow")}</a></div><ul class="region-grid">{cards}</ul></div></section>')
     return out
 
+import schema as SCHEMA
+if SCHEMA.B is None:                    # content files import `build` again; keep the copy that runs the build
+    SCHEMA.B = sys.modules[__name__]
 # ---------------------------------------------------------------- lint
 BANNED = ["meticulous", "navigating", "complexities", "realm", "bespoke", "tailored", "towards", "underpins", "ever changing", "ever-evolving",
           "the world of", "not only", "seeking more than just", "designed to enhance", "it's not merely", "it’s not merely", "our suite", "it is advisable",
@@ -1212,6 +1174,7 @@ HTACCESS = "\n".join([
 ] + [f"RewriteRule ^{re.escape(a).replace(chr(92)+'-', '-')}/?$ {b} [NC,L,R=301]" for a, b in OLD_REDIRECTS] + [""])
 
 def main():
+    SCHEMA.B = sys.modules[__name__]
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"))
