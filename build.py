@@ -427,7 +427,7 @@ def why_block():
     items = [
         ("shield", "20+ years in Ontario homes", "We've installed through more January cold snaps and July heat waves than we can count. That experience shows up in the sizing, the ductwork and the little details."),
         ("star", "Voted Best Company 2019 to 2021", "HomeStars Verified. Our reviews come from real Ontario homeowners and business owners."),
-        ("check", "Authorized Midea, Lennox, Kepler and Rinnai dealer", "Factory-backed equipment, factory-backed warranties, and techs trained on the gear we install. We install and service Goodman too."),
+        ("check", "Authorized Midea, Lennox, Kepler and Rinnai dealer, plus Goodman", "Factory-backed equipment, factory-backed warranties, and techs trained on the gear we install. We install and service Goodman too."),
         ("dollar", "Guaranteed final pricing", "The number on your quote is the number on your invoice. We may also beat comparable reputable quotes by up to 10%."),
         ("leaf", "Rebate paperwork handled", "Pre-approval, heat-loss calculation and documentation for the Home Renovation Savings Program. You just sign."),
         ("wrench", "Licensed, certified crews", "TSSA-certified gas technicians, licensed refrigeration techs and ESA-licensed electrical work on every job."
@@ -734,7 +734,7 @@ def hero(page):
     return f'''<section class="hero {cls}"><div class="wrap hero-grid">
   <div class="hero-copy">{eyebrow}<h1>{page["h1"]}</h1>{f'<p class="tagline">{page["tagline"]}</p>' if page.get("tagline") else ""}{page["intro"]}
     <ul class="hero-points">{pts}</ul>{cta_buttons(page.get("cta_primary","Get a Free Quote"))}
-    <p class="hero-trust">{icon("star")} Voted Best Company 2019 to 2021 · Authorized Midea, Lennox, Kepler &amp; Rinnai dealer · 20+ years</p>
+    <p class="hero-trust">{icon("star")} Voted Best Company 2019 to 2021 · Authorized Midea, Lennox, Kepler &amp; Rinnai dealer, plus Goodman · 20+ years</p>
   </div>
   <div class="hero-side">{right}</div>
 </div></section>'''
@@ -959,7 +959,7 @@ def city_hero(page):
     copy = f'{eyebrow}<h1>{page["h1"]}</h1>{tagline}{page["intro"]}'
     btns = cta_buttons(page.get("cta_primary", "Get a Free Quote"))
     form = form_block({"h3": page.get("form_h3", f"Get your free {c['name']} HVAC quote"), "sub": "Same-day reply in most cases. No pressure, no spam.", "city": c["name"]}, compact=True)
-    trust = f'<p class="hero-trust">{icon("star")} Voted Best Company 2019 to 2021 · Authorized Midea, Lennox, Kepler &amp; Rinnai dealer · 20+ years</p>'
+    trust = f'<p class="hero-trust">{icon("star")} Voted Best Company 2019 to 2021 · Authorized Midea, Lennox, Kepler &amp; Rinnai dealer, plus Goodman · 20+ years</p>'
     if L == "A":
         strip = "".join(city_img(k, "ch-strip-img", eager=(i == 0)) for i, k in enumerate(imgs))
         return (f'<section class="hero city-hero ch-a"><div class="wrap ch-grid"><div class="hero-copy">{copy}<ul class="hero-points">{pts}</ul>{trust}</div>'

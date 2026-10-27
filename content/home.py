@@ -30,7 +30,7 @@ PAGE = {
  "hero_points": [
    "Guaranteed final pricing",
    "0% financing for 3, 6 or 9 months",
-   "Authorized Midea, Lennox, Kepler and Rinnai dealer",
+   "Authorized Midea, Lennox, Kepler and Rinnai dealer, plus Goodman",
    "Up to 12 years parts and labour warranty",
  ],
  "blocks": [
@@ -39,7 +39,7 @@ PAGE = {
   {"type": "stats", "items": [
     {"value": "20+", "label": "years serving Ontario homes"},
     {"value": "$7,500", "label": "max heat pump rebate we help you claim"},
-    {"value": "4", "label": "brands we're authorized to install: Midea, Lennox, Kepler, Rinnai"},
+    {"value": "5", "label": "brands we install and service: Midea, Lennox, Kepler, Rinnai, Goodman"},
     {"value": "12 yrs", "label": "parts and labour coverage on select systems"},
   ]},
   {"type": "linkgrid", "h2": "HVAC services for every season in Ontario", "lead": "Heating, cooling, hot water and air quality for homes and commercial properties. Pick the service you need, or call and we'll point you the right way.", "groups": [
