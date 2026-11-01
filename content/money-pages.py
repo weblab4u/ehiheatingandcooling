@@ -6,7 +6,7 @@ FINANCING = {
  "eyebrow": "HVAC Financing",
  "h1": "HVAC Financing in Ontario: 0% Interest for 3, 6 or 9 Months",
  "intro": "<p>A furnace that dies in February doesn't wait for payday. EHI Heating And Cooling offers furnace financing, heat pump financing and air conditioner financing so you can replace the equipment now and pay over time. Interest-free terms of 3, 6 or 9 months are available, plus open loans starting at 2.99% on approved credit.</p>",
- "hero_points": ["0% interest for 3, 6 or 9 months", "Open loans from 2.99%, pay off early with no penalty", "Combine with up to $7,500 in heat pump rebates", "Quick approval, usually same day"],
+ "hero_points": ["0% interest for 3, 6 or 9 months", "Open loans from 2.99%, pay off early with no penalty", "Combine with up to $7,500 in heat pump rebates for homes heated by electricity, oil or propane", "Quick approval, usually same day"],
  "hero_image": "Parent and child relaxing in a comfortable home", "hero_img": "/assets/img/brands/lennox-home-comfort.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 50%", "hero_img_credit": "Image: Lennox",
  "service": {"name": "HVAC Financing", "type": "Consumer financing for HVAC equipment installation"},
  "blocks": [

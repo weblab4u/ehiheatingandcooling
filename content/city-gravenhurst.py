@@ -7,7 +7,7 @@ PAGE = {
  "tagline": "From May-to-October cottage to a home you can live in all year",
  "intro": "<p>Plenty of HVAC work in Gravenhurst begins with the same plan: the cottage on Lake Muskoka or Gull Lake is about to become a full-time home. That means real winter heat, a way off propane and baseboards, and a plan for the weeks the place still sits empty. We do all three with ductless and ducted cold-climate heat pumps, sized for Muskoka cold and backed by a price you get in writing.</p>",
  "hero_points": ["Ductless heat pumps that heat the whole cottage, no ducts needed", "A path off propane and baseboards, with the old heat kept as backup",
-                 "Outdoor units mounted to suit rock, slopes and deep snow", "Up to $7,500 in rebates for electrically or propane-heated homes"],
+                 "Outdoor units mounted to suit rock, slopes and deep snow", "Up to $7,500 in rebates for homes heated by electricity, oil or propane"],
  "service": {"name": "HVAC services in Gravenhurst", "type": "HVAC contractor", "area": "Gravenhurst"},
  "blocks": [
   {"type": "svc_links", "h2": "HVAC services in Gravenhurst for four-season living",

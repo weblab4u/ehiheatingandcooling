@@ -34,7 +34,7 @@ PAGE = {
     {"url": "/heat-pump/electric-air-handler-systems/", "title": "Heat pump with electric air handler", "text": "An all-electric ducted setup that replaces an oil furnace outright."},
     {"url": "/heat-pump/hybrid-furnace-systems/", "title": "Hybrid heat pump and furnace systems", "text": "Keep a propane furnace as backup and let the heat pump do the heavy lifting."},
     {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in Pembroke", "text": "Keep your current furnace running safely while you plan the switch."},
-    {"url": "/heat-pump-rebates/", "title": "Heat pump rebates for Pembroke homes", "text": "Up to $7,500 for eligible non-gas homes, with the paperwork done for you."}]},
+    {"url": "/heat-pump-rebates/", "title": "Heat pump rebates for Pembroke homes", "text": "Up to $7,500 for eligible homes heated by electricity, oil or propane, with the paperwork done for you."}]},
   {"type": "table", "h2": "What heat pump installation in Pembroke costs",
    "lead": "Starting prices for the systems we install most often in the Valley. Your guaranteed quote replaces these once we've seen the house.",
    "headers": ["System", "Best fit", "Installed price"],

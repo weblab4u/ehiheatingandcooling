@@ -24,7 +24,7 @@ PAGE = {
     {"url": "/heat-pump/hybrid-furnace-systems/", "title": "Hybrid systems with your propane furnace", "text": "Keep the furnace for deep cold and let the heat pump carry the rest."},
     {"url": "/furnace/repair-maintenance/", "title": "Furnace repair in King City", "text": "Propane and natural gas furnaces diagnosed by TSSA-certified technicians."},
     {"url": "/services/emergency-hvac/", "title": "Emergency HVAC in King City", "text": "Evening, weekend and holiday calls for no-heat problems."},
-    {"url": "/heat-pump-rebates/", "title": "Heat pump rebates", "text": "Up to $7,500 for qualifying non-gas homes, with pre-approval handled."}]},
+    {"url": "/heat-pump-rebates/", "title": "Heat pump rebates", "text": "Up to $7,500 for qualifying homes heated by electricity, oil or propane, with pre-approval handled."}]},
   {"type": "problems", "h2": "Problems we solve on King Township estates and farms",
    "lead": "Large homes and rural lots bring their own set of calls.",
    "items": [

@@ -43,7 +43,7 @@ POSTS = [
  ("Ontario Heat Pump Rebate 2026: Eligibility, Amounts and How to Apply", "The plain-language guide to the Home Renovation Savings Program for homeowners who've just left the government site more confused than when they arrived.", "/heat-pump-rebates/"),
  ("Hybrid Heat Pump vs Furnace Replacement: What an Enbridge Gas Home Should Choose", "Run the numbers on a dual-fuel system versus a straight furnace swap, with real Ontario gas and hydro rates.", "/heat-pump/hybrid-furnace-systems/"),
  ("Furnace Not Heating? 7 Things to Check Before You Call", "Thermostat, breaker, filter, condensate, furnace switch, gas valve, error codes. Five minutes that might save a service call.", "/furnace/repair-maintenance/"),
- ("Replacing Electric Baseboards with a Heat Pump: Costs and Savings in Ontario", "Why baseboard and propane homes get the biggest rebate and the biggest bill savings, and what an air handler system actually involves.", "/heat-pump/electric-air-handler-systems/"),
+ ("Replacing Electric Baseboards with a Heat Pump: Costs and Savings in Ontario", "Why electric, oil and propane-heated homes get the biggest rebate and the biggest bill savings, and what an air handler system actually involves.", "/heat-pump/electric-air-handler-systems/"),
  ("Tankless vs Tank Water Heater: Ending the Rental in Ontario", "What a Rinnai tankless costs, what it saves, and what to know about cold inlet water and gas line sizing.", "/water-heater/"),
 ]
 

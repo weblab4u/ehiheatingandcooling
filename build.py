@@ -69,7 +69,7 @@ REG = {
  "/brands/lennox-heat-pumps/": ("Lennox Heat Pumps", "Lennox heat pumps and cold-climate options."),
  "/brands/rinnai-tankless-water-heaters/": ("Rinnai Tankless Water Heaters", "Rinnai RX160iN and RX199iN condensing tankless water heaters."),
  "/brands/goodman/": ("Goodman Furnaces, AC & Heat Pumps", "Goodman GMVC96 furnaces, GSXH5 central air and GSZH5 heat pumps, installed and serviced."),
- "/heat-pump-rebates/": ("Heat Pump Rebates Ontario", "Up to $7,500 through the Home Renovation Savings Program. We handle the paperwork."),
+ "/heat-pump-rebates/": ("Heat Pump Rebates Ontario", "Up to $7,500 for homes heated by electricity, oil or propane. We handle the paperwork."),
  "/financing/": ("HVAC Financing", "0% interest for 3, 6 or 9 months, or open loans from 2.99% OAC."),
  "/offers/": ("Offers", "Guaranteed final pricing and we may beat comparable quotes by up to 10%."),
  "/our-work/": ("Our Work", "Recent heat pump, furnace, AC and tankless installations across Ontario."),
@@ -415,7 +415,7 @@ def render_block(b, page):
 def money_block(b):
     cols = b.get("items") or [
         {"icon": "dollar", "title": "Guaranteed pricing", "text": "Your quote is your final price. No surprise extras on the agreed scope of work."},
-        {"icon": "leaf", "title": "Rebates up to $7,500", "text": 'Cold-climate heat pumps may qualify through the <a href="/heat-pump-rebates/">Home Renovation Savings Program</a>. We confirm eligibility and file the paperwork.'},
+        {"icon": "leaf", "title": "Rebates up to $7,500", "text": 'Homes heated by electricity, oil or propane get the biggest rebates on a cold-climate heat pump through the <a href="/heat-pump-rebates/">Home Renovation Savings Program</a>. We confirm eligibility and file the paperwork.'},
         {"icon": "clock", "title": "0% financing", "text": '<a href="/financing/">Interest-free for 3, 6 or 9 months</a>, or open loans from 2.99% on approved credit.'},
         {"icon": "shield", "title": "Up to 12 years parts and labour", "text": '<a href="/warranty/">Extended warranty</a> on select systems when registered.'},
     ]
@@ -1073,7 +1073,7 @@ def city_block(b, page):
     if t == "cost_guide":
         keys = b.get("keys", ["furnace_repair", "ac_repair", "furnace_install", "ac_install", "heat_pump_ducted", "ductless_single", "tankless_install"])
         rows = "".join(f'<tr><td><strong>{PRICING.LABELS[k][0]}</strong><br><small>{PRICING.LABELS[k][1]}</small></td><td class="num">{PRICING.price_cell(k)}</td></tr>' for k in keys)
-        note = b.get("note", f"Installed pricing depends on size and installation requirements, and every job gets a written, guaranteed quote. Qualifying cold-climate heat pumps can bring back up to $7,500 through the Home Renovation Savings Program, and financing runs 0% for 3, 6 or 9 months on approved credit.")
+        note = b.get("note", f"Installed pricing depends on size and installation requirements, and every job gets a written, guaranteed quote. Qualifying cold-climate heat pumps can bring back up to $7,500 through the Home Renovation Savings Program in homes heated by electricity, oil or propane (gas-heated homes get a smaller amount), and financing runs 0% for 3, 6 or 9 months on approved credit.")
         return (f'<section class="sec table-sec cost-guide"><div class="wrap narrow">{h2(b)}{lead(b)}<div class="table-wrap"><table><thead><tr><th>Service</th><th>Typical price in {esc(c["name"])}</th></tr></thead><tbody>{rows}</tbody></table></div>'
                 f'<p class="note">{note}</p></div></section>')
     if t == "equipment":

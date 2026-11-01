@@ -35,7 +35,7 @@ PAGE = {
  ],
  "blocks": [
   {"type": "promo", "h2_hl": "Up to $7,500 in heat pump rebates:", "h2": "get pre-approved before the cold sets in", "image": "Midea cold-climate heat pump on a stand beside a deck fence, installed by EHI", "image_src": "/assets/img/work/midea-cold-climate-heat-pump-deck-fence.webp", "image_credit": "EHI install", "image_pos": "50% 62%",
-   "text": "The Home Renovation Savings Program pays up to $7,500 toward a qualifying cold-climate heat pump, but only if pre-approval happens before install day. We check your eligibility, size the system and file everything. One call gets it started."},
+   "text": "The Home Renovation Savings Program pays up to $7,500 toward a qualifying cold-climate heat pump, with the biggest rebates going to homes heated by electricity, oil or propane, but only if pre-approval happens before install day. We check your eligibility, size the system and file everything. One call gets it started."},
   {"type": "stats", "items": [
     {"value": "20+", "label": "years serving Ontario homes"},
     {"value": "$7,500", "label": "max heat pump rebate we help you claim"},
@@ -56,7 +56,7 @@ PAGE = {
   {"type": "problems", "h2": "What's going on in your building? We've seen it before.", "lead": "Pick the one that sounds like you. Each one has a fix, and most of them are cheaper than you'd think.", "items": [
     {"problem": "The furnace is 15+ years old and the repair bills are adding up", "solution": "At that age, a new 96% or 97% AFUE furnace from $3,300 usually beats another repair. Or skip gas altogether with a cold-climate heat pump and a rebate. We'll price both so you can decide. <a href=\"/furnace/\">Furnace replacement</a>"},
     {"problem": "The AC runs all day and the upstairs is still hot", "solution": "Usually an undersized or dying unit, a low refrigerant charge, or ductwork that can't move the air. We diagnose first and quote in writing. <a href=\"/ac/repair-maintenance/\">AC repair</a>"},
-    {"problem": "Hydro or propane bills are out of control in winter", "solution": "A heat pump paired with an electric air handler or your existing furnace cuts heating cost sharply for electric, propane and oil homes, and those homes get the highest rebate tier. <a href=\"/heat-pump/\">Heat pump installation</a>"},
+    {"problem": "Hydro, oil or propane bills are out of control in winter", "solution": "A heat pump paired with an electric air handler or your existing furnace cuts heating cost sharply for electric, propane and oil homes, and those homes get the highest rebate tier. <a href=\"/heat-pump/\">Heat pump installation</a>"},
     {"problem": "No ductwork, and window units aren't cutting it", "solution": "A ductless mini-split heats and cools without ducts. Multi-zone systems handle the whole house. <a href=\"/ac/multi-zone-ductless-system/\">Multi-zone ductless</a>"},
     {"problem": "You're paying rental fees on a hot water tank that's always running out", "solution": "A Rinnai tankless water heater gives endless hot water, takes up a fraction of the space, and ends the rental. <a href=\"/water-heater/\">Tankless installation</a>"},
     {"problem": "Dry winter air, static shocks, cracking hardwood", "solution": "A whole-home humidifier on your furnace or air handler keeps the house at a comfortable 30 to 40% humidity. <a href=\"/services/humidifiers/\">Humidifiers</a>"},

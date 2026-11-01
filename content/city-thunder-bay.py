@@ -7,7 +7,7 @@ PAGE = {
  "tagline": "Warm mornings, comfortable air and a backup plan",
  "intro": "<p>HVAC in Thunder Bay has two winter jobs: fire up reliably on the coldest morning of February, and keep the air inside from drying out like a cracker. We install and repair furnaces, add cold-climate heat pumps with dependable backup heat, and fit whole-home humidifiers so the house feels as warm as the thermostat says. You see the full price in writing before we pick up a tool.</p>",
  "hero_points": ["Furnace tune-ups that catch weak parts before winter", "Whole-home humidifiers for dry, static-charged air",
-                 "Heat pumps rated to -30°C, always paired with backup heat", "Up to $7,500 back for eligible non-gas homes"],
+                 "Heat pumps rated to -30°C, always paired with backup heat", "Up to $7,500 back for eligible homes heated by electricity, oil or propane"],
  "hero_stats": [("Below -25°C", "Long winter stretches"), ("Synergy North", "Local hydro utility"), ("-30°C", "Cold-climate rating"), ("Up to $7,500", "Higher rebate tier")],
  "form_h3": "Book my Thunder Bay heating quote",
  "service": {"name": "HVAC services in Thunder Bay", "type": "HVAC contractor", "area": "Thunder Bay"},

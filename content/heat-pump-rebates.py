@@ -6,7 +6,7 @@ PAGE = {
  "eyebrow": "Heat Pump Rebates Ontario",
  "h1": "Ontario Heat Pump Rebates",
  "tagline": "Up to $7,500 Back, Paperwork Done for You",
- "intro": "<p>The Home Renovation Savings Program, delivered by Save on Energy and Enbridge Gas with support from the Ontario government, pays up to $7,500 toward a qualifying cold-climate air-source heat pump. This page explains who qualifies, how much you can expect, and the one rule that trips people up: you must be pre-approved before the heat pump goes in. EHI handles every step.</p>",
+ "intro": "<p>The Home Renovation Savings Program, delivered by Save on Energy and Enbridge Gas with support from the Ontario government, pays up to $7,500 toward a qualifying cold-climate air-source heat pump, and homes heated by electricity, oil or propane get the biggest rebates. This page explains who qualifies, how much you can expect, and the one rule that trips people up: you must be pre-approved before the heat pump goes in. EHI handles every step.</p>",
  "hero_points": [
    "Up to $7,500 for electric, oil, propane and wood-heated homes",
    "Smaller tier for Enbridge gas-heated homes, commonly up to $2,000",
