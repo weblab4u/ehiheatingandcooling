@@ -48,7 +48,7 @@ PAGE = {
     ["Central air conditioner", "Whole-home cooling through existing ducts", "Quote"],
     ["HRV or ERV", "Fresh air for a full household", "Quote"],
     ["Rinnai tankless water heater", "Back-to-back showers without running out", "From $3,300"]],
-   "note": "Installed pricing depends on size and installation requirements, and every price is a guaranteed quote for the agreed scope. Qualifying cold-climate heat pumps may earn up to $7,500 through the Home Renovation Savings Program; confirm eligibility before installation, since program terms can change. 0% financing for 3, 6 or 9 months is available on approved credit."},
+   "note": "Installed pricing depends on size and installation requirements, and every price is a guaranteed quote for the agreed scope. Qualifying cold-climate heat pumps may earn up to $7,500 through the Home Renovation Savings Program in homes heated by electricity, oil or propane; confirm eligibility before installation, since program terms can change. 0% financing for 3, 6 or 9 months is available on approved credit."},
   {"type": "neighbourhoods", "h2": "Brampton neighbourhoods we cover",
    "lead": "From the 1960s and 1970s streets of Bramalea to the large newer homes in Castlemore and Springdale, we work right across the city, including:"},
   {"type": "why"},

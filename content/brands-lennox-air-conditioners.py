@@ -51,7 +51,7 @@ PAGE = {
   {"type": "money", "items": [
     {"icon": "dollar", "title": "Guaranteed pricing", "text": "Your quote is your final price. No surprise extras on the agreed scope of work, and we may beat comparable reputable quotes by up to 10%."},
     {"icon": "percent", "title": "0% financing", "text": "<a href='/financing/'>Interest-free for 3, 6 or 9 months</a>, or open loans from 2.99% on approved credit."},
-    {"icon": "heatpump", "title": "Consider a heat pump", "text": "A Lennox, Midea or Kepler cold-climate heat pump cools like an AC and may qualify for up to $7,500 through the <a href='/heat-pump-rebates/'>Home Renovation Savings Program</a>."},
+    {"icon": "heatpump", "title": "Consider a heat pump", "text": "A Lennox, Midea or Kepler cold-climate heat pump cools like an AC and, in homes heated by electricity, oil or propane, may qualify for up to $7,500 through the <a href='/heat-pump-rebates/'>Home Renovation Savings Program</a>."},
     {"icon": "shield", "title": "Warranty registered for you", "text": "<a href='/warranty/'>Extended warranty</a> of up to 12 years parts and labour on select systems when registered."},
   ]},
   {"type": "why"},

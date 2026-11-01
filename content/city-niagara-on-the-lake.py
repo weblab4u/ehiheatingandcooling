@@ -47,7 +47,7 @@ PAGE = {
     ["Cold-climate ducted heat pump", "Newer homes with existing ducts", "From $5,500"],
     ["High-efficiency gas furnace", "Replacing an older furnace", "From $3,300"],
     ["Rinnai tankless water heater", "Back-to-back guest showers", "From $3,300"]],
-   "note": "Installed pricing depends on size and installation requirements, including how far the outdoor unit sits from the house, and the agreed scope carries one guaranteed price. Qualifying cold-climate heat pumps may earn up to $7,500 through the Home Renovation Savings Program, with a smaller amount for gas-heated homes. Since the program's terms can shift, eligibility is checked before a single unit goes in. Payment plans run at 0% for 3, 6 or 9 months, and open loans start from 2.99% OAC."},
+   "note": "Installed pricing depends on size and installation requirements, including how far the outdoor unit sits from the house, and the agreed scope carries one guaranteed price. Qualifying cold-climate heat pumps may earn up to $7,500 through the Home Renovation Savings Program in homes heated by electricity, oil or propane, with a smaller amount for gas-heated homes. Since the program's terms can shift, eligibility is checked before a single unit goes in. Payment plans run at 0% for 3, 6 or 9 months, and open loans start from 2.99% OAC."},
   {"type": "mosaic", "count": 4, "h2": "Quiet indoor units and tidy exteriors from recent jobs",
    "lead": "A few recent installs from elsewhere in Ontario. Notice the clean line sets and careful placement, the same care your property gets."},
   {"type": "why"},

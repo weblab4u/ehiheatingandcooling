@@ -56,7 +56,7 @@ PAGE = {
   ]},
   {"type": "money", "items": [
     {"icon": "furnace", "title": "Furnaces from $3,300 installed", "text": "Guaranteed final pricing. The number on your quote is the number on your invoice, with no extras on the agreed scope."},
-    {"icon": "heatpump", "title": "Rebates on heat pump systems", "text": "Pair a Midea air handler or furnace with a qualifying EVOX G3 heat pump and the <a href='/heat-pump-rebates/'>Home Renovation Savings Program</a> may return up to $7,500. We file it."},
+    {"icon": "heatpump", "title": "Rebates on heat pump systems", "text": "Pair a Midea air handler or furnace with a qualifying EVOX G3 heat pump and the <a href='/heat-pump-rebates/'>Home Renovation Savings Program</a> may return up to $7,500 in homes heated by electricity, oil or propane. We file it."},
     {"icon": "percent", "title": "0% financing", "text": "<a href='/financing/'>Interest-free for 3, 6 or 9 months</a>, or open loans from 2.99% on approved credit."},
     {"icon": "shield", "title": "Up to 12 years parts and labour", "text": "<a href='/warranty/'>Extended warranty</a> on select systems when registered by an authorized dealer."},
   ]},
