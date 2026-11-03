@@ -51,7 +51,7 @@ REG = {
  "/ac/ductless-mini-split/": ("Ductless Mini-Split Installation", "Heat and cool rooms without ductwork: single-zone mini-split heat pumps."),
  "/ac/ductless-mini-split/repair/": ("Ductless Mini-Split Repair", "Mini-split repair, cleaning and maintenance for any brand."),
  "/ac/multi-zone-ductless-system/": ("Multi-Zone Ductless Systems", "One outdoor unit, up to five indoor heads, each room on its own thermostat."),
- "/heat-pump/": ("Heat Pump Installation", "Cold-climate heat pump installation with up to $7,500 in Ontario rebates."),
+ "/heat-pump/": ("Heat Pump Installation", "Cold-climate heat pump installation with up to $7,500 in Ontario rebates, plus a new federal rebate."),
  "/heat-pump/repair-maintenance/": ("Heat Pump Repair & Maintenance", "Heat pump not heating or cooling? Repairs and tune-ups for every brand."),
  "/heat-pump/cold-climate/": ("Cold Climate Heat Pumps", "Heat pumps rated to -30°C that replace your furnace and AC in one."),
  "/heat-pump/central/": ("Ducted (Central) Heat Pumps", "Central heat pumps that use your existing ductwork to heat and cool the whole house."),
@@ -69,7 +69,7 @@ REG = {
  "/brands/lennox-heat-pumps/": ("Lennox Heat Pumps", "Lennox heat pumps and cold-climate options."),
  "/brands/rinnai-tankless-water-heaters/": ("Rinnai Tankless Water Heaters", "Rinnai RX160iN and RX199iN condensing tankless water heaters."),
  "/brands/goodman/": ("Goodman Furnaces, AC & Heat Pumps", "Goodman GMVC96 furnaces, GSXH5 central air and GSZH5 heat pumps, installed and serviced."),
- "/heat-pump-rebates/": ("Heat Pump Rebates Ontario", "Up to $7,500 for homes heated by electricity, oil or propane. We handle the paperwork."),
+ "/heat-pump-rebates/": ("Heat Pump Rebates Ontario", "Ontario's rebate and the new federal rebate, explained separately. We handle the paperwork."),
  "/financing/": ("HVAC Financing", "0% interest for 3, 6 or 9 months, or open loans from 2.99% OAC."),
  "/offers/": ("Offers", "Guaranteed final pricing and we may beat comparable quotes by up to 10%."),
  "/our-work/": ("Our Work", "Recent heat pump, furnace, AC and tankless installations across Ontario."),
@@ -259,7 +259,7 @@ def footer(show_cta=True):
     <h3>Hours</h3><p>Monday to Saturday, 8:00 am to 8:00 pm<br>Sunday, 10:00 am to 5:00 pm<br>Emergency service evenings, weekends and holidays</p></div>
 </div>
 <div class="wrap foot-bottom"><p>&copy; {datetime.date.today().year} {esc(BRAND)} ({esc(LEGAL)}). All rights reserved. <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms/">Terms</a> · <a href="/sitemap.xml">Sitemap</a></p>
-<p class="small">Rebate amounts and eligibility are set by the Home Renovation Savings Program and can change. This website is not operated by any government program. Financing on approved credit.</p>
+<p class="small">Rebate amounts and eligibility are set by each program, including Ontario's Home Renovation Savings Program and the federal National Heat Pump Rebate, and can change. This website is not operated by any government program. Financing on approved credit.</p>
 <p class="dev-credit">Website developed and SEO optimized by <a href="https://weblab4u.ca/" target="_blank" rel="noopener">WebLab4u</a></p></div>
 </footer>
 <div class="sticky-cta" aria-hidden="false">
@@ -415,7 +415,7 @@ def render_block(b, page):
 def money_block(b):
     cols = b.get("items") or [
         {"icon": "dollar", "title": "Guaranteed pricing", "text": "Your quote is your final price. No surprise extras on the agreed scope of work."},
-        {"icon": "leaf", "title": "Rebates up to $7,500", "text": 'Homes heated by electricity, oil or propane get the biggest rebates on a cold-climate heat pump through the <a href="/heat-pump-rebates/">Home Renovation Savings Program</a>. We confirm eligibility and file the paperwork.'},
+        {"icon": "leaf", "title": "Ontario and federal rebates", "text": 'Ontario\'s <a href="/heat-pump-rebates/">Home Renovation Savings Program</a> pays up to $7,500, with the biggest rebates for homes heated by electricity, oil or propane. The separate <a href="/heat-pump-rebates/#federal">federal heat pump rebate</a> is $2,000, or up to $10,000 for income-qualified households. We check both and file the paperwork.'},
         {"icon": "clock", "title": "0% financing", "text": '<a href="/financing/">Interest-free for 3, 6 or 9 months</a>, or open loans from 2.99% on approved credit.'},
         {"icon": "shield", "title": "Up to 12 years parts and labour", "text": '<a href="/warranty/">Extended warranty</a> on select systems when registered.'},
     ]
@@ -900,7 +900,7 @@ def render(page):
     if page.get("faqs"):
         body += with_variant(faq_block(page["faqs"], page.get("faq_h2", "Frequently asked questions")), "faq", page)[0]
     body += related_block(page.get("related", []))
-    if page.get("city") or page.get("city_service"):
+    if page.get("city") or page.get("city_service") or page.get("show_updated"):
         body += f'<p class="wrap updated">Page reviewed and updated {datetime.date.fromisoformat(page.get("updated", TODAY)).strftime("%B %d, %Y").replace(" 0", " ")}. Prices, rebates and program terms are checked at each update.</p>'
 
     _crumbs_ld = crumbs_ld
@@ -1073,7 +1073,7 @@ def city_block(b, page):
     if t == "cost_guide":
         keys = b.get("keys", ["furnace_repair", "ac_repair", "furnace_install", "ac_install", "heat_pump_ducted", "ductless_single", "tankless_install"])
         rows = "".join(f'<tr><td><strong>{PRICING.LABELS[k][0]}</strong><br><small>{PRICING.LABELS[k][1]}</small></td><td class="num">{PRICING.price_cell(k)}</td></tr>' for k in keys)
-        note = b.get("note", f"Installed pricing depends on size and installation requirements, and every job gets a written, guaranteed quote. Qualifying cold-climate heat pumps can bring back up to $7,500 through the Home Renovation Savings Program in homes heated by electricity, oil or propane (gas-heated homes get a smaller amount), and financing runs 0% for 3, 6 or 9 months on approved credit.")
+        note = b.get("note", f"Installed pricing depends on size and installation requirements, and every job gets a written, guaranteed quote. Qualifying cold-climate heat pumps can bring back up to $7,500 through the Home Renovation Savings Program in homes heated by electricity, oil or propane (gas-heated homes get a smaller amount). A separate federal rebate of $2,000, or up to $10,000 for income-qualified households, is expected to open for applications in early 2027. Financing runs 0% for 3, 6 or 9 months on approved credit.")
         return (f'<section class="sec table-sec cost-guide"><div class="wrap narrow">{h2(b)}{lead(b)}<div class="table-wrap"><table><thead><tr><th>Service</th><th>Typical price in {esc(c["name"])}</th></tr></thead><tbody>{rows}</tbody></table></div>'
                 f'<p class="note">{note}</p></div></section>')
     if t == "equipment":

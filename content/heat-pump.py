@@ -55,7 +55,7 @@ PAGE = {
     ["Central cold-climate heat pump (4 to 5 ton)", "Larger two-storey homes", "Quote"],
     ["Hybrid heat pump + new gas furnace", "Gas-heated homes wanting the lowest running cost", "Quote"],
     ["Heat pump + electric air handler", "Homes with no gas line", "Quote"],
-  ], "note": "Prices are before rebates. A qualifying cold-climate heat pump can bring back up to $7,500 for homes heated by electricity, oil, propane or wood, or up to $2,000 for Enbridge gas-heated homes, based on size. Financing from 0% is available."},
+  ], "note": "Prices are before rebates. Through Ontario's program, a qualifying cold-climate heat pump can bring back up to $7,500 for homes heated by electricity, oil, propane or wood, or up to $2,000 for Enbridge gas-heated homes, based on size. The separate federal National Heat Pump Rebate is $2,000, or up to $10,000 for income-qualified households, with applications expected in early 2027. Financing from 0% is available."},
   {"type": "money"},
   {"type": "why"},
   {"type": "areas"},
