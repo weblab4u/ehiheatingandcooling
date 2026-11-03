@@ -227,7 +227,7 @@ def graph(page, canonical, crumbs_ld):
                   "author": {"@id": org_id()}, "publisher": {"@id": org_id()}, "datePublished": page.get("published", B.TODAY),
                   "dateModified": page.get("updated", B.TODAY), "mainEntityOfPage": {"@id": canonical + "#webpage"}, "inLanguage": "en-CA",
                   "about": ({"@id": city_id(gslug)} if gslug else {"@type": "State", "name": "Ontario"}),
-                  "keywords": f"HVAC companies {gc}, HVAC company {gc}, best HVAC company {gc}, HVAC contractor {gc}, how to choose an HVAC contractor"})
+                  "keywords": page.get("keywords", f"HVAC companies {gc}, HVAC company {gc}, best HVAC company {gc}, HVAC contractor {gc}, how to choose an HVAC contractor")})
         if gslug: g.append(city_place(gslug, full=True))
     for extra in page.get("extra_ld", []):
         g.append(extra)
