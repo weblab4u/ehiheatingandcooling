@@ -1,6 +1,7 @@
 # /blog/how-to-choose-an-hvac-company-in-toronto/
 PAGE = {
  "url": "/blog/how-to-choose-an-hvac-company-in-toronto/", "layout": "article", "guide": True, "guide_city": "Toronto",
+ "featured": ("/assets/img/work/heat-pump-commissioning-gauges.webp", "Heat pump refrigerant pressures being checked with digital gauges during an EHI install", "50% 50%"),
  "published": "2026-10-27", "priority": "0.6",
  "title": "How to Choose an HVAC Company in Toronto (2026 Guide)",
  "description": "How to compare HVAC companies in Toronto: licences to check, 7 questions to ask, red flags, real costs, rebates and a printable checklist for every quote.",

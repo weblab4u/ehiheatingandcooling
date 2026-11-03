@@ -1,6 +1,7 @@
 # /blog/how-to-choose-an-hvac-company-in-mississauga/
 PAGE = {
  "url": "/blog/how-to-choose-an-hvac-company-in-mississauga/", "layout": "article", "guide": True, "guide_city": "Mississauga",
+ "featured": ("/assets/img/work/midea-outdoor-unit-brick-bungalow.webp", "Midea outdoor unit on a stand beside a brick home, installed by EHI", "50% 60%"),
  "published": "2026-10-27", "priority": "0.6",
  "title": "How to Choose an HVAC Company in Mississauga (2026 Guide)",
  "description": "Compare Mississauga HVAC companies with confidence: licences to verify, 7 questions to ask, red flags, what work costs, and a checklist for every quote.",

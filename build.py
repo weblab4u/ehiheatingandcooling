@@ -396,7 +396,7 @@ def render_block(b, page):
         return areas_block()
     if t == "blog_index":
         live = sorted([pg for pg in ALL_PAGES if pg.get("guide")], key=lambda pg: pg.get("published", TODAY), reverse=True)
-        items = "".join(f'<article><h3><a href="{pg["url"]}">{re.sub("<[^>]+>", "", pg["h1"])}</a></h3><time datetime="{pg.get("published", TODAY)}">{datetime.date.fromisoformat(pg.get("published", TODAY)).strftime("%B %Y")}</time><p>{esc(pg["description"])}</p></article>' for pg in live)
+        items = "".join(f'<article{" class=\"has-img\"" if pg.get("featured") else ""}>' + (f'<a class="bl-img" href="{pg["url"]}" tabindex="-1" aria-hidden="true"><img src="{pg["featured"][0]}" alt="" loading="lazy" decoding="async" sizes="(max-width: 600px) 110px, 200px" style="object-position:{pg["featured"][2]}"></a>' if pg.get("featured") else "") + f'<div><h3><a href="{pg["url"]}">{re.sub("<[^>]+>", "", pg["h1"])}</a></h3><time datetime="{pg.get("published", TODAY)}">{datetime.date.fromisoformat(pg.get("published", TODAY)).strftime("%B %Y")}</time><p>{esc(pg["description"])}</p></div></article>' for pg in live)
         items += "".join(f'<article class="planned"><h3>{t_}</h3><time>Coming soon</time><p>{d}</p></article>' for t_, d, u in b.get("planned", []))
         return f'<section class="sec"><div class="wrap narrow blog-list">{h2(b)}{items}</div></section>'
     if t == "area_dir":
@@ -672,6 +672,32 @@ IMG_WIDTHS = (400, 600, 800, 1080)
 _IMG_W = {}
 def _r_path(src, w):
     return "/assets/img/r/" + src[len("/assets/img/"):-len(".webp")] + f"-{w}.webp"
+FEATURED_SIZES = "(max-width: 840px) calc(100vw - 32px), 800px"
+def featured_img(page, eager=True):
+    """Blog featured photo: wide 3:2 crop of a job photo, focal point set per post."""
+    src, alt, pos = page["featured"]
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    return (f'<figure class="img-real fit-cover featured-img" style="aspect-ratio:3/2"><img src="{src}" alt="{esc(alt)}" {load} decoding="async" '
+            f'sizes="{FEATURED_SIZES}" style="object-position:{pos}"><figcaption class="credit">EHI install</figcaption></figure>')
+def og_image(page):
+    """1200x630 JPEG share image cropped from the featured photo at its focal point; the logo for every other page."""
+    if not page.get("featured"): return f"{SITE}/assets/img/ehi-logo.webp", None
+    src, _, pos = page["featured"]
+    rel = f"/assets/img/og/{os.path.splitext(os.path.basename(src))[0]}.jpg"
+    out, full = os.path.join(ROOT, rel.lstrip("/")), os.path.join(ROOT, src.lstrip("/"))
+    if not (os.path.exists(out) and os.path.getmtime(out) >= os.path.getmtime(full)):
+        from PIL import Image
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        im = Image.open(full).convert("RGB")
+        fx, fy = (float(v.rstrip("%")) / 100 for v in pos.split())
+        cw, ch = (im.width, round(im.width * 630 / 1200)) if im.width / im.height < 1200 / 630 else (round(im.height * 1200 / 630), im.height)
+        x, y = round((im.width - cw) * fx), round((im.height - ch) * fy)
+        im.crop((x, y, x + cw, y + ch)).resize((1200, 630), Image.LANCZOS).save(out, "JPEG", quality=82, optimize=True, progressive=True)
+    dst = os.path.join(OUT, rel.lstrip("/"))      # assets were copied to site/ before pages render, so a fresh crop needs copying too
+    if not os.path.exists(dst):
+        os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy(out, dst)
+    return SITE + rel, (1200, 630)
+
 def make_img_variants():
     try:
         from PIL import Image
@@ -857,7 +883,7 @@ def render(page):
         sections = "".join((f'<h2 id="{re.sub(r"[^a-z0-9]+", "-", re.sub("<[^>]+>", "", b["h2"]).lower()).strip("-")}">{b["h2"]}</h2>' if b.get("h2") else "") + b["html"] for b in texts)
         tail = (f'<div class="guide-cta"><h2>{page.get("cta_h2", "Want a quote from us?")}</h2><p>{page.get("cta_text", "Free, written and guaranteed, with your rebate estimate. No pressure.")}</p>{cta_buttons()}</div>') if page.get("guide") else ""
         body = (f'<article class="legal{" guide" if page.get("guide") else ""}"><div class="wrap narrow"><header class="legal-head"><h1>{page["h1"]}</h1>'
-                f'<p class="legal-meta">{page.get("meta_line", "Last updated " + datetime.date.today().strftime("%B %Y"))}</p>{page["intro"]}</header>{toc}'
+                f'<p class="legal-meta">{page.get("meta_line", "Last updated " + datetime.date.today().strftime("%B %Y"))}</p>{featured_img(page) if page.get("featured") else ""}{page["intro"]}</header>{toc}'
                 + sections + tail + '</div></article>')
         blocks = []
     elif page.get("banner"):
@@ -909,6 +935,8 @@ def render(page):
     if m:
         body = body[:m.end()] + crumbs_html.replace('class="crumbs"', 'class="crumbs in-hero"', 1) + body[m.end():]
         crumbs_top = ""
+    og_url, og_wh = og_image(page)
+    og_dims = (f'\n<meta property="og:image:width" content="{og_wh[0]}">\n<meta property="og:image:height" content="{og_wh[1]}">\n<meta property="og:image:alt" content="{esc(page["featured"][1])}">') if og_wh else ""
     graph = SCHEMA.graph(page, canonical, _crumbs_ld)
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
 
@@ -925,12 +953,12 @@ def render(page):
 <meta name="description" content="{esc(page["description"])}">
 <link rel="canonical" href="{canonical}">
 <meta name="robots" content="{page.get("robots","index, follow, max-image-preview:large")}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{"article" if page.get("guide") else "website"}">
 <meta property="og:site_name" content="{esc(SITE_NAME)}">
 <meta property="og:title" content="{esc(page["title"])}">
 <meta property="og:description" content="{esc(page["description"])}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{SITE}/assets/img/ehi-logo.webp">
+<meta property="og:image" content="{og_url}">{og_dims}
 <meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="geo.region" content="CA-ON">

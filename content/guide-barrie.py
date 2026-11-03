@@ -1,6 +1,7 @@
 # /blog/how-to-choose-an-hvac-company-in-barrie/
 PAGE = {
  "url": "/blog/how-to-choose-an-hvac-company-in-barrie/", "layout": "article", "guide": True, "guide_city": "Barrie",
+ "featured": ("/assets/img/work/midea-gas-furnace-installed.webp", "Midea two-stage gas furnace in a furnace room, installed by EHI", "50% 45%"),
  "published": "2026-10-27", "priority": "0.6",
  "title": "How to Choose an HVAC Company in Barrie (2026 Guide)",
  "description": "Comparing HVAC companies in Barrie? Learn which licences to check, 7 questions to ask, red flags, local costs and rebates, plus a checklist for every quote.",
