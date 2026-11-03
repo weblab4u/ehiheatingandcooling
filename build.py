@@ -679,6 +679,15 @@ def featured_img(page, eager=True):
     load = 'fetchpriority="high"' if eager else 'loading="lazy"'
     return (f'<figure class="img-real fit-cover featured-img" style="aspect-ratio:3/2"><img src="{src}" alt="{esc(alt)}" {load} decoding="async" '
             f'sizes="{FEATURED_SIZES}" style="object-position:{pos}"><figcaption class="credit">EHI install</figcaption></figure>')
+def infographic_html(page):
+    """Infographic drawn by tools/make_infographics.py: 800 px for the page, 1620 px behind the full-size link."""
+    slug = page["url"].strip("/").split("/")[-1]
+    full, small = f"/assets/img/infographics/{slug}.webp", f"/assets/img/infographics/{slug}-800.webp"
+    from PIL import Image
+    w, h = Image.open(os.path.join(ROOT, small.lstrip("/"))).size
+    ig = page["infographic"]
+    return (f'<figure class="infographic"><img src="{small}" srcset="{small} 800w, {full} 1620w" sizes="{FEATURED_SIZES}" width="{w}" height="{h}" alt="{esc(ig["alt"])}" loading="lazy" decoding="async">'
+            f'<figcaption>{ig["caption"]} <a href="{full}">Open the full-size infographic</a> to save, print or share it.</figcaption></figure>')
 def og_image(page):
     """1200x630 JPEG share image cropped from the featured photo at its focal point; the logo for every other page."""
     if not page.get("featured"): return f"{SITE}/assets/img/ehi-logo.webp", None
@@ -880,7 +889,8 @@ def render(page):
         if page.get("guide"):
             heads = [(re.sub(r"[^a-z0-9]+", "-", re.sub("<[^>]+>", "", b["h2"]).lower()).strip("-"), b["h2"]) for b in texts if b.get("h2")]
             toc = '<nav class="toc" aria-label="In this guide"><p class="toc-h">In this guide</p><ol>' + "".join(f'<li><a href="#{i}">{h}</a></li>' for i, h in heads) + '</ol></nav>' if heads else ""
-        sections = "".join((f'<h2 id="{re.sub(r"[^a-z0-9]+", "-", re.sub("<[^>]+>", "", b["h2"]).lower()).strip("-")}">{b["h2"]}</h2>' if b.get("h2") else "") + b["html"] for b in texts)
+        sections = "".join((f'<h2 id="{re.sub(r"[^a-z0-9]+", "-", re.sub("<[^>]+>", "", b["h2"]).lower()).strip("-")}">{b["h2"]}</h2>' if b.get("h2") else "") + b["html"]
+                           + (infographic_html(page) if page.get("infographic") and i == page["infographic"]["after"] else "") for i, b in enumerate(texts))
         tail = (f'<div class="guide-cta"><h2>{page.get("cta_h2", "Want a quote from us?")}</h2><p>{page.get("cta_text", "Free, written and guaranteed, with your rebate estimate. No pressure.")}</p>{cta_buttons()}</div>') if page.get("guide") else ""
         body = (f'<article class="legal{" guide" if page.get("guide") else ""}"><div class="wrap narrow"><header class="legal-head"><h1>{page["h1"]}</h1>'
                 f'<p class="legal-meta">{page.get("meta_line", "Last updated " + datetime.date.today().strftime("%B %Y"))}</p>{featured_img(page) if page.get("featured") else ""}{page["intro"]}</header>{toc}'

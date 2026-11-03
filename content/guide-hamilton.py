@@ -1,6 +1,7 @@
 PAGE = {
  "url": "/blog/how-to-choose-an-hvac-company-in-hamilton/", "layout": "article", "guide": True, "guide_city": "Hamilton",
  "featured": ("/assets/img/work/midea-furnace-room-pvc-venting.webp", "Gas furnace with PVC intake and exhaust venting, installed by EHI", "50% 60%"),
+ "infographic": {"after": 0, "alt": "Infographic on hiring an HVAC company in Hamilton: four credentials to check, seven questions to ask before you sign, red flags to walk away from, what changes the answer for Hamilton homes, and the Ontario rebate pre-approval rule", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Hamilton homes."},
  "published": "2026-10-27", "priority": "0.6",
  "title": "How to Choose an HVAC Company in Hamilton (2026 Guide)",
  "description": "Comparing HVAC companies in Hamilton? Check licences, ask these 7 questions, spot the red flags and learn what furnace, AC and heat pump work costs.",

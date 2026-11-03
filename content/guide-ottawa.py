@@ -2,6 +2,7 @@
 PAGE = {
  "url": "/blog/how-to-choose-an-hvac-company-in-ottawa/", "layout": "article", "guide": True, "guide_city": "Ottawa",
  "featured": ("/assets/img/work/midea-cold-climate-heat-pump-commissioning.webp", "Midea cold-climate heat pump with gauge hoses connected during commissioning, installed by EHI", "50% 40%"),
+ "infographic": {"after": 0, "alt": "Infographic on hiring an HVAC company in Ottawa: four credentials to check, seven questions to ask before you sign, red flags to walk away from, what changes the answer for Ottawa homes, and the Ontario rebate pre-approval rule", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Ottawa homes."},
  "published": "2026-10-27", "priority": "0.6",
  "title": "How to Choose an HVAC Company in Ottawa (2026 Guide)",
  "description": "Compare HVAC companies in Ottawa with confidence: licences to check, 7 questions to ask, red flags, typical costs, rebates and a printable quote checklist.",

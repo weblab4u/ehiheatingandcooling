@@ -226,7 +226,7 @@ def graph(page, canonical, crumbs_ld):
         g.append({"@type": "Article", "@id": canonical + "#article", "headline": re.sub("<[^>]+>", "", page["h1"]), "description": page["description"],
                   "author": {"@id": org_id()}, "publisher": {"@id": org_id()}, "datePublished": page.get("published", B.TODAY),
                   "dateModified": page.get("updated", B.TODAY), "mainEntityOfPage": {"@id": canonical + "#webpage"}, "inLanguage": "en-CA",
-                  **({"image": [B.og_image(page)[0], B.SITE + page["featured"][0]]} if page.get("featured") else {}),
+                  **({"image": [B.og_image(page)[0], B.SITE + page["featured"][0]] + ([B.SITE + "/assets/img/infographics/" + page["url"].strip("/").split("/")[-1] + ".webp"] if page.get("infographic") else [])} if page.get("featured") else {}),
                   "about": ({"@id": city_id(gslug)} if gslug else {"@type": "State", "name": "Ontario"}),
                   "keywords": page.get("keywords", f"HVAC companies {gc}, HVAC company {gc}, best HVAC company {gc}, HVAC contractor {gc}, how to choose an HVAC contractor")})
         if gslug: g.append(city_place(gslug, full=True))
