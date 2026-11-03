@@ -106,4 +106,5 @@ PAGE = {
  ],
  "cta_h2": "Want us on your Mississauga shortlist?",
  "cta_text": "Ask for a written, guaranteed quote with model numbers and your rebate estimate. Then compare it against everyone else's using the checklist above.",
+ "related": ["/mississauga/", "/mississauga/heat-pump-installation/", "/mississauga/furnace-repair/", "/mississauga/ac-repair/", "/heat-pump-rebates/", "/financing/"],
 }

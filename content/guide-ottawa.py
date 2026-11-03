@@ -31,4 +31,5 @@ PAGE = {
  ],
  "cta_h2": "Want to put us through the checklist?",
  "cta_text": "Book a free, written and guaranteed quote for your Ottawa home. We'll bring the heat-loss numbers, the rebate estimate and straight answers to all seven questions.",
+ "related": ["/ottawa/", "/ottawa/heat-pump-installation/", "/ottawa/furnace-repair/", "/ottawa/ac-repair/", "/heat-pump-rebates/", "/financing/"],
 }
