@@ -5,7 +5,7 @@ FED = "https://www.canada.ca/en/environment-climate-change/campaigns/one-million
 PAGE = {
  "url": "/blog/national-heat-pump-rebate-ontario/", "layout": "article", "guide": True,
  "featured": ("/assets/img/work/midea-cold-climate-heat-pump-lawn.webp", "Midea cold-climate heat pump on a stand above the lawn, installed by EHI", "50% 45%"),
- "infographic": {"after": 0, "alt": "Infographic comparing Ontario's Home Renovation Savings Program and the federal National Heat Pump Rebate, the seven steps that protect both rebates, and the Ontario income cut-offs for the federal $10,000 tier", "caption": "The whole post on one page: both programs, the order of steps and the federal income cut-offs."},
+ "infographic": {"after": 0, "alt": "Infographic comparing Ontario's Home Renovation Savings Program and the federal National Heat Pump Rebate, the seven steps that protect both rebates, and the Ontario income cut-offs for the federal $10,000 tier", "caption": ""},
  "published": "2026-11-03", "updated": "2026-11-03", "priority": "0.6",
  "keywords": "National Heat Pump Rebate, National Heat Pump Rebate Ontario, federal heat pump rebate, heat pump rebate 2027, retroactive heat pump rebate, combine federal and Ontario heat pump rebates",
  "title": "National Heat Pump Rebate: What to Do Now in Ontario",

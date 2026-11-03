@@ -683,11 +683,14 @@ def infographic_html(page):
     """Infographic drawn by tools/make_infographics.py: 800 px for the page, 1620 px behind the full-size link."""
     slug = page["url"].strip("/").split("/")[-1]
     full, small = f"/assets/img/infographics/{slug}.webp", f"/assets/img/infographics/{slug}-800.webp"
+    import hashlib
+    v = hashlib.md5(open(os.path.join(ROOT, full.lstrip("/")), "rb").read()).hexdigest()[:8]   # static files cache for a year; a redraw gets a new URL
+    full, small = f"{full}?v={v}", f"{small}?v={v}"
     from PIL import Image
-    w, h = Image.open(os.path.join(ROOT, small.lstrip("/"))).size
+    w, h = Image.open(os.path.join(ROOT, small.split("?")[0].lstrip("/"))).size
     ig = page["infographic"]
     return (f'<figure class="infographic"><img src="{small}" srcset="{small} 800w, {full} 1620w" sizes="{FEATURED_SIZES}" width="{w}" height="{h}" alt="{esc(ig["alt"])}" loading="lazy" decoding="async">'
-            f'<figcaption>{ig["caption"]} <a href="{full}">Open the full-size infographic</a> to save, print or share it.</figcaption></figure>')
+            + (f'<figcaption>{ig["caption"]} <a href="{full}">Open the full-size infographic</a> to save, print or share it.</figcaption>' if ig.get("caption") else "") + '</figure>')
 def og_image(page):
     """1200x630 JPEG share image cropped from the featured photo at its focal point; the logo for every other page."""
     if not page.get("featured"): return f"{SITE}/assets/img/ehi-logo.webp", None

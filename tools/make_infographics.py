@@ -72,20 +72,28 @@ def icon_x(c, cx, cy, r=17):
     k = r * .38
     c.line([(cx - k, cy - k), (cx + k, cy + k)], "white", 4)
     c.line([(cx - k, cy + k), (cx + k, cy - k)], "white", 4)
-def badge_num(c, cx, cy, n, r=22, bg=BLUE):
-    c.circle(cx, cy, r, bg)
-    c.text(cx, cy + 1, str(n), 24, "Bold", "white", "mm")
+ROMAN = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"]
+def badge_num(c, cx, cy, n, r=22, bg=BLUE, size=24):
+    """Round badge for 1 to 9; a pill when the label is longer (roman numerals)."""
+    label = str(n)
+    tw = font(size, "Bold").getlength(label) / S
+    if tw + 16 <= 2 * r:
+        c.circle(cx, cy, r, bg)
+    else:
+        c.rect(cx - r, cy - r, tw + 24, 2 * r, bg, r)
+        cx = cx - r + (tw + 24) / 2
+    c.text(cx, cy + 1, label, size, "Bold", "white", "mm")
 
 # ---------------------------------------------------------------- blocks
-def header(c, y, eyebrow, title, subtitle):
+def header(c, y, eyebrow, title, subtitle, tsize=54):
     inner = W - 2 * PAD
-    h = 56 + 26 + 18 + c.para_h(title, 54, inner, "ExtraBold", 1.12) + 18 + c.para_h(subtitle, 26, inner, lh=1.42) + 56
+    h = 56 + 26 + 18 + c.para_h(title, tsize, inner, "ExtraBold", 1.12) + (18 + c.para_h(subtitle, 28, inner, lh=1.42) if subtitle else 0) + 56
     c.rect(0, y, W, h, NAVY)
     c.rect(0, y + h - 10, W, 10, GREEN)
     yy = y + 56
     c.text(PAD, yy, eyebrow.upper(), 20, "Bold", "#8FD3A3"); yy += 26 + 18
-    yy = c.para(PAD, yy, title, 54, inner, "ExtraBold", "white", 1.12) + 18
-    c.para(PAD, yy, subtitle, 26, inner, fill="#D6E2EE", lh=1.42)
+    yy = c.para(PAD, yy, title, tsize, inner, "ExtraBold", "white", 1.12) + 18
+    if subtitle: c.para(PAD, yy, subtitle, 28, inner, fill="#D6E2EE", lh=1.42)
     return y + h
 
 def section_title(c, y, n, title):
@@ -111,10 +119,11 @@ def cards(c, y, items, cols=2, accent=BLUE):
 
 def numbered(c, y, items):
     tw = W - 2 * PAD - 70
-    for n, s in enumerate(items, 1):
+    tw = W - 2 * PAD - 84
+    for n, s in enumerate(items):
         h = max(48, c.para_h(s, 26, tw, "SemiBold"))
-        badge_num(c, PAD + 22, y + 18, n)
-        c.para(PAD + 70, y + 2, s, 26, tw, "SemiBold", TEXT)
+        badge_num(c, PAD + 22, y + 18, ROMAN[n], bg=BLUE, size=21)
+        c.para(PAD + 84, y + 2, s, 26, tw, "SemiBold", TEXT)
         y += h + 16
     return y - 16
 
@@ -148,17 +157,56 @@ def timeline(c, y, steps):
         c.para(PAD + 76, y2, b, 22, tw, fill=MUTED)
     return y - 26
 
-def table(c, y, head, rows):
+def steps(c, y, items, size=31):
+    """Ordered steps with roman labels. items: (text, tag or None); a tag marks the step that matters most."""
+    x0 = PAD + 26
+    pos, yy = [], y
+    for t, tag in items:
+        h = max(56, c.para_h(t, size, W - 2 * PAD - 260 if tag else W - 2 * PAD - 96, "Bold", 1.2))
+        pos.append((yy, h)); yy += h + 22
+    c.line([(x0, y + 26), (x0, pos[-1][0] + 26)], LINE, 5)
+    for n, ((t, tag), (sy, h)) in enumerate(zip(items, pos)):
+        badge_num(c, x0, sy + 26, ROMAN[n], 26, GREEN if tag else BLUE, 22)
+        c.para(PAD + 96, sy + 6, t, size, W - 2 * PAD - 260 if tag else W - 2 * PAD - 96, "Bold", NAVY, 1.2)
+        if tag:
+            tw = font(20, "Bold").getlength(tag.upper()) / S
+            c.rect(W - PAD - tw - 36, sy + 8, tw + 36, 40, GREEN_LIGHT, 20)
+            c.text(W - PAD - tw / 2 - 18, sy + 28, tag.upper(), 20, "Bold", GREEN_DARK, "mm")
+    return yy - 22
+
+def stat_cards(c, y, items):
+    """Two side-by-side cards led by a big number. items: (label, big, lines, tag, accent)."""
+    gap, inner = 24, W - 2 * PAD
+    cw = (inner - gap) / 2
+    tw = cw - 56
+    def height(label, big, lines, tag):
+        return 30 + 26 + 10 + 64 + 12 + sum(c.para_h(l, 25, tw, "Medium", 1.3) + 14 for l in lines) + 18 + 48 + 30
+    rh = max(height(*it[:4]) for it in items)
+    for i, (label, big, lines, tag, accent) in enumerate(items):
+        x = PAD + i * (cw + gap)
+        c.rect(x, y, cw, rh, SOFT, 18, LINE)
+        c.rect(x, y, cw, 10, accent, 0)
+        yy = y + 30
+        c.text(x + 28, yy, label.upper(), 21, "Bold", accent); yy += 26 + 10
+        c.text(x + 28, yy, big, 60, "ExtraBold", NAVY); yy += 64 + 12
+        for l in lines:
+            yy = c.para(x + 28, yy, l, 25, tw, "Medium", TEXT, 1.3) + 14
+        tw2 = font(20, "Bold").getlength(tag.upper()) / S
+        c.rect(x + 28, y + rh - 30 - 44, tw2 + 32, 44, accent, 22)
+        c.text(x + 28 + (tw2 + 32) / 2, y + rh - 30 - 22, tag.upper(), 20, "Bold", "white", "mm")
+    return y + rh
+
+def table(c, y, head, rows, size=24):
     inner = W - 2 * PAD
-    rh = 52
+    rh = round(size * 2.3)
     c.rect(PAD, y, inner, rh, BLUE_DARK, 12)
     c.text(PAD + 24, y + rh / 2, head[0], 22, "Bold", "white", "lm")
     c.text(PAD + inner - 24, y + rh / 2, head[1], 22, "Bold", "white", "rm")
     y += rh
     for i, (a, b) in enumerate(rows):
         c.rect(PAD, y, inner, rh, SOFT if i % 2 == 0 else "white")
-        c.text(PAD + 24, y + rh / 2, a, 24, "Medium", TEXT, "lm")
-        c.text(PAD + inner - 24, y + rh / 2, b, 24, "Bold", NAVY, "rm")
+        c.text(PAD + 24, y + rh / 2, a, size, "Medium", TEXT, "lm")
+        c.text(PAD + inner - 24, y + rh / 2, b, size + 2, "Bold", NAVY, "rm")
         y += rh
     c.rect(PAD, y - rh * (len(rows) + 1), inner, rh * (len(rows) + 1), None, 12, LINE)
     return y
@@ -211,31 +259,29 @@ def city_doc(city, questions, red_flags, homes_title, homes):
     return build
 
 def federal_doc(c):
-    y = header(c, 0, "Ontario heat pump rebates · updated November 3, 2026", "Two heat pump rebates. One order of steps.",
-               "Ontario's Home Renovation Savings Program and the federal National Heat Pump Rebate are separate programs. Here's how to protect both.")
+    y = header(c, 0, "Ontario heat pump rebates · updated November 3, 2026", "Two heat pump rebates. One order of steps.", None, 62)
     y = section_title(c, y + 52, 1, "Two separate programs")
-    y = cards(c, y, [
-        ("Ontario: Home Renovation Savings", "Up to $7,500 for homes heated by electricity, oil, propane or wood. Commonly up to $2,000 for Enbridge gas-heated homes. Pre-approval required before installation."),
-        ("Federal: National Heat Pump Rebate", "$2,000, or up to $10,000 for income-qualified households. Installs from November 1, 2026 may qualify retroactively. Applications expected in early 2027."),
+    y = stat_cards(c, y, [
+        ("Ontario", "Up to $7,500", ["Homes heated by electricity, oil, propane or wood", "Gas-heated homes: commonly up to $2,000"], "Pre-approval first", GREEN),
+        ("Federal", "$2,000", ["Or up to $10,000 if income-qualified", "Installs from Nov 1, 2026 may count"], "Opens early 2027", BLUE),
     ])
-    y = section_title(c, y + 52, 2, "The order that protects both")
-    y = timeline(c, y + 4, [
-        ("Check your Ontario tier", "Your current heating fuel decides it."),
-        ("Size the heat pump for the whole home", "From a heat-loss calculation, not a rule of thumb."),
-        ("Pick a model that's on both lists", "NRCan's qualified products list for Ontario, and the federal eligible product list by AHRI number."),
-        ("Get Ontario pre-approval", "Before anything is installed. Ontario's rebate can't look back."),
-        ("Install with an HVAC contractor", "On or after November 1, 2026 for the federal retroactive window."),
-        ("Keep your receipt", "Your name and address, the installer, make, model and AHRI number, number of units and total cost."),
-        ("Apply federally when the portal opens", "Expected in early 2027. Receipts must be submitted within 6 months."),
+    y = section_title(c, y + 56, 2, "The order that protects both")
+    y = steps(c, y + 4, [
+        ("Check your Ontario tier", None),
+        ("Size for the whole home", None),
+        ("Pick a model on both lists", None),
+        ("Get Ontario pre-approval", "Before install"),
+        ("Install with an HVAC contractor", None),
+        ("Keep your receipt", None),
+        ("Apply federally in early 2027", None),
     ])
-    y = section_title(c, y + 52, 3, "Federal $10,000 tier: Ontario income cut-offs")
-    y = table(c, y, ("Household size", "After-tax income at or below"),
-              [("1 person", "$46,981"), ("2 people", "$92,884"), ("3 people", "$119,850"), ("4 people", "$146,217"), ("5 or more people", "$158,202")])
-    c.para(PAD, y + 12, "2025 dollars, as published by the Government of Canada. Above the line, the federal rebate is $2,000.", 19, W - 2 * PAD, fill=MUTED)
-    y = callout(c, y + 70, "No combined total is guaranteed",
-                "Getting both depends on meeting each program's rules. Federal funding is subject to approval, and program details are still being finalized.",
+    y = section_title(c, y + 56, 3, "Who gets up to $10,000")
+    c.para(PAD, y - 4, "After-tax household income in Ontario at or below:", 25, W - 2 * PAD, "Medium", MUTED)
+    y = table(c, y + 38, ("Household size", "Income cut-off"),
+              [("1 person", "$46,981"), ("2 people", "$92,884"), ("3 people", "$119,850"), ("4 people", "$146,217"), ("5 or more", "$158,202")], 27)
+    y = callout(c, y + 44, "No combined total is guaranteed", "Each program has its own rules, and federal funding is subject to approval.",
                 "#FFF6E5", "#B7791F", "#7A4E0B")
-    return footer(c, y + 52, "Sources: Government of Canada, National Heat Pump Rebate page (checked November 3, 2026), and the Home Renovation Savings Program. Program terms can change, so confirm eligibility before installation.")
+    return footer(c, y + 52, "Source: Government of Canada, National Heat Pump Rebate (checked November 3, 2026), and Ontario's Home Renovation Savings Program. Program terms can change.")
 
 DOCS = {
  "national-heat-pump-rebate-ontario": federal_doc,
