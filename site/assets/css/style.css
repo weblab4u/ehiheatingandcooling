@@ -1104,3 +1104,5 @@ body.lb-open{overflow:hidden}
 .ty-steps h3{grid-column:2;grid-row:1;margin:0;padding-right:36px}
 .ty-steps p{grid-column:1 / -1}
 .cm-val{color:#1b2836;font-weight:500}
+
+h2>span[id]{display:block;scroll-margin-top:170px}
