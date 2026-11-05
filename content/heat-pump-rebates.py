@@ -19,6 +19,7 @@ PAGE = {
  "hero_img": "/assets/img/work/midea-outdoor-unit-deck.webp", "hero_img_fit": "cover", "hero_img_credit": "EHI install", "hero_img_pos": "50% 55%",
  "service": {"name": "Heat Pump Rebate Application Assistance", "type": "Rebate paperwork and pre-approval for Ontario heat pump installations"},
  "blocks": [
+  {"type": "video", "h2": "Ontario's heat pump rebate explained in 82 seconds", "lead": "Dustin, owner of EHI, walks through the Home Renovation Savings Program amounts. This video covers Ontario's program. The federal rebate is explained further down this page.", "items": [("iocuwNDiIW4", "")]},
   {"type": "table", "h2": "Ontario and federal heat pump rebates at a glance", "lead": "These are two different programs with different rules, run by different governments. Read them side by side, but apply to each on its own.", "headers": ["", "Ontario: Home Renovation Savings Program", "Federal: National Heat Pump Rebate"], "rows": [
     ["Who runs it", "Save on Energy and Enbridge Gas, supported by the Ontario government", "Government of Canada"],
     ["Heat pump amount", "Up to $7,500 for homes heated by electricity, oil, propane or wood, based on heat pump size. Enbridge gas-heated homes get a smaller amount, commonly up to $2,000.", "$2,000, or up to $10,000 for households at or below the median after-tax income for their province and household size. The amount also depends on the cost of the equipment installed."],
@@ -28,7 +29,6 @@ PAGE = {
     ["Energy audit", "Not needed for a heat pump on its own", "Not needed before or after installation"],
     ["Payment", "After final documents are submitted and approved", "No payments until the program launches and your application is approved. Funding is subject to approval."],
   ], "note": "The two amounts are not automatically added together. See <a href='#combine'>combining the programs</a> below. Program terms can change, so we confirm both before you commit."},
-  {"type": "video", "h2": "Ontario's heat pump rebate explained in 82 seconds", "lead": "Dustin, owner of EHI, walks through the Home Renovation Savings Program amounts. This video covers Ontario's program. The federal rebate is explained further down this page.", "items": [("iocuwNDiIW4", "")]},
   {"type": "table", "h2": "How much is the Ontario heat pump rebate in 2026?", "lead": "This section covers Ontario's program only. Amounts under the Home Renovation Savings Program depend on your current heating fuel and the size of the heat pump installed. These are the figures the program publishes as of our last check. Program terms can change, so we confirm the exact amount for your home before you commit.", "headers": ["Upgrade", "Home heated by electricity, oil, propane or wood", "Home heated by Enbridge natural gas"], "rows": [
     ["Cold-climate air-source heat pump (ducted or ductless)", "Up to $7,500 (based on size, about $1,250 per ton)", "Commonly up to $2,000 (about $500 per ton)"],
     ["Ground-source (geothermal) heat pump", "Up to $12,000", "Flat amount, confirm with program"],
