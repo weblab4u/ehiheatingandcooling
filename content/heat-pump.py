@@ -17,6 +17,7 @@ PAGE = {
  "hero_image": "EHI technician commissioning a Midea EVOX G3 cold-climate heat pump beside an Ontario home",
  "service": {"name": "Heat Pump Installation", "type": "HVAC heat pump installation", "from_price": "5500"},
  "blocks": [
+  {"type": "video", "h2": "How much can a heat pump save you in Ontario?", "lead": "Dustin, owner of EHI, explains who saves the most and why your current heating fuel changes the answer.", "items": [("YrIMeO2l7r4", "")]},
   {"type": "problems", "h2": "Problems a new heat pump solves", "lead": "Most of the calls we get about heat pump installation start with one of these. Here's what's going on, and what we do about it.", "items": [
     {"problem": "Your furnace and AC are both getting old", "solution": "One cold-climate heat pump replaces both. You get heating and cooling from a single outdoor unit, one warranty, one piece of equipment to maintain."},
     {"problem": "Winter hydro, oil or propane bills are painful", "solution": "A modern inverter heat pump delivers two to three units of heat for every unit of electricity, even in cold weather. Homes heated with electric baseboards, propane or oil usually see the biggest savings."},
@@ -26,7 +27,6 @@ PAGE = {
     {"problem": "Your home has no ductwork", "solution": "A <a href=\"/ac/ductless-mini-split/\">ductless mini-split</a> or <a href=\"/ac/multi-zone-ductless-system/\">multi-zone system</a> gives you heating and cooling without tearing open walls."},
     {"problem": "You have no gas line and want to go all-electric", "solution": "A heat pump paired with an <a href=\"/heat-pump/electric-air-handler-systems/\">electric air handler</a> gives you central heating and cooling with no fossil fuel at all, and it qualifies for the higher rebate tier."},
   ]},
-  {"type": "video", "h2": "How much can a heat pump save you in Ontario?", "lead": "Dustin, owner of EHI, explains who saves the most and why your current heating fuel changes the answer.", "items": [("YrIMeO2l7r4", "")]},
   {"type": "cards", "h2": "Heat pump systems we install", "lead": "We're an authorized dealer for Midea, Kepler and Lennox, so you get factory-backed equipment and factory-backed warranties.", "items": [
     {"icon": "heatpump", "title": "Cold-climate ducted (central) heat pumps", "text": "Midea EVOX G3 and Extreme Hyper Heat in 2, 2.5, 3, 4 and 5 ton. Kepler 1.5 to 5 ton. Uses your existing ductwork.", "link": "/heat-pump/central/"},
     {"icon": "furnace", "title": "Hybrid furnace + heat pump", "text": "Heat pump does most of the work, your Lennox or Midea gas furnace takes over on the coldest nights. Lowest running cost for gas-heated homes.", "link": "/heat-pump/hybrid-furnace-systems/"},
