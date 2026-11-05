@@ -4,6 +4,14 @@
   if(t&&m){t.addEventListener('click',function(){setNav(m.hidden)});var c=m.querySelector('.m-close');c&&c.addEventListener('click',function(){setNav(false)});}
   // keyboard support for mega menus
   document.querySelectorAll('.has-mega>a').forEach(function(a){a.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){e.preventDefault();var l=a.parentNode.querySelector('.mega a');l&&l.focus();}});});
+  // videos: the YouTube player loads only after someone presses play (a plain link to YouTube without JS)
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[data-yt]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey)return;
+    e.preventDefault();var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+a.getAttribute('data-yt')+'?autoplay=1&rel=0';f.title=a.getAttribute('data-title');
+    f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';
+    a.replaceWith(f);f.focus();
+  });
   // quote forms: validate, then send to /api/quote.php (falls back to a normal post without JS)
   document.querySelectorAll('[data-quote-form]').forEach(function(f){
     var pg=f.querySelector('[name=page]');if(pg)pg.value=location.pathname;
