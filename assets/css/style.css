@@ -1127,3 +1127,5 @@ h2>span[id]{display:block;scroll-margin-top:170px}
 .yt-play svg{width:34px;height:34px;fill:#fff;margin-left:4px}
 .yt-time{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.78);color:#fff;font-size:.8rem;font-weight:600;padding:2px 8px;border-radius:6px}
 .yt figcaption{font-size:.95rem;color:var(--muted);margin-top:10px}
+.hero-mid .hero-side{align-self:center}
+.hero-copy>p.hero-updated{font-size:.85rem;margin-top:-4px}

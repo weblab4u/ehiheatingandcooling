@@ -864,6 +864,7 @@ def hero(page):
     use_form = page.get("hero_form", is_service)
     right = form_block({"h3": page.get("form_h3", "Get your free guaranteed quote"), "sub": page.get("form_sub", "Same-day reply in most cases. No pressure, no spam.")}, compact=True, preselect=preselect_for(page["url"])) if use_form else img_frame(page.get("hero_image", "Hero photo"), "4/3", "hero-img", src=page.get("hero_img"), fit=page.get("hero_img_fit", "contain"), credit=page.get("hero_img_credit"), eager=True, pos=page.get("hero_img_pos", "50% 55%"))
     cls = page.get("hero_cls", "svc-hero" if is_service else ("page-hero" if page["url"] != "/" else ""))
+    if page.get("hero_mid"): cls += " hero-mid"      # image centred against the copy instead of pinned to the top
     return f'''<section class="hero {cls}"><div class="wrap hero-grid">
   <div class="hero-copy">{eyebrow}<h1>{page["h1"]}</h1>{f'<p class="tagline">{page["tagline"]}</p>' if page.get("tagline") else ""}{page["intro"]}
     <ul class="hero-points">{pts}</ul>{cta_buttons(page.get("cta_primary","Get a Free Quote"))}
