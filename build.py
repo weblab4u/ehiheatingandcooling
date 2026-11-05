@@ -346,6 +346,11 @@ def render_block(b, page):
         return f'<section class="sec table-sec"><div class="wrap narrow">{h2(b)}{lead(b)}<div class="table-wrap"><table><thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table></div>{note}</div></section>'
     if t == "money":
         return money_block(b)
+    if t == "video":
+        n = len(b["items"])
+        sizes = "(max-width: 840px) calc(100vw - 32px), 760px" if n == 1 else "(max-width: 760px) calc(100vw - 32px), 560px"
+        cards = "".join(video_card(vid, cap, sizes) for vid, cap in b["items"])
+        return f'<section class="sec video-sec"><div class="wrap{" narrow" if n == 1 else ""}">{h2(b)}{lead(b)}<div class="yt-grid n{n}">{cards}</div></div></section>'
     if t == "cta":
         return (f'<section class="sec cta-band"><div class="wrap"><div><h2>{b.get("h2","Want a guaranteed price for your home?")}</h2>'
                 f'<p>{b.get("text","Free quote, honest sizing, and every rebate you qualify for.")}</p></div>{cta_buttons(b.get("primary","Get a Free Quote"))}</div></section>')
@@ -672,6 +677,27 @@ IMG_WIDTHS = (400, 600, 800, 1080)
 _IMG_W = {}
 def _r_path(src, w):
     return "/assets/img/r/" + src[len("/assets/img/"):-len(".webp")] + f"-{w}.webp"
+# EHI's YouTube videos. Thumbnails are self-hosted in assets/img/video/; the player loads only when someone presses play.
+VIDEOS = {
+ "YrIMeO2l7r4": {"title": "How Much Can a Heat Pump Save You in Ontario? Real Energy Bill Savings Explained", "date": "2026-11-04T22:52:12-08:00", "secs": 92,
+                 "desc": "Dustin, owner of EHI Heating And Cooling, explains how much a cold-climate heat pump can save on Ontario energy bills depending on how the home is heated today, plus the savings on summer cooling."},
+ "iocuwNDiIW4": {"title": "Ontario Heat Pump Rebates Explained: Up to $7,500 | Home Renovation Savings Program", "date": "2026-11-04T22:49:22-08:00", "secs": 82,
+                 "desc": "Dustin, owner of EHI Heating And Cooling, breaks down the Home Renovation Savings Program heat pump rebate amounts and why the rebate depends on how the home is heated today."},
+ "rD0_LoGYAmo": {"title": "Tankless Water Heater Installation in Ontario | Endless Hot Water & Lower Energy Bills | EHI", "date": "2026-11-04T22:46:30-08:00", "secs": 39,
+                 "desc": "A tankless water heater installation by EHI Heating And Cooling: a compact, wall-mounted unit with on-demand hot water for the whole family."},
+}
+def video_thumb(vid):
+    return f"/assets/img/video/{vid}.webp"
+def video_card(vid, cap, sizes):
+    v = VIDEOS[vid]
+    full, small = video_thumb(vid), f"/assets/img/video/{vid}-640.webp"
+    srcset = f' srcset="{small} 640w, /assets/img/video/{vid}-800.webp 800w, {full} 1280w" sizes="{sizes}"' if os.path.exists(os.path.join(ROOT, small.lstrip("/"))) else ""
+    m, s = divmod(v["secs"], 60)
+    return (f'<figure class="yt"><a class="yt-link" href="https://www.youtube.com/watch?v={vid}" data-yt="{vid}" data-title="{esc(v["title"])}" aria-label="Play video: {esc(v["title"])}">'
+            f'<img src="{small if srcset else full}"{srcset} alt="" width="640" height="360" loading="lazy" decoding="async">'
+            f'<span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="yt-time" aria-hidden="true">{m}:{s:02d}</span></a>'
+            + (f'<figcaption>{cap}</figcaption>' if cap else "") + '</figure>')
+
 FEATURED_SIZES = "(max-width: 840px) calc(100vw - 32px), 800px"
 def featured_img(page, eager=True):
     """Blog featured photo: wide 3:2 crop of a job photo, focal point set per post."""

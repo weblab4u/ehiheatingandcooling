@@ -42,6 +42,10 @@ PAGE = {
     {"value": "5", "label": "brands we install and service: Midea, Lennox, Kepler, Rinnai, Goodman"},
     {"value": "12 yrs", "label": "parts and labour coverage on select systems"},
   ]},
+  {"type": "video", "h2": "What a heat pump saves, and what the rebate pays", "lead": "Two short videos from Dustin, owner of EHI. Under two minutes each.", "items": [
+    ("YrIMeO2l7r4", "How much a cold-climate heat pump can save on Ontario energy bills, and why the answer depends on how your home is heated today."),
+    ("iocuwNDiIW4", "How Ontario's Home Renovation Savings Program rebate is worked out, and why your heating fuel decides the amount."),
+  ]},
   {"type": "linkgrid", "h2": "HVAC services for every season in Ontario", "lead": "Heating, cooling, hot water and air quality for homes and commercial properties. Pick the service you need, or call and we'll point you the right way.", "groups": [
     {"icon": "heatpump", "title": "Heat Pumps", "href": "/heat-pump/", "urls": ["/heat-pump/", "/heat-pump/cold-climate/", "/heat-pump/central/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/heat-pump/repair-maintenance/", "/heat-pump-rebates/"]},
     {"icon": "furnace", "title": "Furnaces", "href": "/furnace/", "urls": ["/furnace/", "/furnace/high-efficiency/", "/furnace/electric-air-handlers/", "/furnace/repair-maintenance/"]},

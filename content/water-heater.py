@@ -25,6 +25,7 @@ PAGE = {
     {"problem": "The tank hogs the furnace room", "solution": "A Rinnai tankless mounts on the wall in roughly the space of a carry-on suitcase. That's floor space back in the basement."},
     {"problem": "High gas bills from standby heat loss", "solution": "A tank reheats itself around the clock whether you use it or not. A condensing tankless at 0.97 to 0.98 UEF only burns gas when a tap opens."},
   ]},
+  {"type": "video", "h2": "Watch a tankless water heater installation", "lead": "A 39-second look at a compact, wall-mounted tankless install by EHI, and why homeowners make the switch.", "items": [("rD0_LoGYAmo", "")]},
   {"type": "cards", "h2": "Rinnai tankless water heaters we install", "lead": "We're an authorized Rinnai dealer. Two condensing models cover almost every Ontario home.", "items": [
     {"icon": "tankless", "title": "Rinnai RX160iN", "text": "0.97 UEF condensing, up to about 9 GPM, natural gas or propane. The right fit for most homes with two bathrooms, covering two showers at once in an Ontario winter.", "link": "/brands/rinnai-tankless-water-heaters/"},
     {"icon": "tankless", "title": "Rinnai RX199iN", "text": "0.98 UEF condensing, up to about 11.1 GPM, natural gas or propane. For three-plus bathrooms, soaker tubs, or households that run several hot fixtures at once.", "link": "/brands/rinnai-tankless-water-heaters/"},

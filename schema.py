@@ -230,6 +230,14 @@ def graph(page, canonical, crumbs_ld):
                   "about": ({"@id": city_id(gslug)} if gslug else {"@type": "State", "name": "Ontario"}),
                   "keywords": page.get("keywords", f"HVAC companies {gc}, HVAC company {gc}, best HVAC company {gc}, HVAC contractor {gc}, how to choose an HVAC contractor")})
         if gslug: g.append(city_place(gslug, full=True))
+    for b in page.get("blocks", []):
+        if b.get("type") != "video": continue
+        for vid, _ in b["items"]:
+            v = B.VIDEOS[vid]; m, s = divmod(v["secs"], 60)
+            g.append({"@type": "VideoObject", "@id": canonical + "#video-" + vid, "name": v["title"], "description": v["desc"],
+                      "thumbnailUrl": [B.SITE + B.video_thumb(vid), f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"], "uploadDate": v["date"],
+                      "duration": f"PT{m}M{s}S" if m else f"PT{s}S", "embedUrl": f"https://www.youtube.com/embed/{vid}", "url": f"https://www.youtube.com/watch?v={vid}",
+                      "publisher": {"@id": org_id()}, "inLanguage": "en-CA"})
     for extra in page.get("extra_ld", []):
         g.append(extra)
     return g
