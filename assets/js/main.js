@@ -4,17 +4,34 @@
   if(t&&m){t.addEventListener('click',function(){setNav(m.hidden)});var c=m.querySelector('.m-close');c&&c.addEventListener('click',function(){setNav(false)});}
   // keyboard support for mega menus
   document.querySelectorAll('.has-mega>a').forEach(function(a){a.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){e.preventDefault();var l=a.parentNode.querySelector('.mega a');l&&l.focus();}});});
+  // lead tracking (GA4): every event carries where on the page it happened
+  function track(name,p){if(window.gtag)gtag('event',name,p||{});}
+  var SPOTS=[['.sticky-cta','sticky_mobile_bar'],['.topbar','top_bar'],['.mobile-nav','mobile_menu'],['.site-header','header'],['.quote-form','quote_form'],
+    ['.quote-card','quote_card'],['.cta-band','cta_band'],['.guide-cta','blog_cta'],['.fill-cta','inline_cta'],['.ty-hero','thank_you'],['.hero','hero'],['.site-footer','footer'],['main','page_content']];
+  function spot(el){for(var i=0;i<SPOTS.length;i++)if(el.closest(SPOTS[i][0]))return SPOTS[i][1];return 'other';}
+  function label(a){return (a.getAttribute('aria-label')||a.innerText||a.textContent||'').replace(/\s+/g,' ').trim().slice(0,100);}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+    var h=a.getAttribute('href'),where=spot(a);
+    if(/^tel:/i.test(h))track('phone_call_click',{link_location:where,link_text:label(a),phone_number:h.slice(4)});
+    else if(/^mailto:/i.test(h))track('email_click',{link_location:where,link_text:label(a),email_address:h.slice(7).split('?')[0]});
+    else if(/google\.[a-z.]+\/maps|maps\.app\.goo\.gl|maps\.google\./i.test(h))track('directions_click',{link_location:where,link_text:label(a)});
+    else if(/^\/contact\/?(#.*)?$/.test(h)||a.closest('.header-cta'))track('quote_button_click',{link_location:where,link_text:label(a),link_url:h});
+  });
   // videos: the YouTube player loads only after someone presses play (a plain link to YouTube without JS)
   document.addEventListener('click',function(e){
     var a=e.target.closest&&e.target.closest('a[data-yt]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey)return;
     e.preventDefault();var f=document.createElement('iframe');
     f.src='https://www.youtube-nocookie.com/embed/'+a.getAttribute('data-yt')+'?autoplay=1&rel=0';f.title=a.getAttribute('data-title');
     f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';
+    track('video_play',{video_id:a.getAttribute('data-yt'),video_title:a.getAttribute('data-title'),link_location:spot(a)});
     a.replaceWith(f);f.focus();
   });
   // quote forms: validate, then send to /api/quote.php (falls back to a normal post without JS)
   document.querySelectorAll('[data-quote-form]').forEach(function(f){
     var pg=f.querySelector('[name=page]');if(pg)pg.value=location.pathname;
+    var fwhere=/^\/contact\/?$/.test(location.pathname)?'contact_page':f.closest('.hero')?'hero_form':'page_section_form',started=false;
+    f.addEventListener('input',function(){if(!started){started=true;track('quote_form_start',{form_location:fwhere});}});
     f.addEventListener('submit',function(e){
       e.preventDefault();
       // WebMCP: when an AI agent submitted the form, hand the outcome back to it
@@ -24,7 +41,7 @@
       var em=f.querySelector('[name=email]');if(em&&em.value.trim()&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){em.classList.add('error');ok=false;first=first||em;}else if(em)em.classList.remove('error');
       var err=f.querySelector('.form-err'),okMsg=f.querySelector('.form-ok'),btn=f.querySelector('button[type=submit]');
       function fail(msg){tellAgent('Not sent: '+msg.replace(/<[^>]+>/g,''));err.innerHTML=msg+' Or call <a href="tel:+16476945845">1-647-694-5845</a>.';err.hidden=false;btn.disabled=false;btn.classList.remove('sending');}
-      if(!ok){first&&first.focus();fail('Please fill in your name, phone and city.');tellAgent('Not sent: name, phone and city are required, and the email must be valid.');return;}
+      if(!ok){first&&first.focus();track('quote_form_error',{form_location:fwhere,error_type:'missing_fields'});fail('Please fill in your name, phone and city.');tellAgent('Not sent: name, phone and city are required, and the email must be valid.');return;}
       if(f.querySelector('.hp').value){tellAgent('Not sent.');return;}
       err.hidden=true;btn.disabled=true;btn.classList.add('sending');
       function mailFallback(){var v=function(n){var i=f.querySelector('[name='+n+']');return i?i.value.trim():'';};
@@ -41,10 +58,10 @@
             var v=function(n){var i=f.querySelector('[name='+n+']');return i?i.value.trim():'';};
             try{sessionStorage.setItem('ehi_ty',JSON.stringify({name:v('name').split(/\s+/)[0],service:v('service'),city:v('city'),phone:v('phone')}));}catch(e){}
             var went=false,go=function(){if(!went){went=true;location.assign('/thank-you/');}};
-            if(window.gtag){gtag('event','generate_lead',{form_page:location.pathname,service:v('service'),event_callback:go});setTimeout(go,1200);}else go();
+            if(window.gtag){gtag('event','generate_lead',{lead_method:'quote_form',form_location:fwhere,service_type:v('service')||'not_selected',form_page:location.pathname,event_callback:go});setTimeout(go,1200);}else go();
             return;}
-          if(j.errors){Object.keys(j.errors).forEach(function(k){var i=f.querySelector('[name='+k+']');i&&i.classList.add('error');});fail(j.errors[Object.keys(j.errors)[0]]);return;}
-          if(j.down||j.status>=500){window.gtag&&gtag('event','form_server_error',{form_page:location.pathname});fail('Our form is having trouble right now. Your details are still here: '+mailFallback()+' in one tap,');return;}
+          if(j.errors){track('quote_form_error',{form_location:fwhere,error_type:'rejected'});Object.keys(j.errors).forEach(function(k){var i=f.querySelector('[name='+k+']');i&&i.classList.add('error');});fail(j.errors[Object.keys(j.errors)[0]]);return;}
+          if(j.down||j.status>=500){track('quote_form_error',{form_location:fwhere,error_type:'server'});fail('Our form is having trouble right now. Your details are still here: '+mailFallback()+' in one tap,');return;}
           fail(j.error||'Sorry, that didn\'t go through.');
         });
     });
