@@ -664,7 +664,7 @@ GTAG = f'''<!-- Google tag (gtag.js) -->
   gtag('js', new Date());
 
   gtag('config', '{GA_ID}');
-  window.addEventListener('load', function(){{var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id={GA_ID}';document.head.appendChild(s);}});
+  if(/(^|\.)efficienthomeimprovements\.ca$/.test(location.hostname))window.addEventListener('load', function(){{var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id={GA_ID}';document.head.appendChild(s);}});
 </script>'''
 def _min_css(css):
     css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
