@@ -86,6 +86,50 @@ function smtp_send(array $cfg, array $rcpts, string $data, string &$err): bool {
     return $ok;
 }
 
+/**
+ * GoHighLevel workflow Inbound Webhook, also kept outside the web root:
+ *   <domain folder>/ehi-ghl-config.php  ->  <?php return ['webhook_url' => 'https://services.leadconnectorhq.com/hooks/...'];
+ * Leads go to GHL in addition to the email and CSV copy; a GHL outage never blocks a lead.
+ */
+function ghl_config(): ?array {
+    $file = dirname(__DIR__, 2) . '/ehi-ghl-config.php';
+    if (!is_file($file)) return null;
+    $c = include $file;
+    return (is_array($c) && !empty($c['webhook_url'])) ? $c : null;
+}
+
+function ghl_send(array $cfg, array $lead, string &$err): bool {
+    $parts = preg_split('/\s+/', $lead['name'], 2);
+    $payload = [
+        'first_name'   => $parts[0] ?? '',
+        'last_name'    => $parts[1] ?? '',
+        'full_name'    => $lead['name'],
+        'phone'        => $lead['phone'],
+        'email'        => $lead['email'],
+        'city'         => $lead['city'],
+        'service'      => $lead['service'],
+        'message'      => $lead['message'],
+        'page'         => $lead['page'],
+        'source'       => 'Website quote form',
+        'tag'          => 'website lead',
+        'submitted_at' => date('c'),
+    ];
+    $ch = curl_init($cfg['webhook_url']);
+    curl_setopt_array($ch, [
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => json_encode($payload),
+        CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_CONNECTTIMEOUT => 5,
+        CURLOPT_TIMEOUT        => 8,
+    ]);
+    $body = (string)curl_exec($ch);
+    $code = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if ($code < 200 || $code >= 300) $err = 'HTTP ' . $code . ' ' . (curl_error($ch) ?: mb_substr($body, 0, 200));
+    curl_close($ch);
+    return $err === '';
+}
+
 function field(string $k, int $max): string {
     $v = trim((string)($_POST[$k] ?? ''));
     $v = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', '', $v) ?? '';
@@ -131,7 +175,7 @@ $hits = array_filter(array_map('intval', @file($rateFile, FILE_IGNORE_NEW_LINES)
 if (count($hits) >= MAX_PER_HOUR) out(429, ['ok' => false, 'error' => 'We have already received several requests from this connection in the last hour.']);
 
 $dryRun = ($_POST['dry_run'] ?? '') === '1';
-if ($dryRun) out(200, ['ok' => true, 'dry_run' => true, 'would_email' => preg_replace('/^(.).*(@.*)$/', '$1***$2', LEAD_TO), 'mailer' => mail_config() ? 'gmail-smtp' : 'sendmail']);
+if ($dryRun) out(200, ['ok' => true, 'dry_run' => true, 'would_email' => preg_replace('/^(.).*(@.*)$/', '$1***$2', LEAD_TO), 'mailer' => mail_config() ? 'gmail-smtp' : 'sendmail', 'ghl' => ghl_config() !== null]);
 $hits[] = $now;
 @file_put_contents($rateFile, implode("\n", $hits));
 
@@ -142,6 +186,14 @@ if ($fh = @fopen($csv, 'a')) {
     if ($isNew) fputcsv($fh, ['received', 'name', 'phone', 'email', 'city', 'service', 'message', 'page'], ',', '"', '\\');
     fputcsv($fh, array_merge([date('c')], array_values($lead)), ',', '"', '\\');
     fclose($fh);
+}
+
+// GoHighLevel (CRM)
+$inGhl = false;
+if ($ghl = ghl_config()) {
+    $err = '';
+    $inGhl = ghl_send($ghl, $lead, $err);
+    if (!$inGhl) @file_put_contents($store . '/ghl-errors.log', date('c') . ' ' . $err . "\n", FILE_APPEND);
 }
 
 // Email
@@ -195,5 +247,5 @@ if (!$wantsJson) {
     header('Location: /thank-you/', true, 303);
     exit;
 }
-if (!$sent) out(200, ['ok' => false, 'down' => true, 'error' => 'We could not send that just now.']);
-out(200, ['ok' => true, 'emailed' => true]);
+if (!$sent && !$inGhl) out(200, ['ok' => false, 'down' => true, 'error' => 'We could not send that just now.']);
+out(200, ['ok' => true, 'emailed' => $sent]);
