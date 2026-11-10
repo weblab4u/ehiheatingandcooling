@@ -1000,7 +1000,7 @@ body.lb-open{overflow:hidden}
 .city-hero:is(.ch-b,.ch-e,.ch-f) .hero-copy>p.tagline.tagline{color:#8FD3A3}
 .city-hero:is(.ch-b,.ch-e,.ch-f) .hero-copy>p.hero-trust{color:rgba(255,255,255,.72)}
 .city-hero.ch-b .ch-pin{background:rgba(7,25,46,.6);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(4px)}
-.city-hero.ch-b::before{background:linear-gradient(90deg,rgba(7,25,46,.95) 0%,rgba(7,25,46,.88) 50%,rgba(7,25,46,.5) 100%)}
+.city-hero.ch-b::before{background:linear-gradient(90deg,rgba(7,25,46,.86) 0%,rgba(7,25,46,.72) 50%,rgba(7,25,46,.35) 100%)}
 /* location pill colours per layout (beat the generic hero paragraph colour) */
 .city-hero:is(.ch-a,.ch-d) .hero-copy>p.ch-pin,.city-hero.ch-d .ch-center>p.ch-pin{color:var(--green-dark)}
 .city-hero.ch-c .hero-copy>p.ch-pin{color:var(--green-dark)}
@@ -1131,3 +1131,5 @@ h2>span[id]{display:block;scroll-margin-top:170px}
 .hero-copy>p.hero-updated{font-size:.85rem;margin-top:-4px}
 .ch-b::before{z-index:1}
 .ch-b .ch-grid,.ch-b .crumbs.in-hero{position:relative;z-index:2}
+.city-hero.ch-b .ch-bg{opacity:.75}
+@media (max-width:959px){.city-hero.ch-b::before{background:rgba(7,25,46,.8)}}
