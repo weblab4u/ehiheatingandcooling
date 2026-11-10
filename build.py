@@ -205,7 +205,7 @@ def nav_items(nav):
             colhtml = ""
             for colname, urls in cols:
                 links = "".join(f'<li><a href="{u}">{esc(title_of(u))}</a></li>' for u in urls)
-                colhtml += f'<div class="mega-col"><h4>{esc(colname)}</h4><ul>{links}</ul></div>'
+                colhtml += f'<div class="mega-col"><p class="mega-h">{esc(colname)}</p><ul>{links}</ul></div>'
             items.append(f'<li class="has-mega"><a href="{href}" aria-haspopup="true" aria-expanded="false">{esc(label)}<span class="chev"></span></a>'
                          f'<div class="mega">{colhtml}</div></li>')
         else:
