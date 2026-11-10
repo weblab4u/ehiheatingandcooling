@@ -69,7 +69,7 @@ svg.ic .fill{fill:currentColor;stroke:none}
 .mega{position:absolute;top:100%;left:0;transform:translateY(6px);background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:20px 22px;display:none;gap:28px;min-width:260px;z-index:60}
 .has-mega:hover .mega,.has-mega:focus-within .mega{display:flex}
 .has-mega::after{content:"";position:absolute;left:0;right:0;top:100%;height:10px}
-.mega-col h4{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}
+.mega-col .mega-h{font-weight:700;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}
 .mega-col ul{list-style:none;margin:0;padding:0;min-width:210px}
 .mega-col li a{display:block;padding:6px 0;color:var(--text);font-size:.95rem;white-space:nowrap}
 .mega-col li a:hover{color:var(--green-dark)}
@@ -1000,7 +1000,7 @@ body.lb-open{overflow:hidden}
 .city-hero:is(.ch-b,.ch-e,.ch-f) .hero-copy>p.tagline.tagline{color:#8FD3A3}
 .city-hero:is(.ch-b,.ch-e,.ch-f) .hero-copy>p.hero-trust{color:rgba(255,255,255,.72)}
 .city-hero.ch-b .ch-pin{background:rgba(7,25,46,.6);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(4px)}
-.city-hero.ch-b::before{background:linear-gradient(90deg,rgba(7,25,46,.95) 0%,rgba(7,25,46,.88) 50%,rgba(7,25,46,.5) 100%)}
+.city-hero.ch-b::before{background:linear-gradient(90deg,rgba(7,25,46,.9) 0%,rgba(7,25,46,.8) 50%,rgba(7,25,46,.42) 100%)}
 /* location pill colours per layout (beat the generic hero paragraph colour) */
 .city-hero:is(.ch-a,.ch-d) .hero-copy>p.ch-pin,.city-hero.ch-d .ch-center>p.ch-pin{color:var(--green-dark)}
 .city-hero.ch-c .hero-copy>p.ch-pin{color:var(--green-dark)}
@@ -1129,3 +1129,7 @@ h2>span[id]{display:block;scroll-margin-top:170px}
 .yt figcaption{font-size:.95rem;color:var(--muted);margin-top:10px}
 .hero-mid .hero-side{align-self:center}
 .hero-copy>p.hero-updated{font-size:.85rem;margin-top:-4px}
+.ch-b::before{z-index:1}
+.ch-b .ch-grid,.ch-b .crumbs.in-hero{position:relative;z-index:2}
+.city-hero.ch-b .ch-bg{opacity:.68}
+@media (max-width:959px){.city-hero.ch-b::before{background:rgba(7,25,46,.85)}}
