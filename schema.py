@@ -235,7 +235,8 @@ def graph(page, canonical, crumbs_ld):
         g.append({"@type": "HVACBusiness", "@id": canonical + "#location", "name": prof["name"], "url": canonical, "telephone": prof["tel"],
                   "parentOrganization": {"@id": org_id()}, "geo": {"@type": "GeoCoordinates", "latitude": prof["lat"], "longitude": prof["lng"]},
                   "hasMap": f"https://www.google.com/maps?cid={prof['cid']}", "areaServed": {"@type": "City", "name": B.CITY_BY_SLUG[page["city"]]["name"]},
-                  "address": {"@type": "PostalAddress", "addressLocality": B.CITY_BY_SLUG[page["city"]]["name"], "addressRegion": "ON", "addressCountry": "CA"}})
+                  "address": {"@type": "PostalAddress", "streetAddress": prof["street"], "addressLocality": prof["city"], "addressRegion": "ON",
+                              "postalCode": prof["postal"], "addressCountry": "CA"}})
     for b in page.get("blocks", []):
         if b.get("type") != "video": continue
         for vid, _ in b["items"]:

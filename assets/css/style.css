@@ -1133,3 +1133,12 @@ h2>span[id]{display:block;scroll-margin-top:170px}
 .ch-b .ch-grid,.ch-b .crumbs.in-hero{position:relative;z-index:2}
 .city-hero.ch-b .ch-bg{opacity:.68}
 @media (max-width:959px){.city-hero.ch-b::before{background:rgba(7,25,46,.85)}}
+.loc-cards{display:grid;gap:24px;margin:0 0 28px}
+@media (min-width:800px){.loc-cards{grid-template-columns:1fr 1fr}}
+.loc-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.loc-body{padding:20px 22px 6px}
+.loc-tag{margin:0 0 2px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.loc-body h3{margin:0 0 14px}
+.loc-map{border-radius:0;border:0;border-top:1px solid var(--line);box-shadow:none;min-height:320px;margin-top:auto}
+.loc-extra{display:grid;gap:24px;align-items:start}
+@media (min-width:800px){.loc-extra{grid-template-columns:1fr 1fr}}

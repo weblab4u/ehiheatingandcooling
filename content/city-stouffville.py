@@ -1,17 +1,17 @@
 PAGE = {
  "url": "/stouffville/", "city": "stouffville", "layout": "B", "priority": "0.7",
  "title": "HVAC Stouffville | Local Heat Pump, Furnace & AC Service",
- "description": "Stouffville HVAC from a local crew. Heat pumps for propane and oil homes, furnace and AC repair, rebate help. Get a free quote.",
+ "description": "Stouffville HVAC from two local locations. Heat pumps for propane and oil homes, furnace and AC repair, rebate help. Get a free quote.",
  "eyebrow": "Stouffville · Our home base",
  "h1": "Your Local Stouffville HVAC Contractor",
  "tagline": "From Main Street character homes to farm properties near Ballantrae",
- "intro": "<p>Looking for HVAC in Stouffville from a company that actually works out of the town? Our team works right here in Stouffville, so when your furnace, air conditioner or heat pump acts up, the trip to your place is a short one. We repair and replace heating and cooling equipment across Whitchurch-Stouffville, and rural homes on propane or oil are some of the best heat pump candidates we see.</p>",
- "hero_points": ["A local Stouffville team, not a call centre in another city", "Cold-climate heat pumps for propane, oil and electric homes",
+ "intro": "<p>Looking for HVAC in Stouffville from a company that actually works out of the town? We have two Stouffville locations, on Bloomington Road and on Gene's Landing, so when your furnace, air conditioner or heat pump acts up, the trip to your place is a short one. We repair and replace heating and cooling equipment across Whitchurch-Stouffville, and rural homes on propane or oil are some of the best heat pump candidates we see.</p>",
+ "hero_points": ["Two Stouffville locations for faster service, not a call centre in another city", "Cold-climate heat pumps for propane, oil and electric homes",
                  "Rebate paperwork handled, up to $7,500 where you qualify", "Written, guaranteed price before any work starts"],
  "service": {"name": "HVAC services in Stouffville", "type": "HVAC contractor", "area": "Stouffville"},
  "blocks": [
   {"type": "split", "photo": "out", "h2": "Heating and cooling in Stouffville from a crew based in town",
-   "html": "<p>Plenty of HVAC companies that list Stouffville on their website drive up from the city. We're already here. Our team is local to Stouffville, so a service call in Ballantrae, Gormley or along Main Street is a short trip for us.</p>"
+   "html": "<p>Plenty of HVAC companies that list Stouffville on their website drive up from the city. We're already here, with two locations in town: our office on Bloomington Road and our location on Gene's Landing. With crews based at both, a service call in Ballantrae, Gormley or along Main Street is a short trip for us.</p>"
            "<p>That matters most when something breaks. We won't quote you an exact arrival time, because nobody honest can. What we can tell you is that a no-heat call in town doesn't start with a long haul up Highway 404.</p>"
            "<p>We also know the local housing. Newer subdivisions in Stouffville North have tight mechanical rooms and builder-grade equipment. Older homes near Main Street often have patched ductwork. And a lot of rural properties out by Musselman Lake still heat with propane, oil or electric baseboards.</p>"
            "<ul class=\"checklist\"><li>TSSA-certified gas technicians for furnaces and gas lines</li><li>Licensed refrigeration technicians for heat pumps and AC</li><li>ESA-licensed electrical work for 240V heat pump circuits and panel upgrades</li><li>Permits, warranty registration and rebate paperwork done for you</li></ul>"},
@@ -53,9 +53,9 @@ PAGE = {
    "lead": "From the subdivisions north of Main Street to the rural roads past Musselman Lake, we cover all of Whitchurch-Stouffville, including:",
    "card_h": "Long laneway or rural route?", "card_text": "No problem. Rural addresses are everyday work for us around Stouffville. Call or send the form and we'll confirm your visit."},
   {"type": "why"},
-  {"type": "cta", "h2": "Your HVAC company is just down the road", "text": "Call 1-647-694-5845 or send the form for a guaranteed quote from your local Stouffville team."}],
+  {"type": "cta", "h2": "Your HVAC company is just down the road", "text": "Call 1-647-694-5845 or send the form for a guaranteed quote from the Stouffville location closest to you."}],
  "faqs": [
-  ("Do you have a local Stouffville team?", "Yes. Our crews work across Stouffville and the rest of Whitchurch-Stouffville every day, and you can reach the Stouffville line at 1-647-898-2315. We're a service-area business, so our technicians come to your home rather than you coming to us."),
+  ("Where are your Stouffville locations?", "We have two, for faster service across town: <!--keep-->4261 Bloomington Road, Whitchurch-Stouffville, ON L4A 3Y6 (<a href='tel:+16476945845'>1-647-694-5845</a>)<!--/keep-->, and 6 Gene's Landing, Whitchurch-Stouffville, ON L4A 1N6 (<a href='tel:+16478982315'>1-647-898-2315</a>). We're a service-area business, so our technicians come to your home rather than you coming to us."),
   ("Is a heat pump worth it for a Stouffville home on propane or oil?", "In most cases, yes. A cold-climate heat pump usually costs less to run than propane or oil heat, it keeps working down to -30°C, and these homes often qualify for the higher rebate tier of up to $7,500."),
   ("How soon can a Stouffville HVAC technician get to my house?", "We don't promise exact arrival times, but our office is in town, so local calls aren't waiting on a long drive. Call 1-647-694-5845 and we'll give you a realistic window on the phone."),
   ("Is heat pump installation in Stouffville possible without natural gas?", "Yes. We pair Midea electric air handlers with EVOX G3 cold-climate heat pumps for a fully electric system, which suits rural homes that aren't on the Enbridge line."),
