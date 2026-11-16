@@ -1241,7 +1241,7 @@ def city_map_block(slug):
                  f'<li><span class="cm-ic">{icon("chat")}</span><span><strong>Email</strong><a href="mailto:{EMAIL}">{EMAIL}</a></span></li>')
         return (f'<section class="sec city-map-sec"><div class="wrap">'
                 f'<p class="cm-kicker">Licensed HVAC Contractor · Serving Ontario for 20+ Years</p>'
-                f'<h2>Two Stouffville Locations for Faster Service</h2>'
+                f'<h2>Our Two Stouffville Service Locations</h2>'
                 f'<p class="cm-intro">{esc(BRAND)} has two locations in Whitchurch-Stouffville: our office on Bloomington Road and our location on Gene\'s Landing. '
                 f'With crews based at both, a service call anywhere in {cn} is a short trip. Call whichever location is closer to you.</p>'
                 f'<div class="loc-cards">{cards}</div>'
