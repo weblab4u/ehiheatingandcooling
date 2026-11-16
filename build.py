@@ -18,6 +18,13 @@ ADDRESS = {"street": "4261 Bloomington Road", "city": "Whitchurch-Stouffville", 
 TODAY = datetime.date.today().isoformat()
 GBP_URL = "https://maps.app.goo.gl/hPDoCQ6tHRCjxoDd9"
 GBP_LAT, GBP_LNG = "43.9919795", "-79.3224239"
+# Location Google Business Profiles with their own phone line. On that city's page every visible phone number,
+# the map and a LocalBusiness entry use the profile; the site-wide Organization keeps the main number.
+LOCAL_PROFILES = {
+ "stouffville": {"name": "EHI Heating and Cooling Stouffville", "phone": "1-647-898-2315", "tel": "+16478982315",
+                 "lat": "44.0455063", "lng": "-79.2760082", "cid": "10345994007157006383",
+                 "embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2867.8329390961503!2d-79.27600819999999!3d44.04550629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d52fd37fb8102b%3A0x8f945abbece9e02f!2sEHI%20Heating%20and%20Cooling%20stouffville!5e0!3m2!1sen!2sca!4v1794803804407!5m2!1sen!2sca"},
+}
 GBP_RATING = ("4.5", "87")
 # Licensing and guarantee: shown site-wide once EHI supplies them. Leave empty to hide.
 TSSA_NUMBER = ""          # e.g. "FSR0001234567"
@@ -983,7 +990,7 @@ def render(page):
     # desktop: the home hero photo is the largest paint, so fetch it early; phones show the headline first and skip this
     hero_preload = (f'\n<link rel="preload" as="image" href="{page["hero_photo"]}" imagesrcset="{srcset_of(page["hero_photo"])}" imagesizes="(max-width: 1279px) 55vw, 700px" media="(min-width: 768px)" fetchpriority="high">'
                     if page.get("hero_photo") else "")
-    return responsive_imgs(f'''<!DOCTYPE html>
+    return local_phone(page, responsive_imgs(f'''<!DOCTYPE html>
 <html lang="en-CA">
 <head>
 <meta charset="utf-8">
@@ -1018,7 +1025,7 @@ def render(page):
 </main>
 {footer(show_cta=not (page.get('layout') == 'article' or page.get('no_final_cta')))}
 </body>
-</html>''')
+</html>'''))
 
 
 # ---------------------------------------------------------------- city landing pages (/city-slug/)
@@ -1189,10 +1196,19 @@ def city_block(b, page):
 HOURS = [("Monday", "8:00 AM to 8:00 PM"), ("Tuesday", "8:00 AM to 8:00 PM"), ("Wednesday", "8:00 AM to 8:00 PM"), ("Thursday", "8:00 AM to 8:00 PM"),
          ("Friday", "8:00 AM to 8:00 PM"), ("Saturday", "8:00 AM to 8:00 PM"), ("Sunday", "10:00 AM to 5:00 PM")]
 
+def local_phone(page, html_out):
+    """On a city page with its own Google Business Profile, every visible phone number is that location's line.
+    JSON-LD keeps the main number for the Organization; the location gets its own LocalBusiness entry (schema.py)."""
+    prof = LOCAL_PROFILES.get(page.get("city"))
+    if not prof: return html_out
+    parts = re.split(r'(<script type="application/ld\+json">.*?</script>)', html_out, flags=re.S)
+    return "".join(p if p.startswith('<script type="application/ld+json">') else
+                   p.replace(f"tel:{PHONE_TEL}", f"tel:{prof['tel']}").replace(PHONE, prof["phone"]) for p in parts)
+
 def city_map_block(slug):
     """Contact and map section for city and city-service pages. The office address is shown only on the
     Stouffville page, where the Google Business Profile is; every page embeds the GBP map with its rating."""
-    c = CITY_BY_SLUG[slug]; cn = esc(c["name"]); home = slug == "stouffville"
+    c = CITY_BY_SLUG[slug]; cn = esc(c["name"]); home = slug == "stouffville"; prof = LOCAL_PROFILES.get(slug)
     intro = (f"{esc(BRAND)} has kept Ontario homes and businesses comfortable for more than 20 years. Our office is right here on Bloomington Road, and our licensed crews are out across {cn} and the rest of Whitchurch-Stouffville every day."
              if home else
              f"{esc(BRAND)} has kept Ontario homes and businesses comfortable for more than 20 years. Our licensed crews come to your home or business anywhere in {cn}, with a written, guaranteed quote before any work starts.")
@@ -1209,8 +1225,8 @@ def city_map_block(slug):
             f'<p class="cm-intro">{intro}</p>'
             f'<div class="cm-grid"><div class="cm-info"><ul class="cm-contact">{rows}</ul>'
             f'<div class="cm-hours"><h3>Business Hours</h3><ul>{hours}</ul><p>Emergency service available evenings, weekends and holidays.</p></div></div>'
-            f'<div class="cm-map"><iframe src="{MAP_EMBED}" width="100%" height="460" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" '
-            f'title="Google map and reviews for {esc(BRAND)}"></iframe></div></div></div></section>')
+            f'<div class="cm-map"><iframe src="{prof["embed"] if prof else MAP_EMBED}" width="100%" height="460" style="border:0" loading="lazy" allowfullscreen referrerpolicy="{"strict-origin-when-cross-origin" if prof else "no-referrer-when-downgrade"}" '
+            f'title="Google map and reviews for {esc(prof["name"] if prof else BRAND)}"></iframe></div></div></div></section>')
 
 def city_local_links(page):
     """Links from a city page to its own service pages and guide, when they exist."""

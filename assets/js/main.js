@@ -40,7 +40,7 @@
       var ok=true,first=null;f.querySelectorAll('[required]').forEach(function(i){if(!i.value.trim()){i.classList.add('error');ok=false;first=first||i;}else i.classList.remove('error');});
       var em=f.querySelector('[name=email]');if(em&&em.value.trim()&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){em.classList.add('error');ok=false;first=first||em;}else if(em)em.classList.remove('error');
       var err=f.querySelector('.form-err'),okMsg=f.querySelector('.form-ok'),btn=f.querySelector('button[type=submit]');
-      function fail(msg){tellAgent('Not sent: '+msg.replace(/<[^>]+>/g,''));err.innerHTML=msg+' Or call <a href="tel:+16476945845">1-647-694-5845</a>.';err.hidden=false;btn.disabled=false;btn.classList.remove('sending');}
+      function fail(msg){tellAgent('Not sent: '+msg.replace(/<[^>]+>/g,''));var tl=document.querySelector('a[href^="tel:"]');err.innerHTML=msg+' Or call '+(tl?'<a href="'+tl.getAttribute('href')+'">'+tl.getAttribute('href').replace(/^tel:\+1(\d{3})(\d{3})(\d{4})$/,'1-$1-$2-$3')+'</a>':'<a href="tel:+16476945845">1-647-694-5845</a>')+'.';err.hidden=false;btn.disabled=false;btn.classList.remove('sending');}
       if(!ok){first&&first.focus();track('quote_form_error',{form_location:fwhere,error_type:'missing_fields'});fail('Please fill in your name, phone and city.');tellAgent('Not sent: name, phone and city are required, and the email must be valid.');return;}
       if(f.querySelector('.hp').value){tellAgent('Not sent.');return;}
       err.hidden=true;btn.disabled=true;btn.classList.add('sending');

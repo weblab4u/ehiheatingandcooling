@@ -230,6 +230,12 @@ def graph(page, canonical, crumbs_ld):
                   "about": ({"@id": city_id(gslug)} if gslug else {"@type": "State", "name": "Ontario"}),
                   "keywords": page.get("keywords", f"HVAC companies {gc}, HVAC company {gc}, best HVAC company {gc}, HVAC contractor {gc}, how to choose an HVAC contractor")})
         if gslug: g.append(city_place(gslug, full=True))
+    prof = B.LOCAL_PROFILES.get(page.get("city"))
+    if prof:
+        g.append({"@type": "HVACBusiness", "@id": canonical + "#location", "name": prof["name"], "url": canonical, "telephone": prof["tel"],
+                  "parentOrganization": {"@id": org_id()}, "geo": {"@type": "GeoCoordinates", "latitude": prof["lat"], "longitude": prof["lng"]},
+                  "hasMap": f"https://www.google.com/maps?cid={prof['cid']}", "areaServed": {"@type": "City", "name": B.CITY_BY_SLUG[page["city"]]["name"]},
+                  "address": {"@type": "PostalAddress", "addressLocality": B.CITY_BY_SLUG[page["city"]]["name"], "addressRegion": "ON", "addressCountry": "CA"}})
     for b in page.get("blocks", []):
         if b.get("type") != "video": continue
         for vid, _ in b["items"]:
