@@ -21,7 +21,7 @@ GBP_LAT, GBP_LNG = "43.9919795", "-79.3224239"
 # Location Google Business Profiles with their own phone line. On that city's page every visible phone number,
 # the map and a LocalBusiness entry use the profile; the site-wide Organization keeps the main number.
 LOCAL_PROFILES = {
- "stouffville": {"name": "EHI Heating and Cooling Stouffville", "phone": "1-647-898-2315", "tel": "+16478982315",
+ "stouffville": {"name": "EHI Heating and Cooling Stouffville", "phone": "1-647-898-2315", "tel": "+16478982315", "area": "Serving Stouffville and Whitchurch-Stouffville",
                  "lat": "44.0455063", "lng": "-79.2760082", "cid": "10345994007157006383",
                  "embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2867.8329390961503!2d-79.27600819999999!3d44.04550629999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d52fd37fb8102b%3A0x8f945abbece9e02f!2sEHI%20Heating%20and%20Cooling%20stouffville!5e0!3m2!1sen!2sca!4v1794803804407!5m2!1sen!2sca"},
 }
@@ -1201,27 +1201,30 @@ def local_phone(page, html_out):
     JSON-LD keeps the main number for the Organization; the location gets its own LocalBusiness entry (schema.py)."""
     prof = LOCAL_PROFILES.get(page.get("city"))
     if not prof: return html_out
+    street = f'{ADDRESS["street"]}, {ADDRESS["city"]}, {ADDRESS["region"]} {ADDRESS["postal"]}'      # the main office stays off this page
     parts = re.split(r'(<script type="application/ld\+json">.*?</script>)', html_out, flags=re.S)
     return "".join(p if p.startswith('<script type="application/ld+json">') else
-                   p.replace(f"tel:{PHONE_TEL}", f"tel:{prof['tel']}").replace(PHONE, prof["phone"]) for p in parts)
+                   p.replace(f"tel:{PHONE_TEL}", f"tel:{prof['tel']}").replace(PHONE, prof["phone"]).replace(street, prof["area"]) for p in parts)
 
 def city_map_block(slug):
     """Contact and map section for city and city-service pages. The office address is shown only on the
     Stouffville page, where the Google Business Profile is; every page embeds the GBP map with its rating."""
     c = CITY_BY_SLUG[slug]; cn = esc(c["name"]); home = slug == "stouffville"; prof = LOCAL_PROFILES.get(slug)
-    intro = (f"{esc(BRAND)} has kept Ontario homes and businesses comfortable for more than 20 years. Our office is right here on Bloomington Road, and our licensed crews are out across {cn} and the rest of Whitchurch-Stouffville every day."
+    intro = (f"{esc(BRAND)} has kept Ontario homes and businesses comfortable for more than 20 years. Our licensed crews are out across {cn} and the rest of Whitchurch-Stouffville every day, with a written, guaranteed quote before any work starts."
+             if home and prof else
+             f"{esc(BRAND)} has kept Ontario homes and businesses comfortable for more than 20 years. Our office is right here on Bloomington Road, and our licensed crews are out across {cn} and the rest of Whitchurch-Stouffville every day."
              if home else
              f"{esc(BRAND)} has kept Ontario homes and businesses comfortable for more than 20 years. Our licensed crews come to your home or business anywhere in {cn}, with a written, guaranteed quote before any work starts.")
     rows = (f'<li><span class="cm-ic">{icon("truck")}</span><span><strong>Serving</strong><span class="cm-val">{cn}, Ontario</span></span></li>'
             f'<li><span class="cm-ic">{icon("phone")}</span><span><strong>Phone</strong><a href="tel:{PHONE_TEL}">{PHONE}</a></span></li>'
             f'<li><span class="cm-ic">{icon("chat")}</span><span><strong>Email</strong><a href="mailto:{EMAIL}">{EMAIL}</a></span></li>')
-    if home:
+    if home and not prof:
         rows += (f'<li><span class="cm-ic">{icon("pin")}</span><span><strong>Office</strong><a href="{GBP_URL}" target="_blank" rel="noopener">'
                  f'{ADDRESS["street"]}, {ADDRESS["city"]}, {ADDRESS["region"]} {ADDRESS["postal"]}</a></span></li>')
     hours = "".join(f'<li><span>{d}</span><span>{h}</span></li>' for d, h in HOURS)
     return (f'<section class="sec city-map-sec"><div class="wrap">'
             f'<p class="cm-kicker">Licensed HVAC Contractor · Serving Ontario for 20+ Years</p>'
-            f'<h2>Proudly Serving {cn}{", Ontario" if not home else " From Our Bloomington Road Office"}</h2>'
+            f'<h2>Proudly Serving {cn}{", Ontario" if not home else ("" if prof else " From Our Bloomington Road Office")}</h2>'
             f'<p class="cm-intro">{intro}</p>'
             f'<div class="cm-grid"><div class="cm-info"><ul class="cm-contact">{rows}</ul>'
             f'<div class="cm-hours"><h3>Business Hours</h3><ul>{hours}</ul><p>Emergency service available evenings, weekends and holidays.</p></div></div>'
