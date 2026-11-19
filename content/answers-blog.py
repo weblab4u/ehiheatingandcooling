@@ -55,7 +55,7 @@ BLOG = {
  "priority": "0.5",
  "eyebrow": "Blog",
  "h1": "Heating and Cooling Guides for Ontario Homes",
- "intro": "<p>Rebate rules change, equipment changes, and Ontario winters don't get any shorter. Our blog keeps you current on what matters for your home, written by the people who do the installs. Posts below are planned; the first ones publish soon.</p>",
+ "intro": "<p>Rebate rules change, equipment changes, and Ontario winters don't get any shorter. Our blog keeps you current on what matters for your home, written by the people who do the installs. Start with the latest guides below. More are on the way.</p>",
  "hero_points": ["Written by licensed EHI technicians", "Ontario-specific: rebates, utilities, climate", "No recycled generic advice", "New guides added regularly"],
  "hero_image": "Midea ductless head above a window in a bright bedroom, installed by EHI", "hero_img": "/assets/img/work/midea-wall-head-bright-room.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 28%", "hero_img_credit": "EHI install",
  "blocks": [

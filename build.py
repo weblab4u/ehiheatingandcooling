@@ -1289,8 +1289,11 @@ def rebate_local(c, page):
     gasnote = (V("g", " If you heat with gas, we compare running costs first: the Government of Canada notes a heat pump may not lower bills in every gas-heated home.",
                       " On gas, a heat pump does not always lower the bill, as the Government of Canada itself points out, so we show you the numbers before you decide.") if not offgas
                else " For oil and propane homes the savings case is usually strongest; the Government of Canada puts average savings above $1,400 a year for these fuels and electric heat.")
-    util = V("u", f"Electricity in {n} comes from {c['utility']}. Bring a winter hydro and fuel bill to the visit and we estimate your running costs.{gasnote}",
-                  f"{c['utility']} supplies power in {n}. Share a January hydro and fuel bill and we work out what the heat pump would cost to run.{gasnote}")
+    util = (V("u", f"Electricity in {n} comes from {c['utility']}. Bring a winter hydro and fuel bill to the visit and we estimate your running costs.{gasnote}",
+                   f"{c['utility']} supplies power in {n}. Share a January hydro and fuel bill and we work out what the heat pump would cost to run.{gasnote}")
+            if c.get("utility") else
+            V("u", f"Bring a winter hydro and fuel bill from your {n} home to the visit and we estimate your running costs.{gasnote}",
+                   f"Share a January hydro and fuel bill and we work out what a heat pump would cost to run in your {n} home.{gasnote}"))
     bullets = [fuel, fed, clim, util,
                V("p", "Want Ontario's rebate as well? Its pre-approval has to be in place before we install. Federal eligibility can start from installs on or after November 1, 2026, subject to approval once the portal opens.",
                       "Planning to claim both? File Ontario's pre-approval before install day. Installs from November 1, 2026 may still count for the federal rebate once applications open, subject to approval.")]

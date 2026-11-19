@@ -59,7 +59,7 @@ PAGE = {
   ("What should I fix before selling my home in Trenton?", "Fix anything that affects safety or basic function first, such as a furnace that won't stay lit, a cracked heat exchanger or an AC that won't cool. Buyers care far more about a working system with service records than about anything cosmetic."),
   ("Will my HVAC quote be in writing?", "Yes. Every quote lists the equipment, model numbers, the work included, warranty terms and one guaranteed price for the agreed scope, so it's easy to share or compare."),
   ("Is a heat pump worth it if I might move in a few years?", "It can be, especially if you'd otherwise replace an old furnace and AC anyway. A heat pump adds cooling and efficient heating, rebates may cover part of the cost for eligible homes, and a documented, efficient system is a plus when you sell."),
-  ("Who fixes a broken furnace in Quinte West late on a weekend?", "Yes. Emergency furnace calls in Quinte West are taken evenings, weekends and holidays. Phone 1-647-694-5845 and we'll be upfront about when a TSSA-certified technician can reach you."),
+  ("Who fixes a broken furnace in Quinte West late on a weekend?", "We do. Emergency furnace calls in Quinte West are taken evenings, weekends and holidays. Phone 1-647-694-5845 and we'll be upfront about when a TSSA-certified technician can reach you."),
   ("Does your service area include Frankford, Batawa and Carrying Place?", "Yes. Our crews cover all of Quinte West, including Frankford, Batawa, Carrying Place and Glen Miller, and we schedule visits with you directly.")],
  "related": ["/services/hvac-repair-maintenance/", "/furnace/high-efficiency/", "/ac/repair-maintenance/", "/heat-pump/cold-climate/", "/services/thermostats/", "/heat-pump-rebates/"],
 }
