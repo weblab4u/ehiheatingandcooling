@@ -672,7 +672,7 @@ GTAG = f'''<!-- Google tag (gtag.js) -->
   gtag('js', new Date());
 
   gtag('config', '{GA_ID}');
-  if(/(^|\.)efficienthomeimprovements\.ca$/.test(location.hostname))window.addEventListener('load', function(){{var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id={GA_ID}';document.head.appendChild(s);}});
+  if(/(^|\\.)efficienthomeimprovements\\.ca$/.test(location.hostname))window.addEventListener('load', function(){{var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id={GA_ID}';document.head.appendChild(s);}});
 </script>'''
 def _min_css(css):
     css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
@@ -870,7 +870,8 @@ def hero(page):
             eyebrow = f'<img class="hero-brand" src="/assets/img/{b}.webp" alt="{b.title()} logo" width="180" height="60">' + eyebrow
     is_service = (page["url"].startswith(SERVICE_PREFIXES) and page["url"] != "/services/") or bool(page.get("city_service"))
     use_form = page.get("hero_form", is_service)
-    right = form_block({"h3": page.get("form_h3", "Get your free guaranteed quote"), "sub": page.get("form_sub", "Same-day reply in most cases. No pressure, no spam.")}, compact=True, preselect=preselect_for(page["url"])) if use_form else img_frame(page.get("hero_image", "Hero photo"), "4/3", "hero-img", src=page.get("hero_img"), fit=page.get("hero_img_fit", "contain"), credit=page.get("hero_img_credit"), eager=True, pos=page.get("hero_img_pos", "50% 55%"))
+    right = form_block({"h3": page.get("form_h3", "Get your free guaranteed quote"), "sub": page.get("form_sub", "Same-day reply in most cases. No pressure, no spam."),
+                        "city": CITY_BY_SLUG[page["city_service"]]["name"] if page.get("city_service") else None}, compact=True, preselect=preselect_for(page["url"])) if use_form else img_frame(page.get("hero_image", "Hero photo"), "4/3", "hero-img", src=page.get("hero_img"), fit=page.get("hero_img_fit", "contain"), credit=page.get("hero_img_credit"), eager=True, pos=page.get("hero_img_pos", "50% 55%"))
     cls = page.get("hero_cls", "svc-hero" if is_service else ("page-hero" if page["url"] != "/" else ""))
     if page.get("hero_mid"): cls += " hero-mid"      # image centred against the copy instead of pinned to the top
     return f'''<section class="hero {cls}"><div class="wrap hero-grid">
@@ -1047,6 +1048,14 @@ ALL_PAGES = []              # every loaded page dict (filled in main)
 HERO_SLOTS = {"A": ["out", "in", "any"], "B": ["out"], "C": ["out", "in", "in"], "D": ["out", "in", "sys", "in"], "E": ["out"], "F": []}
 MOSAIC_KINDS = ["out", "in", "sys", "in", "out", "detail"]
 
+def write_image_slots(pages):
+    """image-slots.csv: every image slot on the city heat pump and furnace pages, the photo to take, and the stand-in shown now."""
+    import csv
+    rows = [(pg["url"], re.sub("<[^>]+>", "", b.get("h2", "")), b["shot"], (b.get("_imgs") or [""])[0] + ".webp" if b.get("_imgs") else "")
+            for pg in pages if pg.get("heating") for b in pg.get("blocks", []) if b.get("shot")]
+    with open(os.path.join(ROOT, "image-slots.csv"), "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh); w.writerow(["Page", "Section", "Photo to take", "Stand-in photo now (assets/img/work/)"]); w.writerows(rows)
+
 def allocate_city_photos(pages):
     """Give every city page its own photo set. Batches are allocated in order, so adding a new batch never
     changes photos on pages that are already published. Within a batch: heroes first (never a hero another
@@ -1062,8 +1071,8 @@ def allocate_city_photos(pages):
         u = f"/{c['slug']}/"
         neighbours.setdefault(u, set()).update(f"/{n}/" for n in c["nearby"])
         for n in c["nearby"]: neighbours.setdefault(f"/{n}/", set()).add(u)
-    def pick(url, kind, taken, hero=False):
-        pool = [k for k in have if k not in taken and (kind == "any" or CITY_PHOTOS[k][0] == kind)]
+    def pick(url, kind, taken, hero=False, keys=None):
+        pool = [k for k in (keys or []) if k in usage and k not in taken] or [k for k in have if k not in taken and (kind == "any" or CITY_PHOTOS[k][0] == kind)]
         if not pool: pool = [k for k in have if k not in taken]
         if hero:
             near = {k for n in neighbours.get(url, ()) for k in hero_by_url.get(n, [])}
@@ -1075,10 +1084,12 @@ def allocate_city_photos(pages):
         if hero: hero_count[k] += 1; hero_by_url.setdefault(url, []).append(k)
         return k
     city_pages = [pg for pg in pages if pg.get("city")]
-    for pg in [x for x in pages if x.get("city_service")]:      # city-service pages: section photos only, least-used first
+    def sections(pg):
         taken = set()
         for b in pg.get("blocks", []):
-            if b.get("photo"): b["_imgs"] = [pick(pg["url"], b["photo"], taken)]
+            if b.get("photo"): b["_imgs"] = [pick(pg["url"], b["photo"], taken, keys=b.get("photo_keys"))]
+    for pg in [x for x in pages if x.get("city_service") and not x.get("heating")]:   # city-service pages: section photos only, least-used first
+        sections(pg)
     for batch in sorted({CITY_BY_SLUG[pg["city"]].get("batch", 1) for pg in city_pages}):
         group = [pg for pg in city_pages if CITY_BY_SLUG[pg["city"]].get("batch", 1) == batch]
         taken_by = {pg["url"]: set() for pg in group}
@@ -1090,6 +1101,8 @@ def allocate_city_photos(pages):
                     b["_imgs"] = [pick(pg["url"], k, taken_by[pg["url"]]) for k in MOSAIC_KINDS[:b.get("count", 5)]]
                 elif b.get("photo"):
                     b["_imgs"] = [pick(pg["url"], b["photo"], taken_by[pg["url"]])]
+    for pg in [x for x in pages if x.get("heating")]:      # city heat pump and furnace pages last, so they never move a published page's photos
+        sections(pg)
     return usage
 
 def city_img(k, cls="", eager=False):
@@ -1201,7 +1214,7 @@ def local_phone(page, html_out):
     """On a city page with its own Google Business Profile, the page's phone number (header, buttons, sticky bar) is that
     location's line, and the footer lists both offices. Text between <!--keep--> and <!--/keep--> (the main office's own
     details) and the JSON-LD keep the main number; the location gets its own LocalBusiness entry (schema.py)."""
-    prof = LOCAL_PROFILES.get(page.get("city"))
+    prof = LOCAL_PROFILES.get(page.get("city") or page.get("city_service"))
     if not prof: return html_out
     street = f'{ADDRESS["street"]}, {ADDRESS["city"]}, {ADDRESS["region"]} {ADDRESS["postal"]}'
     both = f'{street}<br>{prof["street"]}, {prof["city"]}, {ADDRESS["region"]} {prof["postal"]}'
@@ -1259,7 +1272,9 @@ def city_map_block(slug):
 def city_local_links(page):
     """Links from a city page to its own service pages and guide, when they exist."""
     slug = page["city"]; cn = esc(CITY_BY_SLUG[slug]["name"])
-    svcs = [(f"/{slug}/heat-pump-installation/", "heatpump", f"Heat pump installation in {cn}", "Cold-climate heat pumps, rebates and sizing for local homes"),
+    svcs = [(f"/{slug}/heat-pump/", "heatpump", f"Heat pumps in {cn}", "Sized for your design temperature, rebate pre-approval filed for you"),
+            (f"/{slug}/furnace/", "furnace", f"Furnace repair and installation in {cn}", "No-heat checks, repair or replace, new furnaces from $3,300"),
+            (f"/{slug}/heat-pump-installation/", "heatpump", f"Heat pump installation in {cn}", "Cold-climate heat pumps, rebates and sizing for local homes"),
             (f"/{slug}/furnace-repair/", "furnace", f"Furnace repair in {cn}", "No heat, short cycling, ignitors and blowers, quoted in writing"),
             (f"/{slug}/ac-repair/", "snow", f"AC repair in {cn}", "Warm air, ice on the coil, leaks and tripped breakers")]
     svcs = [x for x in svcs if x[0] in REG]
@@ -1436,6 +1451,7 @@ def main():
             REG.setdefault(pg["url"], (f'HVAC {CITY_BY_SLUG[pg["city"]]["name"]}', f'HVAC services, repairs and installs in {CITY_BY_SLUG[pg["city"]]["name"]}.'))
     photo_usage = allocate_galleries([pg for pg in pages if not pg.get("city")])   # city pages never shift the service galleries
     city_usage = allocate_city_photos(pages)
+    write_image_slots(pages)
     urls = []
     issues = {}
     for p in pages:
