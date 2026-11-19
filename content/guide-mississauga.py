@@ -2,12 +2,12 @@
 PAGE = {
  "url": "/blog/how-to-choose-an-hvac-company-in-mississauga/", "layout": "article", "guide": True, "guide_city": "Mississauga",
  "featured": ("/assets/img/work/midea-outdoor-unit-brick-bungalow.webp", "Midea outdoor unit on a stand beside a brick home, installed by EHI", "50% 60%"),
- "infographic": {"after": 0, "alt": "Infographic on hiring an HVAC company in Mississauga: four credentials to check, seven questions to ask before you sign, red flags to walk away from, what changes the answer for Mississauga homes, and the Ontario rebate pre-approval rule", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Mississauga homes."},
+ "infographic": {"after": 0, "alt": "Infographic: how to choose an HVAC company in Mississauga, with credentials, questions and red flags", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Mississauga homes."},
  "published": "2026-10-27", "priority": "0.6",
- "title": "How to Choose an HVAC Company in Mississauga (2026 Guide)",
+ "title": "How to Choose an HVAC Company in Mississauga | Guide",
  "description": "Compare Mississauga HVAC companies with confidence: licences to verify, 7 questions to ask, red flags, what work costs, and a checklist for every quote.",
  "h1": "How to Choose an HVAC Company in Mississauga",
- "meta_line": "Published October 2026 · Written by the EHI Heating And Cooling team · Reviewed against current TSSA, ESA and Home Renovation Savings Program rules",
+ "meta_line": "Published October 2026 · Written by the EHI Heating And Cooling team, reviewed by Dustin, owner · Reviewed against current TSSA, ESA and Home Renovation Savings Program rules",
  "intro": "<p>A good HVAC company in Mississauga holds a TSSA fuels registration, sends licensed refrigeration technicians, puts its price in writing with model numbers, and files the Home Renovation Savings Program pre-approval before the install rather than after. This guide shows you how to check each of those, the seven questions to ask before you sign, the red flags that should end a conversation, what work costs here, and a checklist you can print and take to every quote.</p>",
  "blocks": [
   {"type": "text", "h2": "What a licensed HVAC company in Mississauga must have",

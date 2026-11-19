@@ -2,12 +2,12 @@
 PAGE = {
  "url": "/blog/how-to-choose-an-hvac-company-in-toronto/", "layout": "article", "guide": True, "guide_city": "Toronto",
  "featured": ("/assets/img/work/heat-pump-commissioning-gauges.webp", "Heat pump refrigerant pressures being checked with digital gauges during an EHI install", "50% 50%"),
- "infographic": {"after": 0, "alt": "Infographic on hiring an HVAC company in Toronto: four credentials to check, seven questions to ask before you sign, red flags to walk away from, what changes the answer for Toronto homes, and the Ontario rebate pre-approval rule", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Toronto homes."},
+ "infographic": {"after": 0, "alt": "Infographic: how to choose an HVAC company in Toronto, with credentials, questions and red flags", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Toronto homes."},
  "published": "2026-10-27", "priority": "0.6",
- "title": "How to Choose an HVAC Company in Toronto (2026 Guide)",
+ "title": "How to Choose an HVAC Company in Toronto | Homeowner Guide",
  "description": "How to compare HVAC companies in Toronto: licences to check, 7 questions to ask, red flags, real costs, rebates and a printable checklist for every quote.",
  "h1": "How to Choose an HVAC Company in Toronto",
- "meta_line": "Published October 2026 · Written by the EHI Heating And Cooling team · Reviewed against current TSSA, ESA and Home Renovation Savings Program rules",
+ "meta_line": "Published October 2026 · Written by the EHI Heating And Cooling team, reviewed by Dustin, owner · Reviewed against current TSSA, ESA and Home Renovation Savings Program rules",
  "intro": "<p>A good HVAC company in Toronto holds the right licences, sends its own crew, sizes equipment from a heat-loss calculation, puts one guaranteed price in writing and handles the permits and rebate paperwork without being asked. This guide shows you how to check each of those things, what to ask before you sign, which warning signs to walk away from, and what furnace, AC and heat pump work actually costs in a Toronto house.</p>",
  "blocks": [
   {"type": "text", "h2": "What a licensed HVAC company in Toronto must have",

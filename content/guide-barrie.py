@@ -2,12 +2,12 @@
 PAGE = {
  "url": "/blog/how-to-choose-an-hvac-company-in-barrie/", "layout": "article", "guide": True, "guide_city": "Barrie",
  "featured": ("/assets/img/work/midea-gas-furnace-installed.webp", "Midea two-stage gas furnace in a furnace room, installed by EHI", "50% 45%"),
- "infographic": {"after": 0, "alt": "Infographic on hiring an HVAC company in Barrie: four credentials to check, seven questions to ask before you sign, red flags to walk away from, what changes the answer for Barrie homes, and the Ontario rebate pre-approval rule", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Barrie homes."},
+ "infographic": {"after": 0, "alt": "Infographic: how to choose an HVAC company in Barrie, with credentials, questions and red flags", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Barrie homes."},
  "published": "2026-10-27", "priority": "0.6",
- "title": "How to Choose an HVAC Company in Barrie (2026 Guide)",
+ "title": "How to Choose an HVAC Company in Barrie | Homeowner Guide",
  "description": "Comparing HVAC companies in Barrie? Learn which licences to check, 7 questions to ask, red flags, local costs and rebates, plus a checklist for every quote.",
- "h1": "How to Choose an HVAC Company in Barrie: A 2026 Homeowner's Guide",
- "meta_line": "Published October 2026 · Written by the EHI Heating And Cooling team · Reviewed against current TSSA, ESA and Home Renovation Savings Program rules",
+ "h1": "How to Choose an HVAC Company in Barrie: A Homeowner's Guide",
+ "meta_line": "Published October 2026 · Written by the EHI Heating And Cooling team, reviewed by Dustin, owner · Reviewed against current TSSA, ESA and Home Renovation Savings Program rules",
  "intro": "<p>A good HVAC company in Barrie holds the right licences, sizes equipment for Snowbelt cold rather than GTA cold, puts the price in writing and files your rebate before the install. This guide shows you how to check each of those things, which questions separate a solid contractor from a salesperson, what work typically costs here, and how Barrie's homes and winters change the answer. There is a printable checklist at the end to take to every quote.</p>",
  "blocks": [
   {"type": "text", "h2": "What a licensed HVAC company in Barrie must have",

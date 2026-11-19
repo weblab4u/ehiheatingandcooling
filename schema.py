@@ -7,7 +7,8 @@ Local SEO model, following Google's guidance for service-area businesses:
   The business lists every city in areaServed; a city page carries the full node for its own city.
 - City pages describe "HVAC services in <City>" as a Service provided by the business, with keyword variants,
   the services offered there (OfferCatalog), from-prices and the city as areaServed.
-- Ratings and reviews sit on the business only (they are reviews of the business, not of a city page).
+- No rating or review markup: reviews of the business by the business's own site are self-serving under Google's
+  review snippet guidelines. Reviews are shown on the pages as visible content only.
 """
 import re, os, importlib.util as _ilu
 
@@ -92,7 +93,6 @@ def city_place(slug, full=False):
     return node
 
 def business():
-    reviews = [r for r in B.load_reviews() if not r.get("reviews_page_only")]
     hours = [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "08:00", "closes": "20:00"},
              {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "17:00"}]
     cid = int(B.GBP_FTID.split(":")[1], 16)
@@ -127,13 +127,8 @@ def business():
         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "HVAC services in Ontario",
                             "itemListElement": [_offer(n, u, k) for n, u, k in CORE_SERVICES if u in B.REG]},
     }
-    if B.GBP_RATING:
-        node["aggregateRating"] = {"@type": "AggregateRating", "ratingValue": B.GBP_RATING[0], "reviewCount": B.GBP_RATING[1], "bestRating": "5", "worstRating": "1"}
-    if reviews:
-        node["review"] = [{"@type": "Review", "author": {"@type": "Person", "name": r.get("name", "Google reviewer")},
-                           "reviewRating": {"@type": "Rating", "ratingValue": str(r.get("stars", 5)), "bestRating": "5", "worstRating": "1"},
-                           "reviewBody": r["text"], "publisher": {"@type": "Organization", "name": "Google"},
-                           **({"datePublished": B._review_date(r["date"])} if B._review_date(r.get("date")) else {})} for r in reviews]
+    # No aggregateRating or review on the business node: Google's review snippet guidelines treat a business marking up
+    # reviews of itself (LocalBusiness/Organization) as self-serving and ineligible. Reviews stay visible on the pages.
     creds = ([f"TSSA contractor registration {B.TSSA_NUMBER}"] if B.TSSA_NUMBER else []) + ([f"ESA/ECRA licence {B.ESA_NUMBER}"] if B.ESA_NUMBER else [])
     if creds:
         node["hasCredential"] = [{"@type": "EducationalOccupationalCredential", "name": n} for n in creds]
@@ -183,12 +178,14 @@ def graph(page, canonical, crumbs_ld):
     ptype = PAGE_TYPES.get(url, "WebPage")
     if ptype == "FAQPage" and page.get("faqs"): ptype = "WebPage"   # avoid two FAQPage nodes
     webpage = {"@type": ptype, "@id": canonical + "#webpage", "url": canonical, "name": page["title"], "description": page["description"],
-               "isPartOf": {"@id": B.SITE + "/#website"}, "inLanguage": "en-CA", "dateModified": page.get("updated", B.TODAY),
+               "isPartOf": {"@id": B.SITE + "/#website"}, "inLanguage": "en-CA", "dateModified": page.get("updated", B.LASTMOD_ISO),
                "publisher": {"@id": org_id()}, "about": [{"@id": org_id()}]}
     if crumbs_ld: webpage["breadcrumb"] = {"@id": canonical + "#breadcrumb"}
     img = page.get("hero_img") or page.get("hero_photo")
     if img: webpage["primaryImageOfPage"] = {"@type": "ImageObject", "url": B.SITE + img}
     if url == "/": webpage["mainEntity"] = {"@id": org_id()}
+    if page.get("guide"):
+        webpage["reviewedBy"] = {"@type": "Person", "name": "Dustin", "jobTitle": "Owner", "worksFor": {"@id": org_id()}}
     g.append(webpage)
     g.append({"@type": "WebSite", "@id": B.SITE + "/#website", "url": B.SITE + "/", "name": B.SITE_NAME, "alternateName": ["EHI", B.LEGAL],
               "publisher": {"@id": org_id()}, "inLanguage": "en-CA"})
@@ -252,7 +249,7 @@ def graph(page, canonical, crumbs_ld):
         gslug = next((c["slug"] for c in B.CITIES if c["name"] == gc), None)
         g.append({"@type": "Article", "@id": canonical + "#article", "headline": re.sub("<[^>]+>", "", page["h1"]), "description": page["description"],
                   "author": {"@id": org_id()}, "publisher": {"@id": org_id()}, "datePublished": page.get("published", B.TODAY),
-                  "dateModified": page.get("updated", B.TODAY), "mainEntityOfPage": {"@id": canonical + "#webpage"}, "inLanguage": "en-CA",
+                  "dateModified": page.get("updated", B.LASTMOD_ISO), "mainEntityOfPage": {"@id": canonical + "#webpage"}, "inLanguage": "en-CA",
                   **({"image": [B.og_image(page)[0], B.SITE + page["featured"][0]] + ([B.SITE + "/assets/img/infographics/" + page["url"].strip("/").split("/")[-1] + ".webp"] if page.get("infographic") else [])} if page.get("featured") else {}),
                   "about": ({"@id": city_id(gslug)} if gslug else {"@type": "State", "name": "Ontario"}),
                   "keywords": page.get("keywords", f"HVAC companies {gc}, HVAC company {gc}, best HVAC company {gc}, HVAC contractor {gc}, how to choose an HVAC contractor")})

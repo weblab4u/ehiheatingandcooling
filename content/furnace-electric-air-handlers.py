@@ -4,7 +4,7 @@ PAGE = {
  "description": "Electric furnace and air handler installation across Ontario. No gas line? We compare an electric furnace with a heat pump and air handler. Free quote.",
  "priority": "0.7",
  "eyebrow": "Electric Furnaces & Air Handlers",
- "h1": "Electric Furnaces and Air Handlers in Ontario",
+ "h1": "Electric Furnace and Air Handler Installation in Ontario",
  "tagline": "Central Heat for Homes Without Gas",
  "intro": "<p>No gas line? EHI installs electric furnaces and air handlers across Ontario, and we'll tell you straight when a heat pump with an air handler will cost less to run.</p>",
  "hero_points": [

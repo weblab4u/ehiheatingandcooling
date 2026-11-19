@@ -1215,3 +1215,8 @@ a.m-col{display:block;font-weight:700;color:var(--navy);text-decoration:none}
 .hub-regions .type-list svg{width:14px;height:14px;color:var(--green);flex:none}
 .city-cluster .cl-h{font-size:1.05rem;margin:26px 0 10px}
 @media(max-width:600px){.city-cluster .pin-list{columns:1}}
+/* articles: in-text links are underlined so they don't rely on colour alone */
+.legal p a,.legal li a,.legal td a{text-decoration:underline;text-underline-offset:2px}
+.reviewer-box{display:flex;gap:16px;align-items:flex-start;background:var(--blue-light);border-radius:14px;padding:18px 20px;margin:28px 0}
+.reviewer-box img{border-radius:50%;background:#fff;flex:none}
+.reviewer-box p{margin:0 0 6px}.reviewer-box .rb-h{font-weight:700;color:var(--navy)}

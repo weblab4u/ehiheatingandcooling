@@ -1,12 +1,12 @@
 PAGE = {
  "url": "/blog/how-to-choose-an-hvac-company-in-hamilton/", "layout": "article", "guide": True, "guide_city": "Hamilton",
  "featured": ("/assets/img/work/midea-furnace-room-pvc-venting.webp", "Gas furnace with PVC intake and exhaust venting, installed by EHI", "50% 60%"),
- "infographic": {"after": 0, "alt": "Infographic on hiring an HVAC company in Hamilton: four credentials to check, seven questions to ask before you sign, red flags to walk away from, what changes the answer for Hamilton homes, and the Ontario rebate pre-approval rule", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Hamilton homes."},
+ "infographic": {"after": 0, "alt": "Infographic: how to choose an HVAC company in Hamilton, with credentials, questions and red flags", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Hamilton homes."},
  "published": "2026-10-27", "priority": "0.6",
- "title": "How to Choose an HVAC Company in Hamilton (2026 Guide)",
+ "title": "How to Choose an HVAC Company in Hamilton | Homeowner Guide",
  "description": "Comparing HVAC companies in Hamilton? Check licences, ask these 7 questions, spot the red flags and learn what furnace, AC and heat pump work costs.",
- "h1": "How to Choose an HVAC Company in Hamilton: A 2026 Homeowner's Guide",
- "meta_line": "Published October 2026 · Written by the EHI Heating And Cooling team · Reviewed against current TSSA, ESA and Home Renovation Savings Program rules",
+ "h1": "How to Choose an HVAC Company in Hamilton: A Homeowner's Guide",
+ "meta_line": "Published October 2026 · Written by the EHI Heating And Cooling team, reviewed by Dustin, owner · Reviewed against current TSSA, ESA and Home Renovation Savings Program rules",
  "intro": "<p>A good HVAC company in Hamilton is registered with the TSSA, sends licensed technicians rather than a crew you've never heard of, prices the job in writing with model numbers, and knows the difference between a double-brick house in Kirkendall and a 2015 build in Binbrook. This guide walks through how to check the licences, the seven questions to ask before you sign, the red flags, what the work typically costs, and how Hamilton's housing changes the right answer.</p>",
  "blocks": [
   {"type": "text", "h2": "What a licensed HVAC company in Hamilton must have",

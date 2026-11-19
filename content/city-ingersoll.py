@@ -3,7 +3,7 @@ PAGE = {
  "title": "HVAC Ingersoll | Furnace Swaps & Heat Pumps on Existing Ducts",
  "description": "Ingersoll HVAC for homes with older furnaces: simple replacements, heat pumps on your existing ducts and rebates explained in plain words. Call today.",
  "eyebrow": "Ingersoll · Oxford County",
- "h1": "Furnace Replacement and Heat Pump Installation in Ingersoll, Explained Plainly",
+ "h1": "Ingersoll HVAC: Furnace Swaps and Heat Pumps on Your Existing Ducts",
  "tagline": "Keep your ducts, retire the old furnace",
  "intro": "<p>A lot of HVAC in Ingersoll comes down to an older furnace near the end of its life and a homeowner who wants a clear answer on what comes next. We replace furnaces, add heat pumps that run on your existing ducts and walk you through the rebates in plain language, for homes in town, Thamesford, Beachville and nearby. The price you sign is the price you pay.</p>",
  "hero_points": ["Straight swaps with no surprise add-ons", "Heat pumps that connect to the ducts you already have",

@@ -3,7 +3,7 @@ PAGE = {
  "title": "HVAC Cornwall | Baseboard to Heat Pump & Furnace Repair",
  "description": "Cornwall HVAC for cost-aware homes: move from baseboards to a heat pump with rebates explained plainly, or get dependable furnace repair. Free quote.",
  "eyebrow": "Cornwall · Stormont, Dundas and Glengarry",
- "h1": "Heating and Cooling in Cornwall, Priced Plainly and Explained Clearly",
+ "h1": "Cornwall HVAC: Baseboard to Heat Pump Upgrades and Furnace Repair",
  "tagline": "Lower winter bills without the sales pitch",
  "intro": "<p>If your Cornwall HVAC question is really a money question, you're in the right place. Plenty of homes here heat with electric baseboards, and a cold-climate heat pump can take a real bite out of that winter bill. We explain the rebate in plain terms, give you a guaranteed price, and keep gas furnaces running safely for homes that aren't ready to switch.</p>",
  "hero_points": ["Baseboard to heat pump conversions, sized room by room", "Rebate rules explained in plain language before you sign",

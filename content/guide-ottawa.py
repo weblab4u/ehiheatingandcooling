@@ -2,12 +2,12 @@
 PAGE = {
  "url": "/blog/how-to-choose-an-hvac-company-in-ottawa/", "layout": "article", "guide": True, "guide_city": "Ottawa",
  "featured": ("/assets/img/work/midea-cold-climate-heat-pump-commissioning.webp", "Midea cold-climate heat pump with gauge hoses connected during commissioning, installed by EHI", "50% 40%"),
- "infographic": {"after": 0, "alt": "Infographic on hiring an HVAC company in Ottawa: four credentials to check, seven questions to ask before you sign, red flags to walk away from, what changes the answer for Ottawa homes, and the Ontario rebate pre-approval rule", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Ottawa homes."},
+ "infographic": {"after": 0, "alt": "Infographic: how to choose an HVAC company in Ottawa, with credentials, questions and red flags", "caption": "This guide on one page: the credentials, the seven questions, the red flags and what's different about Ottawa homes."},
  "published": "2026-10-27", "priority": "0.6",
- "title": "How to Choose an HVAC Company in Ottawa (2026 Guide)",
+ "title": "How to Choose an HVAC Company in Ottawa | Homeowner Guide",
  "description": "Compare HVAC companies in Ottawa with confidence: licences to check, 7 questions to ask, red flags, typical costs, rebates and a printable quote checklist.",
  "h1": "How to Choose an HVAC Company in Ottawa",
- "meta_line": "Published October 2026 · Written by the EHI Heating And Cooling team · Reviewed against current TSSA, ESA and Home Renovation Savings Program rules",
+ "meta_line": "Published October 2026 · Written by the EHI Heating And Cooling team, reviewed by Dustin, owner · Reviewed against current TSSA, ESA and Home Renovation Savings Program rules",
  "intro": "<p>A good HVAC company in Ottawa holds the right licences, sizes equipment from a heat-loss calculation instead of a chart, puts its price in writing and knows how to get you the rebate. This guide shows you how to check each of those before you sign, what the work should cost, which red flags to walk away from, and how Ottawa's cold and its housing stock change the advice. There's a checklist at the end to bring to every quote.</p>",
  "blocks": [
   {"type": "text", "h2": "What a licensed HVAC company in Ottawa must have",

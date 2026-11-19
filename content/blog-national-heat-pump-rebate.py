@@ -5,13 +5,13 @@ FED = "https://www.canada.ca/en/environment-climate-change/campaigns/one-million
 PAGE = {
  "url": "/blog/national-heat-pump-rebate-ontario/", "layout": "article", "guide": True,
  "featured": ("/assets/img/work/midea-cold-climate-heat-pump-lawn.webp", "Midea cold-climate heat pump on a stand above the lawn, installed by EHI", "50% 45%"),
- "infographic": {"after": 0, "alt": "Infographic comparing Ontario's Home Renovation Savings Program and the federal National Heat Pump Rebate, the seven steps that protect both rebates, and the Ontario income cut-offs for the federal $10,000 tier", "caption": ""},
+ "infographic": {"after": 0, "alt": "Infographic: Ontario and federal heat pump rebates compared, and the steps that protect both", "caption": ""},
  "published": "2026-11-03", "updated": "2026-11-03", "priority": "0.6",
  "keywords": "National Heat Pump Rebate, National Heat Pump Rebate Ontario, federal heat pump rebate, heat pump rebate 2027, retroactive heat pump rebate, combine federal and Ontario heat pump rebates",
  "title": "National Heat Pump Rebate: What to Do Now in Ontario",
  "description": "The new federal heat pump rebate opens in early 2027, but installs from November 1, 2026 may count. What Ontario homeowners should do now, step by step.",
  "h1": "The New Federal Heat Pump Rebate: What Ontario Homeowners Should Do Before Applications Open in 2027",
- "meta_line": "Published November 3, 2026 · Last updated November 3, 2026 · Written by the EHI Heating And Cooling team · Checked against the Government of Canada's National Heat Pump Rebate page",
+ "meta_line": "Published November 3, 2026 · Last updated November 3, 2026 · Written by the EHI Heating And Cooling team, reviewed by Dustin, owner · Checked against the Government of Canada's National Heat Pump Rebate page",
  "intro": "<p>The Government of Canada has announced the National Heat Pump Rebate: $2,000, or up to $10,000 for income-qualified households. Applications aren't expected to open until early 2027, but eligible installations from November 1, 2026 may qualify retroactively. That leaves Ontario homeowners in an awkward gap this winter. Do you install now, or wait? And how does it fit with Ontario's own rebate, which has a strict rule about timing?</p><p>This guide covers what to do right now. For the full amounts and eligibility rules of both programs side by side, see our <a href='/heat-pump-rebates/'>Ontario and federal heat pump rebate guide</a>.</p>",
  "blocks": [
   {"type": "text", "h2": "The short version",

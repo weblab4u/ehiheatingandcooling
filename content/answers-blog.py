@@ -50,7 +50,7 @@ POSTS = [
 
 BLOG = {
  "url": "/blog/",
- "title": "HVAC Blog for Ontario Homeowners | Heating & Cooling Guides",
+ "title": "Heating and Cooling Guides for Ontario Homes | HVAC Blog",
  "description": "Guides on heat pumps, furnaces, AC, rebates and water heaters written for Ontario homes by licensed HVAC technicians. Practical, local and current.",
  "priority": "0.5",
  "eyebrow": "Blog",

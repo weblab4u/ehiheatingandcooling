@@ -435,7 +435,7 @@ def render_block(b, page):
         return "" if page["url"] in HUB_PAGES else areas_block(page)
     if t == "blog_index":
         live = sorted([pg for pg in ALL_PAGES if pg.get("guide")], key=lambda pg: pg.get("published", TODAY), reverse=True)
-        items = "".join(f'<article{" class=\"has-img\"" if pg.get("featured") else ""}>' + (f'<a class="bl-img" href="{pg["url"]}" tabindex="-1" aria-hidden="true"><img src="{pg["featured"][0]}" alt="" loading="lazy" decoding="async" sizes="(max-width: 600px) 110px, 200px" style="object-position:{pg["featured"][2]}"></a>' if pg.get("featured") else "") + f'<div><h3><a href="{pg["url"]}">{re.sub("<[^>]+>", "", pg["h1"])}</a></h3><time datetime="{pg.get("published", TODAY)}">{datetime.date.fromisoformat(pg.get("published", TODAY)).strftime("%B %Y")}</time><p>{esc(pg["description"])}</p></div></article>' for pg in live)
+        items = "".join(f'<article{" class=\"has-img\"" if pg.get("featured") else ""}>' + (f'<a class="bl-img" href="{pg["url"]}" tabindex="-1" aria-hidden="true"><img src="{(featured_crops(pg) or [(pg["featured"][0], 0)])[0][0]}" alt="{esc(re.sub("<[^>]+>", "", pg["h1"]))}" loading="lazy" decoding="async" width="480" height="320"></a>' if pg.get("featured") else "") + f'<div><h3><a href="{pg["url"]}">{re.sub("<[^>]+>", "", pg["h1"])}</a></h3><time datetime="{pg.get("published", TODAY)}">{datetime.date.fromisoformat(pg.get("published", TODAY)).strftime("%B %Y")}</time><p>{esc(pg["description"])}</p></div></article>' for pg in live)
         items += "".join(f'<article class="planned"><h3>{t_}</h3><time>Coming soon</time><p>{d}</p></article>' for t_, d, u in b.get("planned", []))
         return f'<section class="sec"><div class="wrap narrow blog-list">{h2(b)}{items}</div></section>'
     if t == "area_dir":
@@ -717,7 +717,7 @@ def review_card(r, i, cls="review"):
 
 def g_reviews_block(b):
     rating = GBP_RATING[0] if GBP_RATING else ""
-    summary = (f'<aside class="g-summary"><img src="/assets/img/ehi-icon.png" alt="EHI Heating And Cooling" width="56" height="56">'
+    summary = (f'<aside class="g-summary"><img src="/assets/img/favicon-192.png" alt="EHI Heating And Cooling" width="56" height="56">'
                f'<a class="g-name" href="{GBP_REVIEWS_URL}" target="_blank" rel="noopener">EHI Heating And Cooling (Efficient Home Improvements)</a>'
                f'<p class="g-rate"><strong>{rating}</strong><span class="stars" aria-hidden="true">{icon("star")*5}</span></p>'
                f'<p class="g-powered">Powered by {google_g()} Google</p>'
@@ -789,15 +789,45 @@ def video_card(vid, cap, sizes):
     srcset = f' srcset="{small} 640w, /assets/img/video/{vid}-800.webp 800w, {full} 1280w" sizes="{sizes}"' if os.path.exists(os.path.join(ROOT, small.lstrip("/"))) else ""
     m, s = divmod(v["secs"], 60)
     return (f'<figure class="yt"><a class="yt-link" href="https://www.youtube.com/watch?v={vid}" data-yt="{vid}" data-title="{esc(v["title"])}" aria-label="Play video: {esc(v["title"])} {m}:{s:02d}">'
-            f'<img src="{small if srcset else full}"{srcset} alt="" width="640" height="360" loading="lazy" decoding="async">'
+            f'<img src="{small if srcset else full}"{srcset} alt="{esc(v["title"])}" width="640" height="360" loading="lazy" decoding="async">'
             f'<span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="yt-time" aria-hidden="true">{m}:{s:02d}</span></a>'
             + (f'<figcaption>{cap}</figcaption>' if cap else "") + '</figure>')
 
 FEATURED_SIZES = "(max-width: 840px) calc(100vw - 32px), 800px"
+FEATURED_W = (480, 800, 1200)
+def featured_crops(page):
+    """Real 3:2 crops of the featured photo at the post's focal point (assets/img/featured/<slug>-<w>.webp), so phones
+    download a small file instead of the full portrait photo. Widths 480/800/1200, plus the source's full crop width when it
+    is smaller than 1200, never upscaled. Remade if the source photo changes."""
+    from PIL import Image as _Img
+    src, _, pos = page["featured"]
+    slug = page["url"].strip("/").split("/")[-1]
+    srcp = os.path.join(ROOT, src.lstrip("/"))
+    im = None; W, H = _Img.open(srcp).size
+    cw, ch = (W, round(W * 2 / 3)) if W / H < 1.5 else (round(H * 1.5), H)
+    widths = [w for w in FEATURED_W if w <= cw] + ([cw] if cw < FEATURED_W[-1] and cw not in FEATURED_W else [])
+    out = []
+    for w in widths:
+        dst = os.path.join(ROOT, "assets", "img", "featured", f"{slug}-{w}.webp")
+        if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(srcp):
+            im = im or _Img.open(srcp).convert("RGB")
+            fx, fy = [float(v.strip("%")) / 100 for v in pos.split()]
+            x0 = min(max(0, round(fx * W - cw / 2)), W - cw); y0 = min(max(0, round(fy * H - ch / 2)), H - ch)
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            im.crop((x0, y0, x0 + cw, y0 + ch)).resize((w, round(w * 2 / 3)), _Img.LANCZOS).save(dst, "WEBP", quality=72, method=6)
+        out.append((f"/assets/img/featured/{slug}-{w}.webp", w))
+    return out
+
 def featured_img(page, eager=True):
     """Blog featured photo: wide 3:2 crop of a job photo, focal point set per post."""
     src, alt, pos = page["featured"]
     load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    crops = featured_crops(page)
+    if crops:
+        srcset = ", ".join(f"{u} {w}w" for u, w in crops)
+        main_src = next((u for u, w in crops if w >= 800), crops[-1][0])
+        return (f'<figure class="img-real fit-cover featured-img" style="aspect-ratio:3/2"><img src="{main_src}" srcset="{srcset}" sizes="{FEATURED_SIZES}" '
+                f'alt="{esc(alt)}" width="1200" height="800" {load} decoding="async"><figcaption class="credit">EHI install</figcaption></figure>')
     return (f'<figure class="img-real fit-cover featured-img" style="aspect-ratio:3/2"><img src="{src}" alt="{esc(alt)}" {load} decoding="async" '
             f'sizes="{FEATURED_SIZES}" style="object-position:{pos}"><figcaption class="credit">EHI install</figcaption></figure>')
 def infographic_html(page):
@@ -1030,6 +1060,10 @@ def with_variant(html_out, btype, page, prev_dark=False):
     v = pick_variant(btype, page, prev_dark)
     return html_out.replace('class="sec ', f'class="sec v{v} ', 1), (v in DARK.get(btype, set()))
 
+def render_fixed(page):
+    """Pages outside the sitemap (thank-you, 404): dated with the build day."""
+    return render(page).replace(LASTMOD_ISO, TODAY).replace(LASTMOD_HUMAN, datetime.date.fromisoformat(TODAY).strftime("%B %d, %Y").replace(" 0", " "))
+
 def render(page):
     url = page["url"]
     canonical = SITE + url
@@ -1043,7 +1077,12 @@ def render(page):
             toc = '<nav class="toc" aria-label="In this guide"><p class="toc-h">In this guide</p><ol>' + "".join(f'<li><a href="#{i}">{h}</a></li>' for i, h in heads) + '</ol></nav>' if heads else ""
         sections = "".join((f'<h2 id="{re.sub(r"[^a-z0-9]+", "-", re.sub("<[^>]+>", "", b["h2"]).lower()).strip("-")}">{b["h2"]}</h2>' if b.get("h2") else "") + b["html"]
                            + (infographic_html(page) if page.get("infographic") and i == page["infographic"]["after"] else "") for i, b in enumerate(texts))
-        tail = (f'<div class="guide-cta"><h2>{page.get("cta_h2", "Want a quote from us?")}</h2><p>{page.get("cta_text", "Free, written and guaranteed, with your rebate estimate. No pressure.")}</p>{cta_buttons()}</div>') if page.get("guide") else ""
+        reviewer = (f'<aside class="reviewer-box"><img src="/assets/img/favicon-192.png" alt="" aria-hidden="true" width="56" height="56" loading="lazy">'
+                    f'<div><p class="rb-h">Reviewed by Dustin, owner of {esc(BRAND)}</p><p>Dustin owns {esc(BRAND)}, the licensed HVAC contractor in '
+                    f'Whitchurch-Stouffville behind this site, serving Ontario homes for more than 20 years. He reviews our guides against the work our '
+                    f'crews do every day, and explains rebates and savings in our <a href="/heat-pump-rebates/">rebate videos</a>. '
+                    f'<a href="/about-ehi/">More about our team</a>.</p></div></aside>') if page.get("guide") else ""
+        tail = reviewer + (f'<div class="guide-cta"><h2>{page.get("cta_h2", "Want a quote from us?")}</h2><p>{page.get("cta_text", "Free, written and guaranteed, with your rebate estimate. No pressure.")}</p>{cta_buttons()}</div>') if page.get("guide") else ""
         body = (f'<article class="legal{" guide" if page.get("guide") else ""}"><div class="wrap narrow"><header class="legal-head"><h1>{page["h1"]}</h1>'
                 f'<p class="legal-meta">{page.get("meta_line", "Last updated " + datetime.date.today().strftime("%B %Y"))}</p>{featured_img(page) if page.get("featured") else ""}{page["intro"]}</header>{toc}'
                 + sections + tail + '</div></article>')
@@ -1099,7 +1138,7 @@ def render(page):
         if u not in linked and u != page["url"] and u not in rel: rel.append(u)
     body += related_block(rel)      # retargeted to the city's own pages; no card for a page the sections above already link
     if page.get("city") or page.get("city_service") or page.get("show_updated"):
-        body += f'<p class="wrap updated">Page reviewed and updated {datetime.date.fromisoformat(page.get("updated", TODAY)).strftime("%B %d, %Y").replace(" 0", " ")}. Prices, rebates and program terms are checked at each update.</p>'
+        body += f'<p class="wrap updated">Page reviewed and updated {(datetime.date.fromisoformat(page["updated"]).strftime("%B %d, %Y").replace(" 0", " ") if page.get("updated") else LASTMOD_HUMAN)}. Prices, rebates and program terms are checked at each update.</p>'
 
     body = retarget_links(page, body)
     _crumbs_ld = crumbs_ld
@@ -1116,6 +1155,10 @@ def render(page):
     # desktop: the home hero photo is the largest paint, so fetch it early; phones show the headline first and skip this
     hero_preload = (f'\n<link rel="preload" as="image" href="{page["hero_photo"]}" imagesrcset="{srcset_of(page["hero_photo"])}" imagesizes="(max-width: 1279px) 55vw, 700px" media="(min-width: 768px)" fetchpriority="high">'
                     if page.get("hero_photo") else "")
+    if page.get("featured") and page.get("layout") == "article" and featured_crops(page):
+        _c = featured_crops(page)
+        hero_preload += (f'\n<link rel="preload" as="image" href="{_c[min(1, len(_c) - 1)][0]}" imagesrcset="{", ".join(f"{u} {w}w" for u, w in _c)}" '
+                         f'imagesizes="{FEATURED_SIZES}" fetchpriority="high">')
     return local_phone(page, responsive_imgs(f'''<!DOCTYPE html>
 <html lang="en-CA">
 <head>
@@ -1137,8 +1180,9 @@ def render(page):
 <meta name="geo.region" content="CA-ON">
 <meta name="geo.placename" content="Ontario">
 <meta name="theme-color" content="#0B5FA8">
-<link rel="icon" href="/assets/img/ehi-icon.png" type="image/png">
-<link rel="apple-touch-icon" href="/assets/img/ehi-icon.png">
+<link rel="icon" href="/assets/img/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="/assets/img/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon-180.png" sizes="180x180">
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>{hero_preload}
 <style>{CSS_INLINE}</style>
 <script type="application/ld+json">{ld}</script>
@@ -1316,7 +1360,10 @@ def rebate_local(c, page):
             if c.get("utility") else
             V("u", f"Bring a winter hydro and fuel bill from your {n} home to the visit and we estimate your running costs.{gasnote}",
                    f"Share a January hydro and fuel bill and we work out what a heat pump would cost to run in your {n} home.{gasnote}"))
-    bullets = [fuel, fed, clim, util,
+    if page.get("heating"):      # city heat pump pages already give the Ontario and federal figures and the pre-approval rule above
+        bullets = [fuel, clim, util]
+    else:
+      bullets = [fuel, fed, clim, util,
                V("p", "Want Ontario's rebate as well? Its pre-approval has to be in place before we install. Federal eligibility can start from installs on or after November 1, 2026, subject to approval once the portal opens.",
                       "Planning to claim both? File Ontario's pre-approval before install day. Installs from November 1, 2026 may still count for the federal rebate once applications open, subject to approval.")]
     items = "".join(f'<li>{icon("check")}<span>{x}</span></li>' for x in bullets if x)
@@ -1681,6 +1728,37 @@ def lint(url, html_out):
     return probs
 
 # ---------------------------------------------------------------- main
+# ---------------------------------------------------------------- last-modified dates
+# A page's date moves only when its main content changes (Google uses sitemap lastmod only when it is verifiably accurate).
+# data/page_dates.json keeps a fingerprint of each page's <main> and the date it last changed. Pages not yet in the file
+# take the date of the last published build if their content still matches it, otherwise today.
+LASTMOD_ISO, LASTMOD_HUMAN = "@@LASTMOD_ISO@@", "@@LASTMOD_HUMAN@@"
+DATES_FILE = os.path.join(ROOT, "data", "page_dates.json")
+def _main_sig(html_):
+    m = re.search(r'<main id="main">(.*)</main>', html_, re.S)
+    t = m.group(1) if m else html_
+    t = re.sub(r'<p class="wrap updated">.*?</p>', "", t, flags=re.S)
+    return hashlib.sha1(re.sub(r"\s+", " ", t).encode()).hexdigest()
+def _published_date(url, sig):
+    import subprocess
+    path = "site/" + (url.strip("/") + "/index.html" if url != "/" else "index.html")
+    try:
+        old = subprocess.run(["git", "show", f"HEAD:{path}"], cwd=ROOT, capture_output=True, text=True, timeout=20)
+        if old.returncode == 0 and _main_sig(old.stdout) == sig:
+            d = subprocess.run(["git", "log", "-1", "--format=%cs", "HEAD", "--", path], cwd=ROOT, capture_output=True, text=True, timeout=20).stdout.strip()
+            if d: return d
+    except Exception: pass
+    return TODAY
+def page_lastmod(page, html_, dates):
+    url, sig = page["url"], _main_sig(html_)
+    prev = dates.get(url)
+    if prev and prev["hash"] == sig: d = prev["date"]
+    elif prev: d = TODAY
+    else: d = _published_date(url, sig)
+    if page.get("updated") and page["updated"] > d: d = page["updated"]
+    dates[url] = {"hash": sig, "date": d}
+    return d
+
 def load_pages():
     pages = []
     for f in sorted(glob.glob(os.path.join(ROOT, "content", "*.py"))):
@@ -1784,6 +1862,8 @@ def main():
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT)
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"))
+    from PIL import Image as _Img                       # /favicon.ico, the path browsers and Google request by default
+    _Img.open(os.path.join(ROOT, "assets", "img", "favicon-192.png")).save(os.path.join(OUT, "favicon.ico"), sizes=[(48, 48), (96, 96), (192, 192)])
     pages = load_pages()
     ALL_PAGES[:] = pages
     for pg in pages:          # local 2027 rebate section: the 12 priority cities' main pages and every city heat pump page
@@ -1802,15 +1882,18 @@ def main():
     write_image_slots(pages)
     urls = []
     issues = {}
+    DATES = json.load(open(DATES_FILE)) if os.path.exists(DATES_FILE) else {}
     for p in pages:
         url = p["url"]
         if url not in REG: print("WARN not in registry:", url)
         out = render(p)
+        lm = page_lastmod(p, out, DATES)
+        out = out.replace(LASTMOD_ISO, lm).replace(LASTMOD_HUMAN, datetime.date.fromisoformat(lm).strftime("%B %d, %Y").replace(" 0", " "))
         d = os.path.join(OUT, url.strip("/"))
         os.makedirs(d, exist_ok=True)
         with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as fh: fh.write(out)
         if p.get("robots", "").startswith("noindex") is False or "noindex" not in p.get("robots", ""):
-            urls.append((url, p.get("priority", "0.7")))
+            urls.append((url, p.get("priority", "0.7"), lm))
         pr = lint(url, out)
         if pr: issues[url] = pr
         tl = len(p["title"]); dl = len(p["description"])
@@ -1820,8 +1903,9 @@ def main():
             print(f"META  {url}: title {tl} (want 50-55), description {dl} (want 140-150)")
     # sitemap
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u, pr in urls:
-        sm.append(f"<url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><priority>{pr}</priority></url>")
+    for u, pr, lm in urls:
+        sm.append(f"<url><loc>{SITE}{u}</loc><lastmod>{lm}</lastmod><priority>{pr}</priority></url>")
+    json.dump(DATES, open(DATES_FILE, "w"), indent=0, sort_keys=True)
     sm.append("</urlset>")
     open(os.path.join(OUT, "sitemap.xml"), "w").write("\n".join(sm))
     open(os.path.join(OUT, "llms.txt"), "w", encoding="utf-8").write(llms_txt(pages))
@@ -1849,13 +1933,13 @@ def main():
                f'<section class="sec ty-urgent-sec"><div class="wrap"><div class="ty-urgent"><div><h2>No heat or no cooling right now?</h2>'
                "<p>Don't wait for our callback. Call us and we'll get a technician moving. We handle emergencies evenings, weekends and holidays.</p></div>"
                f'<a class="btn btn-call big" href="tel:{PHONE_TEL}">{icon("phone")}Call {PHONE}</a></div></div></section>')
-    open(os.path.join(OUT, "thank-you", "index.html"), "w", encoding="utf-8").write(render({
+    open(os.path.join(OUT, "thank-you", "index.html"), "w", encoding="utf-8").write(render_fixed({
         "url": "/thank-you/", "title": "Thanks, We Got Your Request", "description": "Your quote request is in. A real person will call you back, usually within a few business hours.",
         "robots": "noindex, nofollow", "h1": "Thanks, we got your request", "intro": "", "no_partners": True, "no_final_cta": True, "body_cls": "ty-page",
         "custom_hero": ty_hero + ty_body,
         "blocks": [{"type": "cards", "h2": "While you wait", "items": [{"title": t, "text": b, "link": u} for u, (t, b) in REG.items() if u in ("/heat-pump-rebates/", "/financing/", "/reviews/", "/our-work/")]}]}))
     # 404
-    open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(render({
+    open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(render_fixed({
         "url": "/404/", "title": "Page Not Found", "description": "That page moved or never existed. Find HVAC services, rebates and contact info here.",
         "robots": "noindex, follow", "h1": "Hmm, that page isn't here", "intro": "<p>The link may be old, or the page moved. Here's where most people are headed.</p>",
         "hero_points": [], "hero_image": "The EHI Heating And Cooling team in front of two EHI service vans", "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",

@@ -1,6 +1,6 @@
 PAGE = {
  "url": "/ac/ductless-mini-split/",
- "title": "Ductless Heat Pump Installation Ontario | Mini Split Repair",
+ "title": "Ductless Mini-Split & Heat Pump Installation Ontario",
  "description": "Ductless heat pump and mini split installation in Ontario from $5,500, plus replacement, ductless AC repair and maintenance. Rebate-eligible. Free quote.",
  "priority": "0.8",
  "eyebrow": "Ductless Installation · Replacement · Repair",
