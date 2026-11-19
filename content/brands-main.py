@@ -25,7 +25,7 @@ def brand_page(k):
      "title": k["title"], "description": k["description"],
      "eyebrow": f"Authorized {B} Dealer", "h1": f"Authorized {B} Dealer in Ontario", "tagline": k["tagline"],
      "intro": k["intro"], "hero_points": k["points"],
-     "hero_image": k["hero_alt"], "hero_img": k["hero_img"], "hero_img_credit": k.get("hero_credit", f"Image: {B}"), "hero_img_fit": k.get("hero_fit", "contain"),
+     "hero_center": True,
      "service": {"name": f"{B} Installation, Repair and Maintenance", "type": f"Authorized {B} dealer"},
      "blocks": [
       {"type": "cards", "h2": f"{B} equipment we install", "lead": k["lines_lead"], "items": k["lines"], "no_fill": True},
