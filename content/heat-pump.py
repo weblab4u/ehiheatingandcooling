@@ -107,5 +107,5 @@ PAGE = {
   ("Do I need an energy audit to get the heat pump rebate?", "No. Under the Home Renovation Savings Program a heat pump is a single-upgrade rebate, so no home energy assessment is required. You do need pre-approval before installation and equipment on NRCan's qualified products list, and we handle both."),
   ("What maintenance does a heat pump need?", "Keep the outdoor unit clear of snow and leaves, change or clean filters every one to three months, and book an annual tune-up. Our <a href=\"/heat-pump/repair-maintenance/\">heat pump maintenance</a> visit checks refrigerant charge, coils, defrost cycle and electrical connections."),
  ],
- "related": ["/heat-pump/cold-climate/", "/heat-pump/central/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/heat-pump/repair-maintenance/", "/heat-pump-rebates/"],
+ "related": ["/ontario-heat-pump-rebate-2027/", "/heat-pump/cold-climate/", "/heat-pump/central/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/heat-pump/repair-maintenance/", "/heat-pump-rebates/"],
 }

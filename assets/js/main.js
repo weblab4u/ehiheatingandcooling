@@ -40,7 +40,7 @@
   // quote forms: validate, then send to /api/quote.php (falls back to a normal post without JS)
   document.querySelectorAll('[data-quote-form]').forEach(function(f){
     var pg=f.querySelector('[name=page]');if(pg)pg.value=location.pathname;
-    var fwhere=/^\/contact\/?$/.test(location.pathname)?'contact_page':f.closest('.hero')?'hero_form':'page_section_form',started=false;
+    var fwhere=f.getAttribute('data-form-location')||(/^\/contact\/?$/.test(location.pathname)?'contact_page':f.closest('.hero')?'hero_form':'page_section_form'),started=false;
     f.addEventListener('input',function(){if(!started){started=true;track('quote_form_start',{form_location:fwhere});}});
     f.addEventListener('submit',function(e){
       e.preventDefault();
@@ -48,14 +48,15 @@
       var agentDone=null;if(e.agentInvoked&&e.respondWith){e.respondWith(new Promise(function(r){agentDone=r;}));}
       function tellAgent(msg){if(agentDone){agentDone(msg);agentDone=null;}}
       var ok=true,first=null;f.querySelectorAll('[required]').forEach(function(i){if(!i.value.trim()){i.classList.add('error');ok=false;first=first||i;}else i.classList.remove('error');});
+      var pc=f.querySelector('[name=postal_code]');if(pc&&pc.value.trim()){var pv=pc.value.trim().toUpperCase().replace(/\s+/g,'');if(!/^[A-Z]\d[A-Z]\d[A-Z]\d$/.test(pv)){pc.classList.add('error');ok=false;first=first||pc;}else pc.value=pv.slice(0,3)+' '+pv.slice(3);}
       var em=f.querySelector('[name=email]');if(em&&em.value.trim()&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){em.classList.add('error');ok=false;first=first||em;}else if(em)em.classList.remove('error');
       var err=f.querySelector('.form-err'),okMsg=f.querySelector('.form-ok'),btn=f.querySelector('button[type=submit]');
       function fail(msg){tellAgent('Not sent: '+msg.replace(/<[^>]+>/g,''));var tl=document.querySelector('a[href^="tel:"]');err.innerHTML=msg+' Or call '+(tl?'<a href="'+tl.getAttribute('href')+'">'+tl.getAttribute('href').replace(/^tel:\+1(\d{3})(\d{3})(\d{4})$/,'1-$1-$2-$3')+'</a>':'<a href="tel:+16476945845">1-647-694-5845</a>')+'.';err.hidden=false;btn.disabled=false;btn.classList.remove('sending');}
-      if(!ok){first&&first.focus();track('quote_form_error',{form_location:fwhere,error_type:'missing_fields'});fail('Please fill in your name, phone and city.');tellAgent('Not sent: name, phone and city are required, and the email must be valid.');return;}
+      if(!ok){first&&first.focus();track('quote_form_error',{form_location:fwhere,error_type:'missing_fields'});fail(pc?'Please fill in every field, with a postal code like L4A 3Y6.':'Please fill in your name, phone and city.');tellAgent(pc?'Not sent: name, phone, a valid Canadian postal code, current heating and home size are all required.':'Not sent: name, phone and city are required, and the email must be valid.');return;}
       if(f.querySelector('.hp').value){tellAgent('Not sent.');return;}
       err.hidden=true;btn.disabled=true;btn.classList.add('sending');
       function mailFallback(){var v=function(n){var i=f.querySelector('[name='+n+']');return i?i.value.trim():'';};
-        var body='Name: '+v('name')+'\nPhone: '+v('phone')+'\nEmail: '+v('email')+'\nCity: '+v('city')+'\nService: '+v('service')+'\n\n'+v('message');
+        var body='Name: '+v('name')+'\nPhone: '+v('phone')+'\nEmail: '+v('email')+'\nCity: '+v('city')+'\nPostal code: '+v('postal_code')+'\nCurrent heating: '+v('heating_source')+'\nHome size: '+v('home_size')+'\nService: '+v('service')+'\n\n'+v('message');
         return '<a href="mailto:efficienthomecomfort@gmail.com?subject='+encodeURIComponent('Quote request: '+v('service'))+'&body='+encodeURIComponent(body)+'">email it to us</a>';}
       function send(tries){
         return fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
@@ -66,9 +67,9 @@
       send(2).then(function(j){
           if(j.ok){tellAgent('Quote request sent. EHI Heating And Cooling will call back, usually within a few business hours.');f.querySelectorAll('input:not([type=hidden]),select,textarea,button').forEach(function(x){x.disabled=true;});okMsg.hidden=false;btn.classList.remove('sending');
             var v=function(n){var i=f.querySelector('[name='+n+']');return i?i.value.trim():'';};
-            try{sessionStorage.setItem('ehi_ty',JSON.stringify({name:v('name').split(/\s+/)[0],service:v('service'),city:v('city'),phone:v('phone')}));}catch(e){}
+            try{sessionStorage.setItem('ehi_ty',JSON.stringify({name:v('name').split(/\s+/)[0],service:v('service'),city:v('city')||v('postal_code'),phone:v('phone')}));}catch(e){}
             var went=false,go=function(){if(!went){went=true;location.assign('/thank-you/');}};
-            if(window.gtag){gtag('event','generate_lead',{lead_method:'quote_form',form_location:fwhere,service_type:v('service')||'not_selected',form_page:location.pathname,event_callback:go});setTimeout(go,1200);}else go();
+            if(window.gtag){gtag('event','generate_lead',{lead_method:pc?'rebate_form':'quote_form',form_location:fwhere,service_type:v('service')||'not_selected',heating_source:v('heating_source')||undefined,home_size:v('home_size')||undefined,form_page:location.pathname,event_callback:go});setTimeout(go,1200);}else go();
             return;}
           if(j.errors){track('quote_form_error',{form_location:fwhere,error_type:'rejected'});Object.keys(j.errors).forEach(function(k){var i=f.querySelector('[name='+k+']');i&&i.classList.add('error');});fail(j.errors[Object.keys(j.errors)[0]]);return;}
           if(j.down||j.status>=500){track('quote_form_error',{form_location:fwhere,error_type:'server'});fail('Our form is having trouble right now. Your details are still here: '+mailFallback()+' in one tap,');return;}
@@ -79,7 +80,7 @@
   // thank-you page: show the visitor's first name and what they sent (kept in this tab only, then cleared)
   var tyName=document.querySelector('[data-ty-name]');
   if(tyName){try{var d=JSON.parse(sessionStorage.getItem('ehi_ty')||'null');sessionStorage.removeItem('ehi_ty');
-    if(d){if(d.name)tyName.textContent=', '+d.name;var dl=document.querySelector('[data-ty-list]'),rows=[['Service',d.service],['City',d.city],['We\'ll call',d.phone]].filter(function(r){return r[1];});
+    if(d){if(d.name)tyName.textContent=', '+d.name;var dl=document.querySelector('[data-ty-list]'),rows=[['Service',d.service],['Location',d.city],['We\'ll call',d.phone]].filter(function(r){return r[1];});
       rows.forEach(function(r){var dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=r[0];dd.textContent=r[1];dl.appendChild(dt);dl.appendChild(dd);});
       if(rows.length)document.querySelector('[data-ty-summary]').hidden=false;}}catch(e){}}
   // sticky CTA hides when a form is on screen

@@ -83,6 +83,7 @@ REG = {
  "/brands/lennox/heat-pumps/": ("Lennox Heat Pumps", "Lennox heat pumps and cold-climate options."),
  "/brands/rinnai/tankless-water-heaters/": ("Rinnai Tankless Water Heaters", "Rinnai RX160iN and RX199iN condensing tankless water heaters."),
  "/brands/goodman/": ("Authorized Goodman Dealer", "Goodman furnaces, heat pumps and central air, installed and registered."),
+ "/ontario-heat-pump-rebate-2027/": ("Heat Pump Rebates 2027", "The new federal rebate of $2,000 or up to $10,000, how it may combine with Ontario's program, and how to get ready."),
  "/heat-pump-rebates/": ("Heat Pump Rebates Ontario", "Ontario's rebate and the new federal rebate, explained separately. We handle the paperwork."),
  "/financing/": ("HVAC Financing", "0% interest for 3, 6 or 9 months, or open loans from 2.99% OAC."),
  "/offers/": ("Offers", "Guaranteed final pricing and we may beat comparable quotes by up to 10%."),
@@ -119,7 +120,7 @@ NAV = [
    (("Kepler", "/brands/kepler/"), ["/brands/kepler/heat-pumps/"]),
    (("Rinnai", "/brands/rinnai/"), ["/brands/rinnai/tankless-water-heaters/"]),
  ]),
- ("Rebates & Financing", "/heat-pump-rebates/", [("Save money", ["/heat-pump-rebates/", "/financing/", "/offers/", "/warranty/"])]),
+ ("Rebates & Financing", "/heat-pump-rebates/", [("Save money", ["/ontario-heat-pump-rebate-2027/", "/heat-pump-rebates/", "/financing/", "/offers/", "/warranty/"])]),
 ]
 
 AREA_GROUPS = [
@@ -206,9 +207,9 @@ def fill_cta(n, cols=(4,2), tag="li", h="Not sure which option fits your home?",
             f'<div class="btn-group small"><a class="btn btn-primary" href="/contact/">Get a Free Quote{icon("arrow")}</a>'
             f'<a class="btn btn-secondary" href="tel:{PHONE_TEL}">{icon("phone")}Call {PHONE}</a></div></{tag}>')
 
-def cta_buttons(primary="Get a Free Quote", secondary=True, small=False):
+def cta_buttons(primary="Get a Free Quote", secondary=True, small=False, href="/contact/"):
     cls = "btn-group small" if small else "btn-group"
-    s = f'<div class="{cls}"><a class="btn btn-primary" href="/contact/">{esc(primary)}{icon("arrow")}</a>'
+    s = f'<div class="{cls}"><a class="btn btn-primary" href="{href}">{esc(primary)}{icon("arrow")}</a>'
     if secondary:
         s += f'<a class="btn btn-secondary" href="tel:{PHONE_TEL}">{icon("phone")}Call {PHONE}</a>'
     return s + '</div>'
@@ -357,7 +358,7 @@ def render_block(b, page):
         return f'<section class="sec checklist-sec"><div class="wrap">{inner}</div></section>'
     if t == "steps":
         items = "".join(f'<li><span class="num">{n+1}</span><div><h3>{i["title"]}</h3><p>{i["text"]}</p></div></li>' for n, i in enumerate(b["items"]))
-        return f'<section class="sec steps-sec"><div class="wrap"><div class="steps-head"><div>{h2(b, "How it works")}{lead(b)}</div>{cta_buttons(b.get("cta","Start With a Free Quote"), small=True)}</div><ol class="steps n{len(b["items"])}">{items}</ol></div></section>'
+        return f'<section class="sec steps-sec"><div class="wrap"><div class="steps-head"><div>{h2(b, "How it works")}{lead(b)}</div>{cta_buttons(b.get("cta","Start With a Free Quote"), small=True, href=b.get("href", "/contact/"))}</div><ol class="steps n{len(b["items"])}">{items}</ol></div></section>'
     if t == "split":
         img = img_frame(b.get("image", "Photo"), src=b.get("image_src"), fit=b.get("image_fit", "contain"), credit=b.get("image_credit"), pos=b.get("image_pos", "50% 55%"), title=b.get("image_title"))
         rev = " reverse" if b.get("reverse") else ""
@@ -386,7 +387,7 @@ def render_block(b, page):
         return f'<section class="sec video-sec"><div class="wrap{" narrow" if n == 1 else ""}">{h2(b)}{lead(b)}<div class="yt-grid n{n}">{cards}</div></div></section>'
     if t == "cta":
         return (f'<section class="sec cta-band"><div class="wrap"><div><h2>{b.get("h2","Want a guaranteed price for your home?")}</h2>'
-                f'<p>{b.get("text","Free quote, honest sizing, and every rebate you qualify for.")}</p></div>{cta_buttons(b.get("primary","Get a Free Quote"))}</div></section>')
+                f'<p>{b.get("text","Free quote, honest sizing, and every rebate you qualify for.")}</p></div>{cta_buttons(b.get("primary","Get a Free Quote"), href=b.get("href", "/contact/"))}</div></section>')
     if t == "image":
         return f'<section class="sec img-sec"><div class="wrap">{img_frame(b["desc"], b.get("ratio","21/9"))}</div></section>'
     if t == "gallery":
@@ -448,6 +449,10 @@ def render_block(b, page):
         return faq_block(b["items"], b.get("h2", "Frequently asked questions"))
     if t == "form":
         return form_block(b)
+    if t == "rebate_form":
+        items = "".join(f'<li>{icon("check")}<span>{i}</span></li>' for i in b.get("items", []))
+        return (f'<section class="sec rebate-form-sec" id="{b.get("id", "check")}"><div class="wrap split"><div>{h2(b)}{lead(b)}<ul class="checklist">{items}</ul>{b.get("html", "")}</div>'
+                f'<div>{rebate_form(b.get("where", "rebate_section_form"), h=b.get("form_h", "Check Your Heat Pump Rebate Eligibility"), button=b.get("button", "Check My Rebate Eligibility"))}</div></div></section>')
     raise ValueError(f"unknown block {t}")
 
 # ---------------------------------------------------------------- shared product-page sections
@@ -499,7 +504,7 @@ def emergency_block(b):
 def money_block(b):
     cols = b.get("items") or [
         {"icon": "dollar", "title": "Guaranteed pricing", "text": "Your quote is your final price. No surprise extras on the agreed scope of work."},
-        {"icon": "leaf", "title": "Ontario and federal rebates", "text": 'Ontario\'s <a href="/heat-pump-rebates/">Home Renovation Savings Program</a> pays up to $7,500, with the biggest rebates for homes heated by electricity, oil or propane. The separate <a href="/heat-pump-rebates/#federal">federal heat pump rebate</a> is $2,000, or up to $10,000 for income-qualified households. We check both and file the paperwork.'},
+        {"icon": "leaf", "title": "Ontario and federal rebates", "text": 'Ontario\'s <a href="/heat-pump-rebates/">Home Renovation Savings Program</a> pays up to $7,500, with the biggest rebates for homes heated by electricity, oil or propane. The separate <a href="/ontario-heat-pump-rebate-2027/">2027 federal heat pump rebate</a> is $2,000, or up to $10,000 for income-qualified households. We check both and file the paperwork.'},
         {"icon": "clock", "title": "0% financing", "text": '<a href="/financing/">Interest-free for 3, 6 or 9 months</a>, or open loans from 2.99% on approved credit.'},
         {"icon": "shield", "title": "Up to 12 years parts and labour", "text": '<a href="/warranty/">Extended warranty</a> on select systems when registered.'},
     ]
@@ -910,6 +915,30 @@ def form_block(b=None, compact=False, preselect=None):
   <p class="form-err" hidden role="alert"></p>
 </form>'''
 
+HEAT_SOURCES = ["Electric baseboards", "Electric furnace", "Natural gas furnace or boiler", "Oil furnace or boiler", "Propane furnace or boiler", "Wood", "Not sure"]
+HOME_SIZES = ["Under 1,000 sq ft", "1,000 to 1,500 sq ft", "1,500 to 2,000 sq ft", "2,000 to 2,500 sq ft", "2,500 to 3,500 sq ft", "Over 3,500 sq ft", "Not sure"]
+def rebate_form(where, compact=False, h="Check Your Heat Pump Rebate Eligibility", button="Check My Rebate Eligibility"):
+    """Short rebate lead form: name, phone, postal code, current heating and home size. Same handler and thank-you flow as the quote form;
+    data-form-location tells GA4 which rebate form the lead came from."""
+    sel = lambda name, opts, desc: (f'<select name="{name}" required toolparamdescription="{desc}"><option value="">Choose one</option>' + "".join(f"<option>{o}</option>" for o in opts) + "</select>")
+    cls = "quote-form rebate-form compact" if compact else "quote-form rebate-form"
+    return f'''<form class="{cls}" action="/api/quote.php" method="post" data-quote-form data-form-location="{where}" novalidate toolname="check_heat_pump_rebate" tooldescription="Ask EHI Heating And Cooling, an Ontario HVAC contractor, to check which heat pump rebates a home may qualify for and quote the installation. Not a government application.">
+  <h2 class="form-h">{h}</h2>
+  <p class="form-sub">Takes 30 seconds. We call you back with your likely rebate tier and a sizing visit time.</p>
+  <div class="f-row"><label>Name<input type="text" name="name" autocomplete="name" required toolparamdescription="Full name of the homeowner"></label>
+  <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" required toolparamdescription="Phone number we should call back, with area code"></label></div>
+  <div class="f-row"><label>Postal code<input type="text" name="postal_code" autocomplete="postal-code" maxlength="7" placeholder="e.g. L4A 3Y6" required toolparamdescription="Ontario postal code of the home"></label>
+  <label>Current heating{sel("heating_source", HEAT_SOURCES, "How the home is heated today")}</label></div>
+  <label>Approximate home size{sel("home_size", HOME_SIZES, "Approximate finished floor area of the home")}</label>
+  <input type="hidden" name="service" value="Rebate eligibility check">
+  <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" toolparamdescription="Spam trap. Always leave this empty.">
+  <input type="hidden" name="page" value="">
+  <button class="btn btn-primary btn-block" type="submit">{button}{icon("arrow")}</button>
+  <p class="form-note">Or call <a href="tel:{PHONE_TEL}">{PHONE}</a>. We are an HVAC contractor, not a government agency. By submitting you agree to our <a href="/privacy-policy/">privacy policy</a>.</p>
+  <p class="form-ok" hidden role="status">Thanks, we got it. We'll be in touch shortly.</p>
+  <p class="form-err" hidden role="alert"></p>
+</form>'''
+
 # ---------------------------------------------------------------- page
 def photo_hero(page):
     pts = "".join(f'<li>{icon("check")}{p}</li>' for p in page.get("hero_points", []))
@@ -944,11 +973,12 @@ def hero(page):
     right = form_block({"h3": page.get("form_h3", "Get your free guaranteed quote"), "sub": page.get("form_sub", "Same-day reply in most cases. No pressure, no spam."),
                         "city": CITY_BY_SLUG[page["city_service"]]["name"] if page.get("city_service") else None}, compact=True, preselect=preselect_for(page["url"])) if use_form else img_frame(page.get("hero_image", "Hero photo"), "4/3", "hero-img", src=page.get("hero_img"), fit=page.get("hero_img_fit", "contain"), credit=page.get("hero_img_credit"), eager=True, pos=page.get("hero_img_pos", "50% 55%"))
     cls = page.get("hero_cls", "svc-hero" if is_service else ("page-hero" if page["url"] != "/" else ""))
+    if page.get("hero_rebate_form"): right = rebate_form("rebate_hero_form", compact=True)
     if page.get("hero_mid"): cls += " hero-mid"      # image centred against the copy instead of pinned to the top
     if page.get("hero_center"): cls += " hero-center"; right = ""      # centred copy, no image or form beside it
     return f'''<section class="hero {cls}"><div class="wrap hero-grid">
   <div class="hero-copy">{eyebrow}<h1>{page["h1"]}</h1>{f'<p class="tagline">{page["tagline"]}</p>' if page.get("tagline") else ""}{page["intro"]}
-    <ul class="hero-points">{pts}</ul>{cta_buttons(page.get("cta_primary","Get a Free Quote"))}
+    <ul class="hero-points">{pts}</ul>{cta_buttons(page.get("cta_primary","Get a Free Quote"), href=page.get("cta_href", "/contact/"))}
     <p class="hero-trust">{icon("star")} Voted Best Company 2019 to 2021 · Authorized Midea, Lennox, Kepler, Goodman &amp; Rinnai dealer · 20+ years</p>
   </div>
   {f'<div class="hero-side">{right}</div>' if right else ""}
@@ -1111,6 +1141,9 @@ CITIES, CITY_BY_SLUG = _cities_mod.CITIES, _cities_mod.CITY_BY_SLUG
 CITY_URLS = {f"/{c['slug']}/": c for c in CITIES}
 _cp = _load_data("ehi_city_photos", "city_photos.py")
 PRICING = _load_data("ehi_pricing", "pricing.py")
+CLIMATE = _load_data("ehi_climate", "climate.py").CLIMATE
+REBATE_CITIES = {"toronto", "markham", "richmond-hill", "vaughan", "ottawa", "barrie", "sudbury", "north-bay", "kingston", "london", "windsor", "thunder-bay"}
+REBATE_URL = "/ontario-heat-pump-rebate-2027/"
 CITY_PHOTOS = dict(_cp.NEW)
 CITY_PHOTOS.update(_cp.DRIVE)
 CITY_DRIVE = set(_cp.DRIVE)
@@ -1231,8 +1264,48 @@ SVC_ICON = {"/furnace/": "furnace", "/furnace/repair-maintenance/": "wrench", "/
             "/services/hrv-erv/": "hrv", "/services/thermostats/": "thermostat", "/heat-pump-rebates/": "rebate", "/financing/": "dollar",
             "/furnace/high-efficiency/": "flame", "/heat-pump/central/": "heatpump"}
 
+def rebate_local(c, page):
+    """Local section on the 2027 rebates: the city's Building Code design temperature and heating load, its utilities and how
+    homes there are usually heated. Every figure is the city's own, so no two cities read the same."""
+    import zlib
+    s, n = c["slug"], c["name"]; d = CLIMATE.get(s); V = lambda k, *o: o[zlib.crc32((page["url"] + k).encode()) % len(o)]
+    N = n + "'" if n.endswith("s") else n + "'s"
+    offgas = "propane" in c["housing"] or "oil" in c["housing"]
+    hi, lo = "about $1,250 per ton of heat pump, up to $7,500", "about $500 per ton, up to $2,000"
+    fuel = (V("f", f"Plenty of homes around {n} still heat with oil, propane or electricity. Those sit in Ontario's higher tier, {hi}; natural gas homes get {lo}.",
+                   f"Around {n}, a lot of houses run on oil, propane or electric heat, and that puts them in Ontario's higher tier: {hi}. Gas-heated homes get {lo}.")
+            if offgas else
+            V("f", f"Most {n} homes heat with natural gas from {c['gas']}, Ontario's lower tier: {lo}. Homes on electric, oil or propane heat get {hi}.",
+                   f"Natural gas from {c['gas']} heats most houses in {n}, and gas homes are Ontario's lower tier at {lo}. Electric, oil and propane homes get {hi}.",
+                   f"If your {n} home is on {c['gas']} natural gas, Ontario pays {lo}. On electric, oil or propane heat it is {hi}."))
+    fed = V("fd", "Federal National Heat Pump Rebate: $2,000, or up to $10,000 if your after-tax household income is at or below the Ontario median for your household size ($92,884 for two people). Applications are expected to open in early 2027 and are not open yet.",
+                  "On top of that, the federal National Heat Pump Rebate is expected to open in early 2027 (not open yet): $2,000, or up to $10,000 for households under the Ontario income cut-off, for example $46,981 after tax for one person.")
+    clim = ""
+    if d:
+        pct = round((d["hdd"] / CLIMATE["toronto"]["hdd"] - 1) * 100)
+        load = (f"about {pct}% more heating than downtown Toronto" if pct >= 5 else f"about {-pct}% less heating than downtown Toronto" if pct <= -5 else "about the same heating as downtown Toronto")
+        clim = V("c", f"{N} January design temperature is {d['dt']}°C, and a winter here takes {load} ({d['hdd']:,} degree days). The federal program backs systems that can heat the whole home, so we size from a heat-loss calculation at {d['dt']}°C, not from the old furnace's label.",
+                      f"We size for {d['dt']}°C, the Building Code design temperature for {n}, where a winter needs {load} ({d['hdd']:,} degree days). The federal rebate is aimed at systems that heat the whole home, which only works if the size is right.")
+    gasnote = (V("g", " If you heat with gas, we compare running costs first: the Government of Canada notes a heat pump may not lower bills in every gas-heated home.",
+                      " On gas, a heat pump does not always lower the bill, as the Government of Canada itself points out, so we show you the numbers before you decide.") if not offgas
+               else " For oil and propane homes the savings case is usually strongest; the Government of Canada puts average savings above $1,400 a year for these fuels and electric heat.")
+    util = V("u", f"Electricity in {n} comes from {c['utility']}. Bring a winter hydro and fuel bill to the visit and we estimate your running costs.{gasnote}",
+                  f"{c['utility']} supplies power in {n}. Share a January hydro and fuel bill and we work out what the heat pump would cost to run.{gasnote}")
+    bullets = [fuel, fed, clim, util,
+               V("p", "Want Ontario's rebate as well? Its pre-approval has to be in place before we install. Federal eligibility can start from installs on or after November 1, 2026, subject to approval once the portal opens.",
+                      "Planning to claim both? File Ontario's pre-approval before install day. Installs from November 1, 2026 may still count for the federal rebate once applications open, subject to approval.")]
+    items = "".join(f'<li>{icon("check")}<span>{x}</span></li>' for x in bullets if x)
+    h = V("h", f"2027 heat pump rebates for {n} homes", f"Federal and Ontario heat pump rebates in {n}", f"The new federal heat pump rebate in {n}")
+    ld = V("l", f"What the new federal rebate and Ontario's Home Renovation Savings Program mean for a house in {n}.", f"How the 2027 federal rebate and Ontario's program apply to {n} homes, using local numbers.")
+    return (f'<section class="sec rebate-local-sec"><div class="wrap narrow"><h2>{h}</h2><p class="lead">{ld}</p><ul class="checklist">{items}</ul>'
+            f'<div class="btn-group"><a class="btn btn-primary" href="{REBATE_URL}#check">Check Your Heat Pump Rebate Eligibility{icon("arrow")}</a>'
+            f'<a class="btn btn-secondary" href="{REBATE_URL}">Read the 2027 rebate guide</a></div>'
+            f'<p class="note">Rebate rules, amounts and combining are set by each program and can change. We are an HVAC contractor, not a government agency.</p></div></section>')
+
 def city_block(b, page):
     t = b["type"]; c = CITY_BY_SLUG[page.get("city") or page["city_service"]]
+    if t == "rebate_local":
+        return rebate_local(c, page)
     if t == "gbp":
         return city_map_block(page.get("city") or page["city_service"])
     if t == "cost_guide":
@@ -1544,6 +1617,11 @@ def main():
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "assets"))
     pages = load_pages()
     ALL_PAGES[:] = pages
+    for pg in pages:          # local 2027 rebate section: the 12 priority cities' main pages and every city heat pump page
+        cs = pg.get("city") or pg.get("city_service")
+        if (pg.get("city") in REBATE_CITIES) or (cs and pg["url"].endswith(("/heat-pump/", "/heat-pump-installation/"))):
+            bl = pg["blocks"]; at = next((i + 1 for i, x in enumerate(bl) if x["type"] in ("svc_links", "table")), len(bl) // 3)
+            bl.insert(at, {"type": "rebate_local"})
     for pg in pages:
         if pg.get("city_service") or pg.get("guide"):
             REG.setdefault(pg["url"], (re.sub("<[^>]+>", "", pg["h1"]), pg["description"]))

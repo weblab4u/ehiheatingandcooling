@@ -83,5 +83,5 @@ PAGE = {
  ],
  "cta_h2": "Planning a heat pump this winter?",
  "cta_text": "We'll check your home against Ontario's rebate and the new federal one, size the system properly, file Ontario pre-approval and give you a written, guaranteed price. Call 1-647-694-5845 or send the form.",
- "related": ["/heat-pump-rebates/", "/heat-pump/", "/heat-pump/cold-climate/", "/heat-pump/central/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/heat-pump/repair-maintenance/", "/financing/"],
+ "related": ["/ontario-heat-pump-rebate-2027/", "/heat-pump-rebates/", "/heat-pump/", "/heat-pump/cold-climate/", "/heat-pump/central/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/heat-pump/repair-maintenance/", "/financing/"],
 }

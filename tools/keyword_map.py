@@ -56,6 +56,8 @@ def target(q):
         for u in cands:
             if exists(u): return u
         return f"/{city}/"
+    if re.search(r"rebate|grant|incentive", q) and re.search(r"2027|federal|national|canada|government|10,?000|income|eligib|qualif|appl|senior|landlord|combin|stack", q):
+        return "/ontario-heat-pump-rebate-2027/"
     if "rebate" in q:
         return {"water heater": "/heat-pump-rebates/", "furnace": "/furnace/", "heat pump": "/heat-pump-rebates/"}.get(p, "/heat-pump-rebates/")
     if re.search(r"emergency|24/7", q): return "/services/emergency-hvac/"
