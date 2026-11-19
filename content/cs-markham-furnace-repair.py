@@ -1,10 +1,10 @@
 # /markham/furnace-repair/
 PAGE = {
  "url": "/markham/furnace-repair/", "city_service": "markham", "priority": "0.7",
- "title": "Furnace Repair Markham | Two-Stage & Variable-Speed Experts",
+ "title": "Markham Furnace Repair | Two-Stage & Variable-Speed Experts",
  "description": "Furnace repair in Markham for no heat, short cycling, blower faults and uneven floors. TSSA-certified techs, written quote first. Call 1-647-694-5845.",
  "eyebrow": "Furnace Repair · Markham",
- "h1": "Furnace Repair in Markham, From No Heat to Uneven Floors",
+ "h1": "Markham Furnace Repair, From No Heat to Uneven Floors",
  "tagline": "Two-stage, variable-speed and zoned furnaces fixed properly",
  "intro": "<p>Furnace repair in Markham is rarely just a dead furnace. More often the furnace runs, but the basement stays cold, the second stage never kicks in or a zone damper is stuck half open. Our TSSA-certified gas technicians diagnose two-stage, variable-speed and zoned systems across York Region and the rest of Ontario, and you see the repair price in writing before we pick up a tool.</p>",
  "hero_points": ["TSSA-certified gas technicians on every call", "Two-stage, ECM blower and zoning faults diagnosed with a meter, not a guess",

@@ -1,10 +1,10 @@
 # /barrie/ac-repair/
 PAGE = {
  "url": "/barrie/ac-repair/", "city_service": "barrie", "priority": "0.7",
- "title": "AC Repair Barrie | Air Conditioners Fixed After a Hard Winter",
+ "title": "Barrie AC Repair | Air Conditioners Fixed After a Hard Winter",
  "description": "AC repair in Barrie for units that sat under snow all winter: no start, warm air, bent fins, leaks. Licensed techs, written quote before work. Book a visit.",
  "eyebrow": "AC Repair · Barrie",
- "h1": "AC Repair in Barrie for Air Conditioners That Spent the Winter Under Snow",
+ "h1": "Barrie AC Repair for Air Conditioners That Spent the Winter Under Snow",
  "tagline": "What five months of drifts and roof slides do to an outdoor unit",
  "intro": "<p>AC repair in Barrie is a spring and summer story with a winter cause. The outdoor unit sat under lake-effect snow for months, took a few hits from ice sliding off the roof, maybe hosted a family of mice, and now it won't start on the first muggy day. Our licensed refrigeration technicians find what the winter broke, quote it in writing and get the house cool again, from Allandale to Holly and across our Ontario service area.</p>",
  "hero_points": ["Licensed refrigeration technicians, every brand of central AC", "Winter-damage inspection on every call",

@@ -1,9 +1,9 @@
 PAGE = {
  "url": "/hamilton/heat-pump-installation/", "city_service": "hamilton", "priority": "0.7",
- "title": "Heat Pump Installation Hamilton | Ductless & Ducted Options",
+ "title": "Hamilton Heat Pump Installation | Ductless & Ducted Options",
  "description": "Heat pump installation in Hamilton for brick homes with radiators, tired ducts or newer builds. Rated to -30°C, rebate paperwork handled. Get a quote.",
  "eyebrow": "Heat Pump Installation · Hamilton",
- "h1": "Heat Pump Installation in Hamilton for Radiator Homes, Old Ducts and New Builds",
+ "h1": "Hamilton Heat Pump Installation for Radiator Homes, Old Ducts and New Builds",
  "tagline": "Rated to -30°C, sized for the lower city or the Mountain",
  "intro": "<p>Heat pump installation in Hamilton starts with one question: what does your house already have? A century home on Locke Street with hot-water radiators needs a different plan than a 1960s side split on the Mountain or a ten-year-old build in Binbrook. We install cold-climate Midea and Kepler heat pumps in all three kinds of Ontario home, from $5,500, with a guaranteed quote and the rebate paperwork handled.</p>",
  "hero_points": ["Ductless, small-duct and central heat pump options", "Midea EVOX G3 and Kepler, rated to heat at -30°C",

@@ -1,10 +1,10 @@
 # /vaughan/heat-pump-installation/
 PAGE = {
  "url": "/vaughan/heat-pump-installation/", "city_service": "vaughan", "priority": "0.7",
- "title": "Heat Pump Installation Vaughan | High-Capacity & Multi-Zone",
+ "title": "Vaughan Heat Pump Installation | High-Capacity & Multi-Zone",
  "description": "Heat pump installation in Vaughan for large homes with big glass: 5-ton ducted units, two-system layouts and multi-zone ductless. Rebates filed. Get a quote.",
  "eyebrow": "Heat Pump Installation · Vaughan",
- "h1": "Heat Pump Installation in Vaughan for Large Homes and Big Glass",
+ "h1": "Vaughan Heat Pump Installation for Large Homes and Big Glass",
  "tagline": "Sized for the cooling load, rated for the Ontario cold",
  "intro": "<p>Heat pump installation in Vaughan is a different job from the rest of the GTA. Custom homes in Kleinburg and Maple have tall foyers, walls of glass and square footage that one 3-ton unit can't touch. We design high-capacity ducted systems, two-system layouts and multi-zone ductless for these houses, and we install the same cold-climate equipment for shops and offices in Concord. Every quote is written, guaranteed and backed by 20 years of Ontario installs.</p>",
  "hero_points": ["Ducted cold-climate heat pumps up to 5 tons, or two systems for the biggest homes", "Multi-zone ductless with up to five heads from one outdoor unit",

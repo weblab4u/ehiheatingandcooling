@@ -1,10 +1,10 @@
 # /barrie/heat-pump-installation/
 PAGE = {
  "url": "/barrie/heat-pump-installation/", "city_service": "barrie", "priority": "0.7",
- "title": "Heat Pump Installation Barrie | Snowbelt Sizing, -30°C",
+ "title": "Barrie Heat Pump Installation | Snowbelt Sizing, -30°C",
  "description": "Heat pump installation in Barrie sized for Snowbelt cold, mounted above the drifts and rated to -30°C. Rebates up to $7,500. Get a guaranteed written quote.",
  "eyebrow": "Heat Pump Installation · Barrie",
- "h1": "Heat Pump Installation in Barrie Built for Snowbelt Winters",
+ "h1": "Barrie Heat Pump Installation Built for Snowbelt Winters",
  "tagline": "Sized for Barrie's cold, not a Toronto chart",
  "intro": "<p>Heat pump installation in Barrie starts with one honest question: will it still heat the house at 2 a.m. in February when the wind is coming off Kempenfelt Bay? Ours do. We install cold-climate heat pumps rated to -30°C, run the heat-loss math at Barrie's colder design temperature, and set the outdoor unit where lake-effect snow can't bury it. Serving Barrie and Simcoe County from our Ontario base, with a written price that doesn't change.</p>",
  "hero_points": ["Heat-loss sizing at Barrie's design temperature", "Outdoor unit on a stand above the drift line",

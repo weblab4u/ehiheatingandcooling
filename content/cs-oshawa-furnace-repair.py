@@ -1,9 +1,9 @@
 PAGE = {
  "url": "/oshawa/furnace-repair/", "city_service": "oshawa", "priority": "0.7",
- "title": "Furnace Repair Oshawa | Older Furnaces, Honest Advice",
+ "title": "Oshawa Furnace Repair | Older Furnaces, Honest Advice",
  "description": "Furnace repair in Oshawa for older homes: no heat, short cycling, chimney draft and venting faults fixed by TSSA-certified techs. Written quote first. Call.",
  "eyebrow": "Furnace Repair · Oshawa",
- "h1": "Furnace Repair in Oshawa for Older Furnaces, Old Chimneys and Tired Ducts",
+ "h1": "Oshawa Furnace Repair for Older Furnaces, Old Chimneys and Tired Ducts",
  "tagline": "The furnace in a wartime house has stories. We read them with a meter.",
  "intro": "<p>Furnace repair in Oshawa is rarely just about the furnace. In the brick homes near downtown and the bungalows that followed, the chimney it vents into and the ducts it feeds are often older than the furnace itself, and half the no-heat calls trace back to one of them. Our TSSA-certified gas technicians check all three, quote the repair in writing and give you a straight answer on whether an old furnace is worth saving, in Oshawa and across Ontario.</p>",
  "hero_points": ["TSSA-certified gas technicians on every call", "Venting and chimney draft checked along with the furnace",

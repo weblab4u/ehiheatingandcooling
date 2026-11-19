@@ -1,10 +1,10 @@
 # /ottawa/heat-pump-installation/
 PAGE = {
  "url": "/ottawa/heat-pump-installation/", "city_service": "ottawa", "priority": "0.7",
- "title": "Heat Pump Installation Ottawa | Rated to -30°C, From $5,500",
+ "title": "Ottawa Heat Pump Installation | Rated to -30°C, From $5,500",
  "description": "Heat pump installation in Ottawa sized for -25°C nights: cold-climate units rated to -30°C, furnace backup and rebate paperwork done. Get a guaranteed quote.",
  "eyebrow": "Heat Pump Installation · Ottawa",
- "h1": "Heat Pump Installation in Ottawa Built for -25°C Nights",
+ "h1": "Ottawa Heat Pump Installation Built for -25°C Nights",
  "tagline": "Cold-climate heat pumps with a furnace backup for the deep freeze",
  "intro": "<p>Heat pump installation in Ottawa has to pass one test: the house stays warm at -25°C and the hydro bill stays sane. We install Midea EVOX G3 and Kepler cold-climate heat pumps rated to -30°C, sized from a room-by-room heat-loss calculation, and we keep your gas furnace as backup when that's the smart play for your home. Ontario's Home Renovation Savings Program can return up to $7,500, and we file the paperwork.</p>",
  "hero_points": [

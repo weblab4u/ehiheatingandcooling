@@ -1455,12 +1455,12 @@ def jump_nav(page):
 # City service pages, one row per kind: (path, icon, keyword anchor, short description, Ontario-wide hub, nearby-city anchor).
 # Anchors match each page's target keyword (title and H1), so links reinforce what the page ranks for.
 CS_KINDS = [
- ("heat-pump", "heatpump", "Heat pump installation in {c}", "Sizing, rebates, replacement and repair", "/heat-pump/"),
- ("heat-pump-installation", "heatpump", "Heat pump installation in {c}", "Cold-climate heat pumps sized for local homes", "/heat-pump/"),
- ("furnace", "furnace", "Furnace installation and repair in {c}", "New furnaces from $3,300, replacement and repair", "/furnace/"),
- ("furnace-repair", "furnace", "Furnace repair in {c}", "No heat, short cycling, ignitors and blowers", "/furnace/repair-maintenance/"),
- ("tankless-water-heater", "tankless", "Tankless water heater installation in {c}", "Rinnai installs, tank replacement and descaling", "/water-heater/"),
- ("ac-repair", "ac", "AC repair in {c}", "Warm air, iced coils, leaks and tripped breakers", "/ac/repair-maintenance/"),
+ ("heat-pump", "heatpump", "{c} heat pump installation", "Sizing, rebates, replacement and repair", "/heat-pump/"),
+ ("heat-pump-installation", "heatpump", "{c} heat pump installation", "Cold-climate heat pumps sized for local homes", "/heat-pump/"),
+ ("furnace", "furnace", "{c} furnace installation and repair", "New furnaces from $3,300, replacement and repair", "/furnace/"),
+ ("furnace-repair", "furnace", "{c} furnace repair", "No heat, short cycling, ignitors and blowers", "/furnace/repair-maintenance/"),
+ ("tankless-water-heater", "tankless", "{c} tankless water heater installation", "Rinnai installs, tank replacement and descaling", "/water-heater/"),
+ ("ac-repair", "ac", "{c} AC repair", "Warm air, iced coils, leaks and tripped breakers", "/ac/repair-maintenance/"),
 ]
 CS_BY_KIND = {k[0]: k for k in CS_KINDS}
 CS_FAMILY = {"heat-pump": ("heat-pump", "heat-pump-installation"), "heat-pump-installation": ("heat-pump", "heat-pump-installation"),

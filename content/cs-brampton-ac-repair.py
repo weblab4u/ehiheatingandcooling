@@ -1,9 +1,9 @@
 PAGE = {
  "url": "/brampton/ac-repair/", "city_service": "brampton", "priority": "0.7",
- "title": "AC Repair Brampton | Cooling Fixed for Busy Homes",
+ "title": "Brampton AC Repair | Cooling Fixed for Busy Homes",
  "description": "AC repair in Brampton for air conditioners that can't keep up with a full house. Licensed refrigeration techs, written quote before work. Call or book now.",
  "eyebrow": "AC Repair · Brampton",
- "h1": "AC Repair in Brampton for Air Conditioners That Can't Keep Up With a Full House",
+ "h1": "Brampton AC Repair for Air Conditioners That Can't Keep Up With a Full House",
  "tagline": "Warm bedrooms, an iced coil and a thermostat argument on a muggy July night",
  "intro": "<p>AC repair in Brampton often begins with the same complaint: the air conditioner runs all evening and the upstairs bedrooms never cool. Sometimes a part has failed. Just as often the unit was sized for a smaller household than the one living there now. Our licensed refrigeration technicians find out which, quote the fix in writing and tell you plainly when a repair is good money after bad, in Brampton and across Ontario.</p>",
  "hero_points": ["Licensed refrigeration technicians, every brand of central air", "Pressures, amp draws and temperature drop measured, not guessed",

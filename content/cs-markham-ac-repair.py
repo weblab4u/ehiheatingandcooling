@@ -1,10 +1,10 @@
 # /markham/ac-repair/
 PAGE = {
  "url": "/markham/ac-repair/", "city_service": "markham", "priority": "0.7",
- "title": "AC Repair Markham | Upstairs Too Hot? Written Quote First",
+ "title": "Markham AC Repair | Upstairs Too Hot? Written Quote First",
  "description": "AC repair in Markham for warm air, iced coils, tripped breakers and second floors that never cool. Licensed techs, written quote first. Call 1-647-694-5845.",
  "eyebrow": "AC Repair · Markham",
- "h1": "AC Repair in Markham When the Upstairs Won't Cool Down",
+ "h1": "Markham AC Repair When the Upstairs Won't Cool Down",
  "tagline": "Licensed refrigeration techs, priced in writing before the repair",
  "intro": "<p>AC repair in Markham has a local twist: the air conditioner is often working, but the second floor is still sticky at midnight. Big two-storey homes put a heavy load on one outdoor unit, so a weak capacitor, a dirty coil or a low charge shows up upstairs first. Our licensed refrigeration technicians find the real fault, quote the repair in writing and tell you honestly if the unit is worth saving, across Markham and the rest of Ontario.</p>",
  "hero_points": ["Licensed refrigeration technicians, every brand of central AC", "Diagnosis that includes the ducts to the second floor, not just the outdoor unit",

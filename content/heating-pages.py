@@ -71,7 +71,7 @@ def meta_desc(seed, leads, benefits, ctas, need=()):
 CTAS = ["Book your free quote.", "Get a free quote today.", "Call for a free quote.", "Book a free home visit.", "Get your free written quote."]
 
 def hp_meta(s, n, t):
-    heads = [f"Heat Pump Installation {n}", f"Heat Pump Installation in {n}", f"{n} Heat Pump Installation", f"Heat Pump Installers {n}", f"Heat Pumps {n}"]
+    heads = [f"{n} Heat Pump Installation", f"{n} Heat Pump Installers", f"{n} Heat Pumps", f"Heat Pump Installation {n}", f"Heat Pumps {n}"]
     tails = [" | Up to $7,500 Rebate", " | Rebates & Free Quote", " | Rebates Filed for You", " | Install, Replace, Repair", " | Free Quote",
              " | Cold Climate, Free Quote", " | Ontario Rebates, Free Quote", " | Book a Free Quote", f" | Sized for {t}", " | Get Up to $7,500 Back"]
     leads = [f"Get a cold-climate heat pump installed in {n}, sized for {t} winters.", f"Heat pump installation in {n} by licensed techs, sized for {t}.",
@@ -81,7 +81,7 @@ def hp_meta(s, n, t):
     return meta_title(s + "/hp/t", heads, tails), meta_desc(s + "/hp/d", leads, bens, CTAS, need=bens[:2])
 
 def fu_meta(s, n, t):
-    heads = [f"Furnace Installation {n}", f"Furnace Installation in {n}", f"{n} Furnace Installation", f"Furnace Replacement {n}", f"Furnaces {n}"]
+    heads = [f"{n} Furnace Installation", f"{n} Furnace Replacement", f"{n} Furnaces", f"Furnace Installation {n}", f"Furnaces {n}"]
     tails = [" | From $3,300, Free Quote", " | Replace or Repair", " | 96% AFUE From $3,300", " | Repair & Replacement", " | Book a Free Quote",
              " | High-Efficiency From $3,300", " | New Furnaces From $3,300", " | Free Written Quote", " | Free Quote"]
     leads = [f"Furnace installation in {n} from $3,300: 96% to 97% AFUE gas furnaces sized for {t}.", f"Replace your old furnace in {n} with a 96% AFUE model from $3,300.",
@@ -91,7 +91,7 @@ def fu_meta(s, n, t):
     return meta_title(s + "/fu/t", heads, tails), meta_desc(s + "/fu/d", leads, bens, CTAS, need=bens[:2])
 
 def tl_meta(s, n, t):
-    heads = [f"Tankless Water Heater Installation {n}", f"Tankless Water Heater {n}", f"Tankless Water Heaters in {n}", f"{n} Tankless Water Heaters", f"Tankless {n}"]
+    heads = [f"{n} Tankless Water Heater Installation", f"{n} Tankless Water Heaters", f"{n} Tankless Water Heater", f"{n} Tankless", f"Tankless Water Heater {n}"]
     tails = [" | From $3,300", " | Rinnai, From $3,300", " | Free Quote", " | Rinnai Installer", " | Endless Hot Water", " | Tank Replacement", " | Rinnai Experts"]
     leads = [f"Tankless water heater installation in {n} from $3,300.", f"Get endless hot water in {n}: Rinnai tankless installed from $3,300.",
              f"Swap your old tank for a Rinnai tankless in {n}, from $3,300 installed.", f"Install, replace or repair an on-demand water heater in {n} from $3,300."]
@@ -376,7 +376,7 @@ def heat_pump_page(c):
     near = [u for u in (nearby_link(x, "heat-pump") for x in c["nearby"]) if u]
     return {
      "url": f"/{s}/heat-pump/", "city_service": s, "priority": "0.7", "heating": True,
-     "title": title, "description": desc, "eyebrow": f"Heat Pumps · {area(s, n)}", "h1": f"Heat Pump Installation, Replacement and Repair in {n}",
+     "title": title, "description": desc, "eyebrow": f"Heat Pumps · {area(s, n)}", "h1": f"{n} Heat Pump Installation, Replacement and Repair Services",
      "tagline": V("tag", f"Sized for {N} {t} design day, rebate filed before install", f"Built for {t}, raised above the snow, rebate paperwork done for you", f"The right size for {t}, with your rebate filed first"),
      "intro": "<p>" + V("intro",
         f"Before you put a heat pump on a {n} house, you want two answers: will it keep you warm on the coldest night, and what does it cost after the rebate. Here are both, worked out with {N} own Building Code numbers, plus which setup suits the way your home is heated now.",
@@ -570,7 +570,7 @@ def furnace_page(c):
     near = [u for u in (nearby_link(x, "furnace") for x in c["nearby"]) if u]
     return {
      "url": f"/{s}/furnace/", "city_service": s, "priority": "0.7", "heating": True,
-     "title": title, "description": desc, "eyebrow": f"Furnaces · {area(s, n)}", "h1": f"Furnace Installation, Replacement and Repair in {n}",
+     "title": title, "description": desc, "eyebrow": f"Furnaces · {area(s, n)}", "h1": f"{n} Furnace Installation, Replacement and Repair Services",
      "tagline": V("tag", f"High-efficiency furnaces sized for {t}, and straight answers when one stops", f"New furnaces from $3,300, replacement priced honestly, repair when you need it", f"The right furnace for {t}, installed and backed in writing"),
      "intro": "<p>" + V("intro",
         f"Whether you are planning a new furnace or replacing one that has given up, the starting point is the same: the right size for {N} {t} design temperature and one written price. Here is how we do it, what it costs, and when a repair still makes sense.",
@@ -731,7 +731,7 @@ def tankless_page(c):
     heat = [u for u in (f"/{s}/furnace/" if s in LIVE else (f"/{s}/furnace-repair/" if s in SKIP else None),) if u]
     return {
      "url": f"/{s}/tankless-water-heater/", "city_service": s, "priority": "0.6", "heating": True,
-     "title": title, "description": desc, "eyebrow": f"Tankless Water Heaters · {area(s, n)}", "h1": f"Tankless Water Heater Installation, Replacement and Repair in {n}",
+     "title": title, "description": desc, "eyebrow": f"Tankless Water Heaters · {area(s, n)}", "h1": f"{n} Tankless Water Heater Installation, Replacement and Repair Services",
      "tagline": V("tag", "Endless hot water, sized for February, priced in writing", "Rinnai tankless, sized for winter water and installed in a day", "Stop running out of hot water, and stop paying rent on a tank"),
      "intro": "<p>" + V("intro",
         f"A tankless water heater gives a {n} home hot water for as long as the taps run, as long as it is sized for winter inlet water. Here is how we size it, what it costs, and what a swap from a tank involves.",

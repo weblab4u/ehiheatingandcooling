@@ -1,9 +1,9 @@
 PAGE = {
  "url": "/hamilton/ac-repair/", "city_service": "hamilton", "priority": "0.7",
- "title": "AC Repair Hamilton | Not Cooling? Same-Visit Diagnosis",
+ "title": "Hamilton AC Repair | Not Cooling? Same-Visit Diagnosis",
  "description": "AC repair in Hamilton for central air and ductless: warm air, frozen coils, leaks, dead compressors. Licensed techs, written price before work. Call today.",
  "eyebrow": "AC Repair · Hamilton",
- "h1": "AC Repair in Hamilton for Humid Lower-City Summers and Windy Mountain Lots",
+ "h1": "Hamilton AC Repair for Humid Lower-City Summers and Windy Mountain Lots",
  "tagline": "Central air and ductless heads, diagnosed with a written price first",
  "intro": "<p>AC repair in Hamilton has its own patterns. Lower-city homes under the escarpment fight humidity all summer, so frozen coils and overflowing drains top the list. Up on the Mountain and out in Ancaster, outdoor units take a beating from wind, dust and cottonwood fluff. Our licensed refrigeration technicians find the actual fault, show you the price in writing, and fix most of them on the first visit, here and across Ontario.</p>",
  "hero_points": ["Licensed refrigeration technicians for central AC and ductless", "Written repair price before any part is replaced",

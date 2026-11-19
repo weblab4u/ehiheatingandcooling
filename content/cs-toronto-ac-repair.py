@@ -1,10 +1,10 @@
 # /toronto/ac-repair/
 PAGE = {
  "url": "/toronto/ac-repair/", "city_service": "toronto", "priority": "0.7",
- "title": "AC Repair Toronto | AC Not Cooling? Licensed Techs",
+ "title": "Toronto AC Repair | AC Not Cooling? Licensed Techs",
  "description": "AC repair in Toronto when your air conditioner quits. Licensed refrigeration techs, written quote before work, evenings and weekends. Call 1-647-694-5845.",
  "eyebrow": "AC Repair · Toronto",
- "h1": "AC Repair in Toronto When the Air Conditioner Quits in a Heat Wave",
+ "h1": "Toronto AC Repair When the Air Conditioner Quits in a Heat Wave",
  "tagline": "Central, ductless and heat pump cooling, every make, quoted in writing",
  "intro": "<p>AC repair in Toronto gets urgent fast. The lake keeps the air thick, a top-floor bedroom in a semi turns into a sauna, and the condenser is jammed in a side yard where it can barely breathe. Our licensed refrigeration technicians find the fault, show you the reading, and give you a written price before any work starts.</p>",
  "hero_points": ["Licensed refrigeration techs for central AC, ductless and heat pumps", "Written repair quote before we touch a part",

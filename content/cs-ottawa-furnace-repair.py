@@ -1,10 +1,10 @@
 # /ottawa/furnace-repair/
 PAGE = {
  "url": "/ottawa/furnace-repair/", "city_service": "ottawa", "priority": "0.7",
- "title": "Furnace Repair Ottawa | TSSA-Certified Techs, Written Quotes",
+ "title": "Ottawa Furnace Repair | TSSA-Certified Techs, Written Quotes",
  "description": "Furnace repair in Ottawa when the heat quits at -25°C. TSSA-certified gas techs, a written quote before any work, evenings and weekends. Call 1-647-694-5845.",
  "eyebrow": "Furnace Repair · Ottawa",
- "h1": "Furnace Repair in Ottawa When the Heat Quits at -25°C",
+ "h1": "Ottawa Furnace Repair When the Heat Quits at -25°C",
  "tagline": "A furnace that fails in January is a safety problem, not just a comfort one",
  "intro": "<p>Furnace repair in Ottawa is a different job than it is in Toronto, because a house with no heat at -25°C starts freezing pipes within hours. Our TSSA-certified gas technicians find the fault, quote the fix in writing and get your heat back, evenings, weekends and holidays included. If the furnace is on its last legs, you get a replacement price beside the repair price, never a push.</p>",
  "hero_points": [

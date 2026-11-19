@@ -1,10 +1,10 @@
 # /ottawa/ac-repair/
 PAGE = {
  "url": "/ottawa/ac-repair/", "city_service": "ottawa", "priority": "0.7",
- "title": "AC Repair Ottawa | Air Conditioner Not Cooling? Fixed Right",
+ "title": "Ottawa AC Repair | Air Conditioner Not Cooling? Fixed Right",
  "description": "AC repair in Ottawa for humid summers: air conditioner not cooling, iced coils, leaks and dead compressors diagnosed by licensed techs. Call 1-647-694-5845.",
  "eyebrow": "AC Repair · Ottawa",
- "h1": "AC Repair in Ottawa for Humid Summers and Hard Winters",
+ "h1": "Ottawa AC Repair for Humid Summers and Hard Winters",
  "tagline": "Licensed refrigeration techs, a written quote, and an honest word on repair versus replace",
  "intro": "<p>AC repair in Ottawa gets busy the first week the humidex passes 35, which is exactly when a tired air conditioner gives up. Our licensed refrigeration technicians find what failed, quote the repair in writing and fix most faults on the first visit. When the unit is past saving, we show you why a cold-climate heat pump is the modern replacement for a central AC in a city that sees both ends of the thermometer.</p>",
  "hero_points": [

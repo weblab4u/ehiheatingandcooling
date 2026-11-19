@@ -1,10 +1,10 @@
 # /vaughan/ac-repair/
 PAGE = {
  "url": "/vaughan/ac-repair/", "city_service": "vaughan", "priority": "0.7",
- "title": "AC Repair Vaughan | Big Homes, Big Glass, Written Quotes",
+ "title": "Vaughan AC Repair | Big Homes, Big Glass, Written Quotes",
  "description": "AC repair in Vaughan for large homes that can't hold temperature, two-system houses, ductless heads and Concord shops. Licensed techs. Call 1-647-694-5845.",
  "eyebrow": "AC Repair · Vaughan",
- "h1": "AC Repair in Vaughan for Homes That Cook Behind the Glass",
+ "h1": "Vaughan AC Repair for Homes That Cook Behind the Glass",
  "tagline": "Central AC, ductless and commercial cooling, diagnosed properly",
  "intro": "<p>AC repair in Vaughan is mostly a story about sun and glass. A custom home in Kleinburg or Maple with a two-storey window wall asks more of its air conditioner than almost any other house in Ontario, so a tired capacitor or a coil full of cottonwood fluff shows up on the first 30°C day. Our licensed refrigeration technicians repair central AC, multi-zone ductless and commercial cooling, with a written quote before any part is replaced.</p>",
  "hero_points": ["Licensed refrigeration technicians for central AC, ductless and rooftop units", "Two-system homes and multi-zone ductless diagnosed zone by zone",

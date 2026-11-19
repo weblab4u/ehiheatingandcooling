@@ -1,10 +1,10 @@
 # /toronto/furnace-repair/
 PAGE = {
  "url": "/toronto/furnace-repair/", "city_service": "toronto", "priority": "0.7",
- "title": "Furnace Repair Toronto | No Heat? TSSA-Certified Techs",
+ "title": "Toronto Furnace Repair | No Heat? TSSA-Certified Techs",
  "description": "Furnace repair in Toronto for semis, bungalows, townhomes. No heat, short cycling, error codes fixed by TSSA-certified techs. Written quote first, call now.",
  "eyebrow": "Furnace Repair · Toronto",
- "h1": "Furnace Repair in Toronto for Semis, Bungalows and Townhomes",
+ "h1": "Toronto Furnace Repair for Semis, Bungalows and Townhomes",
  "tagline": "Emergency calls evenings, weekends and holidays",
  "intro": "<p>Furnace repair in Toronto usually starts in a small basement, under the stairs, with a furnace that has been heating an old brick house for a long time. Our TSSA-certified gas technicians diagnose the fault, put the price in writing, and fix it, and if the furnace is at the end of its life we say so plainly.</p>",
  "hero_points": ["TSSA-certified gas technicians, every major furnace brand", "Written repair price before any part comes off the truck",

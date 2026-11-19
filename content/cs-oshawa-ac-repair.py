@@ -1,9 +1,9 @@
 PAGE = {
  "url": "/oshawa/ac-repair/", "city_service": "oshawa", "priority": "0.7",
- "title": "AC Repair Oshawa | Central Air Fixed in Older Homes",
+ "title": "Oshawa AC Repair | Central Air Fixed in Older Homes",
  "description": "AC repair in Oshawa for central air that's blowing warm, icing up or tripping the breaker in an older home. Licensed techs, written quote first. Call us.",
  "eyebrow": "AC Repair · Oshawa",
- "h1": "AC Repair in Oshawa for Central Air on Old Ducts and Older Wiring",
+ "h1": "Oshawa AC Repair for Central Air on Old Ducts and Older Wiring",
  "tagline": "Lake humidity, undersized ducts and a condenser older than the kids",
  "intro": "<p>AC repair in Oshawa tends to involve equipment that has been cooling the same brick house for 15 or 20 summers. The condenser is tired, the ducts behind it were never meant for air conditioning, and the wiring feeding it dates from a different decade. Our licensed refrigeration technicians sort the quick fix from the real problem, quote the repair in writing and tell you when it is time to stop pouring money into the old unit, in Oshawa and throughout Ontario.</p>",
  "hero_points": ["Licensed refrigeration technicians for every brand of central air", "Airflow and duct checks, not just a refrigerant top-up",

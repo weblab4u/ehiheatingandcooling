@@ -1,10 +1,10 @@
 # /mississauga/heat-pump-installation/
 PAGE = {
  "url": "/mississauga/heat-pump-installation/", "city_service": "mississauga", "priority": "0.7",
- "title": "Heat Pump Installation Mississauga | Rebates up to $7,500",
+ "title": "Mississauga Heat Pump Installation | Rebates up to $7,500",
  "description": "Heat pump installation in Mississauga for homes retiring an original furnace and R-22 AC. Rated to -30°C, up to $7,500 back. Get a guaranteed quote today.",
  "eyebrow": "Heat Pump Installation · Mississauga",
- "h1": "Heat Pump Installation in Mississauga That Replaces Your Furnace and AC in One",
+ "h1": "Mississauga Heat Pump Installation That Replaces Your Furnace and AC in One",
  "tagline": "Sized from a heat-loss calculation, priced once, pre-approved for the rebate before install day",
  "intro": "<p>Heat pump installation in Mississauga usually starts with a furnace and air conditioner that came with the house, or the pair put in during the 1990s. One cold-climate heat pump replaces both, heats to -30°C, dries out a muggy Port Credit afternoon better than the old AC ever did, and can bring back up to $7,500 through the Home Renovation Savings Program. We size it from your home's heat loss and give you one guaranteed price.</p>",
  "hero_points": ["Midea EVOX G3 and Kepler, rated to -30°C and on NRCan's qualified list",

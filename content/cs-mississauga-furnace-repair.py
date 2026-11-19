@@ -1,10 +1,10 @@
 # /mississauga/furnace-repair/
 PAGE = {
  "url": "/mississauga/furnace-repair/", "city_service": "mississauga", "priority": "0.7",
- "title": "Furnace Repair Mississauga | Any Brand, Written Quote First",
+ "title": "Mississauga Furnace Repair | Any Brand, Written Quote First",
  "description": "Furnace repair in Mississauga for furnaces that will not heat, keep shutting off or came with the house. TSSA-certified techs, written quote first. Book now.",
  "eyebrow": "Furnace Repair · Mississauga",
- "h1": "Furnace Repair in Mississauga for Furnaces That Came With the House",
+ "h1": "Mississauga Furnace Repair for Furnaces That Came With the House",
  "tagline": "Diagnosed with a meter, quoted in writing, fixed or honestly replaced",
  "intro": "<p>Furnace repair in Mississauga is often a visit to a unit from the 1990s, or one that is older than the kitchen. Our TSSA-certified gas technicians find the real fault, quote the fix in writing before touching a part, and tell you straight when a repair is money better spent on replacement. Evening and weekend slots are available across Mississauga and the rest of the GTA.</p>",
  "hero_points": ["TSSA-certified gas technicians for every furnace brand sold in Ontario",

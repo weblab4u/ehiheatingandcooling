@@ -1,9 +1,9 @@
 PAGE = {
  "url": "/brampton/heat-pump-installation/", "city_service": "brampton", "priority": "0.7",
- "title": "Heat Pump Installation Brampton | Sized for Full Houses",
+ "title": "Brampton Heat Pump Installation | Sized for Full Houses",
  "description": "Heat pump installation in Brampton for busy homes and basement suites. Cold-climate units rated to -30°C, rebate paperwork handled. Get a guaranteed quote.",
  "eyebrow": "Heat Pump Installation · Brampton",
- "h1": "Heat Pump Installation in Brampton for Full Houses and Basement Suites",
+ "h1": "Brampton Heat Pump Installation for Full Houses and Basement Suites",
  "tagline": "Sized for everyone under the roof, from Bramalea to Castlemore",
  "intro": "<p>Heat pump installation in Brampton starts with a head count. A home with grandparents upstairs, kids in the middle and a tenant in the basement needs more heating and cooling than the original furnace was ever sized for. We install cold-climate heat pumps across Ontario that are matched to the house you actually live in, with a written, guaranteed price and the rebate paperwork done for you.</p>",
  "hero_points": ["Heat-loss sizing that counts the people, not just the square footage", "Separate ductless heat pumps for registered basement suites",

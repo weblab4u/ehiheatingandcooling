@@ -1,10 +1,10 @@
 # /markham/heat-pump-installation/
 PAGE = {
  "url": "/markham/heat-pump-installation/", "city_service": "markham", "priority": "0.7",
- "title": "Heat Pump Installation Markham | Hybrid & Zoned Systems",
+ "title": "Markham Heat Pump Installation | Hybrid & Zoned Systems",
  "description": "Heat pump installation in Markham for two-storey homes: hybrid heat pump plus furnace, variable-speed cooling, rebates filed for you. Guaranteed quote.",
  "eyebrow": "Heat Pump Installation · Markham",
- "h1": "Heat Pump Installation in Markham for Two-Storey Homes",
+ "h1": "Markham Heat Pump Installation for Two-Storey Homes",
  "tagline": "Cool the top floor, warm the basement, keep the furnace as backup",
  "intro": "<p>Heat pump installation in Markham usually starts with the same complaint: the bedrooms upstairs are stuffy by bedtime and the basement never quite warms up. A cold-climate heat pump with an inverter compressor runs long and low instead of blasting and stopping, which is exactly what a two-storey Ontario house needs. We size it to your floors, pair it with your furnace if you want gas backup, and put the price in writing before you commit.</p>",
  "hero_points": ["Inverter heat pumps rated to heat down to -30°C", "Hybrid setups that keep your existing furnace for deep cold",

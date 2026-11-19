@@ -1,10 +1,10 @@
 # /toronto/heat-pump-installation/
 PAGE = {
  "url": "/toronto/heat-pump-installation/", "city_service": "toronto", "priority": "0.7",
- "title": "Heat Pump Installation Toronto | Cold Climate, Rebates",
+ "title": "Toronto Heat Pump Installation | Cold Climate, Rebates",
  "description": "Heat pump installation in Toronto for semis, bungalows and townhomes. Cold-climate models rated to -30°C, up to $7,500 back. Get a written, guaranteed quote.",
  "eyebrow": "Heat Pump Installation · Toronto",
- "h1": "Heat Pump Installation in Toronto for Tight Lots and Old Houses",
+ "h1": "Toronto Heat Pump Installation for Tight Lots and Old Houses",
  "tagline": "Sized for your heat loss, placed for your lot, quiet for your neighbours",
  "intro": "<p>Heat pump installation in Toronto is a different job than it is in a new subdivision. The house might be a 1910 semi with radiators, the side yard might be a metre wide, and the panel might already be full. We plan around all of that before we quote, and the price we give you is the price you pay.</p>",
  "hero_points": ["Midea EVOX G3 and Kepler cold-climate models rated to -30°C", "Placement planned for narrow side yards, laneways and flat roofs",

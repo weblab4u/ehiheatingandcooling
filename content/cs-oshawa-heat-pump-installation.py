@@ -1,9 +1,9 @@
 PAGE = {
  "url": "/oshawa/heat-pump-installation/", "city_service": "oshawa", "priority": "0.7",
- "title": "Heat Pump Installation Oshawa | On Your Existing Ducts",
+ "title": "Oshawa Heat Pump Installation | On Your Existing Ducts",
  "description": "Heat pump installation in Oshawa for older homes: ducts tested first, cold-climate units rated to -30°C, hybrid with your furnace. Get a guaranteed quote.",
  "eyebrow": "Heat Pump Installation · Oshawa",
- "h1": "Heat Pump Installation in Oshawa on the Ducts Your House Already Has",
+ "h1": "Oshawa Heat Pump Installation on the Ducts Your House Already Has",
  "tagline": "Old brick, old ducts, new heat pump. It works when the airflow is measured first.",
  "intro": "<p>Heat pump installation in Oshawa is mostly a question about ductwork. The brick homes near downtown and the post-war bungalows around them have supply runs sized for a furnace from another era, and a heat pump needs more air per ton than that furnace ever did. We measure before we size, pair the heat pump with your gas furnace where that makes sense, and handle the rebate paperwork for homes across Durham Region and Ontario.</p>",
  "hero_points": ["Static pressure and airflow tested before any heat pump is sized", "Hybrid setups that keep your furnace as the deep-cold backup",

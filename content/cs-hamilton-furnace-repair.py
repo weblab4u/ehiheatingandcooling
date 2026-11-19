@@ -1,9 +1,9 @@
 PAGE = {
  "url": "/hamilton/furnace-repair/", "city_service": "hamilton", "priority": "0.7",
- "title": "Furnace Repair Hamilton | No Heat? Diagnosed, Quoted, Fixed",
+ "title": "Hamilton Furnace Repair | No Heat? Diagnosed, Quoted, Fixed",
  "description": "Furnace repair in Hamilton for century homes, Mountain bungalows and newer builds. TSSA-certified techs, written price before any work. Call now.",
  "eyebrow": "Furnace Repair · Hamilton",
- "h1": "Furnace Repair in Hamilton, From the Lower City to the Mountain",
+ "h1": "Hamilton Furnace Repair, From the Lower City to the Mountain",
  "tagline": "Written repair price before a single part comes off the truck",
  "intro": "<p>Furnace repair in Hamilton means dealing with three generations of furnaces: chimney-vented units in century homes around Crown Point and Kirkendall, 20-year-old furnaces in Mountain bungalows, and builder models in Stoney Creek and Binbrook hitting their first real failures. Our TSSA-certified gas technicians diagnose the fault, give you a written price and fix it on the same visit when the part is on the truck. It's the same standard we hold across Ontario.</p>",
  "hero_points": ["TSSA-certified gas technicians for every furnace brand", "Diagnosis first, written repair price second, work third",

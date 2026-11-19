@@ -1,10 +1,10 @@
 # /barrie/furnace-repair/
 PAGE = {
  "url": "/barrie/furnace-repair/", "city_service": "barrie", "priority": "0.7",
- "title": "Furnace Repair Barrie | No-Heat Calls in Snowbelt Weather",
+ "title": "Barrie Furnace Repair | No-Heat Calls in Snowbelt Weather",
  "description": "Furnace repair in Barrie for no-heat calls, snow-blocked vents, ignition faults and frozen drains. TSSA-certified techs, written quote first. Call today.",
  "eyebrow": "Furnace Repair · Barrie",
- "h1": "Furnace Repair in Barrie When the Lake-Effect Snow Rolls In",
+ "h1": "Barrie Furnace Repair When the Lake-Effect Snow Rolls In",
  "tagline": "Vents, ignition, blowers and the cold-weather faults in between",
  "intro": "<p>Furnace repair in Barrie has its own rhythm: the calls come in right after a lake-effect dump, when a drift has swallowed the intake pipe or a tired ignitor finally gives up on a -25°C night. Our TSSA-certified gas technicians diagnose the real fault, quote the fix in writing and get the heat back on, across Allandale, Painswick, Holly and the rest of the city. Emergency calls are answered evenings, weekends and holidays, anywhere in our Ontario service area.</p>",
  "hero_points": ["TSSA-certified gas technicians on every call", "Written repair price before any part is touched",

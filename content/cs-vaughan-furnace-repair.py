@@ -1,10 +1,10 @@
 # /vaughan/furnace-repair/
 PAGE = {
  "url": "/vaughan/furnace-repair/", "city_service": "vaughan", "priority": "0.7",
- "title": "Furnace Repair Vaughan | Large Homes & Concord Businesses",
+ "title": "Vaughan Furnace Repair | Large Homes & Concord Businesses",
  "description": "Furnace repair in Vaughan for big homes with two furnaces, long duct runs and Concord shops. TSSA-certified techs, written quote first. Call 1-647-694-5845.",
  "eyebrow": "Furnace Repair · Vaughan",
- "h1": "Furnace Repair in Vaughan for Big Houses and Busy Shops",
+ "h1": "Vaughan Furnace Repair for Big Houses and Busy Shops",
  "tagline": "High-capacity furnaces, two-furnace homes and commercial units, fixed right",
  "intro": "<p>Furnace repair in Vaughan often means a 100,000 BTU unit in a Kleinburg mechanical room, one of two furnaces in a Maple custom home, or the heater keeping a Concord showroom open on a January morning. Big equipment fails in its own ways, from limit trips on long duct runs to staging faults that leave the far wing cold. Our TSSA-certified gas technicians diagnose the fault, quote it in writing and get the heat back, in Vaughan and across Ontario.</p>",
  "hero_points": ["TSSA-certified gas technicians for residential and commercial furnaces", "High-capacity, two-stage and variable-speed units diagnosed with meters, not guesses",

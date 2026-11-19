@@ -1,10 +1,10 @@
 # /mississauga/ac-repair/
 PAGE = {
  "url": "/mississauga/ac-repair/", "city_service": "mississauga", "priority": "0.7",
- "title": "AC Repair Mississauga | R-22 Units, Honest Fix or Replace",
+ "title": "Mississauga AC Repair | R-22 Units, Honest Fix or Replace",
  "description": "AC repair in Mississauga for air conditioners that cannot keep up on muggy lakeshore days, R-22 units and 1990s systems. Written quote before work. Book now.",
  "eyebrow": "AC Repair · Mississauga",
- "h1": "AC Repair in Mississauga for Air Conditioners That Cannot Keep Up",
+ "h1": "Mississauga AC Repair for Air Conditioners That Cannot Keep Up",
  "tagline": "Licensed refrigeration techs, a written quote, and straight advice on R-22 units",
  "intro": "<p>AC repair in Mississauga gets busy the first week the lake breeze turns to soup. Our licensed refrigeration technicians diagnose the fault, quote the fix in writing before any work, and tell you plainly whether an air conditioner from the 1990s still running on R-22 deserves another dollar. Evening and weekend visits are available.</p>",
  "hero_points": ["Licensed refrigeration techs for every brand of central and ductless AC",

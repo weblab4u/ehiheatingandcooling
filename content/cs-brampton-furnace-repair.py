@@ -1,9 +1,9 @@
 PAGE = {
  "url": "/brampton/furnace-repair/", "city_service": "brampton", "priority": "0.7",
- "title": "Furnace Repair Brampton | No Heat Fixed, Quoted in Writing",
+ "title": "Brampton Furnace Repair | No Heat Fixed, Quoted in Writing",
  "description": "Furnace repair in Brampton when the house is full and the heat is out. TSSA-certified techs, written quote before any work, evenings and weekends. Call now.",
  "eyebrow": "Furnace Repair · Brampton",
- "h1": "Furnace Repair in Brampton When the Whole House Depends on One Furnace",
+ "h1": "Brampton Furnace Repair When the Whole House Depends on One Furnace",
  "tagline": "Six people, one furnace, zero heat. We can help with that.",
  "intro": "<p>Furnace repair in Brampton carries extra weight when one furnace heats a family upstairs and a tenant below. A dead ignitor is a cold night for two households, not one. Our TSSA-certified gas technicians diagnose the fault, quote the fix in writing and get the heat back on, across Peel Region and the rest of Ontario, with evening, weekend and holiday service when it cannot wait.</p>",
  "hero_points": ["TSSA-certified gas technicians on every furnace call", "Written repair price before any part is replaced",
