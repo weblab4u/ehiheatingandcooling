@@ -1,8 +1,8 @@
 # Brand page: /brands/lennox/air-conditioners/
 PAGE = {
  "url": "/brands/lennox/air-conditioners/",
- "title": "Lennox Air Conditioners Ontario | Prices & Authorized Dealer",
- "description": "Lennox air conditioning units installed and repaired across Ontario by an authorized Lennox dealer. Matched coils, quiet options, guaranteed quote.",
+ "title": "Lennox Air Conditioner Installation Ontario | AC Dealer",
+ "description": "Install or replace a Lennox central air conditioner in Ontario: matched coils, quiet two-stage and variable options, AC repair too. Free quote.",
  "priority": "0.7",
  "eyebrow": "Lennox Central Air Conditioners",
  "h1": "Authorized Lennox Air Conditioner Installation, Repair and Maintenance in Ontario",

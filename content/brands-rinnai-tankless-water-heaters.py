@@ -1,8 +1,8 @@
 # Brand page: /brands/rinnai/tankless-water-heaters/
 PAGE = {
  "url": "/brands/rinnai/tankless-water-heaters/",
- "title": "Rinnai Tankless Water Heater Dealer Ontario | RX199iN",
- "description": "Rinnai RX160iN and RX199iN condensing tankless water heaters installed across Ontario from $3,300 by an authorized Rinnai dealer. Get a quote.",
+ "title": "Rinnai Tankless Installation Ontario | From $3,300",
+ "description": "Rinnai RX160iN and RX199iN condensing tankless water heaters installed across Ontario from $3,300. Old tank removed, gas or propane. Get a free quote.",
  "priority": "0.8",
  "eyebrow": "Rinnai RX160iN · RX199iN",
  "h1": "Authorized Rinnai Tankless Water Heater Installation, Repair and Maintenance in Ontario",

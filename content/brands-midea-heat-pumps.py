@@ -1,8 +1,8 @@
 # Brand page: /brands/midea/heat-pumps/
 PAGE = {
  "url": "/brands/midea/heat-pumps/",
- "title": "Midea Heat Pump Dealer Ontario | EVOX G3 Cold Climate",
- "description": "Midea EVOX G3 and Extreme Hyper Heat cold-climate heat pumps installed across Ontario from $5,500. Rated to -30°C, rebate-eligible. Get a free quote.",
+ "title": "Midea Heat Pump Installation Ontario | EVOX G3 Dealer",
+ "description": "Install a Midea EVOX G3 or Extreme Hyper Heat cold-climate heat pump in Ontario from $5,500. Rated to -30°C, rebates up to $7,500 filed. Free quote.",
  "priority": "0.8",
  "eyebrow": "Midea EVOX G3 · Extreme Hyper Heat",
  "h1": "Authorized Midea Heat Pump Installation, Repair and Maintenance in Ontario",

@@ -7,8 +7,8 @@ def part(anchor, jump, icon, kicker, h2, lead):
 
 FURNACES = {
  "url": "/brands/goodman/furnaces/", "priority": "0.8",
- "title": "Goodman Furnace Installation Ontario | GMVC96 & GMEC96",
- "description": "Goodman GMVC96 and GMEC96 furnace installation in Ontario by an authorized Goodman dealer. Up to 96% AFUE, from $3,300 installed. Replacement and repair too.",
+ "title": "Goodman Furnace Installation Ontario | GMVC96 Dealer",
+ "description": "Goodman GMVC96 and GMEC96 two-stage gas furnaces, up to 96% AFUE, installed in Ontario from $3,300 by an authorized dealer. Repair too. Free quote.",
  "eyebrow": "Goodman GMVC96 · GMEC96",
  "h1": "Goodman Furnace Installation, Replacement and Repair in Ontario",
  "tagline": "Two-stage Goodman furnaces at up to 96% AFUE, sized for your home",
@@ -69,8 +69,8 @@ FURNACES = {
 
 HEAT_PUMPS = {
  "url": "/brands/goodman/heat-pumps/", "priority": "0.8",
- "title": "Goodman Heat Pump Installation Ontario | GSZH5",
- "description": "Goodman GSZH5 heat pump installation in Ontario by an authorized Goodman dealer. 1.5 to 5 ton, up to 15.2 SEER2. Hybrid setups, replacement and repair.",
+ "title": "Goodman Heat Pump Installation Ontario | GSZH5 Dealer",
+ "description": "Goodman GSZH5 heat pumps, 1.5 to 5 ton and up to 15.2 SEER2, installed in Ontario as hybrid systems with your furnace. Repair too. Free quote.",
  "eyebrow": "Goodman GSZH5 Heat Pump",
  "h1": "Goodman Heat Pump Installation, Replacement and Repair in Ontario",
  "tagline": "Heating and cooling from one outdoor unit, paired with your furnace",

@@ -39,8 +39,8 @@ region_rows = [[f"<strong>{r}</strong>", temps(*sl), note, " · ".join(a(s, n) i
 
 PAGE = {
  "url": "/ontario-heat-pump-rebate-2027/",
- "title": "Ontario Heat Pump Rebates 2027 | Up to $10,000 Federal Rebate",
- "description": "Discover Ontario heat pump rebates for 2027. Learn about the new federal rebate of up to $10,000, provincial incentives, eligibility and installation options.",
+ "title": "Ontario Heat Pump Rebates 2027 | Up to $10,000 Back",
+ "description": "See Ontario heat pump rebates for 2027: the new federal rebate of $2,000 or up to $10,000, Ontario's up to $7,500, who qualifies and how to apply now.",
  "updated": "2026-11-19",
  "show_updated": True,
  "priority": "0.9",

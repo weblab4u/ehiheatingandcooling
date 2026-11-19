@@ -41,8 +41,8 @@ def brand_page(k):
 
 BRANDS = [
  {"slug": "midea", "brand": "Midea",
-  "title": "Authorized Midea Dealer Ontario | Heat Pumps & Furnaces",
-  "description": "Authorized Midea dealer across Ontario: EVOX G3 cold-climate heat pumps, MGH96 furnaces and ductless mini splits. Warranty registered for you. Free quote.",
+  "title": "Authorized Midea Dealer Ontario | Heat Pumps, Furnaces",
+  "description": "Authorized Midea dealer in Ontario: EVOX G3 cold-climate heat pumps, MGH96 furnaces and ductless mini splits installed and registered. Free quote.",
   "tagline": "EVOX G3 heat pumps, MGH96 furnaces and Hyper Heat ductless, installed and backed by us",
   "intro": "<p>Looking for an authorized Midea dealer in Ontario? We install, register, maintain and repair the full Midea home comfort line: cold-climate heat pumps, high-efficiency gas furnaces with matching air handlers, and ductless mini splits. Pick the product below, or call and we will tell you which one fits your house.</p>",
   "points": ["Midea EVOX G3 cold-climate heat pumps, rated to -30°C", "Midea MGH96 furnaces at 96.5% AFUE, from $3,300 installed", "Registered warranty, up to 12 years parts and labour on select systems", "Rebate paperwork handled for qualifying heat pumps"],
@@ -67,8 +67,8 @@ BRANDS = [
            ("Do you repair Midea systems you did not install?", "Yes. We diagnose and repair Midea heat pumps, furnaces and ductless systems regardless of who installed them, with a written price before any work.")]},
 
  {"slug": "lennox", "brand": "Lennox",
-  "title": "Authorized Lennox Dealer Ontario | Furnaces & Heat Pumps",
-  "description": "Authorized Lennox dealer across Ontario: ML296V and EL297V furnaces, Lennox heat pumps and central air. Warranty registered for you. Free written quote.",
+  "title": "Authorized Lennox Dealer Ontario | Furnaces & AC Units",
+  "description": "Authorized Lennox dealer in Ontario: ML296V and EL297V furnaces, heat pumps and central air installed and repaired, warranty registered. Free quote.",
   "tagline": "Lennox furnaces, heat pumps and air conditioners, installed and serviced by an authorized dealer",
   "intro": "<p>Want Lennox in your home, installed by an authorized Lennox dealer? We install and service Lennox two-stage, variable-speed furnaces, Lennox heat pumps for dual-fuel and all-electric homes, and Lennox central air conditioners. Choose a product below for models, sizes and prices.</p>",
   "points": ["Lennox ML296V and EL297V furnaces at 96% and 97% AFUE", "Lennox heat pumps for dual-fuel and all-electric homes", "Lennox central air from single-stage to variable-capacity", "Furnaces from $3,300 installed, warranty registered for you"],
@@ -93,8 +93,8 @@ BRANDS = [
            ("Do you service Lennox equipment you did not install?", "Yes. We diagnose and repair Lennox furnaces, heat pumps and air conditioners regardless of who installed them, with the price in writing first.")]},
 
  {"slug": "kepler", "brand": "Kepler",
-  "title": "Authorized Kepler Dealer Ontario | Cold-Climate Heat Pumps",
-  "description": "Authorized Kepler dealer in Ontario: cold-climate heat pumps from 1.5 to 5 ton, rated to heat at -30°C. Installed from $5,500, rebate paperwork handled.",
+  "title": "Authorized Kepler Dealer | Cold Climate Heat Pumps",
+  "description": "Authorized Kepler dealer in Ontario: cold-climate heat pumps, 1.5 to 5 ton and rated to -30°C, installed from $5,500 with rebates filed. Free quote.",
   "tagline": "Quiet, compact cold-climate heat pumps, installed by an authorized Kepler dealer",
   "intro": "<p>Need an authorized Kepler dealer in Ontario? We install and service Kepler cold-climate heat pumps from 1.5 to 5 ton, rated to heat at -30°C. Kepler is our value pick alongside Midea: quiet, compact and rebate-ready. See the full sizes and prices on our Kepler heat pump page.</p>",
   "points": ["Kepler cold-climate heat pumps, 1.5 to 5 ton", "Rated to heat at -30°C, inverter driven", "Installed from $5,500, guaranteed quote", "Rebate pre-approval and paperwork handled"],
@@ -117,8 +117,8 @@ BRANDS = [
            ("Do you service Kepler heat pumps you did not install?", "Yes. We diagnose and repair Kepler heat pumps whoever installed them, with the repair price in writing first.")]},
 
  {"slug": "rinnai", "brand": "Rinnai",
-  "title": "Authorized Rinnai Dealer Ontario | Tankless Water Heaters",
-  "description": "Authorized Rinnai dealer in Ontario: RX160iN and RX199iN condensing tankless water heaters from $3,300 installed. Natural gas or propane. Free quote.",
+  "title": "Authorized Rinnai Dealer Ontario | Tankless Heaters",
+  "description": "Authorized Rinnai dealer in Ontario: RX160iN and RX199iN condensing tankless water heaters installed from $3,300, gas or propane. Get a free quote.",
   "tagline": "Rinnai condensing tankless water heaters, installed, registered and serviced",
   "intro": "<p>Looking for an authorized Rinnai dealer in Ontario? We install Rinnai RX160iN and RX199iN condensing tankless water heaters on natural gas or propane, register the warranty, and service Rinnai units of any age. See models, sizing and prices on our Rinnai tankless page.</p>",
   "points": ["Rinnai RX160iN and RX199iN, 0.97 and 0.98 UEF", "Natural gas or propane, recirculation capable", "From $3,300 installed, guaranteed quote", "Rinnai warranty registered, descaling and repair service"],
@@ -141,8 +141,8 @@ BRANDS = [
 
 BRANDS.append(
  {"slug": "goodman", "brand": "Goodman",
-  "title": "Authorized Goodman Dealer Ontario | Furnaces & Heat Pumps",
-  "description": "Authorized Goodman dealer in Ontario: GMVC96 and GMEC96 furnaces, GSZH5 heat pumps and GSXH5 central air. Warranty registered for you. Free quote.",
+  "title": "Authorized Goodman Dealer Ontario | Furnace & AC Units",
+  "description": "Authorized Goodman dealer in Ontario: GMVC96 furnaces, GSZH5 heat pumps and GSXH5 central air installed, replaced and repaired. Book your free quote.",
   "tagline": "Dependable, fairly priced Goodman equipment, installed right and registered on time",
   "intro": "<p>Looking for an authorized Goodman dealer in Ontario? We install, register, maintain and repair Goodman two-stage gas furnaces, heat pumps and central air conditioners. Goodman is part of the Daikin group and is known for straightforward, well-made equipment at a fair price. Pick a product below.</p>",
   "points": ["Goodman GMVC96 and GMEC96 furnaces, up to 96% AFUE", "Goodman GSZH5 heat pumps and GSXH5 central air, 1.5 to 5 ton", "Warranty registered online within Goodman's 60-day window", "Furnaces from $3,300 installed, guaranteed quote"],

@@ -1,8 +1,8 @@
 # Brand page: /brands/midea/furnaces/
 PAGE = {
  "url": "/brands/midea/furnaces/",
- "title": "Midea Furnace & Air Handler Dealer Ontario | MGH96",
- "description": "Midea MGH96 96.5% AFUE two-stage furnaces and EVOX G3 electric air handlers installed across Ontario from $3,300. Authorized Midea dealer, guaranteed quote.",
+ "title": "Midea Furnace Installation Ontario | MGH96 From $3,300",
+ "description": "Midea MGH96 96.5% AFUE two-stage gas furnaces and EVOX G3 electric air handlers installed in Ontario from $3,300 by an authorized dealer. Free quote.",
  "priority": "0.7",
  "eyebrow": "Midea MGH96 Furnaces · EVOX G3 Air Handlers",
  "h1": "Authorized Midea Furnace and Air Handler Installation, Repair and Maintenance in Ontario",

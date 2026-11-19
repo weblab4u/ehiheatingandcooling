@@ -1,8 +1,8 @@
 # Brand page: /brands/lennox/furnaces/
 PAGE = {
  "url": "/brands/lennox/furnaces/",
- "title": "Lennox Furnace Dealer Ontario | ML296V & EL297V",
- "description": "Lennox ML296V and EL297V two-stage, variable-speed furnaces installed across Ontario from $3,300. Authorized Lennox dealer. Repair and tune-ups too.",
+ "title": "Lennox Furnace Installation Ontario | ML296V & EL297V",
+ "description": "Lennox ML296V and EL297V two-stage, variable-speed gas furnaces installed in Ontario from $3,300 by an authorized dealer. Repairs too. Free quote.",
  "priority": "0.8",
  "eyebrow": "Lennox ML296V · EL297V",
  "h1": "Authorized Lennox Furnace Installation, Repair and Maintenance in Ontario",

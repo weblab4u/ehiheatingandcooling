@@ -1,8 +1,8 @@
 # Brand page: /brands/kepler/heat-pumps/
 PAGE = {
  "url": "/brands/kepler/heat-pumps/",
- "title": "Kepler Heat Pumps Ontario | Cold-Climate Dealer",
- "description": "Kepler cold-climate heat pumps, 1.5 to 5 ton and rated to -30°C, installed across Ontario from $5,500 by an authorized Kepler dealer. Get a quote.",
+ "title": "Kepler Heat Pump Installation Ontario | From $5,500",
+ "description": "Kepler cold-climate heat pumps, 1.5 to 5 ton and rated to -30°C, installed in Ontario by an authorized dealer. Rebates up to $7,500 filed. Free quote.",
  "priority": "0.7",
  "eyebrow": "Kepler Cold-Climate Heat Pumps · 1.5 to 5 Ton",
  "h1": "Authorized Kepler Heat Pump Installation, Repair and Maintenance in Ontario",

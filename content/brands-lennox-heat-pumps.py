@@ -1,8 +1,8 @@
 # Brand page: /brands/lennox/heat-pumps/
 PAGE = {
  "url": "/brands/lennox/heat-pumps/",
- "title": "Lennox Heat Pumps Ontario | Authorized Dealer",
- "description": "Lennox heat pumps and cold-climate options installed across Ontario from $5,500. Dual-fuel with a Lennox furnace. Authorized dealer, free guaranteed quote.",
+ "title": "Lennox Heat Pump Installation Ontario | Dual Fuel Setup",
+ "description": "Lennox heat pumps installed across Ontario from $5,500, paired with a Lennox furnace for dual fuel. Rebates up to $7,500 filed for you. Free quote.",
  "priority": "0.7",
  "eyebrow": "Lennox Heat Pumps · Dual Fuel · Mini-Splits",
  "h1": "Authorized Lennox Heat Pump Installation, Repair and Maintenance in Ontario",

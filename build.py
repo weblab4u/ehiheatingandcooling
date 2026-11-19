@@ -1756,6 +1756,9 @@ def main():
         if pr: issues[url] = pr
         tl = len(p["title"]); dl = len(p["description"])
         if tl > 62 or dl > 158: print(f"META  {url}: title {tl} chars, description {dl} chars")
+        strict = p.get("heating") or (url.startswith("/brands/") and url != "/brands/") or url == "/ontario-heat-pump-rebate-2027/"
+        if strict and not (50 <= tl <= 55 and 140 <= dl <= 150):      # house standard for the pages optimized in November 2026
+            print(f"META  {url}: title {tl} (want 50-55), description {dl} (want 140-150)")
     # sitemap
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u, pr in urls:

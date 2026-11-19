@@ -34,6 +34,71 @@ FURNACE_PHOTOS = ["high-efficiency-gas-furnace-pvc-venting-basement", "furnace-c
                   "midea-gas-furnace-installed", "midea-furnace-room-pvc-venting", "furnace-coil-utility-room"]      # stand-ins for furnace slots
 COMMISSION_PHOTOS = ["heat-pump-commissioning-gauges", "midea-cold-climate-heat-pump-commissioning"]
 
+# ---------------------------------------------------------------- meta titles and descriptions
+# Titles 50 to 55 characters, keyword and city first, then a benefit or call to action. Descriptions 140 to 150 characters:
+# action verb, city, keyword synonyms, a price or rebate hook, and a call to action. Only options inside both limits are used,
+# and the pick varies by city so neighbouring towns do not show identical search snippets. No company name in either.
+T_LO, T_HI, D_LO, D_HI = 50, 55, 140, 150
+import itertools as _it
+def _pick(seed, opts):
+    return opts[zlib.crc32(seed.encode()) % len(opts)] if opts else None
+
+def meta_title(seed, heads, tails):
+    """heads in priority order (exact keyword first); the first head that fits with some tail wins."""
+    for h in heads:
+        ok = [h + t for t in tails if T_LO <= len(h + t) <= T_HI]
+        if ok: return _pick(seed, ok)
+    ok = [h for h in heads if T_LO <= len(h) <= T_HI]
+    if ok: return ok[0]
+    raise ValueError(f"no title fits for {seed}: {heads[0]}")
+
+def meta_desc(seed, leads, benefits, ctas, need=()):
+    """need: at least one of these benefits must appear (the product's strongest buying reason). A word like 'written' or
+    'quote' never appears twice, so the snippet reads cleanly."""
+    ok = []
+    for a in leads:
+        for k in (1, 2, 3):
+            for bs in _it.permutations(benefits, k):
+                if need and bs[0] not in need: continue          # the strongest reason comes first
+                for c in ctas:
+                    d = " ".join([a, *bs, c]); low = d.lower()
+                    if any(low.count(w) > 1 for w in ("written", "quote", "free", "repair", "sized", "pric")): continue
+                    if D_LO <= len(d) <= D_HI: ok.append(d)
+        if len(ok) >= 6: break           # prefer the earlier, stronger lead sentences
+    if not ok: raise ValueError(f"no description fits for {seed}")
+    return _pick(seed, ok)
+
+CTAS = ["Book your free quote.", "Get a free quote today.", "Call for a free quote.", "Book a free home visit.", "Get your free written quote."]
+
+def hp_meta(s, n, t):
+    heads = [f"Heat Pump Installation {n}", f"Heat Pump Installation in {n}", f"{n} Heat Pump Installation", f"Heat Pump Installers {n}", f"Heat Pumps {n}"]
+    tails = [" | Up to $7,500 Rebate", " | Rebates & Free Quote", " | Rebates Filed for You", " | Install, Replace, Repair", " | Free Quote",
+             " | Cold Climate, Free Quote", " | Ontario Rebates, Free Quote", " | Book a Free Quote", f" | Sized for {t}", " | Get Up to $7,500 Back"]
+    leads = [f"Get a cold-climate heat pump installed in {n}, sized for {t} winters.", f"Heat pump installation in {n} by licensed techs, sized for {t}.",
+             f"Switch to a cold-climate heat pump in {n}, sized for your {t} design day.", f"Install, replace or repair a heat pump in {n}, sized for {t}."]
+    bens = ["Ontario rebates up to $7,500, paperwork filed for you.", "Up to $7,500 in Ontario rebates.", "Midea and Kepler models rated to -30°C.",
+            "Replacement and repair too.", "Guaranteed price.", "Federal rebate expected in 2027."]
+    return meta_title(s + "/hp/t", heads, tails), meta_desc(s + "/hp/d", leads, bens, CTAS, need=bens[:2])
+
+def fu_meta(s, n, t):
+    heads = [f"Furnace Installation {n}", f"Furnace Installation in {n}", f"{n} Furnace Installation", f"Furnace Replacement {n}", f"Furnaces {n}"]
+    tails = [" | From $3,300, Free Quote", " | Replace or Repair", " | 96% AFUE From $3,300", " | Repair & Replacement", " | Book a Free Quote",
+             " | High-Efficiency From $3,300", " | New Furnaces From $3,300", " | Free Written Quote", " | Free Quote"]
+    leads = [f"Furnace installation in {n} from $3,300: 96% to 97% AFUE gas furnaces sized for {t}.", f"Replace your old furnace in {n} with a 96% AFUE model from $3,300.",
+             f"New high-efficiency furnace installed in {n} from $3,300, sized for {t}.", f"Install, replace or repair a gas furnace in {n}, sized for {t}."]
+    bens = ["Repair or replace, priced in writing.", "Emergency repair evenings and weekends.", "Lennox, Midea and Goodman models.", "0% financing available.",
+            "Warranty registered for you.", "Guaranteed price."]
+    return meta_title(s + "/fu/t", heads, tails), meta_desc(s + "/fu/d", leads, bens, CTAS, need=bens[:2])
+
+def tl_meta(s, n, t):
+    heads = [f"Tankless Water Heater Installation {n}", f"Tankless Water Heater {n}", f"Tankless Water Heaters in {n}", f"{n} Tankless Water Heaters", f"Tankless {n}"]
+    tails = [" | From $3,300", " | Rinnai, From $3,300", " | Free Quote", " | Rinnai Installer", " | Endless Hot Water", " | Tank Replacement", " | Rinnai Experts"]
+    leads = [f"Tankless water heater installation in {n} from $3,300.", f"Get endless hot water in {n}: Rinnai tankless installed from $3,300.",
+             f"Swap your old tank for a Rinnai tankless in {n}, from $3,300 installed.", f"Install, replace or repair an on-demand water heater in {n} from $3,300."]
+    bens = ["Endless hot water on demand.", "Rental tank return arranged.", "Sized for cold winter water.", "Descaling and repair too.", "Natural gas or propane.",
+            "Guaranteed price."]
+    return meta_title(s + "/tl/t", heads, tails), meta_desc(s + "/tl/d", leads, bens, CTAS, need=bens[:2])
+
 def chooser(slug):
     """V(key, a, b, ...) picks one version for this city, the same every build."""
     return lambda key, *opts: opts[zlib.crc32((slug + key).encode()) % len(opts)]
@@ -307,10 +372,7 @@ def heat_pump_page(c):
                       V("pl3", "Winter problems, what is normal, and what a yearly tune-up covers.", "What to do when it acts up, and how to stop it happening.")),
                  rep_problems, maint, {"type": "money"}])
 
-    title = fit([f"Heat Pump Installation & Replacement {n} | Repair", f"Heat Pump Installation & Replacement {n}", f"Heat Pump Installation {n} | Replacement", f"Heat Pump Installation {n}"], 60)
-    desc = fit([f"Heat pump installation in {n}, sized for {t}, plus replacement and repair. Up to $7,500 back for electric, oil or propane homes. Free quote.",
-                f"Heat pump installation in {n}, sized for {t}, plus replacement and repair. Up to $7,500 in rebates. Free quote.",
-                f"Heat pump installation, replacement and repair in {n}. Up to $7,500 in rebates. Free quote."], 155)
+    title, desc = hp_meta(s, n, t)
     near = [u for u in (nearby_link(x, "heat-pump") for x in c["nearby"]) if u]
     return {
      "url": f"/{s}/heat-pump/", "city_service": s, "priority": "0.7", "heating": True,
@@ -504,10 +566,7 @@ def furnace_page(c):
                       V("pl3", "Checks to do right now, what each symptom means, and what a repair visit covers.", "Start with the five checks, then match your symptom below.")),
                  checks_b, problems, rep_cost, visit, {"type": "money"}])
 
-    title = fit([f"Furnace Installation & Replacement {n} | Repair", f"Furnace Installation & Replacement {n}", f"Furnace Installation {n} | Replacement", f"Furnace Installation {n}"], 60)
-    desc = fit([f"Furnace installation in {n} from $3,300: 96% AFUE, sized for {t}. Replacement priced in writing, and repair evenings and weekends.",
-                f"Furnace installation in {n} from $3,300, sized for {t}. Replacement and repair evenings and weekends.",
-                f"Furnace installation, replacement and repair in {n}. New furnaces from $3,300."], 155)
+    title, desc = fu_meta(s, n, t)
     near = [u for u in (nearby_link(x, "furnace") for x in c["nearby"]) if u]
     return {
      "url": f"/{s}/furnace/", "city_service": s, "priority": "0.7", "heating": True,
@@ -667,10 +726,7 @@ def tankless_page(c):
                       V("pl3", "Common faults, what to do in a winter power outage, and yearly descaling.", "What to do when it acts up, and how to keep it from happening.")),
                  rep, maint, {"type": "money"}])
 
-    title = fit([f"Tankless Water Heater Installation {n} | Rinnai", f"Tankless Water Heater Installation {n}", f"Tankless Water Heaters {n}"], 60)
-    desc = fit([f"Tankless water heater installation in {n} from $3,300: Rinnai condensing, sized for winter water. Tank replacement and repair too. Free quote.",
-                f"Tankless water heater installation in {n} from $3,300, plus tank replacement and repair. Free quote.",
-                f"Tankless water heaters in {n} from $3,300 installed. Free quote."], 155)
+    title, desc = tl_meta(s, n, t)
     near = [u for u in (nearby_link(x, "tankless-water-heater") for x in c["nearby"]) if u]
     heat = [u for u in (f"/{s}/furnace/" if s in LIVE else (f"/{s}/furnace-repair/" if s in SKIP else None),) if u]
     return {
