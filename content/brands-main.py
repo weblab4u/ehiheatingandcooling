@@ -28,7 +28,7 @@ def brand_page(k):
      "hero_center": True,
      "service": {"name": f"{B} Installation, Repair and Maintenance", "type": f"Authorized {B} dealer"},
      "blocks": [
-      {"type": "cards", "h2": f"{B} equipment we install", "lead": k["lines_lead"], "items": k["lines"], "no_fill": True},
+      {"type": "cards", "h2": f"{B} equipment we install", "lead": k["lines_lead"], "items": k["lines"], "fill_h": f"Not sure which {B} system fits your home?", "fill_text": f"Tell us how you heat and cool today, and we'll recommend the right {B} model with a guaranteed written price."},
       {"type": "table", "h2": f"The {B} lineup at a glance", "headers": ["Model", "Type", "Key specs"], "rows": k["models"], "note": k["models_note"]},
       AUTH_WHY(B, k["warranty"]),
       STEPS(B),

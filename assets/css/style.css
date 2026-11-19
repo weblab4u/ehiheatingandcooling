@@ -1183,3 +1183,5 @@ a.m-col{display:block;font-weight:700;color:var(--navy);text-decoration:none}
 .hero-center .hero-points{display:inline-grid;text-align:left;justify-content:center}
 .hero-center .btn-group{justify-content:center}
 .hero-center .crumbs.in-hero ol{justify-content:center}
+.hero-center .hero-trust{display:block;text-align:center}
+.hero-center .hero-trust svg{display:inline-block;vertical-align:-3px;margin-right:6px}

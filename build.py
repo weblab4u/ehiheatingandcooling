@@ -348,7 +348,7 @@ def render_block(b, page):
             link = f'<a class="more" href="{i["link"]}">{esc(i.get("link_text") or "More on " + html.unescape(re.sub("<[^>]+>", "", i["title"])))}{icon("arrow")}</a>' if i.get("link") else ""
             ic = f'<span class="card-icon">{icon(i["icon"])}</span>' if i.get("icon") else ""
             items += f'<article class="card">{ic}<h3>{i["title"]}</h3><p>{i["text"]}</p>{link}</article>'
-        if not b.get("no_fill"): items += fill_cta(len(b["items"]), (4, 2), "div")
+        if not b.get("no_fill"): items += fill_cta(len(b["items"]), (4, 2), "div", *([b["fill_h"], b["fill_text"]] if b.get("fill_h") else []))
         return f'<section class="sec cards-sec {b.get("cls","")}"><div class="wrap">{h2(b)}{lead(b)}<div class="cards">{items}</div></div></section>'
     if t == "checklist":
         items = "".join(f'<li>{icon("check")}<span>{i}</span></li>' for i in b["items"])
@@ -485,6 +485,7 @@ BRAND_LINES = {
 def brand_links_block(b):
     p = b["product"]
     cards = "".join(f'<article class="card"><span class="card-icon">{icon("shield")}</span><h3>{n} {p}s</h3><p>{t}</p><a class="more" href="{u}">{esc(n)} {esc(p)}s{icon("arrow")}</a></article>' for n, u, t in BRAND_LINES[p])
+    cards += fill_cta(len(BRAND_LINES[p]), (4, 2), "div", f"Not sure which {p} brand to pick?", "Tell us about your home and we'll quote the brands that fit side by side, each with a guaranteed price.")
     return (f'<section class="sec cards-sec"><div class="wrap">{h2(b, f"{p.capitalize()} brands we install and service")}'
             f'{lead(b) or "<p class=lead>We are an authorized dealer for these brands, and we repair every major brand, whoever installed it.</p>"}<div class="cards">{cards}</div></div></section>')
 

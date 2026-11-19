@@ -23,7 +23,7 @@ FURNACES = {
     ["Goodman GMVC96", "Two-stage gas valve, variable-speed ECM blower", "Up to 96% AFUE", "40,000 to 120,000 BTU/h input"],
     ["Goodman GMEC96", "Two-stage gas valve, multi-speed ECM blower", "Up to 96% AFUE", "40,000 to 120,000 BTU/h input"]],
    "note": "Goodman furnace prices in Ontario start at $3,300 installed, with a guaranteed written quote. Your final price depends on size, venting, gas line and condensate work."},
-  {"type": "cards", "h2": "GMVC96 or GMEC96?", "no_fill": True, "items": [
+  {"type": "cards", "h2": "GMVC96 or GMEC96?", "fill_h": "Still deciding between the two?", "fill_text": "We'll price both Goodman furnaces for your home so you can compare them side by side.", "items": [
     {"icon": "furnace", "title": "GMVC96: quiet, even heat", "text": "Two-stage heat runs on low most of the winter and the variable-speed blower ramps up gently. The better partner for central air or a heat pump, because it moves air smoothly at every speed."},
     {"icon": "dollar", "title": "GMEC96: two-stage on a tighter budget", "text": "The same 96% AFUE and two-stage burner with a multi-speed ECM blower. A sensible upgrade from an old 80% furnace without the top-tier price."}]},
   {"type": "problems", "h2": "Problems a new Goodman furnace solves", "items": [
@@ -84,7 +84,7 @@ HEAT_PUMPS = {
   {"type": "table", "h2": "The Goodman heat pump we install", "headers": ["Model", "Compressor", "Efficiency", "Sizes"], "rows": [
     ["Goodman GSZH5", "Single-stage scroll, SmartShift defrost", "Up to 15.2 SEER2, 7.8 HSPF2", "1.5 to 5 ton"]],
    "note": "Ratings are Goodman's published maximums; your rating depends on the matched coil or furnace. Every quote lists the exact model numbers and is guaranteed."},
-  {"type": "cards", "h2": "Who a Goodman heat pump is right for", "no_fill": True, "items": [
+  {"type": "cards", "h2": "Who a Goodman heat pump is right for", "fill_h": "Not sure a Goodman heat pump fits?", "fill_text": "We'll compare it with a cold-climate model for your home, both with a guaranteed price.", "items": [
     {"icon": "furnace", "title": "Gas-heated homes going hybrid", "text": "Keep or replace your gas furnace and add the GSZH5. The heat pump handles cooling and the milder heating days, and the furnace takes over below the balance point.", "link": "/heat-pump/hybrid-furnace-systems/", "link_text": "Hybrid systems"},
     {"icon": "ac", "title": "Replacing an old central AC", "text": "The GSZH5 goes where the air conditioner was, cools just as well, and adds heat for spring and fall.", "link": "/ac/", "link_text": "AC replacement"},
     {"icon": "heatpump", "title": "Want a heat pump to do it all?", "text": "For all-electric homes or the biggest Ontario rebate, a cold-climate model rated to -30°C is the better fit. We quote Midea or Kepler side by side.", "link": "/heat-pump/cold-climate/", "link_text": "Cold-climate heat pumps"}]},
