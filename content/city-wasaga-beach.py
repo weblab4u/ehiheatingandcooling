@@ -60,5 +60,5 @@ PAGE = {
   ("Do you provide HVAC services in Wasaga Beach year-round?", "Yes. Our office is in Stouffville, and we book installs, repairs and service visits in Wasaga Beach in every season, from Beach Area 1 to the Beach Area 6 end and out to Wasaga Sands."),
   ("What does it cost to put ductless heat into a Wasaga Beach cottage?", "A single-zone ductless system is priced in a written quote after we see the room, because the head size, the line-set run and the electrical work change the number. Ducted cold-climate heat pumps start from $5,500 installed, and every quote is guaranteed before work starts."),
   ("How many indoor heads does a Wasaga Beach bungalow need?", "It depends on the layout, how open the rooms are and how you use them. We set the number of heads from a room-by-room heat-loss check, and one outdoor unit can run several of them.")],
- "related": ["/ac/ductless-mini-split/", "/ac/multi-zone-ductless-system/", "/heat-pump/cold-climate/", "/heat-pump-rebates/", "/brands/midea-ductless-mini-splits/", "/financing/"],
+ "related": ["/ac/ductless-mini-split/", "/ac/multi-zone-ductless-system/", "/heat-pump/cold-climate/", "/heat-pump-rebates/", "/brands/midea/ductless-mini-splits/", "/financing/"],
 }

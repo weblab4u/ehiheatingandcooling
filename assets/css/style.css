@@ -1157,3 +1157,10 @@ h2>span[id]{display:block;scroll-margin-top:170px}
 .sec[id]{scroll-margin-top:calc(var(--hdr,0px) + 64px)}
 .jump-nav .js{display:none}
 @media (max-width:600px){.jump-nav .jl{display:none}.jump-nav .js{display:inline}.jump-nav ul{gap:0}.jump-nav li{flex:1 1 0}}
+.main-nav>ul{position:relative}
+.has-mega.mega-wide{position:static}
+.mega-wide .mega{left:auto;right:0;gap:24px}
+.mega-col a.mega-h{display:inline-flex;align-items:center;gap:6px;color:var(--navy);font-size:.82rem;text-decoration:none}
+.mega-col a.mega-h svg{width:14px;height:14px;color:var(--green)}
+.mega-col a.mega-h:hover{color:var(--green-dark)}
+a.m-col{display:block;font-weight:700;color:var(--navy);text-decoration:none}

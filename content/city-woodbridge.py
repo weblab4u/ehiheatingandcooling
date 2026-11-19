@@ -55,5 +55,5 @@ PAGE = {
   ("Will a tankless water heater keep up with a big family?", "A Rinnai RX199iN supplies up to about 11.1 gallons per minute, which covers several fixtures at once in most homes. Tankless pricing starts from $3,300 installed."),
   ("How quiet is a variable-speed furnace?", "Much quieter than a single-stage unit, because it starts on low fire and the blower ramps up slowly instead of switching on at full speed."),
   ("Do you offer heat pump installation in Woodbridge for gas-heated homes?", "Yes. We often add a cold-climate heat pump to a gas furnace in a hybrid setup, and gas-heated homes may qualify for a smaller rebate when pre-approval is in place first.")],
- "related": ["/furnace/high-efficiency/", "/services/thermostats/", "/heat-pump/hybrid-furnace-systems/", "/brands/rinnai-tankless-water-heaters/", "/services/hrv-erv/", "/heat-pump/central/"],
+ "related": ["/furnace/high-efficiency/", "/services/thermostats/", "/heat-pump/hybrid-furnace-systems/", "/brands/rinnai/tankless-water-heaters/", "/services/hrv-erv/", "/heat-pump/central/"],
 }

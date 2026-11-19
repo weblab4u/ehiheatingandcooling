@@ -1,6 +1,6 @@
-# Brand page: /brands/midea-furnace-air-handlers/
+# Brand page: /brands/midea/furnaces/
 PAGE = {
- "url": "/brands/midea-furnace-air-handlers/",
+ "url": "/brands/midea/furnaces/",
  "title": "Midea Furnace & Air Handler Dealer Ontario | MGH96",
  "description": "Midea MGH96 96.5% AFUE two-stage furnaces and EVOX G3 electric air handlers installed across Ontario from $3,300. Authorized Midea dealer, guaranteed quote.",
  "priority": "0.7",
@@ -30,7 +30,7 @@ PAGE = {
     ["3 ton", "MAAHE-H36B / MAUHE-H36B", "EVOX G3 3 ton heat pump"],
     ["4 ton", "MAAHE-H48B / MAUHE-H48B", "EVOX G3 4 ton heat pump"],
     ["5 ton", "MAAHE-H60B / MAUHE-H60B", "EVOX G3 5 ton heat pump"],
-  ], "note": "Air handler and heat pump are quoted together as a system, from $5,500 installed. See our <a href='/brands/midea-heat-pumps/'>Midea heat pump page</a> for outdoor unit sizing."},
+  ], "note": "Air handler and heat pump are quoted together as a system, from $5,500 installed. See our <a href='/brands/midea/heat-pumps/'>Midea heat pump page</a> for outdoor unit sizing."},
   {"type": "cards", "h2": "Who Midea indoor equipment is right for", "items": [
     {"icon": "heatpump", "title": "Gas-heated homes adding a heat pump", "text": "A new MGH96 furnace plus an EVOX G3 heat pump is a hybrid system. The heat pump handles most of the heating season and the furnace takes over in the deep cold.", "link": "/heat-pump/hybrid-furnace-systems/", "link_text": "Hybrid systems"},
     {"icon": "furnace", "title": "Straight furnace replacement", "text": "Your 20-year-old single-stage furnace is done. The MGH96 gives you two-stage comfort and 96.5% AFUE for a from-price of $3,300, with a heat pump added later if you like.", "link": "/furnace/", "link_text": "Furnace installation"},
@@ -71,5 +71,5 @@ PAGE = {
   ("Is the Midea MGH96 furnace quiet?", "Yes. The MGH96 pairs a two-stage gas valve with a variable-speed blower, so it runs on low fire and low fan most of the time and you mostly hear a soft airflow rather than a furnace kicking on. The variable-speed motor also ramps up gently instead of slamming to full speed."),
   ("Who handles the Midea warranty registration and parts?", "We register the furnace or air handler with Midea as part of the installation, and as an authorized dealer we have direct access to Midea parts and technical support in Ontario. Extended coverage of up to 12 years parts and labour is available on select systems when registered. Details on our <a href='/warranty/'>warranty page</a>."),
  ],
- "related": ["/furnace/", "/furnace/high-efficiency/", "/furnace/electric-air-handlers/", "/heat-pump/electric-air-handler-systems/", "/heat-pump/hybrid-furnace-systems/", "/brands/midea-heat-pumps/"],
+ "related": ["/furnace/", "/furnace/high-efficiency/", "/furnace/electric-air-handlers/", "/heat-pump/electric-air-handler-systems/", "/heat-pump/hybrid-furnace-systems/", "/brands/midea/heat-pumps/"],
 }

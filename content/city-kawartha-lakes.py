@@ -56,5 +56,5 @@ PAGE = {
   ("Is a ductless heat pump a good fit for a seasonal cottage?", "Often, yes. It heats on cold spring and fall days, cools in summer and needs no ductwork, though winter use calls for decent insulation and backup heat for the coldest nights."),
   ("Do cottages qualify for the heat pump rebate?", "It depends on the program terms, so we confirm eligibility for your property before installation. A year-round home on oil, propane, electric or wood heat may be eligible for as much as $7,500."),
   ("What happens to a heat pump during a power outage?", "A heat pump needs electricity, so it stops during an outage, just as a furnace blower does. Many rural homes keep a wood stove or a properly installed generator as their backup plan.")],
- "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/ac/ductless-mini-split/", "/brands/kepler-heat-pumps/", "/heat-pump-rebates/"],
+ "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/ac/ductless-mini-split/", "/brands/kepler/heat-pumps/", "/heat-pump-rebates/"],
 }

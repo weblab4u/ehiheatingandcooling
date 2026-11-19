@@ -60,5 +60,5 @@ PAGE = {
   ("Will my electrical panel handle a heat pump and air handler?", "Often yes, especially in homes that already heat with electricity, because the baseboards or electric furnace coming out free up capacity. Our ESA-licensed electricians run a load calculation on the assessment visit and tell you before quoting. If a panel upgrade is needed, it's included in the guaranteed price."),
   ("Can I keep propane or oil as backup instead of electric heat strips?", "You can keep an existing propane or oil furnace as backup in a hybrid set-up, but most homeowners coming off delivered fuel choose electric auxiliary heat so they can remove the tank, and because all-electric homes qualify for the higher rebate tier. We show you both options with running costs."),
  ],
- "related": ["/heat-pump/", "/heat-pump/cold-climate/", "/heat-pump/central/", "/furnace/electric-air-handlers/", "/brands/midea-furnace-air-handlers/", "/heat-pump-rebates/"],
+ "related": ["/heat-pump/", "/heat-pump/cold-climate/", "/heat-pump/central/", "/furnace/electric-air-handlers/", "/brands/midea/furnaces/", "/heat-pump-rebates/"],
 }

@@ -60,5 +60,5 @@ PAGE = {
   ("Do you offer emergency HVAC in Ottawa?", "Yes, we take emergency calls evenings, weekends and holidays. Call 1-647-694-5845 and we'll tell you honestly when a technician can get to you."),
   ("Does a heat pump also handle Ottawa's humid summers?", "Yes. A heat pump cools and dehumidifies like a central air conditioner, so one outdoor unit covers both the July humidity and the January cold."),
   ("How much is a cold-climate heat pump installed in Ottawa?", "Cold-climate heat pumps start from $5,500 installed, before the Home Renovation Savings Program rebate. Installed pricing depends on size and installation requirements, including the backup heat and any 240V circuit, and your written quote is guaranteed.")],
- "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/furnace/high-efficiency/", "/brands/midea-heat-pumps/", "/heat-pump-rebates/", "/financing/"],
+ "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/furnace/high-efficiency/", "/brands/midea/heat-pumps/", "/heat-pump-rebates/", "/financing/"],
 }

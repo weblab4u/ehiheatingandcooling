@@ -26,8 +26,8 @@ PAGE = {
     {"problem": "You want the rebate but the rules are confusing", "solution": "The rebate hinges on one thing: the model must be on NRCan's qualified products list. We only install qualified equipment, confirm eligibility with you before installation, and file the paperwork. <a href='/heat-pump-rebates/'>See the rebate details</a>."},
   ]},
   {"type": "cards", "h2": "Cold climate heat pumps we install in Ontario", "lead": "We're an authorized Midea, Kepler and Lennox dealer. Two cold climate lines do most of the work.", "items": [
-    {"icon": "heatpump", "title": "Midea EVOX G3", "text": "ENERGY STAR cold climate certified, inverter driven, R-454B low-GWP refrigerant. Rated heating to -30°C with strong capacity at -15°C. Ducted 2, 2.5, 3, 4 and 5 ton, matched to a Midea air handler or your furnace coil.", "link": "/brands/midea-heat-pumps/"},
-    {"icon": "heatpump", "title": "Kepler cold climate heat pumps", "text": "1.5 to 5 ton, rated to -30°C, and noticeably quiet at the outdoor unit. A strong fit for tighter lots in Markham or Vaughan where the neighbour's bedroom window is close.", "link": "/brands/kepler-heat-pumps/"},
+    {"icon": "heatpump", "title": "Midea EVOX G3", "text": "ENERGY STAR cold climate certified, inverter driven, R-454B low-GWP refrigerant. Rated heating to -30°C with strong capacity at -15°C. Ducted 2, 2.5, 3, 4 and 5 ton, matched to a Midea air handler or your furnace coil.", "link": "/brands/midea/heat-pumps/"},
+    {"icon": "heatpump", "title": "Kepler cold climate heat pumps", "text": "1.5 to 5 ton, rated to -30°C, and noticeably quiet at the outdoor unit. A strong fit for tighter lots in Markham or Vaughan where the neighbour's bedroom window is close.", "link": "/brands/kepler/heat-pumps/"},
     {"icon": "ductless", "title": "Midea Hyper Heat ductless", "text": "Cold climate performance for homes without ducts, single-zone or multi-zone with up to five indoor heads.", "link": "/ac/ductless-mini-split/"},
   ]},
   {"type": "table", "h2": "HSPF2, SEER2 and COP in plain words", "lead": "Spec sheets throw numbers at you. Here's what each one tells you about your hydro bill.", "headers": ["Rating", "What it measures", "What it means for you"], "rows": [
@@ -60,5 +60,5 @@ PAGE = {
   ("How much does a cold climate heat pump cost in Ontario?", "Cold climate heat pump installation starts at $5,500 installed with EHI. Installed pricing depends on size and installation requirements such as ductwork, electrical and backup heat, and we give a guaranteed quote before any work. Rebates of up to $7,500 come back after installation for eligible homes."),
   ("Does a cold climate heat pump qualify for the Ontario heat pump rebate?", "Yes, if the model is on NRCan's qualified products list and pre-approval is in place before installation. Homes heated by electricity, oil, propane or wood can receive up to $7,500 based on heat pump size, and Enbridge gas-heated homes get a smaller amount, commonly up to $2,000. Confirm eligibility before installation, because program terms can change."),
  ],
- "related": ["/heat-pump/", "/heat-pump/central/", "/heat-pump/hybrid-furnace-systems/", "/brands/midea-heat-pumps/", "/brands/kepler-heat-pumps/", "/heat-pump-rebates/"],
+ "related": ["/heat-pump/", "/heat-pump/central/", "/heat-pump/hybrid-furnace-systems/", "/brands/midea/heat-pumps/", "/brands/kepler/heat-pumps/", "/heat-pump-rebates/"],
 }

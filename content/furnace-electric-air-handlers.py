@@ -62,5 +62,5 @@ PAGE = {
   ("Do I need an electrical panel upgrade for electric heat?", "Often, yes. An electric furnace or air handler with backup heat needs a dedicated 240V circuit, frequently 60 amps or more, and many older 100 amp panels can't spare it alongside a range, dryer and other loads. Our ESA-licensed electricians check your panel before we quote and handle a 200 amp upgrade if needed."),
   ("Does an electric furnace qualify for the Ontario rebate?", "No. A stand-alone electric furnace does not qualify for the Home Renovation Savings Program. A qualifying cold-climate heat pump paired with an electric air handler can, and because the home is heated by electricity it falls in the higher tier, up to $7,500 based on heat pump size. Program terms can change, so we confirm eligibility before installation."),
  ],
- "related": ["/heat-pump/electric-air-handler-systems/", "/heat-pump/", "/brands/midea-furnace-air-handlers/", "/heat-pump-rebates/", "/furnace/", "/financing/"],
+ "related": ["/heat-pump/electric-air-handler-systems/", "/heat-pump/", "/brands/midea/furnaces/", "/heat-pump-rebates/", "/furnace/", "/financing/"],
 }

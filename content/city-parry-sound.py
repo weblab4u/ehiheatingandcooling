@@ -37,7 +37,7 @@ PAGE = {
     {"url": "/heat-pump/electric-air-handler-systems/", "title": "All-electric heat pump and air handler", "text": "A ducted, all-electric replacement for an oil furnace."},
     {"url": "/heat-pump/hybrid-furnace-systems/", "title": "Heat pump with propane backup", "text": "Keep the propane furnace for deep cold and burn much less."},
     {"url": "/ac/ductless-mini-split/", "title": "Wall-mounted ductless for bay cottages", "text": "Heat and cooling for places with no ductwork."},
-    {"url": "/brands/kepler-heat-pumps/", "title": "Kepler heat pumps for the bay", "text": "Low-noise cold-climate units sized 1.5 to 5 ton."}]},
+    {"url": "/brands/kepler/heat-pumps/", "title": "Kepler heat pumps for the bay", "text": "Low-noise cold-climate units sized 1.5 to 5 ton."}]},
   {"type": "table", "h2": "Parry Sound heat pump and furnace costs",
    "lead": "Where common jobs start. The guaranteed quote after your site visit replaces these numbers.",
    "headers": ["System", "Who it suits", "Price"],
@@ -63,5 +63,5 @@ PAGE = {
   ("Can you install at a water-access cottage near Parry Sound?", "Sometimes. Tell us how the property is reached, and we'll talk through whether the equipment and crew can get there safely and what that adds to the plan."),
   ("Do you offer HVAC services in Parry Sound for oil furnaces?", "Yes. We replace oil furnaces with cold-climate heat pumps, or pair a heat pump with the existing furnace as backup, for homes in Parry Sound, Seguin, Carling and McDougall."),
   ("Is a heat pump enough on its own for a Georgian Bay winter?", "With the right size and a backup source, yes. We plan backup heat for every home on the bay, using your current furnace, baseboards or an electric air handler.")],
- "related": ["/heat-pump/cold-climate/", "/heat-pump-rebates/", "/ac/multi-zone-ductless-system/", "/heat-pump/electric-air-handler-systems/", "/heat-pump/hybrid-furnace-systems/", "/brands/kepler-heat-pumps/"],
+ "related": ["/heat-pump/cold-climate/", "/heat-pump-rebates/", "/ac/multi-zone-ductless-system/", "/heat-pump/electric-air-handler-systems/", "/heat-pump/hybrid-furnace-systems/", "/brands/kepler/heat-pumps/"],
 }

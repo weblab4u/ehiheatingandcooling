@@ -65,5 +65,5 @@ PAGE = {
   ("Do multi-zone systems qualify for the Ontario heat pump rebate?", "Cold-climate multi-zone ductless heat pumps can qualify for the Home Renovation Savings Program when the model is on NRCan's qualified products list and pre-approval is completed before installation. The amount depends on system size and your current heating fuel, and we handle the application."),
   ("Is a multi-zone system better than a central heat pump?", "If your home has ductwork in good shape, a central heat pump is usually simpler and lower cost. If there are no ducts, or you want room-by-room control, multi-zone ductless is the better fit. We will tell you which one makes sense for your house."),
  ],
- "related": ["/ac/ductless-mini-split/", "/ac/ductless-mini-split/repair/", "/brands/midea-ductless-mini-splits/", "/heat-pump/", "/heat-pump-rebates/", "/heat-pump/central/"],
+ "related": ["/ac/ductless-mini-split/", "/ac/ductless-mini-split/repair/", "/brands/midea/ductless-mini-splits/", "/heat-pump/", "/heat-pump-rebates/", "/heat-pump/central/"],
 }

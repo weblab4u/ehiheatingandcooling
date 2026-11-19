@@ -1,6 +1,6 @@
-# Brand page: /brands/midea-ductless-mini-splits/
+# Brand page: /brands/midea/ductless-mini-splits/
 PAGE = {
- "url": "/brands/midea-ductless-mini-splits/",
+ "url": "/brands/midea/ductless-mini-splits/",
  "title": "Midea Mini Split Dealer Ontario | Hyper Heat Ductless",
  "description": "Midea Hyper Heat single-zone and multi-zone ductless mini-splits, 18,000 to 60,000 BTU, installed across Ontario from $5,500. Free guaranteed quote.",
  "priority": "0.7",
@@ -61,5 +61,5 @@ PAGE = {
   ("How loud is a Midea mini split?", "A Midea ductless indoor head on low fan is quiet enough for a bedroom, with a soft airflow sound rather than a compressor hum, because the compressor lives outside. The outdoor unit runs at low inverter speed most of the time, and we mount it on anti-vibration brackets away from bedroom windows."),
   ("What maintenance does a Midea ductless system need?", "Rinse the indoor filters every month in heavy use, keep leaves and snow away from the outdoor unit, and book a yearly service. Our <a href='/ac/ductless-mini-split/repair/'>mini split service</a> includes a coil cleaning, condensate drain check and refrigerant charge check."),
  ],
- "related": ["/ac/ductless-mini-split/", "/ac/multi-zone-ductless-system/", "/ac/ductless-mini-split/repair/", "/brands/midea-heat-pumps/", "/heat-pump-rebates/"],
+ "related": ["/ac/ductless-mini-split/", "/ac/multi-zone-ductless-system/", "/ac/ductless-mini-split/repair/", "/brands/midea/heat-pumps/", "/heat-pump-rebates/"],
 }

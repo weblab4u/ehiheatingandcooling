@@ -1,6 +1,6 @@
-# Brand page: /brands/rinnai-tankless-water-heaters/
+# Brand page: /brands/rinnai/tankless-water-heaters/
 PAGE = {
- "url": "/brands/rinnai-tankless-water-heaters/",
+ "url": "/brands/rinnai/tankless-water-heaters/",
  "title": "Rinnai Tankless Water Heater Dealer Ontario | RX199iN",
  "description": "Rinnai RX160iN and RX199iN condensing tankless water heaters installed across Ontario from $3,300 by an authorized Rinnai dealer. Get a quote.",
  "priority": "0.8",
@@ -65,5 +65,5 @@ PAGE = {
   ("Who registers the Rinnai warranty and what about extended coverage?", "We register your Rinnai warranty as part of the installation, and extended coverage may be available depending on the package you choose. As an authorized Rinnai dealer we also have direct access to Rinnai parts and support in Ontario; see our <a href='/warranty/'>warranty page</a> for conditions."),
   ("Do you repair Rinnai tankless water heaters you didn't install?", "Yes. We repair and service Rinnai tankless water heaters of any age, including units installed by other contractors, with a written quote before any work. Same-day service for no hot water is available across most of our Ontario service area."),
  ],
- "related": ["/water-heater/", "/water-heater/repair-maintenance/", "/furnace/", "/brands/lennox-furnaces/", "/financing/", "/warranty/"],
+ "related": ["/water-heater/", "/water-heater/repair-maintenance/", "/furnace/", "/brands/lennox/furnaces/", "/financing/", "/warranty/"],
 }

@@ -60,5 +60,5 @@ PAGE = {
   ("Do you install heat pumps on Peninsula and Fairy Lake properties?", "Yes. We install at lakefront homes and cottages around Huntsville, and we plan placement around wind, snow and access on the site visit."),
   ("Is there an HVAC contractor in Huntsville for oil-to-heat-pump switches?", "We handle oil-to-heat-pump switches for Huntsville homes from our base in Stouffville. If your home burns oil now, it may qualify for up to $7,500, provided pre-approval comes before the install."),
   ("What does a heat pump cost for a Huntsville lake house?", "A ducted cold-climate heat pump starts from $5,500 installed, and a single-zone ductless unit for a bunkie or addition is quoted in writing after we see the space. Installed pricing depends on size and installation requirements, especially the line-set run and the backup heat, and the quote is guaranteed.")],
- "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/ac/ductless-mini-split/", "/brands/midea-heat-pumps/", "/heat-pump-rebates/"],
+ "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/electric-air-handler-systems/", "/ac/ductless-mini-split/", "/brands/midea/heat-pumps/", "/heat-pump-rebates/"],
 }

@@ -20,7 +20,7 @@ PAGE = {
     {"url": "/heat-pump/repair-maintenance/", "title": "Heat pump repair and defrost problems", "text": "Iced coils, blocked drains and units that won't come out of defrost."},
     {"url": "/ac/repair-maintenance/", "title": "AC repair in Barrie", "text": "Warm air and short cycling sorted out before cottage season."},
     {"url": "/services/humidifiers/", "title": "Humidifiers for dry winter air", "text": "Whole-home humidity control for long heating seasons."},
-    {"url": "/brands/kepler-heat-pumps/", "title": "Kepler cold-climate heat pumps", "text": "Quiet units from 1.5 to 5 ton, rated down to -30°C."}]},
+    {"url": "/brands/kepler/heat-pumps/", "title": "Kepler cold-climate heat pumps", "text": "Quiet units from 1.5 to 5 ton, rated down to -30°C."}]},
   {"type": "cost_guide", "h2": 'Barrie heating and cooling prices, snow and all', "lead": 'Snowbelt installs need raised stands and careful placement, which is why every Barrie job gets a written quote after we see the lot.', "keys": ['furnace_repair', 'furnace_install', 'heat_pump_ducted', 'ductless_single']},
   {"type": "checklist", "h2": "Heat pump installation in Barrie: our snow-proof placement checklist", "photo": "out",
    "lead": "A heat pump buried in a drift can't breathe, and one sitting under the eaves gets hammered by ice. Where the outdoor unit goes matters as much as which unit you buy.",
@@ -56,5 +56,5 @@ PAGE = {
   ("Do I still need a furnace with a heat pump in Barrie?", "Not always. Many homes keep a gas furnace as backup in a hybrid system, while others use an electric air handler with backup heat strips."),
   ("Can I get emergency HVAC in Barrie during a snowstorm?", "Yes. We take emergency calls evenings, weekends and holidays, and we'll give you an honest arrival estimate based on the weather and road conditions."),
   ("Is there a heat pump rebate for Barrie homes on Enbridge gas?", "Yes, though it is smaller than the electric-heat tier, commonly up to $2,000. Homes heated by electricity, oil or propane can get up to $7,500, and pre-approval must be in place before installation.")],
- "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/repair-maintenance/", "/services/emergency-hvac/", "/furnace/repair-maintenance/", "/brands/kepler-heat-pumps/"],
+ "related": ["/heat-pump/cold-climate/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump/repair-maintenance/", "/services/emergency-hvac/", "/furnace/repair-maintenance/", "/brands/kepler/heat-pumps/"],
 }

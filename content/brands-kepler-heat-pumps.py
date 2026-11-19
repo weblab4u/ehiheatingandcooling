@@ -1,6 +1,6 @@
-# Brand page: /brands/kepler-heat-pumps/
+# Brand page: /brands/kepler/heat-pumps/
 PAGE = {
- "url": "/brands/kepler-heat-pumps/",
+ "url": "/brands/kepler/heat-pumps/",
  "title": "Kepler Heat Pumps Ontario | Cold-Climate Dealer",
  "description": "Kepler cold-climate heat pumps, 1.5 to 5 ton and rated to -30°C, installed across Ontario from $5,500 by an authorized Kepler dealer. Get a quote.",
  "priority": "0.7",
@@ -47,7 +47,7 @@ PAGE = {
     "Vacuum, charge and commissioning by licensed refrigeration technicians",
     "Thermostat set-up, Kepler warranty registration and rebate submission on your behalf",
   ]},
-  {"type": "text", "h2": "Looking for a Kepler furnace or Kepler air conditioner?", "html": "<p>Our Kepler focus is the cold-climate heat pump, and it already works as a central air conditioner from May to September, so a Kepler heat pump is the Kepler air conditioner. For the gas furnace half of a hybrid system we pair Kepler with a <a href='/brands/lennox-furnaces/'>Lennox furnace</a> or a <a href='/brands/midea-furnace-air-handlers/'>Midea MGH96</a>, both two-stage and variable-speed. Ask us which combination makes sense for your home and fuel.</p>"},
+  {"type": "text", "h2": "Looking for a Kepler furnace or Kepler air conditioner?", "html": "<p>Our Kepler focus is the cold-climate heat pump, and it already works as a central air conditioner from May to September, so a Kepler heat pump is the Kepler air conditioner. For the gas furnace half of a hybrid system we pair Kepler with a <a href='/brands/lennox/furnaces/'>Lennox furnace</a> or a <a href='/brands/midea/furnaces/'>Midea MGH96</a>, both two-stage and variable-speed. Ask us which combination makes sense for your home and fuel.</p>"},
   {"type": "money"},
   {"type": "why"},
   {"type": "areas"},
@@ -61,5 +61,5 @@ PAGE = {
   ("Who registers the Kepler warranty and can you get parts?", "We register your Kepler warranty with the manufacturer as part of the installation, and as an authorized dealer we have access to Kepler parts and technical support for the Canadian market. Extended coverage of up to 12 years parts and labour is available on select systems. See our <a href='/warranty/'>warranty page</a>."),
   ("Kepler or Midea, which should I choose?", "Both are cold-climate heat pumps rated to -30°C that we install and stand behind, so the choice usually comes down to budget, available sizes and the features you want. Midea EVOX G3 is our first recommendation; Kepler is the value pick that often wins on price and fits tighter spaces. We quote both so you can decide."),
  ],
- "related": ["/heat-pump/", "/heat-pump/cold-climate/", "/brands/midea-heat-pumps/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump-rebates/", "/heat-pump/repair-maintenance/"],
+ "related": ["/heat-pump/", "/heat-pump/cold-climate/", "/brands/midea/heat-pumps/", "/heat-pump/hybrid-furnace-systems/", "/heat-pump-rebates/", "/heat-pump/repair-maintenance/"],
 }

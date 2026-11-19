@@ -70,5 +70,5 @@ PAGE = {
   ("Do you repair tankless water heaters from brands other than Rinnai?", "Yes. We repair and maintain tankless water heaters of any brand across Ontario. Rinnai is our specialty as an authorized dealer and we stock common Rinnai parts, but our technicians service other makes too and source OEM parts for them."),
   ("How much does tankless water heater repair cost in Ontario?", "Tankless water heater repair cost depends on the part and the brand, so we diagnose first and give a written quote before any work. Filters, flame rods and ignitors sit at the low end; combustion fans and heat exchangers cost more, and that's where we talk about repair versus a new unit from $3,300 installed."),
  ],
- "related": ["/water-heater/", "/brands/rinnai-tankless-water-heaters/", "/services/hvac-repair-maintenance/", "/services/emergency-hvac/", "/furnace/repair-maintenance/", "/financing/"],
+ "related": ["/water-heater/", "/brands/rinnai/tankless-water-heaters/", "/services/hvac-repair-maintenance/", "/services/emergency-hvac/", "/furnace/repair-maintenance/", "/financing/"],
 }

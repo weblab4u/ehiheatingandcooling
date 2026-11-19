@@ -62,5 +62,5 @@ PAGE = {
   ("What if my Uxbridge house has no ductwork?", "Ductless and multi-zone heat pumps heat and cool without ducts. Each indoor head needs only a small opening through the wall for the refrigerant lines."),
   ("Is a heat pump cheaper to run than oil in Uxbridge?", "In many homes, yes. A cold-climate heat pump moves heat instead of burning fuel, so it often costs less to run than oil, though the savings depend on your hydro rates, fuel prices and the house itself."),
   ("Do your HVAC services in Uxbridge cover Goodwood, Claremont and Zephyr?", "Yes. We cover Uxbridge town and the surrounding hamlets, including Goodwood, Claremont, Udora, Leaskdale, Zephyr and Glasgow.")],
- "related": ["/heat-pump/cold-climate/", "/heat-pump/electric-air-handler-systems/", "/ac/multi-zone-ductless-system/", "/heat-pump-rebates/", "/brands/midea-heat-pumps/", "/financing/"],
+ "related": ["/heat-pump/cold-climate/", "/heat-pump/electric-air-handler-systems/", "/ac/multi-zone-ductless-system/", "/heat-pump-rebates/", "/brands/midea/heat-pumps/", "/financing/"],
 }

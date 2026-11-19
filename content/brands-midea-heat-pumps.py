@@ -1,6 +1,6 @@
-# Brand page: /brands/midea-heat-pumps/
+# Brand page: /brands/midea/heat-pumps/
 PAGE = {
- "url": "/brands/midea-heat-pumps/",
+ "url": "/brands/midea/heat-pumps/",
  "title": "Midea Heat Pump Dealer Ontario | EVOX G3 Cold Climate",
  "description": "Midea EVOX G3 and Extreme Hyper Heat cold-climate heat pumps installed across Ontario from $5,500. Rated to -30°C, rebate-eligible. Get a free quote.",
  "priority": "0.8",
@@ -63,5 +63,5 @@ PAGE = {
   ("Who registers the Midea warranty, and can you get parts in Ontario?", "We register your Midea warranty with the manufacturer as part of the install, and as an authorized dealer we have direct access to Midea parts and technical support. Extended coverage of up to 12 years parts and labour is available on select systems when registered. See our <a href='/warranty/'>warranty page</a> for the conditions."),
   ("What is R-454B and why does it matter?", "R-454B is a lower global warming potential refrigerant that is replacing R-410A in new heat pumps and air conditioners. Midea EVOX G3 systems ship with it, which means your refrigerant and parts stay available for the life of the unit instead of being phased out."),
  ],
- "related": ["/heat-pump/", "/heat-pump/cold-climate/", "/heat-pump/central/", "/brands/midea-furnace-air-handlers/", "/brands/midea-ductless-mini-splits/", "/heat-pump-rebates/"],
+ "related": ["/heat-pump/", "/heat-pump/cold-climate/", "/heat-pump/central/", "/brands/midea/furnaces/", "/brands/midea/ductless-mini-splits/", "/heat-pump-rebates/"],
 }

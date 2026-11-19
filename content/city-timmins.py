@@ -56,5 +56,5 @@ PAGE = {
   ("Do you do heat pump installation in Timmins?", "Yes. Our crews install cold-climate heat pumps and hybrid systems in Timmins and nearby communities, and we schedule the work with you directly."),
   ("Can you keep my existing furnace as the backup?", "Often, yes. If your furnace is in good working order, we can connect it to the heat pump as backup and set the switchover point, which keeps the upfront cost down."),
   ("How much does a hybrid heat pump system cost in Timmins?", "The heat pump side starts from $5,500 installed and a new high-efficiency furnace from $3,300, before any rebate. If your existing furnace is sound, it can serve as the backup, which keeps the total down. Installed pricing depends on size and installation requirements, and the quote is guaranteed in writing.")],
- "related": ["/heat-pump/hybrid-furnace-systems/", "/heat-pump/cold-climate/", "/heat-pump/electric-air-handler-systems/", "/brands/kepler-heat-pumps/", "/heat-pump-rebates/", "/furnace/repair-maintenance/"],
+ "related": ["/heat-pump/hybrid-furnace-systems/", "/heat-pump/cold-climate/", "/heat-pump/electric-air-handler-systems/", "/brands/kepler/heat-pumps/", "/heat-pump-rebates/", "/furnace/repair-maintenance/"],
 }

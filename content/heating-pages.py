@@ -679,7 +679,7 @@ def tankless_page(c):
       (f"How often should a tankless be descaled in {n}?",
        V("q5", "Once a year for most homes, more often if your water is very hard. The isolation valves we install make the flush quick.",
                "Yearly is the usual rule, and more often with hard water. With service valves in place it is a short visit."))],
-     "related": [f"/{s}/", "/water-heater/", "/brands/rinnai-tankless-water-heaters/", "/water-heater/repair-maintenance/"] + heat + near[:1],
+     "related": [f"/{s}/", "/water-heater/", "/brands/rinnai/tankless-water-heaters/", "/water-heater/repair-maintenance/"] + heat + near[:1],
     }
 
 PAGES = []

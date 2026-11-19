@@ -26,7 +26,7 @@ PAGE = {
     {"problem": "Your window AC is loud, ugly and blocks the view", "solution": "A ductless mini split AC replaces it with a whisper-quiet wall unit, better efficiency and real heating in winter. The window goes back to being a window."},
   ]},
   {"type": "cards", "h2": "Ductless heating and cooling systems we install", "lead": "We are an authorized Midea dealer, so your ductless heat pump comes with factory-backed warranty coverage registered in your name.", "items": [
-    {"icon": "ductless", "title": "Midea Hyper Heat single-zone", "text": "One outdoor unit, one indoor head. Inverter-driven, rated to -30°C, ENERGY STAR cold-climate models available. The standard pick for one room or an open main floor.", "link": "/brands/midea-ductless-mini-splits/"},
+    {"icon": "ductless", "title": "Midea Hyper Heat single-zone", "text": "One outdoor unit, one indoor head. Inverter-driven, rated to -30°C, ENERGY STAR cold-climate models available. The standard pick for one room or an open main floor.", "link": "/brands/midea/ductless-mini-splits/"},
     {"icon": "ductless", "title": "Multi-zone ductless (2 to 5 heads)", "text": "Midea Extreme Hyper Heat outdoor units from 18,000 to 60,000 BTU feeding up to five indoor heads. Each room on its own control.", "link": "/ac/multi-zone-ductless-system/"},
     {"icon": "air", "title": "Wall-mounted, ceiling cassette or slim-duct heads", "text": "Wall units for most rooms, cassettes where you want it flush with the ceiling, and slim-duct heads hidden in a bulkhead feeding two or three small rooms.", "link": "/ac/multi-zone-ductless-system/"},
     {"icon": "heatpump", "title": "Ducted cold-climate heat pump", "text": "If your home already has ducts, a central heat pump may be the better value. We will tell you honestly which one fits.", "link": "/heat-pump/central/"},
@@ -65,5 +65,5 @@ PAGE = {
   ("Can one mini split cool and heat the whole house?", "One single-zone head can handle an open-concept main floor or a small bungalow, but closed-off bedrooms and a basement usually need their own heads. For a whole home without ducts, a multi-zone system with two to five indoor units is the better fit."),
   ("Do I need an electrician for a mini split installation?", "Yes. A ductless heat pump needs its own dedicated 240V circuit and an outdoor disconnect. EHI includes this work, done by ESA-licensed electricians, in the installed price, and we check that your panel has room for the new breaker."),
  ],
- "related": ["/ac/multi-zone-ductless-system/", "/ac/ductless-mini-split/repair/", "/brands/midea-ductless-mini-splits/", "/heat-pump/", "/heat-pump-rebates/", "/ac/"],
+ "related": ["/ac/multi-zone-ductless-system/", "/ac/ductless-mini-split/repair/", "/brands/midea/ductless-mini-splits/", "/heat-pump/", "/heat-pump-rebates/", "/ac/"],
 }

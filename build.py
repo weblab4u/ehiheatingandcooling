@@ -67,16 +67,22 @@ REG = {
  "/heat-pump/electric-air-handler-systems/": ("Heat Pump + Electric Air Handler", "All-electric central heating and cooling for homes without gas."),
  "/water-heater/": ("Tankless Water Heater Installation", "Rinnai condensing tankless water heaters, endless hot water from $3,300."),
  "/water-heater/repair-maintenance/": ("Tankless Water Heater Repair", "Rinnai and other tankless repair, descaling flush and maintenance."),
- "/brands/": ("Brands We Install", "Authorized dealer for Midea, Lennox, Kepler and Rinnai, plus Goodman installation and service."),
- "/brands/midea-heat-pumps/": ("Midea Heat Pumps", "Midea EVOX G3 and Extreme Hyper Heat cold-climate heat pumps, 2 to 5 ton."),
- "/brands/midea-ductless-mini-splits/": ("Midea Ductless Mini-Splits", "Midea Hyper Heat single-zone and multi-zone ductless systems."),
- "/brands/midea-furnace-air-handlers/": ("Midea Furnaces & Air Handlers", "Midea MGH96 furnaces and EVOX G3 electric air handlers."),
- "/brands/kepler-heat-pumps/": ("Kepler Heat Pumps", "Kepler cold-climate heat pumps built for Canadian winters."),
- "/brands/lennox-furnaces/": ("Lennox Furnaces", "Lennox ML296V and EL297V two-stage, variable-speed gas furnaces."),
- "/brands/lennox-air-conditioners/": ("Lennox Air Conditioners", "Lennox central air conditioners installed by an authorized dealer."),
- "/brands/lennox-heat-pumps/": ("Lennox Heat Pumps", "Lennox heat pumps and cold-climate options."),
- "/brands/rinnai-tankless-water-heaters/": ("Rinnai Tankless Water Heaters", "Rinnai RX160iN and RX199iN condensing tankless water heaters."),
- "/brands/goodman/": ("Goodman Furnaces, AC & Heat Pumps", "Goodman GMVC96 furnaces, GSXH5 central air and GSZH5 heat pumps, installed and serviced."),
+ "/brands/": ("Brands We Install", "Authorized dealer for Midea, Lennox, Kepler, Goodman and Rinnai."),
+ "/brands/midea/": ("Authorized Midea Dealer", "EVOX G3 heat pumps, MGH96 furnaces and Hyper Heat ductless, installed and registered."),
+ "/brands/lennox/": ("Authorized Lennox Dealer", "Lennox furnaces, heat pumps and central air, installed and registered."),
+ "/brands/kepler/": ("Authorized Kepler Dealer", "Kepler cold-climate heat pumps, 1.5 to 5 ton, rated to -30°C."),
+ "/brands/rinnai/": ("Authorized Rinnai Dealer", "Rinnai RX160iN and RX199iN condensing tankless water heaters."),
+ "/brands/goodman/furnaces/": ("Goodman Furnaces", "Goodman GMVC96 and GMEC96 two-stage furnaces, up to 96% AFUE."),
+ "/brands/goodman/heat-pumps/": ("Goodman Heat Pumps", "Goodman GSZH5 heat pumps, 1.5 to 5 ton, for hybrid systems."),
+ "/brands/midea/heat-pumps/": ("Midea Heat Pumps", "Midea EVOX G3 and Extreme Hyper Heat cold-climate heat pumps, 2 to 5 ton."),
+ "/brands/midea/ductless-mini-splits/": ("Midea Ductless Mini-Splits", "Midea Hyper Heat single-zone and multi-zone ductless systems."),
+ "/brands/midea/furnaces/": ("Midea Furnaces & Air Handlers", "Midea MGH96 furnaces and EVOX G3 electric air handlers."),
+ "/brands/kepler/heat-pumps/": ("Kepler Heat Pumps", "Kepler cold-climate heat pumps built for Canadian winters."),
+ "/brands/lennox/furnaces/": ("Lennox Furnaces", "Lennox ML296V and EL297V two-stage, variable-speed gas furnaces."),
+ "/brands/lennox/air-conditioners/": ("Lennox Air Conditioners", "Lennox central air conditioners installed by an authorized dealer."),
+ "/brands/lennox/heat-pumps/": ("Lennox Heat Pumps", "Lennox heat pumps and cold-climate options."),
+ "/brands/rinnai/tankless-water-heaters/": ("Rinnai Tankless Water Heaters", "Rinnai RX160iN and RX199iN condensing tankless water heaters."),
+ "/brands/goodman/": ("Authorized Goodman Dealer", "Goodman furnaces, heat pumps and central air, installed and registered."),
  "/heat-pump-rebates/": ("Heat Pump Rebates Ontario", "Ontario's rebate and the new federal rebate, explained separately. We handle the paperwork."),
  "/financing/": ("HVAC Financing", "0% interest for 3, 6 or 9 months, or open loans from 2.99% OAC."),
  "/offers/": ("Offers", "Guaranteed final pricing and we may beat comparable quotes by up to 10%."),
@@ -107,9 +113,11 @@ NAV = [
  ("Water Heaters", "/water-heater/", [("Tankless", ["/water-heater/", "/water-heater/repair-maintenance/"])]),
  ("Air Quality", "/services/humidifiers/", [("Air quality and controls", ["/services/humidifiers/", "/services/hrv-erv/", "/services/thermostats/"])]),
  ("Brands", "/brands/", [
-   ("Midea", ["/brands/midea-heat-pumps/", "/brands/midea-ductless-mini-splits/", "/brands/midea-furnace-air-handlers/"]),
-   ("Lennox", ["/brands/lennox-furnaces/", "/brands/lennox-air-conditioners/", "/brands/lennox-heat-pumps/"]),
-   ("Kepler, Rinnai and Goodman", ["/brands/kepler-heat-pumps/", "/brands/rinnai-tankless-water-heaters/", "/brands/goodman/"]),
+   (("Midea", "/brands/midea/"), ["/brands/midea/heat-pumps/", "/brands/midea/furnaces/", "/brands/midea/ductless-mini-splits/"]),
+   (("Lennox", "/brands/lennox/"), ["/brands/lennox/furnaces/", "/brands/lennox/heat-pumps/", "/brands/lennox/air-conditioners/"]),
+   (("Goodman", "/brands/goodman/"), ["/brands/goodman/furnaces/", "/brands/goodman/heat-pumps/"]),
+   (("Kepler", "/brands/kepler/"), ["/brands/kepler/heat-pumps/"]),
+   (("Rinnai", "/brands/rinnai/"), ["/brands/rinnai/tankless-water-heaters/"]),
  ]),
  ("Rebates & Financing", "/heat-pump-rebates/", [("Save money", ["/heat-pump-rebates/", "/financing/", "/offers/", "/warranty/"])]),
 ]
@@ -206,15 +214,22 @@ def cta_buttons(primary="Get a Free Quote", secondary=True, small=False):
     return s + '</div>'
 
 # ---------------------------------------------------------------- chrome
+def nav_label(u, colname):
+    """Under a brand heading in the menu, drop the repeated brand name: Midea > Heat Pumps, not Midea > Midea Heat Pumps."""
+    t = title_of(u)
+    return t[len(colname[0]) + 1:] if isinstance(colname, tuple) and t.startswith(colname[0] + " ") else t
+
 def nav_items(nav):
     items = []
     for label, href, cols in nav:
         if cols:
             colhtml = ""
+            branded = any(isinstance(cn, tuple) for cn, _ in cols)
             for colname, urls in cols:
-                links = "".join(f'<li><a href="{u}">{esc(title_of(u))}</a></li>' for u in urls)
-                colhtml += f'<div class="mega-col"><p class="mega-h">{esc(colname)}</p><ul>{links}</ul></div>'
-            items.append(f'<li class="has-mega"><a href="{href}" aria-haspopup="true" aria-expanded="false">{esc(label)}<span class="chev"></span></a>'
+                links = "".join(f'<li><a href="{u}">{esc(nav_label(u, colname))}</a></li>' for u in urls)
+                head = f'<a class="mega-h" href="{colname[1]}">{esc(colname[0])}{icon("arrow")}</a>' if isinstance(colname, tuple) else f'<p class="mega-h">{esc(colname)}</p>'
+                colhtml += f'<div class="mega-col">{head}<ul>{links}</ul></div>'
+            items.append(f'<li class="has-mega{" mega-wide" if branded else ""}"><a href="{href}" aria-haspopup="true" aria-expanded="false">{esc(label)}<span class="chev"></span></a>'
                          f'<div class="mega">{colhtml}</div></li>')
         else:
             items.append(f'<li><a href="{href}">{esc(label)}</a></li>')
@@ -257,7 +272,7 @@ def footer(show_cta=True):
 <footer class="site-footer"><div class="wrap grid-4">
   <div class="f-brand">
     <img src="/assets/img/ehi-logo-320.webp" srcset="/assets/img/r/ehi-logo-160.webp 160w, /assets/img/ehi-logo-320.webp 320w" sizes="180px" alt="{esc(BRAND)}" width="180" height="90" loading="lazy">
-    <p><strong>{esc(BRAND)}</strong> ({esc(LEGAL)}) is a licensed residential and commercial HVAC contractor with 20+ years of experience. Authorized dealer for Midea, Lennox, Kepler and Rinnai. We also install and service Goodman.</p>
+    <p><strong>{esc(BRAND)}</strong> ({esc(LEGAL)}) is a licensed residential and commercial HVAC contractor with 20+ years of experience. Authorized dealer for Midea, Lennox, Kepler, Goodman and Rinnai.</p>
     <p><a href="tel:{PHONE_TEL}">{PHONE}</a><br><a href="mailto:{EMAIL}">{EMAIL}</a><br>{ADDRESS["street"]}, {ADDRESS["city"]}, {ADDRESS["region"]} {ADDRESS["postal"]}</p>
     <img class="badge" src="/assets/img/homestars-verified.webp" alt="HomeStars Verified badge" width="90" height="90" loading="lazy">
   </div>
@@ -283,7 +298,8 @@ def mobile_nav():
         if cols:
             inner = ""
             for colname, urls in cols:
-                inner += f'<p class="m-col">{esc(colname)}</p><ul>' + "".join(f'<li><a href="{u}">{esc(title_of(u))}</a></li>' for u in urls) + '</ul>'
+                inner += (f'<a class="m-col" href="{colname[1]}">{esc(colname[0])}</a><ul>' if isinstance(colname, tuple) else f'<p class="m-col">{esc(colname)}</p><ul>')
+                inner += "".join(f'<li><a href="{u}">{esc(nav_label(u, colname))}</a></li>' for u in urls) + '</ul>'
             out.append(f'<details><summary>{esc(label)}</summary><a class="m-all" href="{href}">All {esc(label)}</a>{inner}</details>')
         else:
             out.append(f'<a class="m-top" href="{href}">{esc(label)}</a>')
@@ -443,7 +459,7 @@ def why_block():
     items = [
         ("shield", "20+ years in Ontario homes", "We've installed through more January cold snaps and July heat waves than we can count. That experience shows up in the sizing, the ductwork and the little details."),
         ("star", "Voted Best Company 2019 to 2021", "HomeStars Verified. Our reviews come from real Ontario homeowners and business owners."),
-        ("check", "Authorized Midea, Lennox, Kepler and Rinnai dealer, plus Goodman", "Factory-backed equipment, factory-backed warranties, and techs trained on the gear we install. We install and service Goodman too."),
+        ("check", "Authorized Midea, Lennox, Kepler, Goodman and Rinnai dealer", "Factory-backed equipment, factory-backed warranties, and techs trained on the gear we install."),
         ("dollar", "Guaranteed final pricing", "The number on your quote is the number on your invoice. We may also beat comparable reputable quotes by up to 10%."),
         ("leaf", "Rebate paperwork handled", "Pre-approval, heat-loss calculation and documentation for the Home Renovation Savings Program. You just sign."),
         ("wrench", "Licensed, certified crews", "TSSA-certified gas technicians, licensed refrigeration techs and ESA-licensed electrical work on every job."
@@ -475,7 +491,7 @@ def areas_block():
             f'<div class="area-cols">{cols}</div><p><a class="more" href="/service-areas/">See all service areas{icon("arrow")}</a></p></div></section>')
 
 def brands_block():
-    bl = [("Midea", "/brands/midea-heat-pumps/", "midea"), ("Lennox", "/brands/lennox-furnaces/", "lennox"), ("Kepler", "/brands/kepler-heat-pumps/", "kepler"), ("Rinnai", "/brands/rinnai-tankless-water-heaters/", "rinnai"), ("Goodman", "/brands/goodman/", "goodman")]
+    bl = [("Midea", "/brands/midea/", "midea"), ("Lennox", "/brands/lennox/", "lennox"), ("Kepler", "/brands/kepler/", "kepler"), ("Rinnai", "/brands/rinnai/", "rinnai"), ("Goodman", "/brands/goodman/", "goodman")]
     items = "".join(brand_logo_card(n, u, f) for n, u, f in bl)
     return f'<section class="sec brands-sec"><div class="wrap"><h2>Brands we sell, install and service</h2><ul class="brand-grid">{items}</ul></div></section>'
 
@@ -880,7 +896,7 @@ def hero(page):
     return f'''<section class="hero {cls}"><div class="wrap hero-grid">
   <div class="hero-copy">{eyebrow}<h1>{page["h1"]}</h1>{f'<p class="tagline">{page["tagline"]}</p>' if page.get("tagline") else ""}{page["intro"]}
     <ul class="hero-points">{pts}</ul>{cta_buttons(page.get("cta_primary","Get a Free Quote"))}
-    <p class="hero-trust">{icon("star")} Voted Best Company 2019 to 2021 · Authorized Midea, Lennox, Kepler &amp; Rinnai dealer, plus Goodman · 20+ years</p>
+    <p class="hero-trust">{icon("star")} Voted Best Company 2019 to 2021 · Authorized Midea, Lennox, Kepler, Goodman &amp; Rinnai dealer · 20+ years</p>
   </div>
   <div class="hero-side">{right}</div>
 </div></section>'''
@@ -1121,7 +1137,7 @@ def city_hero(page):
     copy = f'{eyebrow}<h1>{page["h1"]}</h1>{tagline}{page["intro"]}'
     btns = cta_buttons(page.get("cta_primary", "Get a Free Quote"))
     form = form_block({"h3": page.get("form_h3", f"Get your free {c['name']} HVAC quote"), "sub": "Same-day reply in most cases. No pressure, no spam.", "city": c["name"]}, compact=True)
-    trust = f'<p class="hero-trust">{icon("star")} Voted Best Company 2019 to 2021 · Authorized Midea, Lennox, Kepler &amp; Rinnai dealer, plus Goodman · 20+ years</p>'
+    trust = f'<p class="hero-trust">{icon("star")} Voted Best Company 2019 to 2021 · Authorized Midea, Lennox, Kepler, Goodman &amp; Rinnai dealer · 20+ years</p>'
     if L == "A":
         strip = "".join(city_img(k, "ch-strip-img", eager=(i == 0)) for i, k in enumerate(imgs))
         return (f'<section class="hero city-hero ch-a"><div class="wrap ch-grid"><div class="hero-copy">{copy}<ul class="hero-points">{pts}</ul>{trust}</div>'
@@ -1372,7 +1388,18 @@ def load_pages():
 
 # Old efficienthomeimprovements.ca (GoDaddy builder) URLs. The new site is HVAC only,
 # so the non-HVAC pages (doors and windows, renovations, decks, insulation) go to the homepage.
-OLD_REDIRECTS = [
+# Brand pages moved under their brand's main page (November 2026).
+BRAND_MOVES = [
+    ("brands/midea-heat-pumps", "/brands/midea/heat-pumps/"),
+    ("brands/midea-furnace-air-handlers", "/brands/midea/furnaces/"),
+    ("brands/midea-ductless-mini-splits", "/brands/midea/ductless-mini-splits/"),
+    ("brands/lennox-furnaces", "/brands/lennox/furnaces/"),
+    ("brands/lennox-heat-pumps", "/brands/lennox/heat-pumps/"),
+    ("brands/lennox-air-conditioners", "/brands/lennox/air-conditioners/"),
+    ("brands/kepler-heat-pumps", "/brands/kepler/heat-pumps/"),
+    ("brands/rinnai-tankless-water-heaters", "/brands/rinnai/tankless-water-heaters/"),
+]
+OLD_REDIRECTS = BRAND_MOVES + [
     ("about-us", "/about-ehi/"), ("contact-us-1", "/contact/"), ("rebates", "/heat-pump-rebates/"),
     ("payment-plans", "/financing/"), ("tankless-water-heaters", "/water-heater/"),
     ("heating-&-cooling", "/services/"), ("commercial", "/"),
@@ -1420,7 +1447,7 @@ def llms_txt(pages):
         f"- Office: {ADDRESS['street']}, {ADDRESS['city']}, {ADDRESS['region']} {ADDRESS['postal']} (service-area business; crews come to you)",
         f"- Hours: {hours}",
         "- Service area: the GTA, York, Durham, Peel, Halton, Simcoe, Niagara, Hamilton, Kitchener-Waterloo, Ottawa, and towns across Eastern, Southwestern and Northern Ontario",
-        "- Authorized dealer: Midea, Lennox, Kepler and Rinnai. Also installs and services Goodman.",
+        "- Authorized dealer: Midea, Lennox, Kepler, Goodman and Rinnai.",
         f"- Prices: furnaces installed from ${PRICING.FROM['furnace']}, cold-climate heat pumps from ${PRICING.FROM['heat_pump']}, tankless water heaters from ${PRICING.FROM['tankless']}. Every job gets a written, guaranteed quote.",
         "- Voted Best Company 2019 to 2021 on HomeStars",
         f"- Free quote: [{SITE}/contact/]({SITE}/contact/)",

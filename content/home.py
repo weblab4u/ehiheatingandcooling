@@ -30,7 +30,7 @@ PAGE = {
  "hero_points": [
    "Guaranteed final pricing",
    "0% financing for 3, 6 or 9 months",
-   "Authorized Midea, Lennox, Kepler and Rinnai dealer, plus Goodman",
+   "Authorized Midea, Lennox, Kepler, Goodman and Rinnai dealer",
    "Up to 12 years parts and labour warranty",
  ],
  "blocks": [

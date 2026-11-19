@@ -5,8 +5,8 @@ ABOUT = {
  "priority": "0.7",
  "eyebrow": "About EHI",
  "h1": "About EHI Heating And Cooling",
- "intro": "<p>EHI Heating And Cooling is the HVAC division of Efficient Home Improvements, a family-run contractor based in Whitchurch-Stouffville with more than 20 years of experience in Ontario homes and commercial properties. We're an authorized dealer for Midea, Lennox, Kepler and Rinnai, we install Goodman too, our crews are licensed and certified, and our pricing is guaranteed in writing. That's the short version.</p>",
- "hero_points": ["20+ years installing and servicing HVAC in Ontario", "Voted Best Company 2019, 2020 and 2021, HomeStars Verified", "Authorized Midea, Lennox, Kepler and Rinnai dealer, plus Goodman", "Based in Stouffville, serving the GTA to Northern Ontario"],
+ "intro": "<p>EHI Heating And Cooling is the HVAC division of Efficient Home Improvements, a family-run contractor based in Whitchurch-Stouffville with more than 20 years of experience in Ontario homes and commercial properties. We're an authorized dealer for Midea, Lennox, Kepler, Goodman and Rinnai, our crews are licensed and certified, and our pricing is guaranteed in writing. That's the short version.</p>",
+ "hero_points": ["20+ years installing and servicing HVAC in Ontario", "Voted Best Company 2019, 2020 and 2021, HomeStars Verified", "Authorized Midea, Lennox, Kepler, Goodman and Rinnai dealer", "Based in Stouffville, serving the GTA to Northern Ontario"],
  "hero_image": "The EHI Heating And Cooling team standing in front of two EHI service vans",
  "hero_img": "/assets/img/ehi-team.webp", "hero_img_fit": "cover", "hero_img_pos": "50% 40%",
  "blocks": [
@@ -27,7 +27,7 @@ ABOUT = {
  "faqs": [
   ("Where is EHI Heating And Cooling located?", "Our office is at 4261 Bloomington Road, Whitchurch-Stouffville, Ontario. We're a service-area business, so our crews travel to homes across the GTA and most of Ontario."),
   ("How long has EHI been in business?", "EHI has more than 20 years of experience installing and servicing heating and cooling systems in Ontario homes."),
-  ("Are you an authorized dealer?", "Yes. EHI is an authorized dealer for Midea, Lennox, Kepler and Rinnai, which means factory-backed equipment, warranty support and training on the systems we install. We also install and service Goodman furnaces, air conditioners and heat pumps."),
+  ("Are you an authorized dealer?", "Yes. EHI is an authorized dealer for Midea, Lennox, Kepler, Goodman and Rinnai, which means factory-backed equipment, warranty support and training on the systems we install."),
   ("Do you do commercial HVAC?", "Yes. Alongside residential work, EHI installs and services HVAC for offices, retail units, restaurants, warehouses, clinics and multi-unit buildings across Ontario, including rooftop units, split systems, ductless heat pumps, furnaces and commercial tankless hot water. Maintenance agreements with priority emergency response are available."),
  ],
  "related": ["/reviews/", "/service-areas/", "/brands/", "/warranty/", "/contact/"],

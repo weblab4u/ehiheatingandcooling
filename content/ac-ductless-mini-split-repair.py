@@ -54,5 +54,5 @@ PAGE = {
   ("Do you service mini splits from any brand?", "Yes. EHI repairs and cleans ductless mini splits from any brand, including systems we did not install, across our Ontario service area. We are an authorized Midea dealer for warranty work on Midea systems."),
   ("Why does my mini split smell when it turns on?", "A musty smell from a ductless unit is mould and bacteria growing on the damp evaporator coil and blower wheel. Filter cleaning will not reach it. A proper coil and blower wheel cleaning removes the growth and the smell."),
  ],
- "related": ["/ac/ductless-mini-split/", "/ac/multi-zone-ductless-system/", "/ac/repair-maintenance/", "/heat-pump/repair-maintenance/", "/services/emergency-hvac/", "/brands/midea-ductless-mini-splits/"],
+ "related": ["/ac/ductless-mini-split/", "/ac/multi-zone-ductless-system/", "/ac/repair-maintenance/", "/heat-pump/repair-maintenance/", "/services/emergency-hvac/", "/brands/midea/ductless-mini-splits/"],
 }
