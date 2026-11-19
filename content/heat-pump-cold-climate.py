@@ -52,6 +52,7 @@ PAGE = {
   {"type": "areas"},
  ],
  "faqs": [
+  ("Do cold weather heat pumps work in Canada?", "Yes. Cold weather heat pumps, also called cold climate heat pumps, are built for Canadian winters and keep heating down to -30°C. The best heat pump for cold weather is one rated for that and sized for your home, with backup heat planned for the coldest hours."),
   ("What is a cold climate heat pump?", "A cold climate heat pump is an air-source heat pump engineered to deliver most of its rated heating capacity at -15°C and to keep operating down to -25°C or -30°C. It uses an inverter compressor and vapour injection to pull useful heat from very cold air, where a standard heat pump loses output or shuts down."),
   ("Do cold climate heat pumps work at -30°C in Ontario?", "Yes. The Midea EVOX G3 and Kepler models we install are rated to operate at -30°C and hold strong capacity at -15°C. Output does decline as it gets colder, so for homes in Northern Ontario we add backup heat for the handful of nights that go past the rating."),
   ("What is the best cold climate heat pump for Ontario?", "The best cold climate heat pump for Ontario is one on NRCan's qualified list that is sized to your home's heat loss and installed correctly. Brand matters less than sizing and installation. We most often install the Midea EVOX G3, with Kepler as the choice for quiet operation or smaller sizes."),

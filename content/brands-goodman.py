@@ -22,7 +22,7 @@ FURNACES = {
   {"type": "table", "h2": "Goodman furnaces we install", "headers": ["Model", "Staging and blower", "Efficiency", "Sizes"], "rows": [
     ["Goodman GMVC96", "Two-stage gas valve, variable-speed ECM blower", "Up to 96% AFUE", "40,000 to 120,000 BTU/h input"],
     ["Goodman GMEC96", "Two-stage gas valve, multi-speed ECM blower", "Up to 96% AFUE", "40,000 to 120,000 BTU/h input"]],
-   "note": "Installed from $3,300 with a guaranteed written quote. Your final price depends on size, venting, gas line and condensate work."},
+   "note": "Goodman furnace prices in Ontario start at $3,300 installed, with a guaranteed written quote. Your final price depends on size, venting, gas line and condensate work."},
   {"type": "cards", "h2": "GMVC96 or GMEC96?", "no_fill": True, "items": [
     {"icon": "furnace", "title": "GMVC96: quiet, even heat", "text": "Two-stage heat runs on low most of the winter and the variable-speed blower ramps up gently. The better partner for central air or a heat pump, because it moves air smoothly at every speed."},
     {"icon": "dollar", "title": "GMEC96: two-stage on a tighter budget", "text": "The same 96% AFUE and two-stage burner with a multi-speed ECM blower. A sensible upgrade from an old 80% furnace without the top-tier price."}]},
@@ -58,6 +58,7 @@ FURNACES = {
     "Gas pressure and combustion tested", "Carbon monoxide check and a fresh filter"]},
   {"type": "money"}, {"type": "why"}, {"type": "areas"}],
  "faqs": [
+  ('Do you do Goodman furnace repair in Toronto, Mississauga, Oakville and Milton?', 'Yes. We repair Goodman furnaces across the GTA, including Toronto, Mississauga, Oakville and Milton, and the rest of our Ontario service area. You get a diagnosis and a written price before any work.'),
   ("How much does a Goodman furnace cost installed?", "Our gas furnace installs start from $3,300, and the price for a Goodman furnace depends on the size, the model and the installation needs, such as venting, condensate drain and gas line work. You get a written, guaranteed quote with the exact model number before any work starts."),
   ("What is the difference between the Goodman GMVC96 and GMEC96?", "Both are two-stage Goodman gas furnaces at up to 96% AFUE with 40,000 to 120,000 BTU/h inputs. The GMVC96 has a variable-speed ECM blower that ramps airflow smoothly and works well with central air or a heat pump, while the GMEC96 uses a multi-speed ECM blower and usually costs less."),
   ("What warranty comes with a Goodman furnace?", "Goodman's better furnaces carry a heat exchanger limited warranty for as long as you own your home, plus 10-year unit replacement and 10-year parts limited warranties, when registered online within 60 days of installation. We register it for you."),

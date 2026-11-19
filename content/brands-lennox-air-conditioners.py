@@ -1,7 +1,7 @@
 # Brand page: /brands/lennox/air-conditioners/
 PAGE = {
  "url": "/brands/lennox/air-conditioners/",
- "title": "Lennox Air Conditioners Ontario | Authorized Dealer",
+ "title": "Lennox Air Conditioners Ontario | Prices & Authorized Dealer",
  "description": "Lennox air conditioning units installed and repaired across Ontario by an authorized Lennox dealer. Matched coils, quiet options, guaranteed quote.",
  "priority": "0.7",
  "eyebrow": "Lennox Central Air Conditioners",
@@ -19,7 +19,7 @@ PAGE = {
  "service": {"name": "Lennox Air Conditioner Installation", "type": "Air conditioner installation"},
  "blocks": [
   {"type": "split", "h2": "Why a Lennox air conditioner, and why it needs a matched coil", "image": "Parent and child relaxing on the floor of a comfortable home", "image_src": "/assets/img/brands/lennox-home-comfort.webp", "image_fit": "cover", "image_credit": "Image: Lennox", "html": "<p>Lennox is a long-established North American HVAC manufacturer with a deep central air line-up, which lets us fit the right Lennox AC to your budget rather than pushing one model.</p><p><strong>Efficiency tiers in plain words.</strong> The entry tier is a single-stage Lennox air conditioner: it runs at full output, cools reliably and costs the least. The middle tier is two-stage: it runs on low most of the time for steadier temperatures and better dehumidification. The top tier is variable-capacity: the compressor adjusts in small steps, so it's the quietest, the most even and the cheapest to run on a muggy July night. SEER2 ratings climb as you move up.</p><p><strong>The coil has to match.</strong> A Lennox outdoor unit only reaches its rated SEER2 with the matched indoor coil and a blower that can move the right airflow. We check your furnace blower and static pressure before quoting, because an oversized AC on a weak blower short cycles and leaves the house clammy.</p><p><strong>Heat pump instead?</strong> A Lennox heat pump cools exactly like a Lennox AC and heats in winter too, which may open the door to a rebate. Compare on our <a href='/brands/lennox/heat-pumps/'>Lennox heat pump page</a> before you decide.</p>"},
-  {"type": "table", "h2": "Lennox air conditioner options we install", "lead": "Exact model availability changes by season, so we quote current Lennox models. Here's how the tiers compare for a typical Ontario home.", "headers": ["Lennox AC tier", "How it runs", "Best for", "Installed price"], "rows": [
+  {"type": "table", "h2": "Lennox AC units we install", "lead": "Exact model availability changes by season, so we quote current Lennox models. Here's how the tiers compare for a typical Ontario home.", "headers": ["Lennox AC tier", "How it runs", "Best for", "Installed price"], "rows": [
     ["Single-stage", "Full output, on and off", "Budget replacement, smaller homes, cooling a few months a year", "Quote"],
     ["Two-stage", "Low stage most of the time, high stage on hot afternoons", "Most two-storey homes, better humidity control", "Quote"],
     ["Variable-capacity", "Compressor adjusts in small steps to match the load", "Quietest and most even cooling, lowest running cost, homes with hot upstairs rooms", "Quote"],
@@ -58,6 +58,8 @@ PAGE = {
   {"type": "areas"},
  ],
  "faqs": [
+  ('How much is a Lennox air conditioner in Canada?', 'Lennox air conditioner prices depend on the tonnage, the tier (single-stage, two-stage or variable-capacity), the matched coil and any line set or electrical work. We quote every Lennox AC unit in writing after a home visit in Ontario, and that price is guaranteed.'),
+  ('Are you a Lennox AC company in Ontario?', 'Yes. EHI Heating And Cooling is an authorized Lennox dealer in Ontario. We install, register, repair and maintain Lennox air conditioning systems.'),
   ("How much does a Lennox air conditioner cost installed in Ontario?", "A Lennox air conditioner installed by EHI is quoted by tier, size and installation requirements, with single-stage models costing the least and variable-capacity models the most. We don't publish a from-price for Lennox AC because coil, line set and electrical needs vary so much, but every quote is guaranteed and most are ready the same day as the visit."),
   ("Which Lennox AC tier should I choose?", "Choose single-stage for a budget replacement in a smaller home, two-stage for most two-storey homes that want steadier temperatures and better humidity control, and variable-capacity if you want the quietest, most even cooling and the lowest running cost. We'll show you the price difference for your home."),
   ("Do I need a new coil with a Lennox air conditioner?", "Usually yes. A Lennox outdoor unit only reaches its rated efficiency with a matched indoor coil, and an old coil may use a different refrigerant or be undersized. We quote the matched coil as part of the install so there are no surprises."),

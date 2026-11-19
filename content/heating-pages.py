@@ -17,8 +17,17 @@ CITIES = _load("cities").CITIES
 _cl = _load("climate"); CLIMATE, TOR_HDD = _cl.CLIMATE, _cl.TORONTO_HDD
 SKIP = {"toronto", "mississauga", "brampton", "vaughan", "markham", "oshawa", "hamilton", "barrie", "ottawa"}
 LIVE_BATCHES = {1}
-LIVE = {c["slug"] for c in CITIES if c["slug"] not in SKIP and c.get("batch", 1) in LIVE_BATCHES}
-LIVE_TANKLESS = {c["slug"] for c in CITIES if c.get("batch", 1) in LIVE_BATCHES}      # no city had a tankless page, so every city gets one
+# Batch-2 cities that already get Google searches for these services (5 or more queries in Search Console, November 2026)
+# go live with batch 1. See keyword-map.xlsx.
+DEMAND = {"alliston", "arnprior", "bowmanville", "bradford", "brantford", "burlington", "caledon", "collingwood", "east-gwillimbury", "etobicoke",
+          "georgetown", "guelph", "innisfil", "king-city", "north-york", "orillia", "orleans", "scarborough", "st-catharines", "thornhill",
+          "windsor", "woodbridge", "woodstock"}
+LIVE = {c["slug"] for c in CITIES if c["slug"] not in SKIP and (c.get("batch", 1) in LIVE_BATCHES or c["slug"] in DEMAND)}
+LIVE_TANKLESS = {c["slug"] for c in CITIES if c.get("batch", 1) in LIVE_BATCHES or c["slug"] in DEMAND}      # no city had a tankless page, so every city gets one
+AREA = _load("search_aliases").DISPLAY        # the municipality people search for, e.g. Clarington for Bowmanville
+def area(s, n): return f"{n}, {AREA[s]}" if s in AREA else n
+def area_line(s, n):
+    return f" We cover all of {AREA[s]}, not just {n}." if s in AREA and " and " not in AREA[s] else (f" We also cover {AREA[s]}." if s in AREA else "")
 RINNAI = {"garage": "/assets/img/brands/rinnai-rx-garage-install.webp", "unit": "/assets/img/brands/rinnai-rx-tankless.webp", "sink": "/assets/img/brands/rinnai-hot-water-sink.webp"}
 ENBRIDGE_EMERGENCY = "1-866-763-5427"
 FURNACE_PHOTOS = ["midea-gas-furnace-installed", "midea-furnace-room-pvc-venting", "furnace-coil-utility-room"]      # stand-ins for furnace slots
@@ -284,7 +293,7 @@ def heat_pump_page(c):
                          "Capacitor and contactor tested, terminals tightened", "Backup heat tested at the switchover", "A clean filter", "The unit's height and clearance for winter checked"])}
 
     blocks = ([part("installation", "Installation", "install", V("pk1", "Installation", "New heat pump"), V("ph1", f"Heat pump installation in {n}", f"Installing a heat pump in {n}"),
-                    V("pl1", f"Sizing, placement, cost and rebates for a new cold-climate heat pump in {n}.", f"Everything you need to decide on a new heat pump for your {n} home."))]
+                    V("pl1", f"Residential heat pump services in {n}: sizing, placement, cost and rebates for a new cold-climate heat pump.", f"Residential heat pump services in {n}, starting with everything you need to decide on a new heat pump."))]
               + install
               + [part("replacement", "Replacement", "clock", V("pk2", "Replacement", "Replacing a system"), V("ph2", f"Heat pump and AC replacement in {n}", f"Replacing an old heat pump or air conditioner in {n}"),
                       V("pl2", "When an older system is worth repairing, and when replacing it with a cold-climate heat pump makes more sense.", "How we decide between repair and replacement, and what a replacement involves.")),
@@ -300,13 +309,13 @@ def heat_pump_page(c):
     near = [u for u in (nearby_link(x, "heat-pump") for x in c["nearby"]) if u]
     return {
      "url": f"/{s}/heat-pump/", "city_service": s, "priority": "0.7", "heating": True,
-     "title": title, "description": desc, "eyebrow": f"Heat Pumps · {n}", "h1": f"Heat Pump Installation, Replacement and Repair in {n}",
+     "title": title, "description": desc, "eyebrow": f"Heat Pumps · {area(s, n)}", "h1": f"Heat Pump Installation, Replacement and Repair in {n}",
      "tagline": V("tag", f"Sized for {N} {t} design day, rebate filed before install", f"Built for {t}, raised above the snow, rebate paperwork done for you", f"The right size for {t}, with your rebate filed first"),
      "intro": "<p>" + V("intro",
         f"Before you put a heat pump on a {n} house, you want two answers: will it keep you warm on the coldest night, and what does it cost after the rebate. Here are both, worked out with {N} own Building Code numbers, plus which setup suits the way your home is heated now.",
         f"Thinking about a heat pump for your {n} home this winter? Below are the numbers it has to meet, what it costs before and after the rebate, and which setup fits the way you heat today. No guesswork, just {N} own Building Code data.",
         f"A heat pump only works as well as its sizing. For {n} that means {t} on the coldest design day, so that is where we start. Here is how we size it, where the outdoor unit goes, what you pay and what you get back.")
-        + V("intro2", " Replacing an old AC or heat pump, or need a repair? Use the quick links below.", " Already have one that needs replacing or fixing? Jump straight there with the links below.") + "</p>",
+        + area_line(s, n) + V("intro2", " Replacing an old AC or heat pump, or need a repair? Use the quick links below.", " Already have one that needs replacing or fixing? Jump straight there with the links below.") + "</p>",
      "hero_points": [f"Sized from a heat-loss calculation at {N} {t} design temperature",
                      "Cold-climate Midea and Kepler models rated to -30°C" + (", with full backup for colder nights" if below else ""),
                      "Up to $7,500 back for homes heated by electricity, oil or propane", "Old AC and heat pump replacement, repair and yearly tune-ups"],
@@ -330,6 +339,9 @@ def heat_pump_page(c):
       (f"Where should the heat pump go on a {n} house?",
        V("f4", f"On a raised stand or wall bracket, out of the roof drip line, with room for defrost water to drain. {N} Building Code ground snow load is {d['snow']} kPa, so we set the height for your snow, keep the unit away from bedroom windows and run the line set in a cover.",
                f"Above the snow line, on a stand or bracket, clear of the eaves and away from bedrooms. With a {d['snow']} kPa ground snow load in {n}, height and drainage matter more than which side of the house it is on.")),
+      (f"Are you a licensed heat pump installer in {n}?",
+       V("f0", f"Yes. Our heat pump installers in {n} are licensed refrigeration technicians, and the 240V circuit is done by an ESA-licensed electrician. We are an authorized Midea, Kepler, Lennox and Goodman dealer, so the warranty is registered properly.",
+               f"Yes. Every heat pump installation in {n} is done by licensed refrigeration techs, with the electrical by an ESA-licensed electrician, and we register the manufacturer warranty for you.")),
       (f"Should I repair or replace my old air conditioner or heat pump in {n}?",
        V("f6", "If it is under about 10 years old and the repair is under a third of a new system, repair it. If the compressor has failed on an older unit, or it runs on R-22 refrigerant, replacing it with a cold-climate heat pump usually makes more sense and qualifies for the rebate.",
                "Repair when the system is younger than about 10 years and the fix is modest. Replace when the compressor fails on an older unit or it still uses R-22. A cold-climate heat pump then cools, heats and qualifies for the rebate.")),
@@ -451,10 +463,10 @@ def furnace_page(c):
              "lead": "High-efficiency two-stage furnaces with long parts warranties when registered. We register them for you."}
     visit = {"type": "checklist", "h2": V("v-h", f"What a {n} furnace repair visit includes", f"Your {n} furnace repair visit"), "photo": "sys", "photo_keys": FURNACE_PHOTOS,
              "shot": "Technician with the furnace door off, testing the flame sensor or ignitor with a meter",
-             "items": V("v", ["A TSSA-certified technician who reads the fault code and tests it with a meter", "A written price before any part is replaced",
+             "items": V("v", ["Furnace cleaning: burners, flame sensor and blower compartment", "A TSSA-certified technician who reads the fault code and tests it with a meter", "A written price before any part is replaced",
                               "Common parts on the truck: ignitors, flame sensors, pressure switches, capacitors", "Carbon monoxide test at the furnace and the supply registers",
                               "Filter, vent pipes and condensate drain checked while we are there", "Honest repair or replace advice, with both prices in writing"],
-                             ["A TSSA-certified gas technician", "Fault codes read and confirmed with meter readings", "The price in writing before any part goes in",
+                             ["Furnace cleaning of the burners, flame sensor and blower", "A TSSA-certified gas technician", "Fault codes read and confirmed with meter readings", "The price in writing before any part goes in",
                               "Ignitors, flame sensors, pressure switches and capacitors carried on the truck", "A carbon monoxide test before we leave", "Vents, filter and condensate drain checked on every call"])}
 
     cost["keys"] = ["furnace_install"]
@@ -478,7 +490,7 @@ def furnace_page(c):
     rep_cost = {"type": "cost_guide", "h2": V("cr-h", f"Furnace repair costs in {n}", f"What a {n} furnace repair costs"), "keys": ["furnace_repair"],
                 "lead": V("cr-l", "Repairs are priced in writing after diagnosis, before any part goes in.", "We find the fault first, then you get the price in writing.")}
     blocks = ([part("installation", "Installation", "install", V("pk1", "Installation", "New furnace"), V("ph1", f"Furnace installation in {n}", f"Installing a new furnace in {n}"),
-                    V("pl1", f"Sizing, models, cost and what is included in a new furnace for a {n} home.", f"How we size and install a high-efficiency furnace in {n}."))]
+                    V("pl1", f"Residential furnace services in {n}: sizing, models, cost and what is included in a new furnace.", f"Residential furnace services in {n}, starting with how we size and install a high-efficiency furnace."))]
               + V("order", [snapshot, sizing_b, cost, equip, install_incl], [snapshot, cost, sizing_b, install_incl, equip], [sizing_b, snapshot, cost, install_incl, equip])
               + [part("replacement", "Replacement", "clock", V("pk2", "Replacement", "Replacing a furnace"), V("ph2", f"Furnace replacement in {n}", f"Replacing an old furnace in {n}"),
                       V("pl2", "How we decide between repair and replacement, and how a replacement goes.", "When it is time, and what happens on replacement day.")),
@@ -494,23 +506,29 @@ def furnace_page(c):
     near = [u for u in (nearby_link(x, "furnace") for x in c["nearby"]) if u]
     return {
      "url": f"/{s}/furnace/", "city_service": s, "priority": "0.7", "heating": True,
-     "title": title, "description": desc, "eyebrow": f"Furnaces · {n}", "h1": f"Furnace Installation, Replacement and Repair in {n}",
+     "title": title, "description": desc, "eyebrow": f"Furnaces · {area(s, n)}", "h1": f"Furnace Installation, Replacement and Repair in {n}",
      "tagline": V("tag", f"High-efficiency furnaces sized for {t}, and straight answers when one stops", f"New furnaces from $3,300, replacement priced honestly, repair when you need it", f"The right furnace for {t}, installed and backed in writing"),
      "intro": "<p>" + V("intro",
         f"Whether you are planning a new furnace or replacing one that has given up, the starting point is the same: the right size for {N} {t} design temperature and one written price. Here is how we do it, what it costs, and when a repair still makes sense.",
         f"A new furnace for a {n} home should be sized for {t}, quoted in writing and installed to code. This page covers installation first, then replacement, then repair.",
         f"Planning a furnace for your {n} home? Below are the sizing numbers, prices and what is included, followed by how we handle replacement and repair.")
-        + " <a href='#repair'>No heat right now? Jump to the five checks.</a></p>",
+        + area_line(s, n) + " <a href='#repair'>No heat right now? Jump to the five checks.</a></p>",
      "hero_points": ["New 96% to 97% AFUE furnaces from $3,300 installed", f"Sized from a heat-loss calculation at {t}",
                      "Replacement priced in writing next to the repair", "Emergency repair evenings, weekends and holidays by TSSA-certified techs"],
      "hero_image": f"Technician repairing a high-efficiency gas furnace in a {n} basement",
      "service": {"name": f"Furnace Repair and Installation in {n}", "type": "Furnace repair and replacement", "area": n},
      "blocks": blocks,
      "faqs": [
-      (f"How much does a new furnace cost in {n}?",
+      (f"Do you offer furnace installation services in {n}?",
+       V("q00", f"Yes. Our furnace experts handle furnace installation services in {n}, covering sizing, removal of the old furnace, venting, gas connection, condensate drain, thermostat and warranty registration, all on one guaranteed price.",
+                f"Yes, our furnace experts do it from sizing to start-up: we size the new furnace, remove the old one, install venting, gas and condensate, set up the thermostat and register the warranty, on one written price.")),
+      (f"Should I rent or buy a furnace in {n}?",
+       V("qr", f"For most {n} homeowners, buying wins. A furnace rental carries a monthly fee for years and you never own it; buying a new furnace costs from $3,300 installed, you own it outright, and 0% financing for 3, 6 or 9 months can spread the cost. We do not rent furnaces.",
+               "Buying usually costs less over the life of the furnace. Rentals keep charging every month and the equipment is never yours. We sell and install furnaces you own, from $3,300 installed, with 0% financing on approved credit.")),
+      (f"How much is a new furnace in {n}?",
        V("q0", f"High-efficiency furnace installation in {n} starts at $3,300 installed for a 96% to 97% AFUE two-stage furnace. The final price depends on size, venting and gas line work, and you get it in writing, guaranteed, after the home visit.",
                f"New 96% to 97% AFUE furnaces in {n} start at $3,300 installed. Size, venting changes and gas work set the final number, which we guarantee in writing.")),
-      (f"How much does furnace repair cost in {n}?",
+      (f"What does a furnace repair cost in {n}?",
        V("q1", f"Furnace repair in {n} is priced in writing after diagnosis, because it depends on the failed part. Flame sensors, ignitors and capacitors are at the low end, blower and inducer motors and control boards cost more. If replacement is the better choice, a new high-efficiency furnace starts at $3,300 installed.",
                f"It depends on the part, so we diagnose first and give you the price in writing. Sensors, ignitors and capacitors are inexpensive; motors and control boards cost more. A new high-efficiency furnace in {n} starts at $3,300 installed.")),
       (f"What size furnace does a {n} home need?",
@@ -652,13 +670,13 @@ def tankless_page(c):
     heat = [u for u in (f"/{s}/furnace/" if s in LIVE else (f"/{s}/furnace-repair/" if s in SKIP else None),) if u]
     return {
      "url": f"/{s}/tankless-water-heater/", "city_service": s, "priority": "0.6", "heating": True,
-     "title": title, "description": desc, "eyebrow": f"Tankless Water Heaters · {n}", "h1": f"Tankless Water Heater Installation, Replacement and Repair in {n}",
+     "title": title, "description": desc, "eyebrow": f"Tankless Water Heaters · {area(s, n)}", "h1": f"Tankless Water Heater Installation, Replacement and Repair in {n}",
      "tagline": V("tag", "Endless hot water, sized for February, priced in writing", "Rinnai tankless, sized for winter water and installed in a day", "Stop running out of hot water, and stop paying rent on a tank"),
      "intro": "<p>" + V("intro",
         f"A tankless water heater gives a {n} home hot water for as long as the taps run, as long as it is sized for winter inlet water. Here is how we size it, what it costs, and what a swap from a tank involves.",
         f"Tired of cold showers or a monthly rental fee? A Rinnai tankless fixes both, if it is sized for the cold water a {n} winter delivers. Installation first, then replacement and repair.",
         f"Thinking about tankless for your {n} home? Below: sizing for winter water, prices, the models we install, and what changes when you replace a tank.")
-        + V("intro2", " Need a repair instead? Use the quick links below.", " Already have one that needs work? Jump to repair below.") + "</p>",
+        + area_line(s, n) + V("intro2", " Need a repair instead? Use the quick links below.", " Already have one that needs work? Jump to repair below.") + "</p>",
      "hero_points": ["Rinnai RX160iN and RX199iN condensing, 0.97 and 0.98 UEF", "From $3,300 installed, guaranteed written quote", "Old tank removed and rental return arranged", "Descaling, service and repair for tankless units"],
      "hero_image": f"Rinnai tankless water heater on a wall in a {n} home",
      "service": {"name": f"Tankless Water Heater Installation in {n}", "type": "Tankless water heater installation", "area": n},
@@ -676,6 +694,9 @@ def tankless_page(c):
       (f"Does a tankless water heater need a new gas line in {n}?",
        V("q4", f"Often. A 160,000 to 199,000 BTU burner can need a larger line than a tank used, so we check the line and meter on the assessment. {gasline}",
                f"Sometimes. Tankless burners draw far more gas than a tank, so we check the line back to the meter and include any upsizing in the quote. {gasline}")),
+      (f"Do you do water heater installation and repair in {n}?",
+       V("q6", f"Yes. We handle tankless water heater installation, tank-to-tankless replacement, and tankless repair and maintenance in {n}. Water heater installation starts at $3,300 for a Rinnai RX160iN.",
+               f"Yes: water heater installation and replacement with Rinnai tankless units from $3,300, plus repair and descaling on tankless and instant water heaters in {n}.")),
       (f"How often should a tankless be descaled in {n}?",
        V("q5", "Once a year for most homes, more often if your water is very hard. The isolation valves we install make the flush quick.",
                "Yearly is the usual rule, and more often with hard water. With service valves in place it is a short visit."))],

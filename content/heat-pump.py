@@ -1,22 +1,24 @@
 # Exemplar service page. Every service page follows this shape.
 PAGE = {
  "url": "/heat-pump/",
- "title": "Heat Pump Installation Ontario | Up to $7,500 Rebate",
- "description": "Cold-climate heat pump installation across Ontario from $5,500. Midea, Kepler and Lennox systems rated to -30°C. We size it, install it and file your rebate.",
+ "title": "Heat Pump Installation Ontario | Replacement & Repair",
+ "description": "Heat pump installation in Ontario from $5,500: cold climate heat pumps rated to -30°C, plus replacement, repair and maintenance. Up to $7,500 in rebates.",
  "priority": "0.9",
- "eyebrow": "Heat Pump Installation",
- "h1": "Heat Pump Installation in Ontario",
- "tagline": "Sized Right and Rebate-Ready",
- "intro": "<p>A cold-climate heat pump heats to -30°C, cools in July and can cut your bills. EHI installs Midea, Kepler and Lennox heat pumps across Ontario and handles the rebate paperwork.</p>",
+ "eyebrow": "Heat Pump Installation · Replacement · Repair",
+ "h1": "Heat Pump Installation, Replacement, Repair and Maintenance in Ontario",
+ "tagline": "Cold climate heat pumps, sized right and rebate-ready",
+ "intro": "<p>Looking for heat pump installers or a heat pump contractor in Ontario? A cold climate heat pump heats to -30°C, cools in July and can cut your bills. We install Midea, Kepler, Lennox and Goodman heat pumps, replace old heat pumps and air conditioners, and repair and maintain every major brand. We also handle the rebate paperwork. <a href='#repair'>Need a heat pump repair? Jump to repair.</a></p>",
  "hero_points": [
    "Installed pricing from $5,500, guaranteed before we start",
    "Up to $7,500 in Ontario heat pump rebates, paperwork done for you",
-   "Heat-loss sizing, not guesswork, on every install",
+   "Heat pump replacement, repair and maintenance on every major brand",
    "Up to 12 years parts and labour warranty on select systems",
  ],
  "hero_image": "EHI technician commissioning a Midea EVOX G3 cold-climate heat pump beside an Ontario home",
  "service": {"name": "Heat Pump Installation", "type": "HVAC heat pump installation", "from_price": "5500"},
  "blocks": [
+  {"type": "part", "anchor": "installation", "jump": "Installation", "icon": "install", "kicker": "Installation", "h2": "Heat pump installation in Ontario",
+   "lead": "Which cold climate heat pump fits your home, what the installation includes, and what a heat pump costs in Ontario."},
   {"type": "video", "h2": "How much can a heat pump save you in Ontario?", "lead": "Dustin, owner of EHI, explains who saves the most and why your current heating fuel changes the answer.", "items": [("YrIMeO2l7r4", "")]},
   {"type": "problems", "h2": "Problems a new heat pump solves", "lead": "Most of the calls we get about heat pump installation start with one of these. Here's what's going on, and what we do about it.", "items": [
     {"problem": "Your furnace and AC are both getting old", "solution": "One cold-climate heat pump replaces both. You get heating and cooling from a single outdoor unit, one warranty, one piece of equipment to maintain."},
@@ -27,7 +29,7 @@ PAGE = {
     {"problem": "Your home has no ductwork", "solution": "A <a href=\"/ac/ductless-mini-split/\">ductless mini-split</a> or <a href=\"/ac/multi-zone-ductless-system/\">multi-zone system</a> gives you heating and cooling without tearing open walls."},
     {"problem": "You have no gas line and want to go all-electric", "solution": "A heat pump paired with an <a href=\"/heat-pump/electric-air-handler-systems/\">electric air handler</a> gives you central heating and cooling with no fossil fuel at all, and it qualifies for the higher rebate tier."},
   ]},
-  {"type": "cards", "h2": "Heat pump systems we install", "lead": "We're an authorized dealer for Midea, Kepler and Lennox, so you get factory-backed equipment and factory-backed warranties.", "items": [
+  {"type": "cards", "h2": "Heat pump systems we install", "lead": "We're an authorized dealer for Midea, Kepler, Lennox and Goodman, so you get factory-backed equipment and factory-backed warranties. Wondering which is the best heat pump for Ontario? It is the cold climate model sized for your home, and the options are below.", "items": [
     {"icon": "heatpump", "title": "Cold-climate ducted (central) heat pumps", "text": "Midea EVOX G3 and Extreme Hyper Heat in 2, 2.5, 3, 4 and 5 ton. Kepler 1.5 to 5 ton. Uses your existing ductwork.", "link": "/heat-pump/central/"},
     {"icon": "furnace", "title": "Hybrid furnace + heat pump", "text": "Heat pump does most of the work, your Lennox or Midea gas furnace takes over on the coldest nights. Lowest running cost for gas-heated homes.", "link": "/heat-pump/hybrid-furnace-systems/"},
     {"icon": "plug", "title": "Heat pump + electric air handler", "text": "Midea EVOX G3 outdoor unit with a matched MAAHE/MAUHE air handler in 2 to 5 ton. All-electric, rebate-friendly.", "link": "/heat-pump/electric-air-handler-systems/"},
@@ -50,19 +52,54 @@ PAGE = {
     {"title": "Commissioning and hand-over", "text": "We test heating and cooling, check refrigerant charge and airflow, set the thermostat, and show you how to run it efficiently through an Ontario winter."},
     {"title": "Paperwork and follow-up", "text": "We register your warranty and file the final rebate documents. You see the rebate come back without chasing anyone."},
   ]},
-  {"type": "table", "h2": "Heat pump installation cost in Ontario", "lead": "Installed pricing depends on size, ductwork condition, electrical work and whether you keep a gas furnace as backup. These ranges give you a starting point. Your quote is guaranteed.", "headers": ["System", "Typical home", "Installed from"], "rows": [
+  {"type": "table", "h2": "Heat pump installation cost in Ontario", "lead": "How much is a heat pump in Ontario? Installed heat pump prices depend on size, ductwork condition, electrical work and whether you keep a gas furnace as backup, as a dual fuel system. These ranges give you a starting point. Your quote is guaranteed.", "headers": ["System", "Typical home", "Installed from"], "rows": [
     ["Ductless single-zone heat pump", "One room, basement, addition or cottage", "$5,500"],
     ["Central cold-climate heat pump (2 to 3 ton)", "Bungalow or two-storey up to ~2,000 sq ft", "$5,500 plus"],
     ["Central cold-climate heat pump (4 to 5 ton)", "Larger two-storey homes", "Quote"],
     ["Hybrid heat pump + new gas furnace", "Gas-heated homes wanting the lowest running cost", "Quote"],
     ["Heat pump + electric air handler", "Homes with no gas line", "Quote"],
   ], "note": "Prices are before rebates. Through Ontario's program, a qualifying cold-climate heat pump can bring back up to $7,500 for homes heated by electricity, oil, propane or wood, or up to $2,000 for Enbridge gas-heated homes, based on size. The separate federal National Heat Pump Rebate is $2,000, or up to $10,000 for income-qualified households, with applications expected in early 2027. Financing from 0% is available."},
-  {"type": "money"},
+  {"type": "part", "anchor": "replacement", "jump": "Replacement", "icon": "clock", "kicker": "Replacement", "h2": "Heat pump replacement in Ontario",
+   "lead": "Replacing an old heat pump or air conditioner with a new cold climate heat pump, and how we decide between repair and replacement."},
+  {"type": "table", "h2": "Heat pump repair or replacement?", "lead": "We price both in writing and tell you which we would choose.", "headers": ["What we find", "Usually", "Why"], "rows": [
+    ["Capacitor, contactor or fan motor", "Repair", "Common parts on a system with years left"],
+    ["Small refrigerant leak on a newer system", "Repair", "Find and seal the leak, then recharge to spec"],
+    ["Compressor failure on a system over 10 years old", "Usually replace", "The most expensive part, on an aging system"],
+    ["Older heat pump that cannot keep up in winter", "Replace", "Cold climate models hold far more capacity in the cold, rated to -30°C"],
+    ["Air conditioner still running on R-22", "Replace with a heat pump", "New R-22 has not been made or imported in Canada since 2020, so recharges keep getting dearer"],
+    ["Central AC 12 to 15 or more years old", "Replace with a heat pump", "Same footprint, adds winter heat, and qualifies for the rebate"]],
+   "note": "Rule of thumb: if the system is under about 10 years old and the repair is under a third of a new one, repair it."},
+  {"type": "checklist", "h2": "What a heat pump replacement includes", "items": [
+    "Old refrigerant recovered by licensed techs and the old unit hauled away", "Line set inspected and replaced when it is undersized, damaged or contaminated",
+    "A new stand or bracket that lifts the new heat pump above the snow", "Indoor coil or air handler matched to the new outdoor unit",
+    "Electrical checked for the new unit's breaker and disconnect", "Rebate pre-approval filed before the old unit comes out"]},
+
+  {"type": "part", "anchor": "repair", "jump": "Repair & Maintenance", "icon": "wrench", "kicker": "Repair and maintenance", "h2": "Heat pump repair and maintenance in Ontario",
+   "lead": "Emergency heat pump repair, winter problems we fix, and what a heat pump tune-up covers."},
+  {"type": "emergency", "h2": "Heat pump not heating? Emergency heat pump repair",
+   "text": "If your heat pump stops in the middle of an Ontario winter, switch the thermostat to emergency or auxiliary heat so the house stays warm, then call us. We take heat pump repair calls evenings, weekends and holidays.",
+   "items": ["Switch to emergency or auxiliary heat to keep the house warm", "Leave ice on the outdoor unit alone; chipping it damages the coil",
+             "Tell us the brand and any error code shown", "You get the repair price in writing before we start"]},
+  {"type": "problems", "h2": "Heat pump repairs we do most", "lead": "We repair Midea, Kepler, Lennox, Goodman, Carrier, Trane, Daikin, Mitsubishi and every other major heat pump brand. Details on our <a href='/heat-pump/repair-maintenance/'>heat pump repair and maintenance</a> page.", "items": [
+    {"problem": "It runs but the house is getting cold", "solution": "Usually a blocked or iced coil, backup heat that is not switching on, or low refrigerant. We test the charge, the defrost controls and the changeover."},
+    {"problem": "The outdoor unit is a block of ice", "solution": "A failed defrost sensor or board, a fan that is not running, or meltwater with nowhere to drain. We repair the fault and fix drainage or placement."},
+    {"problem": "Backup heat runs all the time", "solution": "A thermostat setting, a faulty outdoor sensor or low refrigerant. Backup heat is expensive to run, so it is worth fixing fast."},
+    {"problem": "Not cooling in summer", "solution": "Often a failed capacitor or contactor, a dirty coil or a refrigerant leak. We diagnose with gauges and price the repair first."}]},
+  {"type": "checklist", "h2": "Heat pump maintenance and tune-up", "lead": "Affordable yearly heat pump maintenance, ideally in the fall, keeps the system efficient through winter.", "items": [
+    "Outdoor coil cleaned and fan checked", "Refrigerant pressures tested with gauges", "Defrost cycle tested", "Capacitor and contactor tested, terminals tightened",
+    "Backup heat and changeover temperature checked", "Condensate drain cleared and filter replaced", "Stand height and snow clearance checked"]},
+
+  {"type": "brand_links", "product": "heat pump"},
+  {"type": "payment", "product": "heat pump"},
   {"type": "why"},
   {"type": "areas"},
  ],
  "faqs": [
   ("How much does heat pump installation cost in Ontario?", "Heat pump installation in Ontario starts at about $5,500 installed with EHI, and most central cold-climate systems land between $8,000 and $16,000 before rebates depending on size and electrical work. The Home Renovation Savings Program can return up to $7,500, and we quote a guaranteed final price before any work begins."),
+  ("How much does it cost to install a heat pump in Ontario?", "On average, a ductless single-zone heat pump starts at $5,500 installed and a central cold climate system for a typical home lands between $8,000 and $16,000 before rebates. Rebates of up to $7,500 can come off that for homes heated by electricity, oil or propane."),
+  ("What is the best heat pump for cold weather in Canada?", "For Ontario winters, the best heat pump is a cold climate model rated to -30°C and sized for your home. We install the Midea EVOX G3 and Kepler cold climate heat pumps, and the right choice depends on your heat loss, your ductwork and your budget."),
+  ("How much does a dual fuel heat pump system cost?", "A dual fuel system pairs a heat pump with a gas furnace. If you keep your existing furnace, you pay for the heat pump and coil; if you replace both, it is quoted as one system. Either way, the price is guaranteed in writing after a home visit, and gas-heated homes commonly qualify for up to $2,000 back."),
+  ("Do you rent heat pumps?", "No. We sell and install heat pumps you own, and spread the cost with 0% financing for 3, 6 or 9 months or an open loan from 2.99% on approved credit. Owning means you keep the rebate and pay no monthly rental fee."),
   ("Do heat pumps really work at -30°C in Ontario?", "Yes. Cold-climate models such as the Midea EVOX G3 and Kepler are rated to operate at -30°C and hold most of their heating capacity at -15°C. For homes in Northern Ontario or anyone who wants extra backup, we pair the heat pump with a gas furnace or electric air handler with auxiliary heat."),
   ("Can I replace my furnace with a heat pump?", "Yes, you can replace a furnace with a heat pump, either fully (heat pump plus electric air handler) or as a hybrid where the heat pump runs most of the time and the furnace covers the coldest nights. We'll show you the running cost of each option for your home and heating fuel."),
   ("How long does heat pump installation take?", "Most heat pump installations are finished in one day. Multi-zone ductless systems, hybrid conversions and jobs that need a panel upgrade can take one and a half to two days."),

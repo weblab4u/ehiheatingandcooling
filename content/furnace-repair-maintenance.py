@@ -54,6 +54,7 @@ PAGE = {
   {"type": "areas"},
  ],
  "faqs": [
+  ('Do you repair Carrier, Trane, York and Goodman furnaces?', 'Yes. Our TSSA-certified technicians repair every major furnace brand, including Carrier, Trane, York, Goodman, Lennox and Midea, whoever installed it, with a written price before any part is replaced.'),
   ("Why is my furnace not heating?", "A furnace that isn't heating most often has a thermostat, power or airflow problem, a failed ignitor, a dirty flame sensor or a tripped limit switch. Check the thermostat mode and batteries, the breaker, the furnace switch and the filter first, then call EHI for same-day furnace repair."),
   ("How much does furnace repair cost in Ontario?", "Furnace repair cost in Ontario depends on the part. Flame sensors, ignitors and capacitors are low-cost fixes; blower motors, inducer motors and control boards cost more. EHI quotes every repair in writing after diagnosis so you know the price before work starts."),
   ("How often should a furnace be serviced?", "A gas furnace should be serviced once a year, ideally in early fall before the heating season. Annual furnace maintenance keeps efficiency up, catches cracked heat exchangers and failing parts early, and is required by most manufacturers to keep extended warranty coverage."),

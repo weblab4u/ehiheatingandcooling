@@ -47,6 +47,7 @@ PAGE = {
   {"type": "areas"},
  ],
  "faqs": [
+  ("Do you service ductless air conditioners?", "Yes. We service and repair ductless air conditioners and ductless air conditioning heat pumps of every major brand: drips, leaks, error codes, weak airflow and units that stop heating or cooling, with the price in writing first."),
   ("How much does mini split repair cost in Ontario?", "Mini split repair cost in Ontario depends on the part, so EHI quotes after diagnosis and before any work. A drain flush, capacitor or sensor is a modest repair. A compressor on an older unit can cost enough that replacement makes more sense, and we show you both numbers."),
   ("Why is my mini split blinking?", "A blinking light on a ductless head is an error code. Common causes are a communication fault between the indoor and outdoor units, a temperature sensor out of range, a refrigerant problem or a locked-out compressor. Note the pattern or code and call us, since each brand's codes are different."),
   ("Why is my ductless unit dripping water?", "A ductless unit drips when the condensate drain line is clogged, the head is no longer level, or the drain pan is full of biofilm. In summer a frozen coil can also melt and overflow the pan. We flush the drain, re-level the unit and fix any airflow or refrigerant cause of icing."),

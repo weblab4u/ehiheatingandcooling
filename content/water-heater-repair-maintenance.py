@@ -63,6 +63,7 @@ PAGE = {
   {"type": "areas"},
  ],
  "faqs": [
+  ("Do you repair instant water heaters?", "Yes. Instant, on-demand and tankless water heaters are the same kind of unit, and we repair and maintain them, including local tankless hot water heater maintenance and descaling, on Rinnai and other brands."),
   ("How often should a tankless water heater be flushed?", "A tankless water heater should be flushed once a year in most of Ontario, and every six months on very hard well water. The flush circulates vinegar or a descaler through the heat exchanger for about an hour to remove limescale, and most manufacturers require it to keep the warranty valid."),
   ("Why is my tankless water heater showing an error code?", "An error code means the unit has detected a fault and locked out to protect itself. The most common causes are ignition failure, flame loss, overheating from scale, a blocked vent or intake, or a fan fault. Note the code, try one reset, and if it returns, book a service call."),
   ("What is a cold water sandwich?", "A cold water sandwich is the burst of cold water you feel mid-shower after a tap elsewhere closes and reopens. The tankless unit shuts off when flow stops and takes a few seconds to refire, so the water already sitting in the pipe arrives cold. A recirculation option or a small buffer tank fixes it."),

@@ -60,7 +60,7 @@ PAGE = {
            "<ul class=\"checklist\"><li>A final price that won't creep up on the agreed work</li><li>Interest-free plans of 3, 6 or 9 months, OAC</li><li>Open loans from 2.99% OAC</li><li>Parts and labour warranty reaching 12 years on select systems</li><li>Every furnace hooked up by a TSSA-certified gas tech</li></ul>"},
   {"type": "reviews"}],
  "faqs": [
-  ("How much is a new furnace in Alliston?", "A high-efficiency gas furnace in Alliston starts from $3,300 installed. The final price depends on the size of the home and the installation requirements, and we lock it in with a guaranteed quote."),
+  ("What does a new furnace cost for an Alliston home?", "A high-efficiency gas furnace in Alliston starts from $3,300 installed. The final price depends on the size of the home and the installation requirements, and we lock it in with a guaranteed quote."),
   ("Is it smarter to swap the furnace and AC together?", "If both are about the same age, usually yes. One install visit costs less than two, and the equipment is matched to work together."),
   ("Do you offer financing for HVAC in Alliston?", "Yes. Alliston homeowners can pick an interest-free plan over 3, 6 or 9 months or an open loan starting at 2.99%, subject to credit approval."),
   ("Can you do AC repair in Alliston, or only replacements?", "We do both. If a capacitor or a refrigerant leak is the problem, our licensed refrigeration techs fix it, and we only suggest a new unit when the repair doesn't add up."),

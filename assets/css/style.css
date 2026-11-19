@@ -1164,3 +1164,15 @@ h2>span[id]{display:block;scroll-margin-top:170px}
 .mega-col a.mega-h svg{width:14px;height:14px;color:var(--green)}
 .mega-col a.mega-h:hover{color:var(--green-dark)}
 a.m-col{display:block;font-weight:700;color:var(--navy);text-decoration:none}
+.emergency-sec{background:linear-gradient(135deg,#0A2140,#0E355F);color:#fff}
+.emergency{display:grid;gap:28px;align-items:center}
+@media (min-width:860px){.emergency{grid-template-columns:1.4fr .9fr}}
+.emergency h2{color:#fff}
+.emergency p{color:rgba(255,255,255,.88)}
+.emergency .part-kicker{color:#8FD3A3}
+.emergency .checklist li{color:#fff}
+.emergency .checklist svg{color:#8FD3A3}
+.emergency-card{background:#fff;color:var(--text);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-lg);display:grid;gap:12px}
+.emergency-card h3{margin:0;color:var(--navy)}
+.emergency-card p{margin:0;color:var(--muted)}
+.emergency-card .btn{justify-content:center}

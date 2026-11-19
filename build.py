@@ -373,6 +373,12 @@ def render_block(b, page):
     if t == "part":      # divider that opens a part of the page (installation, replacement, repair); quick links jump here
         return (f'<section class="sec part-sec" id="{b["anchor"]}"><div class="wrap"><p class="part-kicker"><span class="card-icon">{icon(b.get("icon", "wrench"))}</span>{b["kicker"]}</p>'
                 f'<h2>{b["h2"]}</h2>{lead(b)}</div></section>')
+    if t == "payment":
+        return payment_block(b)
+    if t == "brand_links":
+        return brand_links_block(b)
+    if t == "emergency":
+        return emergency_block(b)
     if t == "video":
         n = len(b["items"])
         sizes = "(max-width: 840px) calc(100vw - 32px), 760px" if n == 1 else "(max-width: 760px) calc(100vw - 32px), 560px"
@@ -443,6 +449,51 @@ def render_block(b, page):
     if t == "form":
         return form_block(b)
     raise ValueError(f"unknown block {t}")
+
+# ---------------------------------------------------------------- shared product-page sections
+# Rebate facts here follow WRITING_BRIEF.md (Ontario Home Renovation Savings Program and the federal National Heat Pump Rebate).
+PAY_ROWS = {
+ "finance": ["0% financing", "Interest-free for 3, 6 or 9 months on approved credit", "<a href='/financing/'>Financing</a>"],
+ "loan": ["Open loans", "From 2.99% on approved credit, pay off early with no penalty", "<a href='/financing/'>Financing</a>"],
+ "ontario_hp": ["Ontario Home Renovation Savings Program", "Up to $7,500 on a qualifying cold-climate heat pump for homes heated by electricity, oil or propane; gas-heated homes commonly up to $2,000. Pre-approval before installation", "<a href='/heat-pump-rebates/'>Rebate guide</a>"],
+ "federal_hp": ["Federal National Heat Pump Rebate", "$2,000, or up to $10,000 for income-qualified households. Applications expected in early 2027; installs from November 1, 2026 may qualify", "<a href='/heat-pump-rebates/#federal'>Federal rebate</a>"],
+ "hybrid": ["Rebate through a hybrid system", "There is no stand-alone furnace rebate in Ontario, but pairing the new furnace with a qualifying heat pump lets you claim the heat pump rebate", "<a href='/heat-pump/hybrid-furnace-systems/'>Hybrid systems</a>"],
+ "ac_to_hp": ["Replace the AC with a heat pump", "Air conditioners do not qualify for rebates; a qualifying cold-climate heat pump in the same spot does", "<a href='/heat-pump-rebates/'>Rebate guide</a>"],
+ "hpwh": ["Heat pump water heater", "Ontario's program lists $500 for a heat pump water heater as part of a home assessment bundle. Tankless gas heaters are not part of the program", "<a href='/heat-pump-rebates/'>Rebate guide</a>"],
+ "price": ["Guaranteed pricing", "The number on your quote is the number on your invoice, and we may beat comparable reputable quotes by up to 10%", "<a href='/offers/'>Offers</a>"],
+}
+PAY_SETS = {"heat pump": ["finance", "loan", "ontario_hp", "federal_hp", "price"], "furnace": ["finance", "loan", "hybrid", "ontario_hp", "price"],
+            "air conditioner": ["finance", "loan", "ac_to_hp", "ontario_hp", "price"], "tankless water heater": ["finance", "loan", "hpwh", "price"],
+            "ductless mini split": ["finance", "loan", "ontario_hp", "federal_hp", "price"]}
+def payment_block(b):
+    p = b["product"]
+    rows = "".join(f"<tr><td><strong>{PAY_ROWS[k][0]}</strong></td><td>{PAY_ROWS[k][1]}</td><td>{PAY_ROWS[k][2]}</td></tr>" for k in PAY_SETS[p])
+    return (f'<section class="sec table-sec" id="{b.get("anchor", "payment")}"><div class="wrap narrow">{h2(b, f"Payment options and rebates for your {p}")}'
+            f'{lead(b) or f"<p class=lead>Ways to pay for a new {p}, and the rebate programs that apply. Program terms can change, so we confirm eligibility before you buy.</p>"}'
+            f'<div class="table-wrap"><table><thead><tr><th>Option</th><th>What you get</th><th>Details</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>')
+
+BRAND_LINES = {
+ "furnace": [("Lennox", "/brands/lennox/furnaces/", "ML296V at 96% and EL297V at 97% AFUE, two-stage, variable-speed"), ("Midea", "/brands/midea/furnaces/", "MGH96 at 96.5% AFUE, plus electric air handlers"),
+             ("Goodman", "/brands/goodman/furnaces/", "GMVC96 and GMEC96, two-stage, up to 96% AFUE")],
+ "heat pump": [("Midea", "/brands/midea/heat-pumps/", "EVOX G3 cold-climate, 2 to 5 ton, rated to -30°C"), ("Kepler", "/brands/kepler/heat-pumps/", "Cold-climate, 1.5 to 5 ton, quiet and compact"),
+               ("Lennox", "/brands/lennox/heat-pumps/", "Dual-fuel and air handler systems"), ("Goodman", "/brands/goodman/heat-pumps/", "GSZH5 for hybrid systems with a gas furnace")],
+ "air conditioner": [("Lennox", "/brands/lennox/air-conditioners/", "Single-stage, two-stage and variable-capacity central air"), ("Goodman", "/brands/goodman/", "GSXH5 central air, 1.5 to 5 ton"),
+                     ("Midea", "/brands/midea/", "EVOX G3 heat pump, which cools as well as a central AC")],
+ "ductless mini split": [("Midea", "/brands/midea/ductless-mini-splits/", "Hyper Heat single-zone and Extreme Hyper Heat multi-zone"), ("Lennox", "/brands/lennox/heat-pumps/", "Lennox mini split systems")],
+ "tankless water heater": [("Rinnai", "/brands/rinnai/tankless-water-heaters/", "RX160iN and RX199iN condensing, natural gas or propane")],
+}
+def brand_links_block(b):
+    p = b["product"]
+    cards = "".join(f'<article class="card"><span class="card-icon">{icon("shield")}</span><h3>{n} {p}s</h3><p>{t}</p><a class="more" href="{u}">{esc(n)} {esc(p)}s{icon("arrow")}</a></article>' for n, u, t in BRAND_LINES[p])
+    return (f'<section class="sec cards-sec"><div class="wrap">{h2(b, f"{p.capitalize()} brands we install and service")}'
+            f'{lead(b) or "<p class=lead>We are an authorized dealer for these brands, and we repair every major brand, whoever installed it.</p>"}<div class="cards">{cards}</div></div></section>')
+
+def emergency_block(b):
+    items = "".join(f"<li>{icon('check')}<span>{i}</span></li>" for i in b["items"])
+    return (f'<section class="sec emergency-sec" id="{b.get("anchor", "emergency")}"><div class="wrap emergency"><div><p class="part-kicker"><span class="card-icon">{icon("alert")}</span>Emergency service</p>'
+            f'{h2(b)}<p>{b["text"]}</p><ul class="checklist">{items}</ul></div>'
+            f'<aside class="emergency-card"><h3>{b.get("card_h", "Call now")}</h3><p>{b.get("card_text", "Evenings, weekends and holidays. Tell us the symptom and we will give you an honest arrival time.")}</p>'
+            f'<a class="btn btn-call big" href="tel:{PHONE_TEL}">{icon("phone")}{PHONE}</a><a class="btn btn-secondary" href="/services/emergency-hvac/">Emergency HVAC service</a></aside></div></section>')
 
 def money_block(b):
     cols = b.get("items") or [
@@ -720,7 +771,7 @@ def video_card(vid, cap, sizes):
     full, small = video_thumb(vid), f"/assets/img/video/{vid}-640.webp"
     srcset = f' srcset="{small} 640w, /assets/img/video/{vid}-800.webp 800w, {full} 1280w" sizes="{sizes}"' if os.path.exists(os.path.join(ROOT, small.lstrip("/"))) else ""
     m, s = divmod(v["secs"], 60)
-    return (f'<figure class="yt"><a class="yt-link" href="https://www.youtube.com/watch?v={vid}" data-yt="{vid}" data-title="{esc(v["title"])}" aria-label="Play video: {esc(v["title"])}">'
+    return (f'<figure class="yt"><a class="yt-link" href="https://www.youtube.com/watch?v={vid}" data-yt="{vid}" data-title="{esc(v["title"])}" aria-label="Play video: {esc(v["title"])} {m}:{s:02d}">'
             f'<img src="{small if srcset else full}"{srcset} alt="" width="640" height="360" loading="lazy" decoding="async">'
             f'<span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span><span class="yt-time" aria-hidden="true">{m}:{s:02d}</span></a>'
             + (f'<figcaption>{cap}</figcaption>' if cap else "") + '</figure>')
@@ -1063,6 +1114,7 @@ for _k, (_cat, _alt) in GALLERY_PHOTOS.items():
     CITY_PHOTOS.setdefault(_k, (_cp.OLD_KIND.get(_cat, "sys"), _alt))
 CITY_NEW = set(_cp.NEW)
 CITY_PAGES = set()          # city urls that have a content file (filled in main)
+SEARCH_AREAS = _load_data("ehi_search_aliases", "search_aliases.py").SERVED
 ALL_PAGES = []              # every loaded page dict (filled in main)
 HERO_SLOTS = {"A": ["out", "in", "any"], "B": ["out"], "C": ["out", "in", "in"], "D": ["out", "in", "sys", "in"], "E": ["out"], "F": []}
 MOSAIC_KINDS = ["out", "in", "sys", "in", "out", "detail"]
@@ -1306,12 +1358,17 @@ def city_local_links(page):
             (f"/{slug}/furnace-repair/", "furnace", f"Furnace repair in {cn}", "No heat, short cycling, ignitors and blowers, quoted in writing"),
             (f"/{slug}/ac-repair/", "snow", f"AC repair in {cn}", "Warm air, ice on the coil, leaks and tripped breakers")]
     svcs = [x for x in svcs if x[0] in REG]
+    ac = f"/{slug}/ac-repair/" if f"/{slug}/ac-repair/" in REG else "/ac/"
+    if not any(u == ac for u, *_ in svcs):
+        svcs.append((ac, "ac", f"Air conditioning in {cn}", "Air conditioner installation, AC repair and tune-ups"))
     guide = f"/blog/how-to-choose-an-hvac-company-in-{slug}/"
     if not svcs and guide not in REG: return ""
+    areas = SEARCH_AREAS.get(slug, [])
+    served = f" We cover {' and '.join(areas)} too." if areas else ""
     cards = "".join(f'<a class="svc-link" href="{u}"><span class="card-icon">{icon(ic)}</span><span><strong>{t}</strong><small>{d}</small></span>{icon("arrow")}</a>' for u, ic, t, d in svcs)
     if guide in REG:
         cards += f'<a class="svc-link guide-link" href="{guide}"><span class="card-icon">{icon("clipboard")}</span><span><strong>How to choose an HVAC company in {cn}</strong><small>Licences to check, questions to ask, red flags and a quote checklist</small></span>{icon("arrow")}</a>'
-    return f'<section class="sec svclinks-sec local-svc"><div class="wrap"><h2>{cn} service pages</h2><p class="lead">Detailed local pages for the work we do most often in {cn}.</p><div class="svc-links">{cards}</div></div></section>'
+    return f'<section class="sec svclinks-sec local-svc"><div class="wrap"><h2>{cn} service pages</h2><p class="lead">Residential HVAC installation, repairs and maintenance in {cn}, page by page.{served}</p><div class="svc-links">{cards}</div></div></section>'
 
 def region_of(slug):
     """(region name, [slugs of city pages in that region]) from AREA_GROUPS, via the same aliases the Service Areas page uses."""
