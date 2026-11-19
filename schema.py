@@ -9,9 +9,15 @@ Local SEO model, following Google's guidance for service-area businesses:
   the services offered there (OfferCatalog), from-prices and the city as areaServed.
 - Ratings and reviews sit on the business only (they are reviews of the business, not of a city page).
 """
-import re
+import re, os, importlib.util as _ilu
 
-B = None   # the build module, injected by build.py (B.SITE, B.CITIES, ...)
+B = None
+_gs = _ilu.spec_from_file_location("ehi_city_geo", os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "city_geo.py"))
+_gm = _ilu.module_from_spec(_gs); _gs.loader.exec_module(_gm)
+CITY_GEO = _gm.CITY_GEO      # slug -> [(name, Wikipedia title, Wikidata ID, lat, lon), ...]
+
+def _ids(title, qid):
+    return ["https://en.wikipedia.org/wiki/" + title.replace(" ", "_"), "https://www.wikidata.org/wiki/" + qid]   # the build module, injected by build.py (B.SITE, B.CITIES, ...)
 
 REGION_NAMES = {"Toronto and York Region": "Toronto and York Region", "Peel and Halton": "Peel and Halton", "Durham Region": "Durham Region",
                 "Simcoe, Muskoka and cottage country": "Simcoe County and Muskoka", "Hamilton and Niagara": "Hamilton and the Niagara Region",
@@ -64,6 +70,8 @@ def city_place(slug, full=False):
     """The City node. full=True adds neighbourhoods and the containment chain (used on that city's own pages)."""
     c = B.CITY_BY_SLUG[slug]
     node = {"@type": "City", "@id": city_id(slug), "name": c["name"]}
+    geo = CITY_GEO.get(slug, [])
+    if len(geo) == 1: node["sameAs"] = _ids(geo[0][1], geo[0][2])[1]        # Wikidata ID tells search engines which Aurora or London this is
     if not full: return node
     region = region_of(slug)
     node.update({
@@ -74,6 +82,13 @@ def city_place(slug, full=False):
         "containsPlace": [{"@type": "Place", "name": f'{n}, {c["name"]}'} for n in c["neighbourhoods"]],
         "url": f"{B.SITE}/{slug}/",
     })
+    if len(geo) == 1:
+        _, t, q, la, lo = geo[0]
+        node["sameAs"] = _ids(t, q)
+        node["geo"] = {"@type": "GeoCoordinates", "latitude": la, "longitude": lo}
+    elif geo:                                   # an area made of more than one city (Kitchener-Waterloo): describe each, claim neither identity
+        node["containsPlace"] = [{"@type": "City", "name": nm, "sameAs": _ids(t, q), "geo": {"@type": "GeoCoordinates", "latitude": la, "longitude": lo}}
+                                 for nm, t, q, la, lo in geo] + node["containsPlace"]
     return node
 
 def business():
@@ -130,20 +145,32 @@ def city_keywords(name):
             f"HVAC services {n}", f"heating and cooling {n}", f"furnace repair {n}", f"furnace installation {n}", f"heat pump installation {n}",
             f"AC repair {n}", f"air conditioning {n}", f"emergency HVAC {n}", f"ductless mini split {n}", f"heat pump rebate {n}"]
 
+CS_PRICE = {"heat-pump": "heat_pump", "heat-pump-installation": "heat_pump", "furnace": "furnace", "tankless-water-heater": "tankless"}
+CS_KW = {"heat-pump": ["heat pump installation", "heat pump replacement", "heat pump repair", "cold climate heat pump", "heat pump installers", "heat pump rebate"],
+         "heat-pump-installation": ["heat pump installation", "heat pump installers", "cold climate heat pump", "heat pump rebate"],
+         "furnace": ["furnace installation", "furnace replacement", "furnace repair", "new furnace", "high efficiency furnace", "gas furnace installation"],
+         "furnace-repair": ["furnace repair", "furnace not heating", "emergency furnace repair", "furnace tune up"],
+         "tankless-water-heater": ["tankless water heater installation", "tankless water heater replacement", "tankless water heater repair", "on demand water heater", "Rinnai tankless"],
+         "ac-repair": ["AC repair", "air conditioner repair", "AC not cooling", "emergency AC repair"]}
+CS_TYPE = {"heat-pump": "Heat pump installation, replacement and repair", "heat-pump-installation": "Heat pump installation",
+           "furnace": "Furnace installation, replacement and repair", "furnace-repair": "Furnace repair",
+           "tankless-water-heater": "Tankless water heater installation, replacement and repair", "ac-repair": "Air conditioner repair"}
+
 def city_catalog(slug):
-    """Services offered in a city: the city's own service pages first, then province-wide pages."""
+    """Services offered in a city: the city's own service pages (named as on the page), then Ontario-wide pages only
+    for services the city has no page for, so the catalog matches the site's internal links."""
     c = B.CITY_BY_SLUG[slug]; n = c["name"]; area = {"@id": city_id(slug)}
-    local = [(f"Heat pump installation in {n}", f"/{slug}/heat-pump-installation/", "heat_pump"),
-             (f"Furnace repair in {n}", f"/{slug}/furnace-repair/", None),
-             (f"AC repair in {n}", f"/{slug}/ac-repair/", None)]
-    items = [(nm, u, k) for nm, u, k in local if u in B.REG]
-    have = {nm.split(" in ")[0].lower() for nm, _, _ in items}
-    general = [(f"Heat pump installation in {n}", "/heat-pump/cold-climate/", "heat_pump"), (f"Furnace repair in {n}", "/furnace/repair-maintenance/", None),
-               (f"AC repair in {n}", "/ac/repair-maintenance/", None), (f"Furnace installation in {n}", "/furnace/high-efficiency/", "furnace"),
-               (f"Ductless mini split installation in {n}", "/ac/ductless-mini-split/", None), (f"Emergency HVAC service in {n}", "/services/emergency-hvac/", None),
-               (f"HVAC maintenance in {n}", "/services/hvac-repair-maintenance/", None), (f"Tankless water heater installation in {n}", "/water-heater/", "tankless"),
-               (f"Heat pump rebate applications in {n}", "/heat-pump-rebates/", None)]
-    items += [(nm, u, k) for nm, u, k in general if nm.split(" in ")[0].lower() not in have and u in B.REG]
+    items, have = [], set()
+    for u, *_ in B.city_children(slug):
+        kind = u.strip("/").split("/")[1]
+        items.append((re.sub("<[^>]+>", "", B.title_of(u)), u, CS_PRICE.get(kind))); have.add(kind)
+    general = [("heat-pump", f"{n} heat pump installation", "/heat-pump/", "heat_pump"), ("furnace", f"{n} furnace installation", "/furnace/", "furnace"),
+               ("tankless-water-heater", f"{n} tankless water heater installation", "/water-heater/", "tankless"),
+               ("ac-repair", f"{n} AC repair", "/ac/repair-maintenance/", None), ("-", f"{n} air conditioner installation", "/ac/", None),
+               ("-", f"{n} ductless mini split installation", "/ac/ductless-mini-split/", None), ("-", f"{n} emergency HVAC service", "/services/emergency-hvac/", None),
+               ("-", f"{n} HVAC maintenance", "/services/hvac-repair-maintenance/", None), ("-", f"{n} heat pump rebate help", "/ontario-heat-pump-rebate-2027/", None)]
+    fam = {"heat-pump": {"heat-pump", "heat-pump-installation"}, "furnace": {"furnace", "furnace-repair"}, "tankless-water-heater": {"tankless-water-heater"}, "ac-repair": {"ac-repair"}}
+    items += [(nm, u, k) for kind, nm, u, k in general if not (fam.get(kind, set()) & have) and u in B.REG]
     return {"@type": "OfferCatalog", "name": f"HVAC services in {n}", "itemListElement": [_offer(nm, u, k, area) for nm, u, k in items]}
 
 PAGE_TYPES = {"/about-ehi/": "AboutPage", "/contact/": "ContactPage", "/reviews/": "WebPage", "/service-areas/": "CollectionPage",
@@ -180,7 +207,8 @@ def graph(page, canonical, crumbs_ld):
                                   "Air conditioning repair and installation", "Emergency HVAC service"],
                   "description": page["description"], "url": canonical, "provider": {"@id": org_id()},
                   "areaServed": {"@id": city_id(page["city"])},
-                  "availableChannel": {"@type": "ServiceChannel", "serviceUrl": canonical, "servicePhone": {"@type": "ContactPoint", "telephone": B.PHONE_TEL, "contactType": "customer service"}},
+                  "availableChannel": {"@type": "ServiceChannel", "serviceUrl": canonical, "servicePhone": {"@type": "ContactPoint", "contactType": "customer service",
+                                       "telephone": (B.LOCAL_PROFILES.get(page["city"]) or {}).get("tel", B.PHONE_TEL)}},
                   "hasOfferCatalog": city_catalog(page["city"]),
                   "audience": {"@type": "Audience", "audienceType": "Homeowners, landlords and businesses in " + n},
                   "brand": [{"@type": "Brand", "name": b} for b in ["Midea", "Lennox", "Kepler", "Rinnai", "Goodman"]],
@@ -188,19 +216,18 @@ def graph(page, canonical, crumbs_ld):
     elif page.get("city_service"):
         slug = page["city_service"]; n = B.CITY_BY_SLUG[slug]["name"]; s = page.get("service", {})
         kind = url.rstrip("/").split("/")[-1]
-        kw = {"heat-pump-installation": ["heat pump installation", "heat pump installers", "cold climate heat pump", "heat pump rebate"],
-              "furnace-repair": ["furnace repair", "furnace not heating", "emergency furnace repair", "furnace tune up"],
-              "ac-repair": ["AC repair", "air conditioner repair", "AC not cooling", "emergency AC repair"]}.get(kind, [])
+        kw = CS_KW.get(kind, [])
         g.append(city_place(slug, full=True))
         webpage["about"].append({"@id": city_id(slug)})
         webpage["keywords"] = ", ".join(f"{k} {n}" for k in kw)
         webpage["mainEntity"] = {"@id": canonical + "#service"}
-        fk = {"heat-pump-installation": "heat_pump"}.get(kind)
-        svc = {"@type": "Service", "@id": canonical + "#service", "name": s.get("name", re.sub("<[^>]+>", "", page["h1"])),
-               "alternateName": [f"{k} {n}" for k in kw], "serviceType": s.get("type", kw[0] if kw else "HVAC service"),
+        fk = CS_PRICE.get(kind)
+        svc = {"@type": "Service", "@id": canonical + "#service", "name": re.sub("<[^>]+>", "", page["h1"]),          # same wording as the H1, city first
+               "alternateName": [f"{n} {k}" for k in kw] + [f"{k} {n}" for k in kw[:2]], "serviceType": s.get("type", CS_TYPE.get(kind, "HVAC service")),
                "description": page["description"], "url": canonical, "provider": {"@id": org_id()}, "areaServed": {"@id": city_id(slug)},
-               "isRelatedTo": {"@type": "Service", "name": f"HVAC services in {n}", "url": f"{B.SITE}/{slug}/"},
-               "availableChannel": {"@type": "ServiceChannel", "serviceUrl": canonical, "servicePhone": {"@type": "ContactPoint", "telephone": B.PHONE_TEL, "contactType": "customer service"}}}
+               "isRelatedTo": {"@id": f"{B.SITE}/{slug}/#service"},
+               "availableChannel": {"@type": "ServiceChannel", "serviceUrl": canonical, "servicePhone": {"@type": "ContactPoint", "contactType": "customer service",
+                                    "telephone": (B.LOCAL_PROFILES.get(slug) or {}).get("tel", B.PHONE_TEL)}}}
         if fk: svc["offers"] = _offer(svc["name"], url, fk, {"@id": city_id(slug)})
         g.append(svc)
     elif page.get("service"):
