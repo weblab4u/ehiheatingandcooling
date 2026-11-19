@@ -18,6 +18,16 @@
     else if(/google\.[a-z.]+\/maps|maps\.app\.goo\.gl|maps\.google\./i.test(h))track('directions_click',{link_location:where,link_text:label(a)});
     else if(/^\/contact\/?(#.*)?$/.test(h)||a.closest('.header-cta'))track('quote_button_click',{link_location:where,link_text:label(a),link_url:h});
   });
+  // sticky quick links: sit right under the sticky header, and mark the part being read
+  var hdr=document.querySelector('.site-header'),jn=document.querySelector('.jump-nav');
+  function setHdr(){if(hdr)document.documentElement.style.setProperty('--hdr',hdr.offsetHeight+'px');}
+  setHdr();window.addEventListener('resize',setHdr);
+  if(jn&&'IntersectionObserver' in window){
+    var jl=jn.querySelectorAll('a'),io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){jl.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});
+    jl.forEach(function(a){var t=document.getElementById(a.getAttribute('href').slice(1));if(t)io.observe(t);});
+    var parts=[].map.call(jl,function(a){return document.getElementById(a.getAttribute('href').slice(1));}).filter(Boolean);
+    window.addEventListener('scroll',function(){var top=parts[0]&&parts[0].getBoundingClientRect().top;if(top>window.innerHeight*.5)jl.forEach(function(a){a.classList.remove('on');});},{passive:true});
+  }
   // videos: the YouTube player loads only after someone presses play (a plain link to YouTube without JS)
   document.addEventListener('click',function(e){
     var a=e.target.closest&&e.target.closest('a[data-yt]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey)return;

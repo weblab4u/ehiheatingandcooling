@@ -18,6 +18,8 @@ _cl = _load("climate"); CLIMATE, TOR_HDD = _cl.CLIMATE, _cl.TORONTO_HDD
 SKIP = {"toronto", "mississauga", "brampton", "vaughan", "markham", "oshawa", "hamilton", "barrie", "ottawa"}
 LIVE_BATCHES = {1}
 LIVE = {c["slug"] for c in CITIES if c["slug"] not in SKIP and c.get("batch", 1) in LIVE_BATCHES}
+LIVE_TANKLESS = {c["slug"] for c in CITIES if c.get("batch", 1) in LIVE_BATCHES}      # no city had a tankless page, so every city gets one
+RINNAI = {"garage": "/assets/img/brands/rinnai-rx-garage-install.webp", "unit": "/assets/img/brands/rinnai-rx-tankless.webp", "sink": "/assets/img/brands/rinnai-hot-water-sink.webp"}
 ENBRIDGE_EMERGENCY = "1-866-763-5427"
 FURNACE_PHOTOS = ["midea-gas-furnace-installed", "midea-furnace-room-pvc-venting", "furnace-coil-utility-room"]      # stand-ins for furnace slots
 COMMISSION_PHOTOS = ["heat-pump-commissioning-gauges", "midea-cold-climate-heat-pump-commissioning"]
@@ -62,9 +64,13 @@ def cap(x): return x[:1].upper() + x[1:]
 
 def nearby_link(slug, kind):
     """Same-service page for a nearby city: the new page if live, the older service page for the big cities, else nothing."""
+    if kind == "tankless-water-heater": return f"/{slug}/{kind}/" if slug in LIVE_TANKLESS else None
     if slug in LIVE: return f"/{slug}/{kind}/"
     if slug in SKIP: return f"/{slug}/{'heat-pump-installation' if kind == 'heat-pump' else 'furnace-repair'}/"
     return None
+
+def part(anchor, jump, icon, kicker, h2, lead):
+    return {"type": "part", "anchor": anchor, "jump": jump, "icon": icon, "kicker": kicker, "h2": h2, "lead": lead}
 
 def checklist(items): return '<ul class="checklist">' + "".join(f"<li>{i}</li>" for i in items) + "</ul>"
 
@@ -225,27 +231,85 @@ def heat_pump_page(c):
                               "The 240V circuit, done and filed by an ESA-licensed electrician", "Air handler, coil or wall heads, with a freeze-proof condensate drain",
                               "Backup heat wired in and the changeover set for your fuel", "Warranty registration and every piece of rebate paperwork", "A handover so you know what defrost looks and sounds like"])}
 
-    blocks = V("order",
+    install = V("order",
         [snapshot, problems, table, place_b, sizing_b, cost, steps, equip, incl],
         [snapshot, table, problems, sizing_b, place_b, steps, cost, incl, equip],
-        [problems, snapshot, table, sizing_b, cost, place_b, steps, equip, incl]) + [{"type": "money"}]
+        [snapshot, problems, table, sizing_b, cost, place_b, steps, equip, incl])
 
-    title = fit([f"Heat Pump Installation {n} | Rebates & Sizing", f"Heat Pump Installation {n} | Cold Climate", f"Heat Pumps {n} | Install & Rebates", f"Heat Pumps {n}"], 60)
-    desc = fit([f"Cold-climate heat pumps for {n} homes, sized for the {t} design day. Up to $7,500 back for electric, oil or propane homes. Free written quote.",
-                f"Cold-climate heat pumps for {n}, sized for {t}. Up to $7,500 back for electric, oil or propane homes. Free written quote.",
-                f"Heat pumps for {n}, sized for {t}. Up to $7,500 back for electric, oil or propane homes. Free quote."], 155)
+    rp_table = {"type": "table", "h2": V("rpt-h", "Repair it or replace it?", "Fix the old system, or replace it?"),
+       "lead": V("rpt-l", "We price both in writing and tell you which we would pick. This is how we decide.", "You get both numbers. Here is the reasoning behind our recommendation."),
+       "headers": ["What we find", "Usually", "Why"],
+       "rows": [["Capacitor, contactor or fan motor", "Repair", V("rr1", "Common parts, and the system has years left", "Inexpensive parts on a system with life left")],
+                ["Small refrigerant leak on a newer system", "Repair", V("rr2", "Find and fix the leak, then recharge", "Seal the leak and recharge to spec")],
+                ["Compressor failure on a system over 10 years old", "Usually replace", V("rr3", "The compressor is the most expensive part, and the rest of the system is aging too", "A compressor on an older unit costs close to a new system")],
+                ["Air conditioner still running on R-22 refrigerant", "Replace", V("rr4", "New R-22 has not been made or imported in Canada since 2020, so every recharge gets dearer", "R-22 supply in Canada is limited to recovered stock, so repairs keep getting more expensive")],
+                ["Older heat pump that cannot keep up in winter", "Replace", V("rr5", "Older models lose capacity fast in the cold; cold-climate units are rated to -30°C", "Cold-climate models hold far more capacity at low temperatures")],
+                ["Central AC 12 to 15 or more years old", "Replace with a heat pump", V("rr6", "Same footprint, adds winter heat, and qualifies for the rebate", "One outdoor unit for cooling and heating, plus the rebate")]],
+       "note": "Our rule of thumb: if the system is under about 10 years old and the repair is under a third of a new one, repair it."}
+    rp_split = {"type": "split", "h2": V("rps-h", f"Swapping an old AC or heat pump for a cold-climate unit in {n}", f"What replacing your system involves in {n}"), "photo": "out",
+       "shot": "Old air conditioner condenser beside the new cold-climate heat pump on install day, before the old unit is hauled away",
+       "html": "<p>" + V("rps1",
+           "Most replacements we do start with an air conditioner that has reached the end of its life. A cold-climate heat pump goes in the same spot, cools just as well, and heats your home most of the winter.",
+           "Replacing an aging air conditioner is the easiest time to switch. The heat pump sits where the AC was, does the cooling, and takes over most of your heating as well.")
+           + "</p>" + checklist(V("rps2", ["Old refrigerant recovered by licensed techs and the unit hauled away", "Line set inspected; replaced when it is undersized, damaged or contaminated",
+                                           "A stand or bracket that lifts the new unit above the snow", "Indoor coil matched to the new outdoor unit", "Electrical checked for the new unit's breaker and disconnect",
+                                           "Rebate pre-approval filed before the old unit comes out"],
+                                          ["Refrigerant recovered and the old unit taken away", "Line set reused only when it is sized and clean enough", "New unit raised above the snow line",
+                                           "A matched indoor coil, not a mix and match", "Breaker and disconnect sized for the heat pump", "Pre-approval in place before removal day"]))
+           + "<p>" + V("rps3", f"If your furnace is also old, we quote both together so the {n} system is designed as one.", "If the furnace is near the end too, we price both, so the new system works as one.") + "</p>"}
+
+    rep_problems = {"type": "problems", "h2": V("rep-h", f"Heat pump problems we fix in {n}", f"When your {n} heat pump acts up"),
+       "lead": V("rep-l", "What each symptom usually means. Call us with the symptom and we bring the right parts.", "Some of these are normal winter behaviour. Some need a technician. Here is how to tell."),
+       "items": [
+        {"problem": V("r1h", "It runs, but the house is getting cold", "Running, but not keeping up"),
+         "solution": V("r1", "Check the thermostat mode and the filter first. If those are fine, the usual causes are a blocked or iced outdoor coil, backup heat that is not switching on, or low refrigerant. We test the charge and the controls and fix the cause.",
+                             "First the easy checks: thermostat in Heat, clean filter, nothing piled against the outdoor unit. If it still falls behind, we test refrigerant pressures, the defrost controls and the backup heat switchover.")},
+        {"problem": V("r2h", "The outdoor unit has turned into a block of ice", "Thick ice that will not clear"),
+         "solution": V("r2", "A failed defrost sensor or control board, a fan that is not running, or meltwater that has nowhere to drain. Switch the thermostat to emergency or auxiliary heat so the house stays warm, and call us. Do not chip the ice off; it is easy to damage the coil.",
+                             "Defrost is not working, or the meltwater is refreezing under the unit. Set the thermostat to emergency heat, leave the ice alone, and call us. We repair the defrost fault and fix the drainage or placement.")},
+        {"problem": V("r3h", "Backup heat runs all the time and the hydro bill jumped", "Emergency heat is always on"),
+         "solution": V("r3", "Usually a thermostat setting, a faulty outdoor sensor, low refrigerant or a heat pump that is too small for the house. Backup heat is expensive to run, so it is worth fixing quickly.",
+                             "The heat pump is handing off too early or not running at all. We check the thermostat's changeover settings, the outdoor temperature sensor and the refrigerant charge.")},
+        {"problem": V("r4h", "It blows cool air for a few minutes, then a whoosh", "Steam, a whoosh and a few minutes of cool air"),
+         "solution": V("r4", "That is a normal defrost cycle. The unit reverses for a few minutes to melt frost off the outdoor coil. If it happens every few minutes or lasts much longer than usual, call us.",
+                             "Normal. Every so often the heat pump defrosts its outdoor coil, and you hear the valve shift and see steam outside. Constant defrosting, or cold air for long stretches, is not normal.")},
+        {"problem": V("r5h", "An error code is flashing", "A code on the thermostat or the unit"),
+         "solution": V("r5", "Write it down or take a photo and call us. We read the code, confirm it with meter readings and price the repair before we start, whoever installed the system.",
+                             "Send us a photo of the code. We confirm it with real measurements rather than guessing from the code alone, and we work on systems we did not install.")}]}
+    maint = {"type": "checklist", "h2": V("mt-h", f"What a heat pump tune-up includes in {n}", "Your yearly heat pump service"),
+       "lead": V("mt-l", "Once a year, ideally in the fall, so the system goes into winter clean and charged. Many manufacturers also require it for extended warranty coverage.", "A fall service catches the weak part before a January breakdown. See our <a href='/heat-pump/repair-maintenance/'>heat pump repair and maintenance</a> page for more."),
+       "items": V("mt", ["Outdoor coil cleaned and the fan checked", "Refrigerant pressures tested against the manufacturer's numbers", "Defrost cycle tested", "Condensate drain cleared",
+                         "Electrical connections tightened and the capacitor tested", "Backup heat and changeover temperature checked", "Filter replaced or cleaned", "Stand, bracket and snow clearance checked"],
+                        ["Coil and fan cleaned and inspected", "Charge checked with gauges, not guessed", "A defrost cycle run and timed", "Drain lines flushed",
+                         "Capacitor and contactor tested, terminals tightened", "Backup heat tested at the switchover", "A clean filter", "The unit's height and clearance for winter checked"])}
+
+    blocks = ([part("installation", "Installation", "install", V("pk1", "Installation", "New heat pump"), V("ph1", f"Heat pump installation in {n}", f"Installing a heat pump in {n}"),
+                    V("pl1", f"Sizing, placement, cost and rebates for a new cold-climate heat pump in {n}.", f"Everything you need to decide on a new heat pump for your {n} home."))]
+              + install
+              + [part("replacement", "Replacement", "clock", V("pk2", "Replacement", "Replacing a system"), V("ph2", f"Heat pump and AC replacement in {n}", f"Replacing an old heat pump or air conditioner in {n}"),
+                      V("pl2", "When an older system is worth repairing, and when replacing it with a cold-climate heat pump makes more sense.", "How we decide between repair and replacement, and what a replacement involves.")),
+                 rp_table, rp_split,
+                 part("repair", "Repair & Maintenance", "wrench", V("pk3", "Repair and maintenance", "Service"), V("ph3", f"Heat pump repair and maintenance in {n}", f"Keeping your {n} heat pump running"),
+                      V("pl3", "Winter problems, what is normal, and what a yearly tune-up covers.", "What to do when it acts up, and how to stop it happening.")),
+                 rep_problems, maint, {"type": "money"}])
+
+    title = fit([f"Heat Pump Installation & Replacement {n} | Repair", f"Heat Pump Installation & Replacement {n}", f"Heat Pump Installation {n} | Replacement", f"Heat Pump Installation {n}"], 60)
+    desc = fit([f"Heat pump installation in {n}, sized for {t}, plus replacement and repair. Up to $7,500 back for electric, oil or propane homes. Free quote.",
+                f"Heat pump installation in {n}, sized for {t}, plus replacement and repair. Up to $7,500 in rebates. Free quote.",
+                f"Heat pump installation, replacement and repair in {n}. Up to $7,500 in rebates. Free quote."], 155)
     near = [u for u in (nearby_link(x, "heat-pump") for x in c["nearby"]) if u]
     return {
      "url": f"/{s}/heat-pump/", "city_service": s, "priority": "0.7", "heating": True,
-     "title": title, "description": desc, "eyebrow": f"Heat Pumps · {n}", "h1": f"Heat Pump Installation in {n}",
+     "title": title, "description": desc, "eyebrow": f"Heat Pumps · {n}", "h1": f"Heat Pump Installation, Replacement and Repair in {n}",
      "tagline": V("tag", f"Sized for {N} {t} design day, rebate filed before install", f"Built for {t}, raised above the snow, rebate paperwork done for you", f"The right size for {t}, with your rebate filed first"),
      "intro": "<p>" + V("intro",
         f"Before you put a heat pump on a {n} house, you want two answers: will it keep you warm on the coldest night, and what does it cost after the rebate. Here are both, worked out with {N} own Building Code numbers, plus which setup suits the way your home is heated now.",
         f"Thinking about a heat pump for your {n} home this winter? Below are the numbers it has to meet, what it costs before and after the rebate, and which setup fits the way you heat today. No guesswork, just {N} own Building Code data.",
-        f"A heat pump only works as well as its sizing. For {n} that means {t} on the coldest design day, so that is where we start. Here is how we size it, where the outdoor unit goes, what you pay and what you get back.") + "</p>",
+        f"A heat pump only works as well as its sizing. For {n} that means {t} on the coldest design day, so that is where we start. Here is how we size it, where the outdoor unit goes, what you pay and what you get back.")
+        + V("intro2", " Replacing an old AC or heat pump, or need a repair? Use the quick links below.", " Already have one that needs replacing or fixing? Jump straight there with the links below.") + "</p>",
      "hero_points": [f"Sized from a heat-loss calculation at {N} {t} design temperature",
                      "Cold-climate Midea and Kepler models rated to -30°C" + (", with full backup for colder nights" if below else ""),
-                     "Up to $7,500 back for homes heated by electricity, oil or propane", "Rebate pre-approval filed before install day"],
+                     "Up to $7,500 back for homes heated by electricity, oil or propane", "Old AC and heat pump replacement, repair and yearly tune-ups"],
      "hero_image": f"Cold-climate heat pump outdoor unit on a raised stand beside a {n} home in winter",
      "service": {"name": f"Heat Pump Installation in {n}", "type": "Cold-climate heat pump installation", "area": n},
      "blocks": blocks,
@@ -266,6 +330,12 @@ def heat_pump_page(c):
       (f"Where should the heat pump go on a {n} house?",
        V("f4", f"On a raised stand or wall bracket, out of the roof drip line, with room for defrost water to drain. {N} Building Code ground snow load is {d['snow']} kPa, so we set the height for your snow, keep the unit away from bedroom windows and run the line set in a cover.",
                f"Above the snow line, on a stand or bracket, clear of the eaves and away from bedrooms. With a {d['snow']} kPa ground snow load in {n}, height and drainage matter more than which side of the house it is on.")),
+      (f"Should I repair or replace my old air conditioner or heat pump in {n}?",
+       V("f6", "If it is under about 10 years old and the repair is under a third of a new system, repair it. If the compressor has failed on an older unit, or it runs on R-22 refrigerant, replacing it with a cold-climate heat pump usually makes more sense and qualifies for the rebate.",
+               "Repair when the system is younger than about 10 years and the fix is modest. Replace when the compressor fails on an older unit or it still uses R-22. A cold-climate heat pump then cools, heats and qualifies for the rebate.")),
+      (f"How often does a heat pump need servicing in {n}?",
+       V("f7", f"Once a year, ideally in the fall before the {n} heating season. We clean the coil, check the refrigerant charge, test defrost and backup heat, and clear the condensate drain.",
+               "Every year, best done in the fall. A tune-up covers the coil, charge, defrost cycle, drains, electrical parts and backup heat, and many manufacturers require it to keep extended warranties valid.")),
       (f"Can you install a heat pump in {n} during winter?",
        V("f5", f"Yes. Your current heat stays on until the new system is running, and most single-system installs in {n} take one working day. We file the rebate pre-approval first, then book the install date, so a winter install does not cost you the rebate.",
                f"Yes, winter installs are routine. You keep your existing heat until the switchover, most jobs in {n} take a day, and the rebate pre-approval is filed before we book the date."))],
@@ -387,30 +457,59 @@ def furnace_page(c):
                              ["A TSSA-certified gas technician", "Fault codes read and confirmed with meter readings", "The price in writing before any part goes in",
                               "Ignitors, flame sensors, pressure switches and capacitors carried on the truck", "A carbon monoxide test before we leave", "Vents, filter and condensate drain checked on every call"])}
 
-    blocks = [checks_b] + V("order",
-        [snapshot, problems, table, sizing_b, cost, replace, equip, visit],
-        [problems, snapshot, table, cost, sizing_b, visit, replace, equip],
-        [problems, table, snapshot, sizing_b, replace, cost, visit, equip]) + [{"type": "money"}]
+    cost["keys"] = ["furnace_install"]
+    cost["h2"] = V("ci-h", f"What a new furnace costs in {n}", f"Furnace installation prices in {n}")
+    cost["lead"] = V("ci-l", "A new furnace is quoted from your heat loss, venting and gas line, and the price is guaranteed in writing.", "Your quote is built from the heat loss, venting and gas work, and the number does not move.")
+    install_incl = {"type": "checklist", "h2": V("ii-h", f"What is included in a {n} furnace installation", f"Everything in your {n} furnace quote"),
+       "items": V("ii", [f"Heat-loss sizing at {t} and a written, guaranteed price", "Removal and disposal of the old furnace", "PVC intake and exhaust venting set above the snow line",
+                         "Gas connection and leak test by TSSA-certified gas technicians", "Condensate drain routed so it cannot freeze", "New filter rack and thermostat setup",
+                         "Combustion test and carbon monoxide check at start-up", "Warranty registration in your name"],
+                        [f"A heat-loss calculation for {t} and one fixed price", "The old furnace taken out and disposed of", "New venting, terminated above the snow line",
+                         "Gas work and leak testing by TSSA-certified technicians", "A freeze-proof condensate drain", "Filter rack, thermostat and settings done",
+                         "Start-up combustion and CO testing", "The manufacturer warranty registered for you"])}
+    signs = {"type": "problems", "h2": V("sg-h", f"Signs your {n} furnace is due for replacement", "When replacing beats another repair"),
+       "lead": V("sg-l", "One of these on its own is not a verdict. Two or three together usually are.", "If you recognise several of these, get a replacement price next to the next repair quote."),
+       "items": [
+        {"problem": V("g1h", "It is 15 years old or more", "Fifteen-plus years of service"), "solution": V("g1", "Furnaces in Ontario homes commonly last 15 to 20 years. Past 15, big repairs start to cost more than they are worth.", "At that age, each repair buys less time. We look at the heat exchanger, motors and controls and tell you honestly how much life is left.")},
+        {"problem": V("g2h", "Repairs every winter", "Another call, another part"), "solution": V("g2", "When the same furnace needs a part every season, the money is better spent on a new one with a fresh warranty.", "Repeated repairs add up. Put the last two years of repair bills next to a replacement price and the choice is usually clear.")},
+        {"problem": V("g3h", "Gas bills keep rising", "Higher bills for the same house"), "solution": V("g3", "An older 80% furnace sends a fifth of the heat up the vent. A 96% to 97% AFUE furnace keeps almost all of it.", "Older mid-efficiency furnaces waste far more heat up the vent than a 96% to 97% AFUE condensing model.")},
+        {"problem": V("g4h", "Yellow, flickering flame or soot", "Soot marks or a lazy yellow flame"), "solution": V("g4", "That can mean incomplete combustion and a carbon monoxide risk. Test your CO alarm and call us to inspect it.", "Get it checked now. It can point to a combustion problem, and we test for carbon monoxide on the visit.")},
+        {"problem": V("g5h", "A cracked heat exchanger", "The technician found a crack"), "solution": V("g5", "A cracked heat exchanger can leak combustion gases into the air you breathe. On most furnaces it means replacement.", "Replacing a heat exchanger rarely makes financial sense, and running a furnace with one cracked is a carbon monoxide risk.")}]}
+    rep_cost = {"type": "cost_guide", "h2": V("cr-h", f"Furnace repair costs in {n}", f"What a {n} furnace repair costs"), "keys": ["furnace_repair"],
+                "lead": V("cr-l", "Repairs are priced in writing after diagnosis, before any part goes in.", "We find the fault first, then you get the price in writing.")}
+    blocks = ([part("installation", "Installation", "install", V("pk1", "Installation", "New furnace"), V("ph1", f"Furnace installation in {n}", f"Installing a new furnace in {n}"),
+                    V("pl1", f"Sizing, models, cost and what is included in a new furnace for a {n} home.", f"How we size and install a high-efficiency furnace in {n}."))]
+              + V("order", [snapshot, sizing_b, cost, equip, install_incl], [snapshot, cost, sizing_b, install_incl, equip], [sizing_b, snapshot, cost, install_incl, equip])
+              + [part("replacement", "Replacement", "clock", V("pk2", "Replacement", "Replacing a furnace"), V("ph2", f"Furnace replacement in {n}", f"Replacing an old furnace in {n}"),
+                      V("pl2", "How we decide between repair and replacement, and how a replacement goes.", "When it is time, and what happens on replacement day.")),
+                 signs, table, replace,
+                 part("repair", "Repair & Maintenance", "wrench", V("pk3", "Repair and maintenance", "No heat? Start here"), V("ph3", f"Furnace repair and maintenance in {n}", f"No heat in {n}? Furnace repair"),
+                      V("pl3", "Checks to do right now, what each symptom means, and what a repair visit covers.", "Start with the five checks, then match your symptom below.")),
+                 checks_b, problems, rep_cost, visit, {"type": "money"}])
 
-    title = fit([f"Furnace Repair & Installation {n} | No Heat Help", f"Furnace Repair & Installation {n}", f"Furnace Repair {n} | No Heat Help", f"Furnaces {n}"], 60)
-    desc = fit([f"No heat in {n}? TSSA-certified techs repair furnaces evenings and weekends. New 96% AFUE furnaces from $3,300 installed. Written price first.",
-                f"No heat in {n}? Furnace repair evenings and weekends, new 96% AFUE furnaces from $3,300 installed. Written price first.",
-                f"Furnace repair and new furnaces in {n} from $3,300 installed. Written price first."], 155)
+    title = fit([f"Furnace Installation & Replacement {n} | Repair", f"Furnace Installation & Replacement {n}", f"Furnace Installation {n} | Replacement", f"Furnace Installation {n}"], 60)
+    desc = fit([f"Furnace installation in {n} from $3,300: 96% AFUE, sized for {t}. Replacement priced in writing, and repair evenings and weekends.",
+                f"Furnace installation in {n} from $3,300, sized for {t}. Replacement and repair evenings and weekends.",
+                f"Furnace installation, replacement and repair in {n}. New furnaces from $3,300."], 155)
     near = [u for u in (nearby_link(x, "furnace") for x in c["nearby"]) if u]
     return {
      "url": f"/{s}/furnace/", "city_service": s, "priority": "0.7", "heating": True,
-     "title": title, "description": desc, "eyebrow": f"Furnaces · {n}", "h1": f"Furnace Repair and Installation in {n}",
-     "tagline": V("tag", f"No heat at {t}? Here is what to check, and what we do next", f"No heat in {n}? Five checks first, then a straight answer", "Your furnace stopped. Here is the fastest way back to heat"),
+     "title": title, "description": desc, "eyebrow": f"Furnaces · {n}", "h1": f"Furnace Installation, Replacement and Repair in {n}",
+     "tagline": V("tag", f"High-efficiency furnaces sized for {t}, and straight answers when one stops", f"New furnaces from $3,300, replacement priced honestly, repair when you need it", f"The right furnace for {t}, installed and backed in writing"),
      "intro": "<p>" + V("intro",
-        f"If your furnace has stopped, you need two things: a few checks you can do in the next five minutes, and a technician who gives you a straight repair or replace answer. This page has both, plus what a new furnace costs and how we size one for {N} {t} design temperature.",
-        f"No heat in {n}? Start with the five checks below; one of them fixes it more often than you would think. If not, we diagnose it, price it in writing and tell you honestly whether to repair or replace.",
-        f"A furnace that quits in a {n} winter needs a quick, honest answer. Here is what to check yourself first, what the common faults mean, what repair and replacement cost, and how we size a new furnace for {t}.") + "</p>",
-     "hero_points": ["TSSA-certified gas technicians, every major furnace brand", "Emergency furnace repair evenings, weekends and holidays",
-                     "Written price before any part comes off the truck", "New 96% to 97% AFUE furnaces from $3,300 installed"],
+        f"Whether you are planning a new furnace or replacing one that has given up, the starting point is the same: the right size for {N} {t} design temperature and one written price. Here is how we do it, what it costs, and when a repair still makes sense.",
+        f"A new furnace for a {n} home should be sized for {t}, quoted in writing and installed to code. This page covers installation first, then replacement, then repair.",
+        f"Planning a furnace for your {n} home? Below are the sizing numbers, prices and what is included, followed by how we handle replacement and repair.")
+        + " <a href='#repair'>No heat right now? Jump to the five checks.</a></p>",
+     "hero_points": ["New 96% to 97% AFUE furnaces from $3,300 installed", f"Sized from a heat-loss calculation at {t}",
+                     "Replacement priced in writing next to the repair", "Emergency repair evenings, weekends and holidays by TSSA-certified techs"],
      "hero_image": f"Technician repairing a high-efficiency gas furnace in a {n} basement",
      "service": {"name": f"Furnace Repair and Installation in {n}", "type": "Furnace repair and replacement", "area": n},
      "blocks": blocks,
      "faqs": [
+      (f"How much does a new furnace cost in {n}?",
+       V("q0", f"High-efficiency furnace installation in {n} starts at $3,300 installed for a 96% to 97% AFUE two-stage furnace. The final price depends on size, venting and gas line work, and you get it in writing, guaranteed, after the home visit.",
+               f"New 96% to 97% AFUE furnaces in {n} start at $3,300 installed. Size, venting changes and gas work set the final number, which we guarantee in writing.")),
       (f"How much does furnace repair cost in {n}?",
        V("q1", f"Furnace repair in {n} is priced in writing after diagnosis, because it depends on the failed part. Flame sensors, ignitors and capacitors are at the low end, blower and inducer motors and control boards cost more. If replacement is the better choice, a new high-efficiency furnace starts at $3,300 installed.",
                f"It depends on the part, so we diagnose first and give you the price in writing. Sensors, ignitors and capacitors are inexpensive; motors and control boards cost more. A new high-efficiency furnace in {n} starts at $3,300 installed.")),
@@ -431,7 +530,161 @@ def furnace_page(c):
      "related": [f"/{s}/heat-pump/", f"/{s}/", "/furnace/high-efficiency/", "/furnace/repair-maintenance/", "/services/emergency-hvac/"] + near[:1],
     }
 
+# ---------------------------------------------------------------- tankless water heater page
+def tankless_page(c):
+    s, n = c["slug"], c["name"]; d = CLIMATE[s]; b = band(d); sc = snow_class(d); t = deg(d["dt"]); V = chooser(s + "/tl"); N = poss(n)
+    north = b in ("cold", "severe")
+    gasline = (f"Homes in {n} on propane can have the same Rinnai units in their propane versions." if off_gas(c) else f"Most {n} homes are on {c['gas']}; a few are on propane, and Rinnai makes both versions.")
+
+    snapshot = {"type": "snapshot", "h2": V("snap-h", f"Tankless numbers for {n}", f"What a tankless has to handle in {n}"),
+       "lead": V("snap-l", "Sizing and installation details that change from town to town.", "The local facts we plan a tankless install around."),
+       "items": [
+        {"icon": "water", "label": "Winter inlet water", "value": "Single digits °C",
+         "text": V("in1", "Incoming water in an Ontario winter can drop into the single digits Celsius, so we size for the temperature rise in February, not July.", "Cold winter water means a bigger temperature rise, which cuts the flow a tankless can deliver. We size for it.")
+                 + (" Wells up north run colder still." if north else "")},
+        {"icon": "snow", "label": "January design temperature", "value": t, "text": f"Sets how we protect the unit and its venting from freezing in {n}."},
+        {"icon": "house", "label": "Ground snow load", "value": f"{d['snow']} kPa", "text": "Vent terminations go above the snow line so drifts cannot shut the heater down."},
+        {"icon": "dollar", "label": "Installed price", "value": "From $3,300", "text": "Rinnai RX160iN condensing, with a guaranteed written quote."}]}
+    why = {"type": "problems", "h2": V("why-h", f"Why {n} homeowners switch to tankless", f"What a tankless fixes in a {n} home", f"Is tankless right for your {n} home?"),
+       "lead": V("why-l", "The problems a tank cannot solve, and what changes when you go tankless.", "Short answers to the reasons people call us."),
+       "items": [
+        {"problem": V("w1h", "Running out of hot water", "The last shower is always cold"), "solution": V("w1", "A 40 or 50 gallon tank has a hard limit. A tankless heats water as it flows, up to about 9 GPM on the RX160iN and 11.1 GPM on the RX199iN, so a shower lasts as long as you want.",
+                                                                                                      "A tank holds a fixed amount and then you wait. A tankless heats on demand, so back-to-back showers and a running dishwasher are not a problem when it is sized right.")},
+        {"problem": V("w2h", "Paying a rental fee every month", "A rented tank you will never own"), "solution": V("w2", "A rented tank can cost more over fifteen years than buying a tankless outright. We install a Rinnai you own and help arrange the return of the rental unit. Check your rental agreement for any buyout or removal terms first.",
+                                                                                                                 "Rental fees never end. A Rinnai you own replaces them, and we help you return the old tank. Read your rental contract for buyout or removal terms before we book.")},
+        {"problem": V("w3h", "The tank is leaking or rusting at the base", "Rust and water around the tank"), "solution": V("w3", "That tank is near the end. A wall-mounted tankless has no tank to rust through, and we can usually replace a failing tank with a tankless in one visit.",
+                                                                                                                       "Do not wait for the long weekend it lets go. A tankless has no tank to fail, and most swaps are done in a day.")},
+        {"problem": V("w5h", f"Will a tankless suit my kind of {n} home?", f"Tankless in an older or newer {n} house"),
+         "solution": V("w5", f"Homes in {n} range from {c['housing']}. The questions are the same in all of them: where the vent can exit, whether the gas line can feed the burner, and how many bathrooms run at once. We answer all three on the assessment.",
+                             f"In {n} we see {c['housing']}. Older homes often need a new vent route because the tank used the chimney; newer ones may need a bigger gas line. Both go on the quote before you decide.")},
+        {"problem": V("w4h", "No room in the basement", "The tank takes up a corner of the room"), "solution": V("w4", "A Rinnai is about the size of a suitcase and hangs on the wall, freeing the floor space a tank used.",
+                                                                                                                  "The unit mounts on the wall, so the floor space the tank used is yours again.")}]}
+    sizing_html = ("<p>" + V("sz1",
+        "Tankless sizing is about temperature rise. To deliver a 49°C shower from 5°C winter water, the heater has to raise it about 44°C, and a tankless unit's flow rate falls as the required rise climbs. The GPM on the box is a best case at a small rise.",
+        "What matters is how much the heater has to warm the water. From 5°C winter water to a 49°C shower is a rise of about 44°C, and the bigger the rise, the less flow any tankless can deliver. Brochure GPM figures assume much warmer water.")
+        + (f" {n} homes on wells, and inlet water further north, can run colder still, so we size with a margin." if north else "") + "</p><p>"
+        + V("sz2", "So we count what you run at once in February: a shower uses roughly 2 to 2.5 GPM, a kitchen tap about 1.5 and a washing machine about 2. Two showers and a dishwasher together is a job for the RX199iN; one shower and a tap is fine on the RX160iN.",
+                   "We size from your real peak: about 2 to 2.5 GPM per shower, 1.5 for a kitchen tap, 2 for the washer. One shower plus a tap fits the RX160iN. Two showers and the dishwasher at once needs the RX199iN.")
+        + "</p>" + checklist(V("sz3", ["Fixtures that run at the same time counted", "Winter inlet temperature checked", "Gas line and meter capacity checked for the burner", "Venting route planned above the snow line"],
+                                      ["Your peak hot water use, fixture by fixture", "The temperature rise for February water", "Gas supply sized for up to 199,000 BTU", "A vent route clear of snow and windows"])))
+    sizing_b = {"type": "split", "h2": V("sz-h", f"Sizing a tankless for {n} winter water", "How we pick the right Rinnai"), "html": sizing_html,
+                "image": "Rinnai condensing tankless water heater mounted on a wall", "image_src": RINNAI["unit"], "image_fit": "contain",
+                "shot": f"Finished Rinnai tankless on a basement wall in a {n} home: isolation valves, gas line and PVC venting visible"}
+    video = {"type": "video", "h2": V("vid-h", "Watch a tankless installation", "See a tankless install"), "lead": "A 39-second look at a compact, wall-mounted tankless install by EHI.", "items": [("rD0_LoGYAmo", "")]}
+    cost = {"type": "cost_guide", "h2": V("cost-h", f"What a tankless water heater costs in {n}", f"Tankless prices in {n}"), "keys": ["tankless_install"],
+            "lead": V("cost-l", "The RX199iN, propane set-ups, gas line upsizing and recirculation add to the starting price. Your quote is guaranteed in writing.", "Starting price for the RX160iN. Bigger models, gas line work and recirculation are quoted on the visit."),
+            "note": "Installed pricing depends on the model, venting route and gas line work, and every job gets a written, guaranteed quote. Financing runs 0% for 3, 6 or 9 months on approved credit."}
+    equip = {"type": "equipment", "h2": V("eq-h", f"Rinnai tankless water heaters we install in {n}", f"Tankless models for {n} homes"), "groups": ["water_heaters"],
+             "lead": V("eq-l", "Condensing units, natural gas or propane. We register the Rinnai warranty for you.", "Both run on natural gas or propane, and we register your warranty.")}
+    steps = {"type": "steps", "h2": V("st-h", f"How a tankless install works in {n}", f"Your {n} tankless install, step by step"), "cta": "Book My Tankless Quote",
+       "items": [
+        {"title": V("s1t", "Assessment", "Home or video visit"), "text": V("s1", f"We count fixtures, check the gas line and meter, and walk the venting route, anywhere from {hoods(c)}. In-home or virtual, your choice.", f"Fixtures, gas supply and the vent route, checked in person or on a video call, across {n} including {hoods(c, 2)}.")},
+        {"title": V("s2t", "Guaranteed quote", "One written price"), "text": V("s2", "Model, venting, gas work and any recirculation on one written quote.", "Everything on one quote, and that is the price you pay.")},
+        {"title": "Install day", "text": V("s3", "Usually one day: old tank out, Rinnai in, gas and venting by TSSA-certified technicians.", "Most installs take a day, with TSSA-certified techs on the gas and venting.")},
+        {"title": V("s4t", "Start-up and handover", "Ready to use"), "text": V("s4", "We set the temperature, show you the controls and isolation valves, and register your warranty.", "Temperature set, controls explained, warranty registered.")}]}
+    incl = {"type": "checklist", "h2": V("in-h", f"What is included in a {n} tankless installation", f"Everything in your {n} tankless quote"),
+       "image": "Rinnai tankless water heater installed in a garage", "image_src": RINNAI["garage"], "image_fit": "cover",
+       "shot": f"Install day in a {n} home: old tank removed, new Rinnai on the wall, technician connecting the gas line",
+       "items": V("in", ["Fixture count and winter inlet sizing, with a guaranteed quote", "Removal of the old tank and help returning a rental",
+                         "Gas line sized for the burner, upsized where needed by TSSA-certified technicians", "Direct-vent PVC or polypropylene venting, terminated above the snow line",
+                         "Condensate drain with a neutralizer, because condensing units make acidic condensate", "Isolation valves so the yearly descaling flush takes minutes",
+                         "Start-up, temperature set and warranty registration"],
+                        ["Sizing for your real winter use and one fixed price", "Old tank out, rental return arranged", "Gas supply checked and upsized if the burner needs it",
+                         "New direct venting above the snow line", "A condensate neutralizer to protect your drains", "Service valves for easy descaling", "Start-up, settings and your Rinnai warranty registered"])}
+
+    rp_table = {"type": "table", "h2": V("rp-h", "Repair it or replace it?", "Fix the water heater or replace it?"),
+       "lead": V("rp-l", "We give you both prices and tell you which we would choose.", "Both options in writing, with our honest recommendation."),
+       "headers": ["What we find", "Usually", "Why"],
+       "rows": [["Tank leaking from the bottom", "Replace", V("r1", "A leaking tank cannot be repaired", "Once the tank itself leaks, it is done")],
+                ["Rented tank, any age", "Replace with a tankless you own", V("r2", "Stops the rental fees for good", "No more monthly rental charge")],
+                ["Tankless with scale and lukewarm water", "Descale and service", V("r3", "Scale is the most common tankless problem, and a flush usually fixes it", "A descaling flush restores the flow")],
+                ["Tankless ignition or sensor fault", "Repair", V("r4", "Replaceable parts on a long-lived unit", "Fixable parts, plenty of life left")],
+                ["Old tankless that has outlived its parts", "Replace", V("r5", "New condensing models are more efficient and come with a fresh warranty", "A new condensing unit and a new warranty")]]}
+    rp_split = {"type": "split", "h2": V("rs-h", f"Replacing a tank with a tankless in {n}", "What changes when you replace a tank"), "reverse": True,
+       "image": "Hot water running at a kitchen sink", "image_src": RINNAI["sink"], "image_fit": "cover",
+       "shot": f"Before and after in a {n} basement: the old tank next to the new wall-mounted Rinnai",
+       "html": "<p>" + V("rs1", "Three things change when a tank becomes a tankless, and the quote covers all of them.", "A tank-to-tankless swap is more than a one-for-one. Here is what the quote includes.") + "</p>"
+               + checklist(V("rs2", ["Venting: the old chimney or B-vent is not used; a condensing Rinnai vents through PVC or polypropylene to an outside wall",
+                                     "Gas: a 160,000 to 199,000 BTU burner often needs a larger gas line than a tank, and we check the meter too",
+                                     "Space: the unit goes on the wall, often right where the tank was"],
+                                    ["New venting through an outside wall in PVC or polypropylene, not the old chimney", "A gas line big enough for up to 199,000 BTU, checked back to the meter",
+                                     "Wall mounting that frees the floor space"]))
+               + f"<p>{gasline} See our <a href='/water-heater/'>tankless water heater guide</a> for the full details.</p>"}
+
+    rep = {"type": "problems", "h2": V("rep-h", f"Tankless problems we fix in {n}", f"When your {n} tankless acts up"),
+       "lead": V("rep-l", "What each symptom usually means and what we do about it.", "Match the symptom, then call us with it."),
+       "items": [
+        {"problem": V("p1h", "Lukewarm water when more than one tap runs", "Hot water fades with two showers"), "solution": V("p1", "Either scale has built up in the heat exchanger or the unit is too small for your peak use. A descaling flush fixes the first; resizing or adding a second unit fixes the second.",
+                                                                                                                              "Usually scale, sometimes sizing. We flush the heat exchanger first, and if it still cannot keep up, we show you the numbers.")},
+        {"problem": V("p2h", "Bursts of cold water in the shower", "Hot, then a cold blast, then hot"), "solution": V("p2", "That cold water sandwich happens when the unit stops and restarts between uses. A recirculation option or a setting change usually solves it.",
+                                                                                                                   "It is the gap while the burner restarts. Recirculation or a small settings change fixes it in most homes.")},
+        {"problem": V("p3h", "No hot water and an error code", "A code on the display, no hot water"), "solution": V("p3", "Take a photo of the code and call us. Common causes are ignition, gas supply, a blocked vent or a clogged inlet filter.",
+                                                                                                                      "Send us the code. It usually points to ignition, gas supply, a vent blockage or the inlet filter, and we bring the right parts.")},
+        ({"problem": V("p4h", "It stops after a snowstorm", "No hot water after heavy snow"), "solution": V("p4", f"Snow or ice over the vent outside. With a {d['snow']} kPa ground snow load in {n}, low terminations get buried. Clear it by hand, and if it keeps happening, we raise the vent.",
+                                                                                                         f"The vent outside is blocked. {N} snow can bury a low termination, so clear it and ask us about raising it.")}
+         if sc != "light" else
+         {"problem": V("p4h", "Water dripping from the unit or the drain", "A drip under the heater"), "solution": V("p4", "Usually the condensate line or neutralizer is blocked. We clear it and check the connections.", "Most often a blocked condensate drain or neutralizer cartridge. Easy to fix.")}),
+        {"problem": V("p5h", f"A power outage during a {t} cold snap", "The power is out and it is freezing"),
+         "solution": V("p5", f"A tankless needs power for its freeze protection. If the house will be without power and heat in a {n} deep freeze, shut off the water and gas to the unit and drain it, or call us to do it.",
+                             "Freeze protection runs on electricity. In a long outage in deep cold, shut off the water and gas to the heater and drain it, or call us.")}]}
+    maint = {"type": "checklist", "h2": V("mt-h", f"Yearly tankless maintenance in {n}", "What a tankless service includes"),
+       "lead": V("mt-l", "A yearly descaling flush keeps the flow up and the burner efficient. Homes with very hard water may need it more often.", "Once a year, or more often with hard water, keeps a tankless running like new."),
+       "items": V("mt", ["Heat exchanger flushed with descaler through the isolation valves", "Inlet water filter cleaned", "Burner and flame checked", "Vent and air intake checked for blockages and snow",
+                         "Condensate neutralizer checked", "Error history read and settings confirmed"],
+                        ["Descaling flush of the heat exchanger", "Water inlet screen cleaned", "Combustion checked", "Venting inspected, inside and out", "Neutralizer cartridge checked", "Fault history and settings reviewed"])}
+
+    install = V("order", [snapshot, why, sizing_b, video, cost, steps, equip, incl], [snapshot, sizing_b, why, cost, video, incl, steps, equip], [why, snapshot, video, sizing_b, cost, equip, steps, incl])
+    blocks = ([part("installation", "Installation", "install", V("pk1", "Installation", "New tankless"), V("ph1", f"Tankless water heater installation in {n}", f"Installing a tankless water heater in {n}"),
+                    V("pl1", "Sizing for winter water, cost, models and what the install includes.", f"How we size and install a Rinnai tankless in a {n} home."))]
+              + install
+              + [part("replacement", "Replacement", "clock", V("pk2", "Replacement", "Replacing a water heater"), V("ph2", f"Water heater replacement in {n}", f"Replacing a tank or tankless in {n}"),
+                      V("pl2", "Replacing a leaking or rented tank, or an older tankless.", "When to replace, and what a tank-to-tankless swap involves.")),
+                 rp_table, rp_split,
+                 part("repair", "Repair & Maintenance", "wrench", V("pk3", "Repair and maintenance", "Service"), V("ph3", f"Tankless repair and maintenance in {n}", f"Keeping your {n} tankless running"),
+                      V("pl3", "Common faults, what to do in a winter power outage, and yearly descaling.", "What to do when it acts up, and how to keep it from happening.")),
+                 rep, maint, {"type": "money"}])
+
+    title = fit([f"Tankless Water Heater Installation {n} | Rinnai", f"Tankless Water Heater Installation {n}", f"Tankless Water Heaters {n}"], 60)
+    desc = fit([f"Tankless water heater installation in {n} from $3,300: Rinnai condensing, sized for winter water. Tank replacement and repair too. Free quote.",
+                f"Tankless water heater installation in {n} from $3,300, plus tank replacement and repair. Free quote.",
+                f"Tankless water heaters in {n} from $3,300 installed. Free quote."], 155)
+    near = [u for u in (nearby_link(x, "tankless-water-heater") for x in c["nearby"]) if u]
+    heat = [u for u in (f"/{s}/furnace/" if s in LIVE else (f"/{s}/furnace-repair/" if s in SKIP else None),) if u]
+    return {
+     "url": f"/{s}/tankless-water-heater/", "city_service": s, "priority": "0.6", "heating": True,
+     "title": title, "description": desc, "eyebrow": f"Tankless Water Heaters · {n}", "h1": f"Tankless Water Heater Installation, Replacement and Repair in {n}",
+     "tagline": V("tag", "Endless hot water, sized for February, priced in writing", "Rinnai tankless, sized for winter water and installed in a day", "Stop running out of hot water, and stop paying rent on a tank"),
+     "intro": "<p>" + V("intro",
+        f"A tankless water heater gives a {n} home hot water for as long as the taps run, as long as it is sized for winter inlet water. Here is how we size it, what it costs, and what a swap from a tank involves.",
+        f"Tired of cold showers or a monthly rental fee? A Rinnai tankless fixes both, if it is sized for the cold water a {n} winter delivers. Installation first, then replacement and repair.",
+        f"Thinking about tankless for your {n} home? Below: sizing for winter water, prices, the models we install, and what changes when you replace a tank.")
+        + V("intro2", " Need a repair instead? Use the quick links below.", " Already have one that needs work? Jump to repair below.") + "</p>",
+     "hero_points": ["Rinnai RX160iN and RX199iN condensing, 0.97 and 0.98 UEF", "From $3,300 installed, guaranteed written quote", "Old tank removed and rental return arranged", "Descaling, service and repair for tankless units"],
+     "hero_image": f"Rinnai tankless water heater on a wall in a {n} home",
+     "service": {"name": f"Tankless Water Heater Installation in {n}", "type": "Tankless water heater installation", "area": n},
+     "blocks": blocks,
+     "faqs": [
+      (f"How much does a tankless water heater cost in {n}?",
+       V("q1", f"Tankless water heater installation in {n} starts at $3,300 installed for a Rinnai RX160iN. The RX199iN, propane set-ups, gas line upsizing and recirculation add to that. You get a guaranteed written quote before any work.",
+               f"From $3,300 installed in {n} for the RX160iN. A bigger RX199iN, gas line work, propane or recirculation is quoted on the visit, and the price is guaranteed.")),
+      (f"What size tankless water heater does a {n} home need?",
+       V("q2", "It depends on how many hot fixtures run at once and how cold your winter water gets. Most two-bathroom homes are fine on the RX160iN at up to about 9 GPM; three or more bathrooms, or a soaker tub, usually need the RX199iN at up to about 11.1 GPM.",
+               "Count what runs at the same time in winter. One shower and a tap: the RX160iN. Two showers plus the dishwasher, or a big soaker tub: the RX199iN.")),
+      (f"Can I replace a rented water tank with a tankless in {n}?",
+       V("q3", f"Yes. We install a Rinnai you own and help arrange the return of the rental tank. Check your rental agreement for buyout or removal terms first, so there are no surprises.",
+               f"Yes, and it is one of the most common jobs we do. You own the new unit, and we help with returning the rental. Read your rental contract's buyout or removal terms first.")),
+      (f"Does a tankless water heater need a new gas line in {n}?",
+       V("q4", f"Often. A 160,000 to 199,000 BTU burner can need a larger line than a tank used, so we check the line and meter on the assessment. {gasline}",
+               f"Sometimes. Tankless burners draw far more gas than a tank, so we check the line back to the meter and include any upsizing in the quote. {gasline}")),
+      (f"How often should a tankless be descaled in {n}?",
+       V("q5", "Once a year for most homes, more often if your water is very hard. The isolation valves we install make the flush quick.",
+               "Yearly is the usual rule, and more often with hard water. With service valves in place it is a short visit."))],
+     "related": [f"/{s}/", "/water-heater/", "/brands/rinnai-tankless-water-heaters/", "/water-heater/repair-maintenance/"] + heat + near[:1],
+    }
+
 PAGES = []
 for _c in CITIES:
     if _c["slug"] in LIVE:
         PAGES += [heat_pump_page(_c), furnace_page(_c)]
+    if _c["slug"] in LIVE_TANKLESS:
+        PAGES.append(tankless_page(_c))

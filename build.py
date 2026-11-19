@@ -354,6 +354,9 @@ def render_block(b, page):
         return f'<section class="sec table-sec"><div class="wrap narrow">{h2(b)}{lead(b)}<div class="table-wrap"><table><thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table></div>{note}</div></section>'
     if t == "money":
         return money_block(b)
+    if t == "part":      # divider that opens a part of the page (installation, replacement, repair); quick links jump here
+        return (f'<section class="sec part-sec" id="{b["anchor"]}"><div class="wrap"><p class="part-kicker"><span class="card-icon">{icon(b.get("icon", "wrench"))}</span>{b["kicker"]}</p>'
+                f'<h2>{b["h2"]}</h2>{lead(b)}</div></section>')
     if t == "video":
         n = len(b["items"])
         sizes = "(max-width: 840px) calc(100vw - 32px), 760px" if n == 1 else "(max-width: 760px) calc(100vw - 32px), 560px"
@@ -813,7 +816,7 @@ SERVICE_PREFIXES = ("/services/", "/furnace/", "/ac/", "/heat-pump/", "/water-he
 def preselect_for(url):
     rules = [("/heat-pump-installation/", "Heat pump installation"), ("/furnace-repair/", "Repair (furnace, AC or heat pump)"), ("/ac-repair/", "Repair (furnace, AC or heat pump)"),("/services/emergency-hvac/", "Emergency, no heat or no cooling"), ("repair-maintenance", "Repair (furnace, AC or heat pump)"), ("/repair/", "Repair (furnace, AC or heat pump)"),
              ("/services/humidifiers/", "Humidifier, HRV/ERV or thermostat"), ("/services/hrv-erv/", "Humidifier, HRV/ERV or thermostat"), ("/services/thermostats/", "Humidifier, HRV/ERV or thermostat"),
-             ("/water-heater/", "Tankless water heater"), ("ductless", "Ductless mini-split"), ("/heat-pump", "Heat pump installation"), ("/furnace/", "Furnace installation or replacement"), ("/ac/", "AC installation or replacement")]
+             ("/water-heater/", "Tankless water heater"), ("tankless-water-heater", "Tankless water heater"), ("ductless", "Ductless mini-split"), ("/heat-pump", "Heat pump installation"), ("/furnace/", "Furnace installation or replacement"), ("/ac/", "AC installation or replacement")]
     for k, v in rules:
         if k in url: return v
     return None
@@ -949,7 +952,7 @@ def render(page):
     strip = "" if page.get("no_partners") or not page.get("h1") or article or has_brand_grid or page.get("banner") else partners_strip()
     if strip and blocks and blocks[0].get("type") == "promo":
         body += render_block(blocks.pop(0), page)
-    body += strip
+    body += jump_nav(page) + strip
     prev_dark = False
     gal = service_gallery(page["url"]) if not page.get("no_gallery") else ""
     mid = len(blocks) // 2
@@ -1051,10 +1054,10 @@ MOSAIC_KINDS = ["out", "in", "sys", "in", "out", "detail"]
 def write_image_slots(pages):
     """image-slots.csv: every image slot on the city heat pump and furnace pages, the photo to take, and the stand-in shown now."""
     import csv
-    rows = [(pg["url"], re.sub("<[^>]+>", "", b.get("h2", "")), b["shot"], (b.get("_imgs") or [""])[0] + ".webp" if b.get("_imgs") else "")
+    rows = [(pg["url"], re.sub("<[^>]+>", "", b.get("h2", "")), b["shot"], (b["_imgs"][0] + ".webp") if b.get("_imgs") else b.get("image_src", "").replace("/assets/img/", ""))
             for pg in pages if pg.get("heating") for b in pg.get("blocks", []) if b.get("shot")]
     with open(os.path.join(ROOT, "image-slots.csv"), "w", newline="", encoding="utf-8") as fh:
-        w = csv.writer(fh); w.writerow(["Page", "Section", "Photo to take", "Stand-in photo now (assets/img/work/)"]); w.writerows(rows)
+        w = csv.writer(fh); w.writerow(["Page", "Section", "Photo to take", "Stand-in photo now (assets/img/work/ unless a folder is shown)"]); w.writerows(rows)
 
 def allocate_city_photos(pages):
     """Give every city page its own photo set. Batches are allocated in order, so adding a new batch never
@@ -1269,12 +1272,21 @@ def city_map_block(slug):
             f'<div class="cm-map"><iframe src="{prof["embed"] if prof else MAP_EMBED}" width="100%" height="460" style="border:0" loading="lazy" allowfullscreen referrerpolicy="{"strict-origin-when-cross-origin" if prof else "no-referrer-when-downgrade"}" '
             f'title="Google map and reviews for {esc(prof["name"] if prof else BRAND)}"></iframe></div></div></div></section>')
 
+def jump_nav(page):
+    """Sticky quick links under the hero to the parts of a long service page (installation, replacement, repair)."""
+    parts = [b for b in page.get("blocks", []) if b.get("type") == "part"]
+    if len(parts) < 2: return ""
+    short = {"installation": "Install", "replacement": "Replace", "repair": "Repair"}
+    links = "".join(f'<li><a href="#{b["anchor"]}">{icon(b.get("icon", "wrench"))}<span class="jl">{b["jump"]}</span><span class="js">{short.get(b["anchor"], b["jump"])}</span></a></li>' for b in parts)
+    return f'<nav class="jump-nav" aria-label="On this page"><div class="wrap"><ul>{links}</ul></div></nav>'
+
 def city_local_links(page):
     """Links from a city page to its own service pages and guide, when they exist."""
     slug = page["city"]; cn = esc(CITY_BY_SLUG[slug]["name"])
     svcs = [(f"/{slug}/heat-pump/", "heatpump", f"Heat pumps in {cn}", "Sized for your design temperature, rebate pre-approval filed for you"),
             (f"/{slug}/furnace/", "furnace", f"Furnace repair and installation in {cn}", "No-heat checks, repair or replace, new furnaces from $3,300"),
             (f"/{slug}/heat-pump-installation/", "heatpump", f"Heat pump installation in {cn}", "Cold-climate heat pumps, rebates and sizing for local homes"),
+            (f"/{slug}/tankless-water-heater/", "tankless", f"Tankless water heaters in {cn}", "Rinnai installation, tank replacement, descaling and repair"),
             (f"/{slug}/furnace-repair/", "furnace", f"Furnace repair in {cn}", "No heat, short cycling, ignitors and blowers, quoted in writing"),
             (f"/{slug}/ac-repair/", "snow", f"AC repair in {cn}", "Warm air, ice on the coil, leaks and tripped breakers")]
     svcs = [x for x in svcs if x[0] in REG]
