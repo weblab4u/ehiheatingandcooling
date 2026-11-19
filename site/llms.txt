@@ -7,7 +7,7 @@
 - Office: 4261 Bloomington Road, Whitchurch-Stouffville, ON L4A 3Y6 (service-area business; crews come to you)
 - Hours: Monday 8:00 AM to 8:00 PM; Tuesday 8:00 AM to 8:00 PM; Wednesday 8:00 AM to 8:00 PM; Thursday 8:00 AM to 8:00 PM; Friday 8:00 AM to 8:00 PM; Saturday 8:00 AM to 8:00 PM; Sunday 10:00 AM to 5:00 PM
 - Service area: the GTA, York, Durham, Peel, Halton, Simcoe, Niagara, Hamilton, Kitchener-Waterloo, Ottawa, and towns across Eastern, Southwestern and Northern Ontario
-- Authorized dealer: Midea, Lennox, Kepler and Rinnai. Also installs and services Goodman.
+- Authorized dealer: Midea, Lennox, Kepler, Goodman and Rinnai.
 - Prices: furnaces installed from $3,300, cold-climate heat pumps from $5,500, tankless water heaters from $3,300. Every job gets a written, guaranteed quote.
 - Voted Best Company 2019 to 2021 on HomeStars
 - Free quote: [https://efficienthomeimprovements.ca/contact/](https://efficienthomeimprovements.ca/contact/)
@@ -38,15 +38,17 @@
 - [Humidifiers](https://efficienthomeimprovements.ca/services/humidifiers/): Whole-home furnace humidifiers to fix dry winter air, static and cracked trim.
 - [HRV & ERV Systems](https://efficienthomeimprovements.ca/services/hrv-erv/): Fresh air ventilation for tight homes: installation, repair and cleaning.
 - [Thermostats](https://efficienthomeimprovements.ca/services/thermostats/): Smart and heat-pump-ready thermostat installation and replacement.
-- [Midea Heat Pumps](https://efficienthomeimprovements.ca/brands/midea-heat-pumps/): Midea EVOX G3 and Extreme Hyper Heat cold-climate heat pumps, 2 to 5 ton.
-- [Midea Ductless Mini-Splits](https://efficienthomeimprovements.ca/brands/midea-ductless-mini-splits/): Midea Hyper Heat single-zone and multi-zone ductless systems.
-- [Midea Furnaces & Air Handlers](https://efficienthomeimprovements.ca/brands/midea-furnace-air-handlers/): Midea MGH96 furnaces and EVOX G3 electric air handlers.
-- [Lennox Furnaces](https://efficienthomeimprovements.ca/brands/lennox-furnaces/): Lennox ML296V and EL297V two-stage, variable-speed gas furnaces.
-- [Lennox Air Conditioners](https://efficienthomeimprovements.ca/brands/lennox-air-conditioners/): Lennox central air conditioners installed by an authorized dealer.
-- [Lennox Heat Pumps](https://efficienthomeimprovements.ca/brands/lennox-heat-pumps/): Lennox heat pumps and cold-climate options.
-- [Kepler Heat Pumps](https://efficienthomeimprovements.ca/brands/kepler-heat-pumps/): Kepler cold-climate heat pumps built for Canadian winters.
-- [Rinnai Tankless Water Heaters](https://efficienthomeimprovements.ca/brands/rinnai-tankless-water-heaters/): Rinnai RX160iN and RX199iN condensing tankless water heaters.
-- [Goodman Furnaces, AC & Heat Pumps](https://efficienthomeimprovements.ca/brands/goodman/): Goodman GMVC96 furnaces, GSXH5 central air and GSZH5 heat pumps, installed and serviced.
+- [Midea Heat Pumps](https://efficienthomeimprovements.ca/brands/midea/heat-pumps/): Midea EVOX G3 and Extreme Hyper Heat cold-climate heat pumps, 2 to 5 ton.
+- [Midea Furnaces & Air Handlers](https://efficienthomeimprovements.ca/brands/midea/furnaces/): Midea MGH96 furnaces and EVOX G3 electric air handlers.
+- [Midea Ductless Mini-Splits](https://efficienthomeimprovements.ca/brands/midea/ductless-mini-splits/): Midea Hyper Heat single-zone and multi-zone ductless systems.
+- [Lennox Furnaces](https://efficienthomeimprovements.ca/brands/lennox/furnaces/): Lennox ML296V and EL297V two-stage, variable-speed gas furnaces.
+- [Lennox Heat Pumps](https://efficienthomeimprovements.ca/brands/lennox/heat-pumps/): Lennox heat pumps and cold-climate options.
+- [Lennox Air Conditioners](https://efficienthomeimprovements.ca/brands/lennox/air-conditioners/): Lennox central air conditioners installed by an authorized dealer.
+- [Goodman Furnaces](https://efficienthomeimprovements.ca/brands/goodman/furnaces/): Goodman GMVC96 and GMEC96 two-stage furnaces, up to 96% AFUE.
+- [Goodman Heat Pumps](https://efficienthomeimprovements.ca/brands/goodman/heat-pumps/): Goodman GSZH5 heat pumps, 1.5 to 5 ton, for hybrid systems.
+- [Kepler Heat Pumps](https://efficienthomeimprovements.ca/brands/kepler/heat-pumps/): Kepler cold-climate heat pumps built for Canadian winters.
+- [Rinnai Tankless Water Heaters](https://efficienthomeimprovements.ca/brands/rinnai/tankless-water-heaters/): Rinnai RX160iN and RX199iN condensing tankless water heaters.
+- [Heat Pump Rebates 2027](https://efficienthomeimprovements.ca/ontario-heat-pump-rebate-2027/): The new federal rebate of $2,000 or up to $10,000, how it may combine with Ontario's program, and how to get ready.
 - [Heat Pump Rebates Ontario](https://efficienthomeimprovements.ca/heat-pump-rebates/): Ontario's rebate and the new federal rebate, explained separately. We handle the paperwork.
 - [HVAC Financing](https://efficienthomeimprovements.ca/financing/): 0% interest for 3, 6 or 9 months, or open loans from 2.99% OAC.
 - [Offers](https://efficienthomeimprovements.ca/offers/): Guaranteed final pricing and we may beat comparable quotes by up to 10%.
@@ -161,8 +163,8 @@
 ## Guides
 
 - [The New Federal Heat Pump Rebate: What Ontario Homeowners Should Do Before Applications Open in 2027](https://efficienthomeimprovements.ca/blog/national-heat-pump-rebate-ontario/)
-- [How to Choose an HVAC Company in Barrie: A 2026 Homeowner's Guide](https://efficienthomeimprovements.ca/blog/how-to-choose-an-hvac-company-in-barrie/)
-- [How to Choose an HVAC Company in Hamilton: A 2026 Homeowner's Guide](https://efficienthomeimprovements.ca/blog/how-to-choose-an-hvac-company-in-hamilton/)
+- [How to Choose an HVAC Company in Barrie: A Homeowner's Guide](https://efficienthomeimprovements.ca/blog/how-to-choose-an-hvac-company-in-barrie/)
+- [How to Choose an HVAC Company in Hamilton: A Homeowner's Guide](https://efficienthomeimprovements.ca/blog/how-to-choose-an-hvac-company-in-hamilton/)
 - [How to Choose an HVAC Company in Mississauga](https://efficienthomeimprovements.ca/blog/how-to-choose-an-hvac-company-in-mississauga/)
 - [How to Choose an HVAC Company in Ottawa](https://efficienthomeimprovements.ca/blog/how-to-choose-an-hvac-company-in-ottawa/)
 - [How to Choose an HVAC Company in Toronto](https://efficienthomeimprovements.ca/blog/how-to-choose-an-hvac-company-in-toronto/)
