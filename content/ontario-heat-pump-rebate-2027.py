@@ -35,7 +35,7 @@ REGIONS = [
  ("Windsor", ["windsor"], "The mildest design temperature on our list, and hot, humid summers where the heat pump's cooling matters as much as its heating.", [("windsor", "Windsor")]),
  ("Thunder Bay", ["thunder-bay"], "Deep, dry cold. A cold-climate unit with backup heat and a humidifier is the usual plan, and the rebate case is strongest for oil, propane and electric homes.", [("thunder-bay", "Thunder Bay")]),
 ]
-region_rows = [[f"<strong>{r}</strong>", temps(*sl), note, " · ".join(a(s, n) if s in NO_HP else f"{a(s, n)} (<a href='{hp(s)}'>heat pumps</a>)" for s, n in links)] for r, sl, note, links in REGIONS]
+region_rows = [[f"<strong>{r}</strong>", temps(*sl), note, " · ".join(a(s, n) for s, n in links)] for r, sl, note, links in REGIONS]
 
 PAGE = {
  "url": "/ontario-heat-pump-rebate-2027/",

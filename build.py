@@ -432,7 +432,7 @@ def render_block(b, page):
     if t == "why":
         return why_block()
     if t == "areas":
-        return areas_block()
+        return "" if page["url"] in HUB_PAGES else areas_block(page)
     if t == "blog_index":
         live = sorted([pg for pg in ALL_PAGES if pg.get("guide")], key=lambda pg: pg.get("published", TODAY), reverse=True)
         items = "".join(f'<article{" class=\"has-img\"" if pg.get("featured") else ""}>' + (f'<a class="bl-img" href="{pg["url"]}" tabindex="-1" aria-hidden="true"><img src="{pg["featured"][0]}" alt="" loading="lazy" decoding="async" sizes="(max-width: 600px) 110px, 200px" style="object-position:{pg["featured"][2]}"></a>' if pg.get("featured") else "") + f'<div><h3><a href="{pg["url"]}">{re.sub("<[^>]+>", "", pg["h1"])}</a></h3><time datetime="{pg.get("published", TODAY)}">{datetime.date.fromisoformat(pg.get("published", TODAY)).strftime("%B %Y")}</time><p>{esc(pg["description"])}</p></div></article>' for pg in live)
@@ -540,10 +540,21 @@ def city_name_link(name, cls=""):
     u = city_href(name)
     return f'<a href="{u}"{f" class={chr(34)}{cls}{chr(34)}" if cls else ""}>{esc(name)}</a>' if u else esc(name)
 
-def areas_block():
+AREAS_HEAD = {"heat-pump": ("Heat pump installation across Ontario", "Pick your city for its own heat pump page: local sizing numbers, prices and rebate details."),
+              "furnace": ("Furnace installation across Ontario", "Pick your city for its own furnace page: sizing for the local design temperature, prices and repair help."),
+              "furnace-repair": ("Furnace repair across Ontario", "Pick your city for local furnace repair: what we check, what it costs and how fast we get there."),
+              "tankless-water-heater": ("Tankless water heaters across Ontario", "Pick your city for its own tankless page: winter water temperatures, sizing and prices."),
+              "ac-repair": ("AC repair across Ontario", "Pick your city for local AC repair details."),
+              "heat-pump#repair": ("Heat pump repair across Ontario", "Pick your city for its heat pump page, with local repair and maintenance help."),
+              "tankless-water-heater#repair": ("Tankless water heater repair across Ontario", "Pick your city for its tankless page, with local repair and descaling help.")}
+def areas_block(page=None):
+    kinds = page_city_kinds(page["url"]) if page else None
+    head, ld_ = AREAS_HEAD.get(kinds[0][0] + ("#repair" if kinds[0][1] == "#repair" else ""), (None, None)) if kinds else (None, None)
     cols = "".join(f'<div class="area-col"><h3>{icon("pin")}{g}</h3><ul>' + "".join(f'<li>{city_name_link(c)}</li>' for c in cities) + '</ul></div>' for g, cities in AREA_GROUPS)
-    return (f'<section class="sec areas-sec"><div class="wrap"><div class="areas-head"><div><h2>HVAC service across Ontario</h2>'
-            f'<p class="lead">We\'re a service-area business. Our crews come to your home or business, from the GTA to Northern Ontario. Don\'t see your town? Call, we probably cover it.</p></div>'
+    head = head or "HVAC service across Ontario"
+    ld_ = (ld_ + " Towns without their own page link to our local HVAC page.") if kinds else "We\'re a service-area business. Our crews come to your home or business, from the GTA to Northern Ontario. Don\'t see your town? Call, we probably cover it."
+    return (f'<section class="sec areas-sec"><div class="wrap"><div class="areas-head"><div><h2>{head}</h2>'
+            f'<p class="lead">{ld_}</p></div>'
             f'{cta_buttons("Check My Area", small=True)}</div>'
             f'<div class="area-cols">{cols}</div><p><a class="more" href="/service-areas/">See all service areas{icon("arrow")}</a></p></div></section>')
 
@@ -1082,10 +1093,15 @@ def render(page):
         bf, more = brand_family(page); body += bf; linked |= more
     if page.get("faqs"):
         body += with_variant(faq_block(page["faqs"], page.get("faq_h2", "Frequently asked questions")), "faq", page)[0]
-    body += related_block([u for u in page.get("related", []) if u not in linked])      # no card for a page the sections above already link
+    rel = []
+    for u in page.get("related", []):
+        u = retarget_url(page, u).split("#")[0]
+        if u not in linked and u != page["url"] and u not in rel: rel.append(u)
+    body += related_block(rel)      # retargeted to the city's own pages; no card for a page the sections above already link
     if page.get("city") or page.get("city_service") or page.get("show_updated"):
         body += f'<p class="wrap updated">Page reviewed and updated {datetime.date.fromisoformat(page.get("updated", TODAY)).strftime("%B %d, %Y").replace(" 0", " ")}. Prices, rebates and program terms are checked at each update.</p>'
 
+    body = retarget_links(page, body)
     _crumbs_ld = crumbs_ld
     crumbs_top = crumbs_html
     m = re.search(r'<section class="(?:hero [^"]*|banner-hero)"[^>]*>', body) if crumbs_html else None
@@ -1454,6 +1470,46 @@ HUB_ANCHOR = {"/heat-pump/": "heat pump installation across Ontario", "/furnace/
               "/furnace/repair-maintenance/": "furnace repair and maintenance across Ontario", "/water-heater/": "tankless water heater installation across Ontario",
               "/ac/repair-maintenance/": "AC repair and maintenance across Ontario"}
 
+# Link intent. A general service page and a city's page for the same service must not compete, so:
+#  1. on a general service, brand or rebate page, a link to a city goes to that city's page for the same service
+#     (its main city page only when no such page exists yet);
+#  2. on a city page, a link to a general service page goes to the city's own page for that service when it exists.
+# Repair topics land on the city page's #repair section. A city page keeps one upward link to its own Ontario-wide guide.
+_HP = [("heat-pump", ""), ("heat-pump-installation", "")]
+CITY_FOR = {"/heat-pump/": _HP, "/heat-pump/cold-climate/": _HP, "/heat-pump/central/": _HP, "/heat-pump/hybrid-furnace-systems/": _HP,
+            "/heat-pump/electric-air-handler-systems/": _HP, "/heat-pump/repair-maintenance/": [("heat-pump", "#repair")],
+            "/furnace/": [("furnace", "")], "/furnace/high-efficiency/": [("furnace", "")],
+            "/furnace/repair-maintenance/": [("furnace-repair", ""), ("furnace", "#repair")],
+            "/water-heater/": [("tankless-water-heater", "")], "/water-heater/repair-maintenance/": [("tankless-water-heater", "#repair")],
+            "/ac/repair-maintenance/": [("ac-repair", "")]}
+
+def page_city_kinds(url):
+    """Which city service page a general page should point a city link at."""
+    if url in CITY_FOR: return CITY_FOR[url]
+    if re.match(r"^/(heat-pump-rebates/|ontario-heat-pump-rebate-2027/|brands/[a-z]+/heat-pumps/|brands/kepler/$)", url): return _HP
+    if re.match(r"^/brands/[a-z]+/furnaces/", url): return [("furnace", "")]
+    if url.startswith("/brands/rinnai/"): return [("tankless-water-heater", "")]
+    return None
+
+def retarget_url(page, href):
+    base, _, frag = href.partition("#"); frag = "#" + frag if frag else ""
+    own = page.get("city") or page.get("city_service")
+    if own:
+        for k, fr in CITY_FOR.get(base, ()):
+            t = f"/{own}/{k}/"
+            if t in REG: return href if t == page["url"] else t + (frag or fr)
+        return href
+    kinds = page_city_kinds(page["url"])
+    m = re.fullmatch(r"/([a-z-]+)/", base)
+    if kinds and m and m.group(1) in CITY_BY_SLUG:
+        for k, fr in kinds:
+            t = f"/{m.group(1)}/{k}/"
+            if t in REG: return t + fr
+    return href
+
+def retarget_links(page, html_):
+    return re.sub(r"""href=(["'])(/[^"']*)\1""", lambda m: f'href={m.group(1)}{retarget_url(page, m.group(2))}{m.group(1)}', html_)
+
 def city_children(slug):
     cn = CITY_BY_SLUG[slug]["name"]
     return [(f"/{slug}/{k}/", ic, t.format(c=cn), d, hub) for k, ic, t, d, hub in CS_KINDS if f"/{slug}/{k}/" in REG]
@@ -1501,6 +1557,8 @@ HUB_PAGES = {"/heat-pump/": (("heat-pump", "heat-pump-installation"), "Heat pump
                                 "Local pages with winter water temperatures, sizing and prices for each city."),
              "/ac/": (("ac-repair",), "AC repair by city", "{c} AC repair", "Local AC repair pages for the cities where we get the most calls.")}
 
+HUB_KIND_ANCHOR = {"heat-pump": "{c} heat pump installation", "heat-pump-installation": "{c} heat pump installation", "furnace": "{c} furnace installation and repair",
+                   "furnace-repair": "{c} furnace repair", "tankless-water-heater": "{c} tankless water heaters", "ac-repair": "{c} AC repair"}
 def product_city_hub(page):
     kinds, h, anchor, ld = HUB_PAGES[page["url"]]
     cols, seen, linked = [], set(), set()
@@ -1512,7 +1570,8 @@ def product_city_hub(page):
             for k in kinds:
                 u = f"/{s_}/{k}/"
                 if u in REG:
-                    seen.add(s_); linked.add(u); items.append(f'<li><a href="{u}">{esc(anchor.format(c=CITY_BY_SLUG[s_]["name"]))}</a></li>'); break
+                    a_ = HUB_KIND_ANCHOR.get(k, anchor).format(c=CITY_BY_SLUG[s_]["name"])
+                    seen.add(s_); linked.add(u); items.append(f'<li><a href="{u}">{esc(a_)}</a></li>'); break
         if items: cols.append(f'<div><h3>{esc(g)}</h3><ul class="type-list">{"".join(items)}</ul></div>')
     if not cols: return "", linked
     return (f'<section class="sec hub-cities"><div class="wrap"><h2>{h}</h2><p class="lead">{ld} Not listed? We serve <a href="/service-areas/">all of these areas</a>.</p>'
