@@ -29,10 +29,11 @@ def brand_page(k):
      "service": {"name": f"{B} Installation, Repair and Maintenance", "type": f"Authorized {B} dealer"},
      "blocks": [
       {"type": "cards", "h2": f"{B} equipment we install", "lead": k["lines_lead"], "items": k["lines"], "fill_h": f"Not sure which {B} system fits your home?", "fill_text": f"Tell us how you heat and cool today, and we'll recommend the right {B} model with a guaranteed written price."},
+     ] + ([k["video"]] if k.get("video") else []) + [
       {"type": "table", "h2": f"The {B} lineup at a glance", "headers": ["Model", "Type", "Key specs"], "rows": k["models"], "note": k["models_note"]},
       AUTH_WHY(B, k["warranty"]),
       STEPS(B),
-      {"type": "split", "h2": k["service_h2"], "image": k["service_alt"], "image_src": k["service_img"], "image_fit": "cover", "image_credit": "EHI install", "html": k["service_html"]},
+      {"type": "split", "h2": k["service_h2"], "image": k["service_alt"], "image_src": k["service_img"], "image_fit": "cover", "image_credit": "EHI install", "html": k["service_html"], "image_title": f"{B} installation, repair and maintenance in Ontario"},
       {"type": "money"}, {"type": "why"}, {"type": "areas"}],
      "faqs": k["faqs"],
      "related": [i["link"] for i in k["lines"]] + ["/brands/"],
@@ -106,7 +107,8 @@ BRANDS = [
              ["Kepler 4 to 5 ton", "Cold-climate heat pump", "Larger two-storey or older home with higher heat loss"]],
   "models_note": "Sizes are a starting point; we size from a heat-loss calculation. We confirm the exact Kepler model is on NRCan's qualified list before you buy.",
   "warranty": "Your Kepler coverage starts with a correct registration after installation.",
-  "service_h2": "Kepler service and maintenance", "service_alt": "Kepler outdoor unit on a stand beside siding", "service_img": "/assets/img/work/kepler-outdoor-siding.webp",
+  "service_h2": "Kepler service and maintenance", "service_alt": "Kepler ductless heat pump outdoor unit on a stand beside siding", "service_img": "/assets/img/work/kepler-ductless-heat-pump-outdoor-unit-stand.webp",
+  "video": {"type": "video", "h2": "How much can a Kepler heat pump save you?", "lead": "Dustin, owner of EHI, explains the savings on Ontario energy bills, filmed beside a Kepler unit.", "items": [("YrIMeO2l7r4", "")]},
   "service_html": "<p>We maintain and repair Kepler heat pumps, including ones we did not install. A yearly fall tune-up checks the charge, defrost cycle and backup heat so the unit goes into winter ready.</p><ul class=\"checklist\"><li>Refrigerant pressures checked with gauges</li><li>Defrost and backup heat tested</li><li>Coil, fan and drain cleaned</li><li>A written price before any repair</li></ul><p>Comparing brands? Read <a href='/brands/midea/heat-pumps/'>Midea heat pumps</a> too.</p>",
   "faqs": [("Is EHI an authorized Kepler dealer?", "Yes. EHI Heating And Cooling is an authorized Kepler dealer in Ontario, installing and servicing Kepler cold-climate heat pumps and registering the warranty for you."),
            ("How much does a Kepler heat pump cost installed?", "Kepler cold-climate heat pumps start at $5,500 installed for the smaller sizes. Larger sizes, ductwork and electrical work are quoted after a home visit, and the price is guaranteed."),

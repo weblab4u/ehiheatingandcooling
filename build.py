@@ -142,12 +142,12 @@ def esc(s): return html.escape(str(s), quote=True)
 def title_of(url): return REG[url][0]
 def blurb_of(url): return REG[url][1]
 
-def img_frame(desc, ratio="4/3", cls="", src=None, fit="contain", credit=None, eager=False, pos="50% 55%"):
+def img_frame(desc, ratio="4/3", cls="", src=None, fit="contain", credit=None, eager=False, pos="50% 55%", title=None):
     """Real image when src is given, otherwise a labelled placeholder frame to replace later."""
     if src:
         cap = f'<figcaption class="credit">{esc(credit)}</figcaption>' if credit else ""
         load = 'fetchpriority="high"' if eager else 'loading="lazy"'
-        return (f'<figure class="img-real fit-{fit} {cls}" style="aspect-ratio:{ratio}"><img src="{src}" alt="{esc(desc)}" {load} decoding="async" style="object-position:{pos}">{cap}</figure>')
+        return (f'<figure class="img-real fit-{fit} {cls}" style="aspect-ratio:{ratio}"><img src="{src}" alt="{esc(desc)}"{f' title="{esc(title)}"' if title else ''} {load} decoding="async" style="object-position:{pos}">{cap}</figure>')
     return (f'<figure class="img-frame {cls}" style="aspect-ratio:{ratio}" role="img" aria-label="{esc(desc)}">'
             f'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2v9l4.5-4.5L13 15l3-3 3 3V7H5zm12 2.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>'
             f'<figcaption>Image: {esc(desc)}</figcaption></figure>')
@@ -352,14 +352,14 @@ def render_block(b, page):
         return f'<section class="sec cards-sec {b.get("cls","")}"><div class="wrap">{h2(b)}{lead(b)}<div class="cards">{items}</div></div></section>'
     if t == "checklist":
         items = "".join(f'<li>{icon("check")}<span>{i}</span></li>' for i in b["items"])
-        img = img_frame(b["image"], src=b.get("image_src"), fit=b.get("image_fit", "contain"), credit=b.get("image_credit"), pos=b.get("image_pos", "50% 55%")) if b.get("image") else ""
+        img = img_frame(b["image"], src=b.get("image_src"), fit=b.get("image_fit", "contain"), credit=b.get("image_credit"), pos=b.get("image_pos", "50% 55%"), title=b.get("image_title")) if b.get("image") else ""
         inner = f'<div class="split"><div>{h2(b)}{lead(b)}<ul class="checklist">{items}</ul></div>{img}</div>' if img else f'{h2(b)}{lead(b)}<ul class="checklist cols">{items}</ul>'
         return f'<section class="sec checklist-sec"><div class="wrap">{inner}</div></section>'
     if t == "steps":
         items = "".join(f'<li><span class="num">{n+1}</span><div><h3>{i["title"]}</h3><p>{i["text"]}</p></div></li>' for n, i in enumerate(b["items"]))
         return f'<section class="sec steps-sec"><div class="wrap"><div class="steps-head"><div>{h2(b, "How it works")}{lead(b)}</div>{cta_buttons(b.get("cta","Start With a Free Quote"), small=True)}</div><ol class="steps n{len(b["items"])}">{items}</ol></div></section>'
     if t == "split":
-        img = img_frame(b.get("image", "Photo"), src=b.get("image_src"), fit=b.get("image_fit", "contain"), credit=b.get("image_credit"), pos=b.get("image_pos", "50% 55%"))
+        img = img_frame(b.get("image", "Photo"), src=b.get("image_src"), fit=b.get("image_fit", "contain"), credit=b.get("image_credit"), pos=b.get("image_pos", "50% 55%"), title=b.get("image_title"))
         rev = " reverse" if b.get("reverse") else ""
         body = re.sub(r'<ul class="checklist">(.*?)</ul>', lambda m: '<ul class="checklist">' + re.sub(r'<li>(?!<svg)', '<li>' + icon("check") + '<span>', m.group(1)).replace('</li>', '</span></li>') + '</ul>', b["html"], flags=re.S)
         return f'<section class="sec split-sec"><div class="wrap split{rev}"><div>{h2(b)}{body}</div>{img}</div></section>'
@@ -1112,6 +1112,8 @@ CITY_URLS = {f"/{c['slug']}/": c for c in CITIES}
 _cp = _load_data("ehi_city_photos", "city_photos.py")
 PRICING = _load_data("ehi_pricing", "pricing.py")
 CITY_PHOTOS = dict(_cp.NEW)
+CITY_PHOTOS.update(_cp.DRIVE)
+CITY_DRIVE = set(_cp.DRIVE)
 for _k, (_cat, _alt) in GALLERY_PHOTOS.items():
     CITY_PHOTOS.setdefault(_k, (_cp.OLD_KIND.get(_cat, "sys"), _alt))
 CITY_NEW = set(_cp.NEW)
@@ -1144,15 +1146,16 @@ def allocate_city_photos(pages):
         u = f"/{c['slug']}/"
         neighbours.setdefault(u, set()).update(f"/{n}/" for n in c["nearby"])
         for n in c["nearby"]: neighbours.setdefault(f"/{n}/", set()).add(u)
-    def pick(url, kind, taken, hero=False, keys=None):
-        pool = [k for k in (keys or []) if k in usage and k not in taken] or [k for k in have if k not in taken and (kind == "any" or CITY_PHOTOS[k][0] == kind)]
-        if not pool: pool = [k for k in have if k not in taken]
+    def pick(url, kind, taken, hero=False, keys=None, drive=False):
+        src = have if drive else [k for k in have if k not in CITY_DRIVE]       # Drive photos only on the heating pages
+        pool = [k for k in (keys or []) if k in usage and k not in taken] or [k for k in src if k not in taken and (kind == "any" or CITY_PHOTOS[k][0] == kind)]
+        if not pool: pool = [k for k in src if k not in taken]
         if hero:
             near = {k for n in neighbours.get(url, ()) for k in hero_by_url.get(n, [])}
             pool = [k for k in pool if k not in near] or pool
             pool.sort(key=lambda k: (hero_count[k], usage[k], k not in CITY_NEW, zlib.crc32((url + k).encode())))
         else:
-            pool.sort(key=lambda k: (usage[k], k not in CITY_NEW, zlib.crc32((url + k).encode())))
+            pool.sort(key=lambda k: (usage[k], k not in CITY_DRIVE, k not in CITY_NEW, zlib.crc32((url + k).encode())))
         k = pool[0]; usage[k] += 1; taken.add(k)
         if hero: hero_count[k] += 1; hero_by_url.setdefault(url, []).append(k)
         return k
@@ -1160,7 +1163,7 @@ def allocate_city_photos(pages):
     def sections(pg):
         taken = set()
         for b in pg.get("blocks", []):
-            if b.get("photo"): b["_imgs"] = [pick(pg["url"], b["photo"], taken, keys=b.get("photo_keys"))]
+            if b.get("photo"): b["_imgs"] = [pick(pg["url"], b["photo"], taken, keys=b.get("photo_keys"), drive=bool(pg.get("heating")))]
     for pg in [x for x in pages if x.get("city_service") and not x.get("heating")]:   # city-service pages: section photos only, least-used first
         sections(pg)
     for batch in sorted({CITY_BY_SLUG[pg["city"]].get("batch", 1) for pg in city_pages}):
@@ -1271,13 +1274,13 @@ def city_block(b, page):
         body = re.sub(r'<ul class="checklist">(.*?)</ul>', lambda m: '<ul class="checklist">' + re.sub(r'<li>(?!<svg)', '<li>' + icon("check") + '<span>', m.group(1)).replace('</li>', '</span></li>') + '</ul>', b["html"], flags=re.S)
         form = form_block({"h3": b.get("form_h3", f"Book your {c['name']} HVAC quote"), "sub": "We reply fast during business hours.", "city": c["name"]}, compact=True)
         return f'<section class="sec quote-split-sec"><div class="wrap qs"><div class="qs-copy">{h2(b)}{body}{img}</div><div class="qs-form">{form}</div></div></section>'
-    if t == "split" and b.get("_imgs"):
-        k = b["_imgs"][0]
-        b = dict(b, image=CITY_PHOTOS[k][1], image_src=f"/assets/img/work/{k}.webp", image_fit="cover", image_pos=b.get("image_pos", "50% 50%"))
-        return render_block(dict(b, type="split"), page)
-    if t == "checklist" and b.get("_imgs"):
-        k = b["_imgs"][0]
-        return render_block(dict(b, image=CITY_PHOTOS[k][1], image_src=f"/assets/img/work/{k}.webp", image_fit="cover"), page)
+    if t in ("split", "checklist") and (b.get("_imgs") or (b.get("image_src") and b.get("kw"))):
+        if b.get("_imgs"):
+            k = b["_imgs"][0]
+            b = dict(b, image=CITY_PHOTOS[k][1], image_src=f"/assets/img/work/{k}.webp", image_fit="cover", image_pos=b.get("image_pos", "50% 50%" if t == "split" else "50% 55%"))
+        if b.get("kw"):        # keyword and location go in alt and title; the photo itself is never said to be from this city
+            b = dict(b, image=f'{b["image"]}, {b["kw"][0].lower() + b["kw"][1:]} for {c["name"]} homes', image_title=f'{b["kw"]} in {c["name"]}, Ontario')
+        return render_block(dict(b, type=t), page)
     return None
 
 HOURS = [("Monday", "8:00 AM to 8:00 PM"), ("Tuesday", "8:00 AM to 8:00 PM"), ("Wednesday", "8:00 AM to 8:00 PM"), ("Thursday", "8:00 AM to 8:00 PM"),

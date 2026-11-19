@@ -30,7 +30,8 @@ def area_line(s, n):
     return f" We cover all of {AREA[s]}, not just {n}." if s in AREA and " and " not in AREA[s] else (f" We also cover {AREA[s]}." if s in AREA else "")
 RINNAI = {"garage": "/assets/img/brands/rinnai-rx-garage-install.webp", "unit": "/assets/img/brands/rinnai-rx-tankless.webp", "sink": "/assets/img/brands/rinnai-hot-water-sink.webp"}
 ENBRIDGE_EMERGENCY = "1-866-763-5427"
-FURNACE_PHOTOS = ["midea-gas-furnace-installed", "midea-furnace-room-pvc-venting", "furnace-coil-utility-room"]      # stand-ins for furnace slots
+FURNACE_PHOTOS = ["high-efficiency-gas-furnace-pvc-venting-basement", "furnace-cabinet-refrigerant-lines-ductwork", "kepler-air-handler-new-ductwork-basement",
+                  "midea-gas-furnace-installed", "midea-furnace-room-pvc-venting", "furnace-coil-utility-room"]      # stand-ins for furnace slots
 COMMISSION_PHOTOS = ["heat-pump-commissioning-gauges", "midea-cold-climate-heat-pump-commissioning"]
 
 def chooser(slug):
@@ -213,10 +214,10 @@ def heat_pump_page(c):
         ([] if off_gas(c) else [off_row]) + [["Boiler and radiators", "Ductless heads for the main rooms, with the boiler kept as backup", "Depends on your fuel"]],
        "note": "Rebates are from Ontario's Home Renovation Savings Program, based on heat pump size, and need pre-approval before installation. A separate federal rebate is expected to open in early 2027. See <a href='/heat-pump-rebates/'>how both work</a>."}
     place_b = {"type": "split", "h2": V("pl-h", f"Where your outdoor unit goes in {n}", f"Placing a heat pump for {n} snow", f"Keeping the outdoor unit clear of {n} winters"),
-               "photo": "out", "reverse": True, "html": place_html,
+               "photo": "out", "kw": "Heat pump installation", "reverse": True, "html": place_html,
                "shot": f"Outdoor heat pump on a raised stand or wall bracket beside a {n} home, with snow on the ground and the roof edge visible"}
     sizing_b = {"type": "split", "h2": V("sz-h", f"How we size a heat pump for {t}", f"Sizing for {poss(n)} {t} design day", f"The sizing math for a {n} home"),
-                "photo": "sys", "photo_keys": COMMISSION_PHOTOS, "html": sizing_html,
+                "photo": "sys", "photo_keys": COMMISSION_PHOTOS, "kw": "Heat pump sizing and commissioning", "html": sizing_html,
                 "shot": "Technician at the outdoor unit during commissioning, gauges connected, checking pressures and output"}
     cost = {"type": "cost_guide", "h2": V("cost-h", f"What a heat pump costs in {n}", f"Heat pump prices in {n}", f"{n} heat pump installation costs"), "keys": ["heat_pump_ducted", "ductless_single"],
             "lead": V("cost-l", "Starting prices before rebates. Your final price depends on the size we calculate, the indoor equipment, ductwork and the electrical work, and it is guaranteed in writing.",
@@ -230,7 +231,7 @@ def heat_pump_page(c):
         {"title": V("s4t", "Commissioning and handover", "Testing and paperwork"), "text": V("s4", "We test heating at today's outdoor temperature, set the backup switchover, register the warranty and file your rebate paperwork.", "We prove it heats at today's outdoor temperature, tune the backup switchover, then register your warranty and send in the rebate documents.")}]}
     equip = {"type": "equipment", "h2": V("eq-h", f"Cold-climate heat pumps we install in {n}", f"Heat pump models for {n} homes"), "groups": ["heat_pumps"],
              "lead": "Every model is on NRCan's qualified products list, the requirement for the Ontario rebate."}
-    incl = {"type": "checklist", "h2": V("in-h", f"What is included in a {n} heat pump installation", f"Everything in your {n} heat pump quote"), "photo": "in",
+    incl = {"type": "checklist", "h2": V("in-h", f"What is included in a {n} heat pump installation", f"Everything in your {n} heat pump quote"), "photo": "in", "kw": "Ductless and central heat pump installation",
             "shot": "Indoor side of a finished install: wall head or air handler with neat line set and condensate drain",
             "items": V("in", [f"Heat-loss sizing at {t} and a written, guaranteed price", "Outdoor unit on a raised stand or wall bracket, clear of snow and the drip line",
                               "Line set brazed, nitrogen pressure tested, vacuumed and covered", "Dedicated 240V circuit with the ESA notification filed",
@@ -240,10 +241,14 @@ def heat_pump_page(c):
                               "The 240V circuit, done and filed by an ESA-licensed electrician", "Air handler, coil or wall heads, with a freeze-proof condensate drain",
                               "Backup heat wired in and the changeover set for your fuel", "Warranty registration and every piece of rebate paperwork", "A handover so you know what defrost looks and sounds like"])}
 
+    video = {"type": "video", "h2": V("vid-h", f"Heat pump savings and rebates for {n} homes, explained", f"Two short videos before you get a {n} heat pump quote", "What a heat pump saves, and what you get back"),
+             "lead": V("vid-l", "Dustin, owner of EHI, on what a cold-climate heat pump saves on Ontario energy bills and how the rebate is worked out from the way you heat today.",
+                                "Under two minutes each: Dustin, owner of EHI, on energy bill savings and on how your heating fuel sets the Ontario rebate."),
+             "items": [("YrIMeO2l7r4", "How much a heat pump can save, depending on how your home is heated now."), ("iocuwNDiIW4", "How the Home Renovation Savings Program rebate is worked out.")]}
     install = V("order",
-        [snapshot, problems, table, place_b, sizing_b, cost, steps, equip, incl],
-        [snapshot, table, problems, sizing_b, place_b, steps, cost, incl, equip],
-        [snapshot, problems, table, sizing_b, cost, place_b, steps, equip, incl])
+        [snapshot, problems, table, video, place_b, sizing_b, cost, steps, equip, incl],
+        [snapshot, table, video, problems, sizing_b, place_b, steps, cost, incl, equip],
+        [snapshot, video, problems, table, sizing_b, cost, place_b, steps, equip, incl])
 
     rp_table = {"type": "table", "h2": V("rpt-h", "Repair it or replace it?", "Fix the old system, or replace it?"),
        "lead": V("rpt-l", "We price both in writing and tell you which we would pick. This is how we decide.", "You get both numbers. Here is the reasoning behind our recommendation."),
@@ -255,7 +260,7 @@ def heat_pump_page(c):
                 ["Older heat pump that cannot keep up in winter", "Replace", V("rr5", "Older models lose capacity fast in the cold; cold-climate units are rated to -30°C", "Cold-climate models hold far more capacity at low temperatures")],
                 ["Central AC 12 to 15 or more years old", "Replace with a heat pump", V("rr6", "Same footprint, adds winter heat, and qualifies for the rebate", "One outdoor unit for cooling and heating, plus the rebate")]],
        "note": "Our rule of thumb: if the system is under about 10 years old and the repair is under a third of a new one, repair it."}
-    rp_split = {"type": "split", "h2": V("rps-h", f"Swapping an old AC or heat pump for a cold-climate unit in {n}", f"What replacing your system involves in {n}"), "photo": "out",
+    rp_split = {"type": "split", "h2": V("rps-h", f"Swapping an old AC or heat pump for a cold-climate unit in {n}", f"What replacing your system involves in {n}"), "photo": "out", "kw": "Heat pump replacement",
        "shot": "Old air conditioner condenser beside the new cold-climate heat pump on install day, before the old unit is hauled away",
        "html": "<p>" + V("rps1",
            "Most replacements we do start with an air conditioner that has reached the end of its life. A cold-climate heat pump goes in the same spot, cools just as well, and heats your home most of the winter.",
@@ -448,7 +453,7 @@ def furnace_page(c):
                 ["Mid-efficiency (80%) furnace with repeated calls", "Replace", V("r5", "A 96% to 97% AFUE furnace cuts gas use and resets the warranty", "A 96% to 97% AFUE model burns less gas and comes with a new warranty")],
                 ["Rooms that never heat evenly", "Fix the ducts first", V("r6", "A new furnace on the same ducts gives the same cold rooms", "The ducts, not the furnace, are usually the cause")]],
        "note": "Our rule of thumb: if the furnace is under about 12 years old and the repair is under a third of a new furnace, repair it."}
-    sizing_b = {"type": "split", "h2": V("fs-h", f"Sizing a new furnace for {n}", f"Getting the furnace size right for {t}"), "photo": "sys", "photo_keys": FURNACE_PHOTOS, "reverse": True, "html": sizing_html,
+    sizing_b = {"type": "split", "h2": V("fs-h", f"Sizing a new furnace for {n}", f"Getting the furnace size right for {t}"), "photo": "sys", "photo_keys": FURNACE_PHOTOS, "kw": "Gas furnace installation", "reverse": True, "html": sizing_html,
                 "shot": f"New high-efficiency gas furnace installed in a {n} basement, PVC venting and condensate line visible"}
     cost = {"type": "cost_guide", "h2": V("cost-h", f"Furnace repair and replacement costs in {n}", f"What furnace work costs in {n}"), "keys": ["furnace_repair", "furnace_install"],
             "lead": V("cost-l", "Repairs are priced in writing after diagnosis. A new furnace is quoted from your heat loss, venting and gas line, and the price is guaranteed.",
@@ -461,7 +466,7 @@ def furnace_page(c):
         {"title": V("rp4t", "Startup and safety checks", "Tested before we leave"), "text": V("rp4", "Combustion test, carbon monoxide check, thermostat setup and warranty registration before we leave.", "We run a combustion test and a CO check, set up the thermostat and register the warranty in your name.")}]}
     equip = {"type": "equipment", "h2": V("eq-h", f"Furnaces we install in {n}", f"High-efficiency furnaces for {n} homes"), "groups": ["furnaces"],
              "lead": "High-efficiency two-stage furnaces with long parts warranties when registered. We register them for you."}
-    visit = {"type": "checklist", "h2": V("v-h", f"What a {n} furnace repair visit includes", f"Your {n} furnace repair visit"), "photo": "sys", "photo_keys": FURNACE_PHOTOS,
+    visit = {"type": "checklist", "h2": V("v-h", f"What a {n} furnace repair visit includes", f"Your {n} furnace repair visit"), "photo": "sys", "photo_keys": FURNACE_PHOTOS, "kw": "Furnace repair",
              "shot": "Technician with the furnace door off, testing the flame sensor or ignitor with a meter",
              "items": V("v", ["Furnace cleaning: burners, flame sensor and blower compartment", "A TSSA-certified technician who reads the fault code and tests it with a meter", "A written price before any part is replaced",
                               "Common parts on the truck: ignitors, flame sensors, pressure switches, capacitors", "Carbon monoxide test at the furnace and the supply registers",
@@ -586,7 +591,7 @@ def tankless_page(c):
         + "</p>" + checklist(V("sz3", ["Fixtures that run at the same time counted", "Winter inlet temperature checked", "Gas line and meter capacity checked for the burner", "Venting route planned above the snow line"],
                                       ["Your peak hot water use, fixture by fixture", "The temperature rise for February water", "Gas supply sized for up to 199,000 BTU", "A vent route clear of snow and windows"])))
     sizing_b = {"type": "split", "h2": V("sz-h", f"Sizing a tankless for {n} winter water", "How we pick the right Rinnai"), "html": sizing_html,
-                "image": "Rinnai condensing tankless water heater mounted on a wall", "image_src": RINNAI["unit"], "image_fit": "contain",
+                "image": "Rinnai condensing tankless water heater mounted on a wall", "image_src": RINNAI["unit"], "image_fit": "contain", "kw": "Tankless water heater installation",
                 "shot": f"Finished Rinnai tankless on a basement wall in a {n} home: isolation valves, gas line and PVC venting visible"}
     video = {"type": "video", "h2": V("vid-h", "Watch a tankless installation", "See a tankless install"), "lead": "A 39-second look at a compact, wall-mounted tankless install by EHI.", "items": [("rD0_LoGYAmo", "")]}
     cost = {"type": "cost_guide", "h2": V("cost-h", f"What a tankless water heater costs in {n}", f"Tankless prices in {n}"), "keys": ["tankless_install"],
@@ -601,7 +606,7 @@ def tankless_page(c):
         {"title": "Install day", "text": V("s3", "Usually one day: old tank out, Rinnai in, gas and venting by TSSA-certified technicians.", "Most installs take a day, with TSSA-certified techs on the gas and venting.")},
         {"title": V("s4t", "Start-up and handover", "Ready to use"), "text": V("s4", "We set the temperature, show you the controls and isolation valves, and register your warranty.", "Temperature set, controls explained, warranty registered.")}]}
     incl = {"type": "checklist", "h2": V("in-h", f"What is included in a {n} tankless installation", f"Everything in your {n} tankless quote"),
-       "image": "Rinnai tankless water heater installed in a garage", "image_src": RINNAI["garage"], "image_fit": "cover",
+       "image": "Rinnai tankless water heater installed in a garage", "image_src": RINNAI["garage"], "image_fit": "cover", "kw": "Tankless water heater installation",
        "shot": f"Install day in a {n} home: old tank removed, new Rinnai on the wall, technician connecting the gas line",
        "items": V("in", ["Fixture count and winter inlet sizing, with a guaranteed quote", "Removal of the old tank and help returning a rental",
                          "Gas line sized for the burner, upsized where needed by TSSA-certified technicians", "Direct-vent PVC or polypropylene venting, terminated above the snow line",
@@ -619,7 +624,7 @@ def tankless_page(c):
                 ["Tankless ignition or sensor fault", "Repair", V("r4", "Replaceable parts on a long-lived unit", "Fixable parts, plenty of life left")],
                 ["Old tankless that has outlived its parts", "Replace", V("r5", "New condensing models are more efficient and come with a fresh warranty", "A new condensing unit and a new warranty")]]}
     rp_split = {"type": "split", "h2": V("rs-h", f"Replacing a tank with a tankless in {n}", "What changes when you replace a tank"), "reverse": True,
-       "image": "Hot water running at a kitchen sink", "image_src": RINNAI["sink"], "image_fit": "cover",
+       "image": "Hot water running at a kitchen sink", "image_src": RINNAI["sink"], "image_fit": "cover", "kw": "Tank to tankless water heater replacement",
        "shot": f"Before and after in a {n} basement: the old tank next to the new wall-mounted Rinnai",
        "html": "<p>" + V("rs1", "Three things change when a tank becomes a tankless, and the quote covers all of them.", "A tank-to-tankless swap is more than a one-for-one. Here is what the quote includes.") + "</p>"
                + checklist(V("rs2", ["Venting: the old chimney or B-vent is not used; a condensing Rinnai vents through PVC or polypropylene to an outside wall",

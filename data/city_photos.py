@@ -45,5 +45,20 @@ NEW = {
  "ductless-remote-wall-holder": ("detail", "Ductless remote in its wall holder"),
  "ductless-remote-light-switch": ("detail", "Ductless remote mounted beside a light switch"),
 }
+# Photos from the EHI Drive "Heat Pumps and AC" folder, added for the city heat pump and furnace pages. Kept out of the
+# general city pool so published city pages keep their photos; heating pages ask for them by key (photo_keys).
+DRIVE = {
+ "midea-cold-climate-heat-pump-installation-raised-stand": ("out", "Midea cold-climate heat pump installed on a raised stand beside green siding"),
+ "cold-climate-heat-pump-installed-on-stand-fall": ("out", "Cold-climate heat pump on a raised stand and concrete pad, with the disconnect beside it"),
+ "midea-heat-pump-outdoor-unit-stand-concrete-pad": ("out", "Midea heat pump outdoor unit on a galvanized stand above a concrete pad"),
+ "midea-ductless-heat-pump-outdoor-unit-stone-wall": ("out", "Midea ductless heat pump outdoor unit on a stand beside a stone wall"),
+ "kepler-heat-pump-outdoor-unit-line-sets-brick-wall": ("out", "Kepler multi-zone heat pump outdoor unit with insulated line sets on a brick wall"),
+ "kepler-ductless-heat-pump-outdoor-unit-stand": ("out", "Kepler ductless heat pump outdoor unit on a stand beside siding"),
+ "midea-ductless-heat-pump-wall-unit-ceiling": ("in", "Midea ductless heat pump wall unit mounted just below the ceiling"),
+ "ductless-mini-split-wall-unit-living-room": ("in", "Ductless mini-split wall unit running in a living room"),
+ "high-efficiency-gas-furnace-pvc-venting-basement": ("sys", "High-efficiency gas furnace with PVC venting and sheet metal ductwork in a basement"),
+ "furnace-cabinet-refrigerant-lines-ductwork": ("sys", "Furnace cabinet with refrigerant lines and ductwork in a utility room"),
+ "kepler-air-handler-new-ductwork-basement": ("sys", "Kepler air handler with new sheet metal ductwork in a basement"),
+}
 # older service-page photo categories mapped to city-pool kinds
 OLD_KIND = {"hp": "out", "wo": "out", "ih": "in", "fu": "sys", "ah": "sys", "th": "detail"}
