@@ -27,6 +27,14 @@ RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://efficienthomeimprovements.ca/$1 [R=301,L]
 # Old site URLs
+RewriteRule ^brands/midea-heat-pumps/?$ /brands/midea/heat-pumps/ [NC,L,R=301]
+RewriteRule ^brands/midea-furnace-air-handlers/?$ /brands/midea/furnaces/ [NC,L,R=301]
+RewriteRule ^brands/midea-ductless-mini-splits/?$ /brands/midea/ductless-mini-splits/ [NC,L,R=301]
+RewriteRule ^brands/lennox-furnaces/?$ /brands/lennox/furnaces/ [NC,L,R=301]
+RewriteRule ^brands/lennox-heat-pumps/?$ /brands/lennox/heat-pumps/ [NC,L,R=301]
+RewriteRule ^brands/lennox-air-conditioners/?$ /brands/lennox/air-conditioners/ [NC,L,R=301]
+RewriteRule ^brands/kepler-heat-pumps/?$ /brands/kepler/heat-pumps/ [NC,L,R=301]
+RewriteRule ^brands/rinnai-tankless-water-heaters/?$ /brands/rinnai/tankless-water-heaters/ [NC,L,R=301]
 RewriteRule ^about-us/?$ /about-ehi/ [NC,L,R=301]
 RewriteRule ^contact-us-1/?$ /contact/ [NC,L,R=301]
 RewriteRule ^rebates/?$ /heat-pump-rebates/ [NC,L,R=301]

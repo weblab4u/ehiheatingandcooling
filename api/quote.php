@@ -110,6 +110,10 @@ function ghl_send(array $cfg, array $lead, string &$err): bool {
         'service'      => $lead['service'],
         'message'      => $lead['message'],
         'page'         => $lead['page'],
+        'postal_code'    => $GLOBALS['extra']['postal_code'] ?? '',
+        'heating_source' => $GLOBALS['extra']['heating_source'] ?? '',
+        'home_size'      => $GLOBALS['extra']['home_size'] ?? '',
+        'lead_type'      => ($GLOBALS['isRebate'] ?? false) ? 'Heat pump rebate form' : 'Quote form',
         'source'       => 'Website quote form',
         'tag'          => 'website lead',
         'submitted_at' => date('c'),
@@ -145,6 +149,14 @@ $lead = [
     'message' => field('message', 2000),
     'page'    => field('page', 300),
 ];
+// Rebate form extras (heat pump rebate page). Folded into the message for the CSV and email so the CSV columns never change.
+$extra = [
+    'postal_code'    => strtoupper(field('postal_code', 10)),
+    'heating_source' => field('heating_source', 60),
+    'home_size'      => field('home_size', 40),
+];
+$isRebate = $extra['postal_code'] !== '' || $extra['heating_source'] !== '';
+if ($isRebate && $lead['city'] === '') $lead['city'] = $extra['postal_code'];
 
 // Honeypot: real visitors never fill this hidden field. Pretend success for bots.
 if (field('company', 100) !== '') {
@@ -154,10 +166,15 @@ if (field('company', 100) !== '') {
 $errors = [];
 if ($lead['name'] === '')  $errors['name'] = 'Please enter your name.';
 if (!preg_match('/\d{3}.*\d{3}.*\d{4}/', $lead['phone'])) $errors['phone'] = 'Please enter a phone number we can call.';
-if ($lead['city'] === '')  $errors['city'] = 'Please enter your city.';
+if ($lead['city'] === '')  $errors[$isRebate ? 'postal_code' : 'city'] = $isRebate ? 'Please enter your postal code.' : 'Please enter your city.';
+if ($isRebate && !preg_match('/^[A-Z]\d[A-Z] ?\d[A-Z]\d$/', $extra['postal_code'])) $errors['postal_code'] = 'Please enter a postal code like L4A 3Y6.';
+if ($isRebate && ($extra['heating_source'] === '' || $extra['home_size'] === '')) $errors['heating_source'] = 'Please choose your current heating and home size.';
 if ($lead['email'] !== '' && !filter_var($lead['email'], FILTER_VALIDATE_EMAIL)) $errors['email'] = 'That email address looks incomplete.';
 if (preg_match('/https?:\/\//i', $lead['message']) && substr_count(strtolower($lead['message']), 'http') > 2) $errors['message'] = 'Please remove links from your message.';
 if ($errors) out(422, ['ok' => false, 'errors' => $errors]);
+if ($isRebate) {
+    $lead['message'] = trim("Postal code: {$extra['postal_code']}\nCurrent heating: {$extra['heating_source']}\nHome size: {$extra['home_size']}\n\n" . $lead['message']);
+}
 
 // Storage outside public_html (deploys replace public_html, this folder survives them).
 $store = dirname(__DIR__, 2) . '/ehi-leads';
