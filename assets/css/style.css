@@ -1220,3 +1220,8 @@ a.m-col{display:block;font-weight:700;color:var(--navy);text-decoration:none}
 .reviewer-box{display:flex;gap:16px;align-items:flex-start;background:var(--blue-light);border-radius:14px;padding:18px 20px;margin:28px 0}
 .reviewer-box img{border-radius:50%;background:#fff;flex:none}
 .reviewer-box p{margin:0 0 6px}.reviewer-box .rb-h{font-weight:700;color:var(--navy)}
+/* HTML sitemap */
+.sm-cities>li{display:block;padding:8px 0}
+.sm-sub{list-style:none;margin:4px 0 0 12px;padding:0}
+.sm-sub li{padding:2px 0;font-size:.92rem}
+.sm-sub a{color:var(--muted)}

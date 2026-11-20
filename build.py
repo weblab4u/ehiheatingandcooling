@@ -84,6 +84,7 @@ REG = {
  "/brands/rinnai/tankless-water-heaters/": ("Rinnai Tankless Water Heaters", "Rinnai RX160iN and RX199iN condensing tankless water heaters."),
  "/brands/goodman/": ("Authorized Goodman Dealer", "Goodman furnaces, heat pumps and central air, installed and registered."),
  "/ontario-heat-pump-rebate-2027/": ("Heat Pump Rebates 2027", "The new federal rebate of $2,000 or up to $10,000, how it may combine with Ontario's program, and how to get ready."),
+ "/sitemap/": ("Site Map", "Every service, brand, guide and city page in one place."),
  "/heat-pump-rebates/": ("Heat Pump Rebates Ontario", "Ontario's rebate and the new federal rebate, explained separately. We handle the paperwork."),
  "/financing/": ("HVAC Financing", "0% interest for 3, 6 or 9 months, or open loans from 2.99% OAC."),
  "/offers/": ("Offers", "Guaranteed final pricing and we may beat comparable quotes by up to 10%."),
@@ -282,7 +283,7 @@ def footer(show_cta=True):
   <div><h3>Service Areas</h3><p class="areas">{areas} and surrounding communities.</p>
     <h3>Hours</h3><p>Monday to Saturday, 8:00 am to 8:00 pm<br>Sunday, 10:00 am to 5:00 pm<br>Emergency service evenings, weekends and holidays</p></div>
 </div>
-<div class="wrap foot-bottom"><p>&copy; {datetime.date.today().year} {esc(BRAND)} ({esc(LEGAL)}). All rights reserved. <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms/">Terms</a> · <a href="/sitemap.xml">Sitemap</a></p>
+<div class="wrap foot-bottom"><p>&copy; {datetime.date.today().year} {esc(BRAND)} ({esc(LEGAL)}). All rights reserved. <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms/">Terms</a> · <a href="/sitemap/">Sitemap</a></p>
 <p class="small">Rebate amounts and eligibility are set by each program, including Ontario's Home Renovation Savings Program and the federal National Heat Pump Rebate, and can change. This website is not operated by any government program. Financing on approved credit.</p>
 <p class="dev-credit">Website developed and SEO optimized by <a href="https://weblab4u.ca/" target="_blank" rel="noopener">WebLab4u</a></p></div>
 </footer>
@@ -447,6 +448,8 @@ def render_block(b, page):
         return reviews_block(page)
     if t == "faq":
         return faq_block(b["items"], b.get("h2", "Frequently asked questions"))
+    if t == "html_sitemap":
+        return html_sitemap()
     if t == "form":
         return form_block(b)
     if t == "rebate_form":
@@ -1647,6 +1650,45 @@ def brand_family(page):
     ld = ("We are an authorized dealer for each of these brands, and we repair every major brand, whoever installed it.")
     body = "".join(f'<div><h3>{esc(t)}</h3><ul class="type-list">' + "".join(f'<li>{icon("check")}<a href="{u}">{esc(a)}</a></li>' for u, a in ls) + '</ul></div>' for t, ls in cols)
     return f'<section class="sec brand-family"><div class="wrap"><h2>{h}</h2><p class="lead">{ld}</p><div class="hub-regions">{body}</div></div></section>', linked
+
+def html_sitemap():
+    """Every indexable page, grouped: company pages, each service family, brands, rebates and money, guides, then every
+    city by region with its own service pages underneath."""
+    hidden = {"/thank-you/", "/sitemap/"}
+    live = {pg["url"] for pg in ALL_PAGES} - hidden          # noindex legal pages are still worth linking for visitors
+    city_urls = {u for u in live if re.fullmatch(r"/[a-z-]+/", u) and u.strip("/") in CITY_BY_SLUG}
+    child = {u for u in live if re.fullmatch(r"/[a-z-]+/[a-z-]+/", u) and u.split("/")[1] in CITY_BY_SLUG}
+    def col(h, urls, label=None):
+        urls = [u for u in urls if u in live]
+        if not urls: return ""
+        return (f'<div><h3>{esc(h)}</h3><ul class="type-list">'
+                + "".join(f'<li><a href="{u}">{esc(label(u) if label else re.sub("<[^>]+>", "", title_of(u)))}</a></li>' for u in urls) + '</ul></div>')
+    pref = lambda *ps: sorted((u for u in live if u.startswith(ps) and u not in city_urls and u not in child), key=lambda u: (u.count("/"), u))
+    groups = [
+        ("Company", ["/", "/about-ehi/", "/reviews/", "/our-work/", "/service-areas/", "/contact/", "/answers/", "/privacy-policy/", "/terms/"]),
+        ("Heat pumps", pref("/heat-pump/")), ("Furnaces", pref("/furnace/")), ("Air conditioning and ductless", pref("/ac/")),
+        ("Water heaters", pref("/water-heater/")), ("More HVAC services", pref("/services/")),
+        ("Brands we install", pref("/brands/")),
+        ("Rebates and financing", ["/ontario-heat-pump-rebate-2027/", "/heat-pump-rebates/", "/financing/", "/offers/", "/warranty/"]),
+        ("Blog and guides", pref("/blog/"))]
+    top = "".join(col(h, us) for h, us in groups)
+    kind_label = {k[0]: k[2] for k in CS_KINDS}
+    regions, seen = [], set()
+    for g, names in AREA_GROUPS:
+        items = []
+        for nm in names:
+            u = city_href(nm)
+            if not u or u in seen or u not in city_urls: continue
+            seen.add(u); slug = u.strip("/"); cn = CITY_BY_SLUG[slug]["name"]
+            kids = [x for x, *_ in city_children(slug) if x in live]
+            sub = "".join(f'<li><a href="{x}">{esc(kind_label[x.strip("/").split("/")[1]].format(c=cn))}</a></li>' for x in kids)
+            items.append(f'<li><a href="{u}"><strong>HVAC {esc(cn)}</strong></a>' + (f'<ul class="sm-sub">{sub}</ul>' if sub else "") + '</li>')
+        if items: regions.append(f'<div><h3>{esc(g)}</h3><ul class="type-list sm-cities">{"".join(items)}</ul></div>')
+    rest = sorted(city_urls - seen)
+    if rest: regions.append('<div><h3>Other cities</h3><ul class="type-list sm-cities">' + "".join(f'<li><a href="{u}"><strong>HVAC {esc(CITY_BY_SLUG[u.strip("/")]["name"])}</strong></a></li>' for u in rest) + '</ul></div>')
+    return (f'<section class="sec sitemap-sec"><div class="wrap"><h2>Services, brands and guides</h2><div class="hub-regions">{top}</div></div></section>'
+            f'<section class="sec sitemap-sec"><div class="wrap"><h2>Cities we serve</h2><p class="lead">Each city page, with its heat pump, furnace, tankless water heater and repair pages underneath.</p>'
+            f'<div class="hub-regions">{"".join(regions)}</div><p class="note">Search engines can use the <a href="/sitemap.xml">XML sitemap</a>.</p></div></section>')
 
 def city_local_links(page):
     """Links from a city page to its own service pages and guide, when they exist."""

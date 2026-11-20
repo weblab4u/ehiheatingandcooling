@@ -1,7 +1,7 @@
 {
 "/": {
 "date": "2026-11-20",
-"hash": "eeebf3a77c6cd9f2e74805041e19089b7a4a03b9"
+"hash": "cbbc0b749950c8256a603510dffe322f959cf00b"
 },
 "/about-ehi/": {
 "date": "2026-11-20",
@@ -1002,6 +1002,10 @@
 "/services/thermostats/": {
 "date": "2026-11-20",
 "hash": "5a1a66865e042f89291e8ec86229c3e0cc5ab7cb"
+},
+"/sitemap/": {
+"date": "2026-11-20",
+"hash": "eab1fa12375be5cd55eb34ab7e656c04b7ef7417"
 },
 "/st-catharines/": {
 "date": "2026-11-20",
