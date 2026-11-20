@@ -84,7 +84,7 @@ REG = {
  "/brands/rinnai/tankless-water-heaters/": ("Rinnai Tankless Water Heaters", "Rinnai RX160iN and RX199iN condensing tankless water heaters."),
  "/brands/goodman/": ("Authorized Goodman Dealer", "Goodman furnaces, heat pumps and central air, installed and registered."),
  "/ontario-heat-pump-rebate-2027/": ("Heat Pump Rebates 2027", "The new federal rebate of $2,000 or up to $10,000, how it may combine with Ontario's program, and how to get ready."),
- "/sitemap/": ("Site Map", "Every service, brand, guide and city page in one place."),
+ "/sitemap/": ("Website Sitemap", "Every service, brand, guide and city page in one place."),
  "/heat-pump-rebates/": ("Heat Pump Rebates Ontario", "Ontario's rebate and the new federal rebate, explained separately. We handle the paperwork."),
  "/financing/": ("HVAC Financing", "0% interest for 3, 6 or 9 months, or open loans from 2.99% OAC."),
  "/offers/": ("Offers", "Guaranteed final pricing and we may beat comparable quotes by up to 10%."),
