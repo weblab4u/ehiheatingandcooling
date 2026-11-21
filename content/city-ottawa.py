@@ -1,10 +1,10 @@
 PAGE = {
  "url": "/ottawa/", "city": "ottawa", "layout": "E", "priority": "0.8",
- "title": "HVAC Ottawa | Cold-Climate Heat Pumps, Furnaces & AC",
+ "title": "HVAC Contractor Ottawa | Heat Pumps, Furnaces & AC",
  "description": "Ottawa HVAC for real cold: heat pumps rated to -30°C, hybrid furnace backup and proper heat-loss sizing. Get a guaranteed quote at 1-647-694-5845.",
  "eyebrow": "Ottawa · Kanata to Orléans",
- "h1": "Ottawa Heating and Cooling Sized for -25°C Nights",
- "tagline": "Heat pumps and hybrids that keep up while the canal is frozen solid",
+ "h1": "HVAC Contractor in Ottawa, Ontario",
+ "tagline": "Heating and cooling sized for -25°C nights, with heat pumps that keep up while the canal is frozen solid",
  "intro": "<p>HVAC in Ottawa has one job that matters more than the rest: keep the house warm through a long winter full of -25°C nights. We install cold-climate heat pumps rated to -30°C, hybrid systems that keep a gas furnace as backup, and high-efficiency furnaces, all sized from a room-by-room heat-loss calculation. You get the price in writing before anything is installed.</p>",
  "hero_points": ["Midea EVOX G3 and Kepler heat pumps rated to -30°C", "Room-by-room heat-loss sizing, never a rule of thumb",
                  "Hybrid setups that keep your gas furnace for the deep freeze", "Rebate pre-approval and paperwork filed for you"],
